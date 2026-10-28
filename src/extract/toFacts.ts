@@ -78,11 +78,12 @@ export function zoneOrPlace(tz: string | null, placeText: string | null): string
 
 export function normalizePlace(text: string | null): string | null {
   if (!text) return null;
-  const t = text.toLowerCase();
+  // Strip accents ("Dubaï", "Saint-Hélier") and accept common French names.
+  const t = text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   if (/\bhelier\b|\bjersey\b/.test(t)) return "CITY:STHELIER";
   if (/\bdubai\b/.test(t)) return "CITY:DUBAI";
-  if (/\bsingapore\b/.test(t)) return "CITY:SINGAPORE";
-  if (/\blondon\b/.test(t)) return "CITY:LONDON";
+  if (/\bsingapore\b|\bsingapour\b/.test(t)) return "CITY:SINGAPORE";
+  if (/\blondon\b|\blondres\b/.test(t)) return "CITY:LONDON";
   if (/\bhong ?kong\b/.test(t)) return "CITY:HONGKONG";
   if (/\bparis\b/.test(t)) return "CITY:PARIS";
   if (/^[a-z]{3}$/i.test(text.trim())) return text.trim().toUpperCase();
@@ -188,6 +189,12 @@ export function toFacts(items: ExtractedItem[], roster: Director[]): ToFactsResu
           rejected.push({ file: docId, reason: "flight leg incomplete or zone unknown" });
           continue;
         }
+        // Physical sanity: a flight lands after it leaves and lasts under 20 hours (catches AM/PM misreads).
+        const hours = (Date.parse(arr) - Date.parse(dep)) / 3_600_000;
+        if (!(hours > 0.25 && hours < 20)) {
+          rejected.push({ file: docId, reason: `flight times impossible (${hours.toFixed(1)} h in the air); likely misread` });
+          continue;
+        }
         facts.push({ kind: "flight_leg", directorId: dir.id, originCode: f.origin_code.toUpperCase(), destCode: f.dest_code.toUpperCase(), departUtc: dep, arriveUtc: arr, cite });
       } else if (f.kind === "hotel_stay") {
         const place = normalizePlace(f.place);
@@ -195,6 +202,11 @@ export function toFacts(items: ExtractedItem[], roster: Director[]): ToFactsResu
         const cout = localToUtc(f.check_out_local, zoneOrPlace(f.check_out_tz, f.place));
         if (!place || !cin || !cout) {
           rejected.push({ file: docId, reason: `hotel stay incomplete, place "${f.place}" or zone unknown` });
+          continue;
+        }
+        const nights = (Date.parse(cout) - Date.parse(cin)) / 86_400_000;
+        if (!(nights > 0 && nights < 60)) {
+          rejected.push({ file: docId, reason: "hotel check-out is not after check-in (or stay over 60 days); likely misread" });
           continue;
         }
         facts.push({ kind: "hotel_stay", directorId: dir.id, placeCode: place, checkInUtc: cin, checkOutUtc: cout, cite });

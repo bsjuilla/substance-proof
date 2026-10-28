@@ -41,7 +41,7 @@ async function main() {
 
   let totalCost = 0;
   const rows: any[] = [];
-  const tot = { truth: 0, matched: 0, spurious: 0, rejected: 0, meetings: 0, verdictOk: 0, dirs: 0, dirsOk: 0, windowOk: 0, contrTruth: 0, contrFound: 0 };
+  const tot = { truth: 0, matched: 0, spurious: 0, rejected: 0, meetings: 0, verdictOk: 0, dirs: 0, dirsOk: 0, windowOk: 0, contrTruth: 0, contrFound: 0, unsafePass: 0, unsafePresent: 0 };
 
   for (const id of ids) {
     const ans = JSON.parse(readFileSync(join(ANSWERS, `${id}.json`), "utf8"));
@@ -77,6 +77,9 @@ async function main() {
     tot.meetings += 1; tot.verdictOk += ev.verdict === ans.expected.verdict ? 1 : 0;
     tot.dirs += ans.expected.presence.length; tot.dirsOk += dirsOk; tot.windowOk += windowOk ? 1 : 0;
     tot.contrTruth += contrTruth; tot.contrFound += contrFound;
+    // Dangerous errors: saying PASS, or saying a director was present, when the truth says otherwise.
+    if (ev.verdict === "PASS" && ans.expected.verdict !== "PASS") tot.unsafePass += 1;
+    tot.unsafePresent += ans.expected.presence.filter((p: any) => p.status !== "present" && ev.presence.find((q) => q.directorId === p.directorId)?.status === "present").length;
 
     rows.push({ id, trap: ans.scenario.trap, style: ans.scenario.style, expected: ans.expected.verdict, got: ev.verdict, facts: `${matched}/${truth.size}`, missed, spurious, rejected: facts.rejected });
     console.log(`${id}  expected ${ans.expected.verdict.padEnd(6)} got ${ev.verdict.padEnd(6)} facts ${matched}/${truth.size}  spurious ${spurious.length}  rejected ${facts.rejected.length}`);
@@ -91,6 +94,7 @@ async function main() {
     directorPresenceAgreement: `${tot.dirsOk}/${tot.dirs} (${pct(tot.dirsOk, tot.dirs)})`,
     meetingVerdictAgreement: `${tot.verdictOk}/${tot.meetings} (${pct(tot.verdictOk, tot.meetings)})`,
     contradictionsFound: `${tot.contrFound}/${tot.contrTruth}`,
+    dangerousErrors: { wrongPass: tot.unsafePass, wronglyPresent: tot.unsafePresent },
     rows,
   };
   writeFileSync(join(runDir, "summary.json"), JSON.stringify(summary, null, 2));

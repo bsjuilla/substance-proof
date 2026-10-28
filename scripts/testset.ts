@@ -44,13 +44,13 @@ const H = 3600_000;
 // Documents print times to the minute, so the answer key is floored to the minute as well.
 const iso = (t: number) => new Date(Math.floor(t / 60_000) * 60_000).toISOString().replace(".000Z", "Z");
 
-export function buildTestScenarios(seed = 20261028, n = 30): Scenario[] {
+export function buildTestScenarios(seed = 20261028, n = 30, stress = false): Scenario[] {
   const r = rng(seed);
   const pick = <T>(xs: T[]) => xs[Math.floor(r() * xs.length)];
   const out: Scenario[] = [];
 
   for (let i = 0; i < n; i++) {
-    const id = `t${String(i + 1).padStart(2, "0")}`;
+    const id = `${stress ? "s" : "t"}${String(i + 1).padStart(2, "0")}`;
     const home = i % 3 === 2 ? HOMES[1] : HOMES[0]; // about 1/3 Singapore
     const nDir = 2 + Math.floor(r() * 3); // 2-4 directors
     const names = [...NAME_POOL].sort(() => r() - 0.5).slice(0, nDir);
@@ -132,12 +132,21 @@ export function buildTestScenarios(seed = 20261028, n = 30): Scenario[] {
     };
     if (meeting.mode !== "virtual") meeting.venueCode = home.cityCode;
 
-    const style: DocStyle = {
-      boardingPass: pick(["card", "eticket", "photo"]),
-      folio: pick(["table", "letter"]),
-      minutes: pick(["table", "prose", "scan"]),
-      passengerName: pick(["normal", "airline"]),
-    };
+    const style: DocStyle = stress
+      ? {
+          // Deliberately hostile documents, used to find where the system breaks.
+          boardingPass: pick(["photo_bad", "photo_bad", "card"]),
+          folio: pick(["french", "french", "letter"]),
+          minutes: pick(["handwritten", "handwritten", "scan"]),
+          passengerName: pick(["normal", "airline"]),
+          clock: "12h",
+        }
+      : {
+          boardingPass: pick(["card", "eticket", "photo"]),
+          folio: pick(["table", "letter"]),
+          minutes: pick(["table", "prose", "scan"]),
+          passengerName: pick(["normal", "airline"]),
+        };
 
     out.push({
       id,

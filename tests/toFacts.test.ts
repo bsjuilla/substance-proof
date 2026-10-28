@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { localToUtc, matchDirector, normalizePlace, zoneOrPlace } from "../src/extract/toFacts";
+import { localToUtc, matchDirector, normalizePlace, toFacts, zoneOrPlace } from "../src/extract/toFacts";
 import { dir } from "./helpers";
 
 describe("time zone conversion (deterministic)", () => {
@@ -16,6 +16,25 @@ describe("time zone conversion (deterministic)", () => {
   it("an impossible offset is rejected", () => expect(localToUtc("2026-03-12T10:00", "GMT+25")).toBeNull());
   it("an unknown zone label is rejected, not guessed", () => expect(localToUtc("2026-03-12T14:30", "XYZ")).toBeNull());
   it("a missing zone is rejected", () => expect(localToUtc("2026-03-12T14:30", null)).toBeNull());
+});
+
+describe("physical sanity checks", () => {
+  const roster = [dir("A", { name: "Ana Sokolova" })];
+  const base = {
+    person_name: "Ana Sokolova", origin_code: "JER", dest_code: "HKG", depart_local: null, depart_tz: null, arrive_local: null, arrive_tz: null,
+    place: null, check_in_local: null, check_in_tz: null, check_out_local: null, check_out_tz: null, quote: "x", page: 1,
+  };
+  const ext = (fact: object) => ({ document_type: "boarding_pass" as const, meeting: { start_local: null, end_local: null, tz: null, place_text: null }, facts: [{ ...base, ...fact } as any] });
+
+  it("rejects a flight that lands before it leaves (AM/PM misread)", () => {
+    const r = toFacts([{ docId: "bp.png", extraction: ext({ kind: "flight_leg", depart_local: "2026-06-01T09:57", depart_tz: "GMT", arrive_local: "2026-05-31T16:52", arrive_tz: "GMT" }) }], roster);
+    expect(r.facts).toHaveLength(0);
+    expect(r.rejected[0].reason).toMatch(/impossible/);
+  });
+  it("accepts a normal overnight flight", () => {
+    const r = toFacts([{ docId: "bp.png", extraction: ext({ kind: "flight_leg", depart_local: "2026-06-01T21:10", depart_tz: "BST", arrive_local: "2026-06-02T16:05", arrive_tz: "HKT" }) }], roster);
+    expect(r.facts).toHaveLength(1);
+  });
 });
 
 describe("zone names and 'local time'", () => {
@@ -49,6 +68,13 @@ describe("place and name matching", () => {
     expect(matchDirector("CASTELL/BRUNO", roster)?.id).toBe("B");
     expect(matchDirector("ANAND-LOWE/PRIYA MS", roster)?.id).toBe("A");
     expect(matchDirector("Mr Bruno Castell", roster)?.id).toBe("B");
+  });
+
+  it("handles accents and French place names", () => {
+    expect(normalizePlace("Dubaï, Émirats arabes unis")).toBe("CITY:DUBAI");
+    expect(normalizePlace("Saint-Hélier, Jersey")).toBe("CITY:STHELIER");
+    expect(normalizePlace("SINGAPOUR")).toBe("CITY:SINGAPORE");
+    expect(normalizePlace("Londres, Royaume-Uni")).toBe("CITY:LONDON");
   });
 
   it("recognises the places used in the demo", () => {

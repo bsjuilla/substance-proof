@@ -10,10 +10,11 @@ export type TravelItem =
 
 /** How the documents look. Varied in the held-out test set so the extractor cannot overfit one layout. */
 export type DocStyle = {
-  boardingPass: "card" | "eticket" | "photo";
-  folio: "table" | "letter";
-  minutes: "table" | "prose" | "scan";
+  boardingPass: "card" | "eticket" | "photo" | "photo_bad";
+  folio: "table" | "letter" | "french";
+  minutes: "table" | "prose" | "scan" | "handwritten";
   passengerName: "normal" | "airline"; // "CASTELL/BRUNO MR"
+  clock?: "24h" | "12h";
 };
 
 export type Scenario = {

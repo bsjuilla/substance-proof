@@ -1,0 +1,276 @@
+{
+  "set": "stress",
+  "model": "replay:2026-10-28T15-46-32-357Z",
+  "commit": "77f689e",
+  "runAt": "2026-10-28T15:50:14.362Z",
+  "meetings": 12,
+  "costUsd": 0.3213,
+  "factsExact": "55/64 (85.9%)",
+  "spuriousFacts": 2,
+  "rejectedFacts": 7,
+  "meetingTimeCorrect": "100.0%",
+  "directorPresenceAgreement": "28/35 (80.0%)",
+  "meetingVerdictAgreement": "9/12 (75.0%)",
+  "contradictionsFound": "8/15",
+  "dangerousErrors": {
+    "wrongPass": 0,
+    "wronglyPresent": 0
+  },
+  "rows": [
+    {
+      "id": "s01",
+      "trap": "Rafael Quintero claimed present but late arrival; Rafael Quintero: late arrival (time-zone check); no evidence for Grace Whitlock",
+      "style": {
+        "boardingPass": "photo_bad",
+        "folio": "letter",
+        "minutes": "handwritten",
+        "passengerName": "airline",
+        "clock": "12h"
+      },
+      "expected": "FAIL",
+      "got": "REVIEW",
+      "facts": "2/3",
+      "missed": [
+        "F|A|HKG|JER|2026-04-06T03:19:00Z|2026-04-06T10:19:00Z"
+      ],
+      "spurious": [],
+      "rejected": [
+        {
+          "file": "s01/travel/PHOTO_BP_A_HKG-JER.jpg",
+          "reason": "name \"QUINTOCONRADAEL\" matches no director"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "trap": "Samuel Achterberg claimed present but flight during; Samuel Achterberg: flight during (time-zone check); Kenji Halloran claimed present but stay out; Ana Sokolova: flight during (time-zone check)",
+      "style": {
+        "boardingPass": "photo_bad",
+        "folio": "letter",
+        "minutes": "handwritten",
+        "passengerName": "normal",
+        "clock": "12h"
+      },
+      "expected": "FAIL",
+      "got": "REVIEW",
+      "facts": "6/8",
+      "missed": [
+        "F|A|JER|HKG|2026-06-10T09:57:00Z|2026-06-10T16:57:00Z",
+        "F|D|JER|LHR|2026-06-10T10:25:00Z|2026-06-10T17:25:00Z"
+      ],
+      "spurious": [],
+      "rejected": [
+        {
+          "file": "s02/travel/PHOTO_BP_A_JER-HKG.jpg",
+          "reason": "flight times impossible (-17.1 h in the air); likely misread"
+        },
+        {
+          "file": "s02/travel/PHOTO_BP_D_JER-LHR.jpg",
+          "reason": "name \"ANA SORGLINA\" matches no director"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "trap": "Lucia Ferrante claimed present but flight during; Lucia Ferrante: flight during (time-zone check)",
+      "style": {
+        "boardingPass": "card",
+        "folio": "french",
+        "minutes": "scan",
+        "passengerName": "airline",
+        "clock": "12h"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/4",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "s04",
+      "trap": "no evidence for Fatima Zahra Bennis",
+      "style": {
+        "boardingPass": "photo_bad",
+        "folio": "letter",
+        "minutes": "handwritten",
+        "passengerName": "normal",
+        "clock": "12h"
+      },
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "6/8",
+      "missed": [
+        "F|A|HKG|JER|2026-05-23T19:00:00Z|2026-05-24T02:55:00Z",
+        "F|A|JER|HKG|2026-05-24T16:44:00Z|2026-05-25T03:00:00Z"
+      ],
+      "spurious": [
+        "F|A|HKG|JER|2026-05-23T19:00:00Z|2026-05-24T01:10:00Z",
+        "F|A|JER|HKG|2026-05-24T16:05:00Z|2026-05-25T03:00:00Z"
+      ],
+      "rejected": []
+    },
+    {
+      "id": "s05",
+      "trap": "Mei Lin Tavernier claimed present but stay out; Fatima Zahra Bennis claimed present but flight during; Fatima Zahra Bennis: flight during (time-zone check); Marcus Oyelaran claimed present but flight during; Marcus Oyelaran: flight during (time-zone check)",
+      "style": {
+        "boardingPass": "photo_bad",
+        "folio": "letter",
+        "minutes": "handwritten",
+        "passengerName": "airline",
+        "clock": "12h"
+      },
+      "expected": "FAIL",
+      "got": "REVIEW",
+      "facts": "6/8",
+      "missed": [
+        "F|B|JER|DXB|2026-05-25T09:30:00Z|2026-05-25T16:30:00Z",
+        "F|C|JER|CDG|2026-05-25T09:58:00Z|2026-05-25T16:58:00Z"
+      ],
+      "spurious": [],
+      "rejected": [
+        {
+          "file": "s05/travel/PHOTO_BP_B_JER-DXB.jpg",
+          "reason": "name \"DEMBESATOMBA, EMMA\" matches no director"
+        },
+        {
+          "file": "s05/travel/PHOTO_BP_C_JER-CDG.jpg",
+          "reason": "name \"OTELAAAR/MARCUS\" matches no director"
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "trap": "Lucia Ferrante claimed present but flight during; Lucia Ferrante: flight during (time-zone check); no evidence for Oliver Strand; no evidence for Isabel Carrow",
+      "style": {
+        "boardingPass": "photo_bad",
+        "folio": "french",
+        "minutes": "handwritten",
+        "passengerName": "airline",
+        "clock": "12h"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "3/4",
+      "missed": [
+        "F|A|SIN|DXB|2026-02-03T03:28:00Z|2026-02-03T10:28:00Z"
+      ],
+      "spurious": [],
+      "rejected": [
+        {
+          "file": "s06/travel/PHOTO_BP_A_SIN-DXB.jpg",
+          "reason": "name \"FERNANDEZ LUCIA\" matches no director"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "trap": "Hugo Lindqvist: late arrival (time-zone check); no evidence for Grace Whitlock; Marcus Oyelaran claimed present but late arrival; Marcus Oyelaran: late arrival (time-zone check)",
+      "style": {
+        "boardingPass": "card",
+        "folio": "letter",
+        "minutes": "handwritten",
+        "passengerName": "normal",
+        "clock": "12h"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "7/7",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "s08",
+      "trap": "Tomasz Wierzba claimed present but stay out; Fatima Zahra Bennis claimed present but late arrival; Fatima Zahra Bennis: late arrival (time-zone check)",
+      "style": {
+        "boardingPass": "card",
+        "folio": "letter",
+        "minutes": "handwritten",
+        "passengerName": "normal",
+        "clock": "12h"
+      },
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "4/4",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "s09",
+      "trap": "Marcus Oyelaran: flight during (time-zone check)",
+      "style": {
+        "boardingPass": "card",
+        "folio": "french",
+        "minutes": "handwritten",
+        "passengerName": "airline",
+        "clock": "12h"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "5/5",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "s10",
+      "trap": "no evidence for Daniel Mbeki-Shaw; no evidence for Helena Brookfield",
+      "style": {
+        "boardingPass": "card",
+        "folio": "french",
+        "minutes": "handwritten",
+        "passengerName": "normal",
+        "clock": "12h"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/4",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "s11",
+      "trap": "no evidence for Helena Brookfield",
+      "style": {
+        "boardingPass": "card",
+        "folio": "french",
+        "minutes": "handwritten",
+        "passengerName": "normal",
+        "clock": "12h"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "3/3",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "s12",
+      "trap": "Grace Whitlock claimed present but flight during; Grace Whitlock: flight during (time-zone check)",
+      "style": {
+        "boardingPass": "photo_bad",
+        "folio": "letter",
+        "minutes": "handwritten",
+        "passengerName": "airline",
+        "clock": "12h"
+      },
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "5/6",
+      "missed": [
+        "F|C|SIN|DXB|2026-04-14T03:35:00Z|2026-04-14T10:35:00Z"
+      ],
+      "spurious": [],
+      "rejected": [
+        {
+          "file": "s12/travel/PHOTO_BP_C_SIN-DXB.jpg",
+          "reason": "name \"BRISTSLOCKGRACE\" matches no director"
+        }
+      ]
+    }
+  ]
+}

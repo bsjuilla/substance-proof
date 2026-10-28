@@ -13,7 +13,7 @@ import { SCENARIOS, type DocStyle, type Scenario, type TravelItem } from "./scen
 import { buildTestScenarios } from "./testset";
 
 const CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const SET = (process.argv[2] ?? "dev") as "dev" | "test";
+const SET = (process.argv[2] ?? "dev") as "dev" | "test" | "stress";
 const ROOT = join(import.meta.dirname, "..", "synthetic", "generated", SET);
 const PACKS = join(ROOT, "packs");
 const ANSWERS = join(ROOT, "answers");
@@ -49,6 +49,8 @@ function local(utcIso: string, tz: string) {
     dateLong: `${g("weekday")} ${Number(g("day"))} ${monthLong} ${g("year")}`,
     time: `${g("hour")}:${g("minute")}`,
     timeDot: `${Number(g("hour")) % 12 || 12}.${g("minute")} ${Number(g("hour")) < 12 ? "a.m." : "p.m."}`,
+    time12: `${Number(g("hour")) % 12 || 12}:${g("minute")} ${Number(g("hour")) < 12 ? "AM" : "PM"}`,
+    timeFr: `${g("hour")}h${g("minute")}`,
     zone: g("timeZoneName"),
     utcOffset: off === "GMT" ? "UTC+00:00" : off.replace("GMT", "UTC"),
   };
@@ -106,6 +108,20 @@ function minutesHtml(s: Scenario, style: DocStyle): string {
      <p style="margin-top:40px">……………………………… Chair</p>`);
   }
 
+  if (style.minutes === "handwritten") {
+    // A pre-printed register filled in by hand (script font, uneven, local time only).
+    const hand = `font-family:'Ink Free','Segoe Print','Segoe Script',cursive;font-size:17px;color:#1b2a6b`;
+    const hrows = s.meeting.attendeeIds
+      .map((id, k) => `<tr><td style="${hand};transform:rotate(${(k % 2 ? -0.6 : 0.5)}deg)">${dirOf(id).name}</td><td style="${hand}">${s.minutesClaims[id]?.text ?? ""}</td><td></td></tr>`)
+      .join("");
+    return page(`
+     <h1>${s.company.name}</h1>
+     <p><b>Board meeting: attendance register and minutes</b></p>
+     <p>Date: <span style="${hand}">${st.dateSlash}</span> &nbsp; From: <span style="${hand}">${st.timeDot}</span> &nbsp; To: <span style="${hand}">${en.timeDot}</span> &nbsp; (local time) &nbsp; Venue: <span style="${hand}">${virtual ? "video call (" + st.zone + ")" : place}</span></p>
+     <table><tr><th>Director</th><th>Attending (where from)</th><th>Signature</th></tr>${hrows}</table>
+     <h2>Business</h2>${business}${records}`);
+  }
+
   const rows = s.meeting.attendeeIds
     .map((id) => `<tr><td>${dirOf(id).name}</td><td>${dirOf(id).isChair ? "Director and Chairman" : "Director"}</td><td>${s.minutesClaims[id]?.text ?? "—"}</td></tr>`)
     .join("");
@@ -123,6 +139,7 @@ function minutesHtml(s: Scenario, style: DocStyle): string {
 function cardHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, style: DocStyle): string {
   const o = PLACES[f.origin], d = PLACES[f.dest];
   const dep = local(f.departUtc, o.tz), arr = local(f.arriveUtc, d.tz);
+  if (style.clock === "12h") { dep.time = dep.time12; arr.time = arr.time12; }
   return `<div id="card" style="position:relative;width:680px;height:300px;background:#fff;border-radius:14px;box-shadow:0 2px 8px #0003;overflow:hidden;font-family:Arial,sans-serif">
    <div style="background:#0b3d91;color:#fff;padding:12px 20px;font-weight:700;font-size:18px;display:flex;justify-content:space-between"><span>SAMPLE AIR ✈</span><span>BOARDING PASS</span></div>
    <div style="position:absolute;top:50px;right:14px;color:#b00020;border:2px solid #b00020;padding:2px 6px;font:700 10px Arial;opacity:.8">SPECIMEN — SYNTHETIC</div>
@@ -155,6 +172,17 @@ function eticketHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, s
 function folioHtml(name: string, st: Extract<TravelItem, { type: "stay" }>, style: DocStyle): string {
   const tz = PLACES[st.placeCode].tz;
   const a = local(st.fromUtc, tz), b = local(st.toUtc, tz);
+  if (style.folio === "french") {
+    return page(`
+     <h1>Hôtel Spécimen — ${FR_CITY[st.placeCode] ?? st.city}</h1>
+     <p><b>Facture / note de séjour</b></p>
+     <table>
+      <tr><td>Client</td><td>${name}</td></tr>
+      <tr><td>Arrivée</td><td>${a.dateSlash} à ${a.timeFr}</td></tr>
+      <tr><td>Départ</td><td>${b.dateSlash} à ${b.timeFr}</td></tr>
+     </table>
+     <p>Toutes les heures sont indiquées en heure locale. Montant réglé : 1 470,00.</p>`);
+  }
   if (style.folio === "letter") {
     return page(`
      <h1>The Specimen Residences — ${st.city}</h1>
@@ -178,17 +206,24 @@ function folioHtml(name: string, st: Extract<TravelItem, { type: "stay" }>, styl
 }
 
 /** Screenshot HTML, then re-shoot it as a slightly rotated, blurred "phone photo" (JPEG). */
-async function photoOf(p: Page, innerHtml: string, out: string, seed: number) {
-  await p.setViewport({ width: 720, height: 340, deviceScaleFactor: 2 });
+async function photoOf(p: Page, innerHtml: string, out: string, seed: number, harsh = false) {
+  await p.setViewport({ width: 720, height: 340, deviceScaleFactor: harsh ? 1 : 2 });
   await p.setContent(`<!doctype html><html><body style="margin:12px;background:#fff">${innerHtml}</body></html>`, { waitUntil: "load" });
   const el = await p.$("#card");
   const png = Buffer.from(await el!.screenshot({ type: "png" })).toString("base64");
-  const angle = ((seed % 7) - 3) * 0.9;
-  await p.setViewport({ width: 900, height: 560, deviceScaleFactor: 1 });
-  await p.setContent(`<!doctype html><html><body style="margin:0;background:radial-gradient(#8a6a4a,#4e3a28);height:560px;display:flex;align-items:center;justify-content:center">
-    <img src="data:image/png;base64,${png}" style="width:700px;transform:rotate(${angle}deg) perspective(900px) rotateX(6deg);filter:blur(0.6px) brightness(0.93) contrast(1.05);box-shadow:0 10px 30px #000a"></body></html>`, { waitUntil: "load" });
-  await p.screenshot({ path: out as `${string}.jpeg`, type: "jpeg", quality: 60 });
+  const angle = ((seed % 7) - 3) * (harsh ? 2.4 : 0.9);
+  const size = harsh ? { w: 640, h: 400, img: 470 } : { w: 900, h: 560, img: 700 };
+  const filter = harsh ? "blur(1.3px) brightness(0.78) contrast(0.85) sepia(0.25)" : "blur(0.6px) brightness(0.93) contrast(1.05)";
+  await p.setViewport({ width: size.w, height: size.h, deviceScaleFactor: 1 });
+  await p.setContent(`<!doctype html><html><body style="margin:0;background:radial-gradient(#8a6a4a,#4e3a28);height:${size.h}px;display:flex;align-items:center;justify-content:center">
+    <img src="data:image/png;base64,${png}" style="width:${size.img}px;transform:rotate(${angle}deg) perspective(900px) rotateX(${harsh ? 14 : 6}deg);filter:${filter};box-shadow:0 10px 30px #000a"></body></html>`, { waitUntil: "load" });
+  await p.screenshot({ path: out as `${string}.jpeg`, type: "jpeg", quality: harsh ? 28 : 60 });
 }
+
+const FR_CITY: Record<string, string> = {
+  "CITY:STHELIER": "Saint-Hélier, Jersey", "CITY:DUBAI": "Dubaï, Émirats arabes unis", "CITY:SINGAPORE": "Singapour",
+  "CITY:LONDON": "Londres, Royaume-Uni", "CITY:HONGKONG": "Hong Kong", "CITY:PARIS": "Paris, France",
+};
 
 /** Render HTML to an IMAGE-ONLY PDF (no text layer), like a scanned page. */
 async function scannedPdf(p: Page, html: string, out: string) {
@@ -239,7 +274,7 @@ async function main() {
   if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
   rmSync(ROOT, { recursive: true, force: true });
   for (const d of [PACKS, ANSWERS, LABELLER]) mkdirSync(d, { recursive: true });
-  const scenarios = SET === "test" ? buildTestScenarios() : SCENARIOS;
+  const scenarios = SET === "test" ? buildTestScenarios() : SET === "stress" ? buildTestScenarios(424242, 12, true) : SCENARIOS;
   const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ["--no-sandbox"] });
   const p = await browser.newPage();
   const labelRows = ["meeting,director,place_to_check,physically_there_during_whole_meeting (yes/no/cannot_tell),note"];
@@ -270,9 +305,9 @@ async function main() {
             await p.setContent(eticketHtml(name, it, style), { waitUntil: "load" });
             await p.pdf({ path: join(PACKS, rel), format: "A4", printBackground: true });
             docPaths[`${id}:${it.origin}-${it.dest}`] = rel;
-          } else if (style.boardingPass === "photo") {
+          } else if (style.boardingPass === "photo" || style.boardingPass === "photo_bad") {
             const rel = `${s.id}/travel/PHOTO_BP_${tag}.jpg`;
-            await photoOf(p, cardHtml(name, it, style), join(PACKS, rel), seed++);
+            await photoOf(p, cardHtml(name, it, style), join(PACKS, rel), seed++, style.boardingPass === "photo_bad");
             docPaths[`${id}:${it.origin}-${it.dest}`] = rel;
           } else {
             const rel = `${s.id}/travel/BP_${tag}.png`;

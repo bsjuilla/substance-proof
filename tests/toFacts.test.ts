@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { localToUtc, matchDirector, normalizePlace } from "../src/extract/toFacts";
+import { localToUtc, matchDirector, normalizePlace, zoneOrPlace } from "../src/extract/toFacts";
 import { dir } from "./helpers";
 
 describe("time zone conversion (deterministic)", () => {
@@ -18,7 +18,28 @@ describe("time zone conversion (deterministic)", () => {
   it("a missing zone is rejected", () => expect(localToUtc("2026-03-12T14:30", null)).toBeNull());
 });
 
+describe("zone names and 'local time'", () => {
+  it("IANA zone names are resolved for that date (Jersey is BST in July)", () => {
+    expect(localToUtc("2026-07-15T10:00", "Europe/Jersey")).toBe("2026-07-15T09:00:00Z");
+    expect(localToUtc("2026-01-15T10:00", "Europe/Jersey")).toBe("2026-01-15T10:00:00Z");
+    expect(localToUtc("2026-03-12T14:30", "Asia/Dubai")).toBe("2026-03-12T10:30:00Z");
+  });
+  it("a bogus zone name is rejected", () => expect(localToUtc("2026-03-12T14:30", "Mars/Olympus")).toBeNull());
+  it("'local time' falls back to the zone of the named place, and only then", () => {
+    expect(zoneOrPlace("local", "at the registered office, St Helier, Jersey")).toBe("Europe/Jersey");
+    expect(zoneOrPlace("local time", "By video conference")).toBeNull();
+    expect(zoneOrPlace("GST", "St Helier")).toBe("GST"); // a printed zone always wins
+  });
+});
+
 describe("place and name matching", () => {
+  it("airline-style names and hyphenated names", () => {
+    const roster = [dir("A", { name: "Priya Anand-Lowe" }), dir("B", { name: "Bruno Castell" })];
+    expect(matchDirector("CASTELL/BRUNO", roster)?.id).toBe("B");
+    expect(matchDirector("ANAND-LOWE/PRIYA MS", roster)?.id).toBe("A");
+    expect(matchDirector("Mr Bruno Castell", roster)?.id).toBe("B");
+  });
+
   it("recognises the places used in the demo", () => {
     expect(normalizePlace("St Helier, Jersey")).toBe("CITY:STHELIER");
     expect(normalizePlace("ST HELIER, JERSEY")).toBe("CITY:STHELIER");

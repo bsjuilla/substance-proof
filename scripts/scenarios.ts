@@ -8,10 +8,19 @@ export type TravelItem =
   | { type: "stay"; placeCode: string; city: string; fromUtc: string; toUtc: string }
   | { type: "flight"; origin: string; dest: string; departUtc: string; arriveUtc: string; flightNo: string };
 
+/** How the documents look. Varied in the held-out test set so the extractor cannot overfit one layout. */
+export type DocStyle = {
+  boardingPass: "card" | "eticket" | "photo";
+  folio: "table" | "letter";
+  minutes: "table" | "prose" | "scan";
+  passengerName: "normal" | "airline"; // "CASTELL/BRUNO MR"
+};
+
 export type Scenario = {
   id: string;
   jurisdiction: "JE" | "SG";
   trap: string;
+  style?: DocStyle;
   company: Company;
   meeting: Meeting;
   /** What the minutes say about each attendee's location (a claim, not proof). */

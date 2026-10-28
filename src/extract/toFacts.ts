@@ -21,14 +21,59 @@ export function tzOffsetMinutes(label: string): number | null {
   return (m[1] === "-" ? -1 : 1) * (hours * 60 + mins);
 }
 
+/** Offset of an IANA zone ("Asia/Dubai") at a given UTC instant, in minutes east of UTC. */
+function ianaOffsetAt(zone: string, utcMs: number): number | null {
+  try {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: zone, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit",
+    }).formatToParts(new Date(utcMs));
+    const g = (t: string) => Number(parts.find((p) => p.type === t)?.value);
+    const asUtc = Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"));
+    return Math.round((asUtc - utcMs) / 60_000);
+  } catch {
+    return null; // not a valid IANA zone
+  }
+}
+
 export function localToUtc(local: string | null, tz: string | null): string | null {
   if (!local || !tz) return null;
   const m = local.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
-  const off = tzOffsetMinutes(tz);
-  if (!m || off === null) return null;
+  if (!m) return null;
   const [, y, mo, d, h, mi] = m.map(Number) as unknown as number[];
-  const t = Date.UTC(y, mo - 1, d, h, mi) - off * 60_000;
-  return new Date(t).toISOString().replace(".000Z", "Z");
+  const naive = Date.UTC(y, mo - 1, d, h, mi);
+  let off = tzOffsetMinutes(tz);
+  if (off === null && tz.includes("/")) {
+    // IANA name: the offset depends on the date (summer time), so resolve it at that moment.
+    const first = ianaOffsetAt(tz.trim(), naive);
+    if (first === null) return null;
+    off = ianaOffsetAt(tz.trim(), naive - first * 60_000);
+  }
+  if (off === null) return null;
+  return new Date(naive - off * 60_000).toISOString().replace(".000Z", "Z");
+}
+
+/** The time zone of a known place, used ONLY when a document prints "local time" without naming a zone. */
+export const PLACE_ZONE: Record<string, string> = {
+  "CITY:STHELIER": "Europe/Jersey",
+  JER: "Europe/Jersey",
+  "CITY:SINGAPORE": "Asia/Singapore",
+  SIN: "Asia/Singapore",
+  "CITY:DUBAI": "Asia/Dubai",
+  DXB: "Asia/Dubai",
+  "CITY:LONDON": "Europe/London",
+  LHR: "Europe/London",
+  "CITY:HONGKONG": "Asia/Hong_Kong",
+  HKG: "Asia/Hong_Kong",
+  "CITY:PARIS": "Europe/Paris",
+  CDG: "Europe/Paris",
+};
+
+/** A printed zone label, or the place's own zone when the document only says "local time". */
+export function zoneOrPlace(tz: string | null, placeText: string | null): string | null {
+  const t = tz?.trim();
+  if (t && !/^local( time)?$/i.test(t)) return t;
+  const code = normalizePlace(placeText);
+  return code ? (PLACE_ZONE[code] ?? null) : null;
 }
 
 export function normalizePlace(text: string | null): string | null {
@@ -38,14 +83,32 @@ export function normalizePlace(text: string | null): string | null {
   if (/\bdubai\b/.test(t)) return "CITY:DUBAI";
   if (/\bsingapore\b/.test(t)) return "CITY:SINGAPORE";
   if (/\blondon\b/.test(t)) return "CITY:LONDON";
+  if (/\bhong ?kong\b/.test(t)) return "CITY:HONGKONG";
+  if (/\bparis\b/.test(t)) return "CITY:PARIS";
   if (/^[a-z]{3}$/i.test(text.trim())) return text.trim().toUpperCase();
   return null; // unrecognised: the engine treats it as unknown
 }
 
-const norm = (s: string) => s.toLowerCase().replace(/[^a-z\s]/g, "").replace(/\s+/g, " ").trim();
+const TITLES = /\b(mr|mrs|ms|miss|mx|dr|prof|sir|dame)\b/g;
+const norm = (s: string) =>
+  s.toLowerCase().replace(/[^a-z\s-]/g, " ").replace(/-/g, " ").replace(TITLES, " ").replace(/\s+/g, " ").trim();
 
-export function matchDirector(name: string, roster: Director[]): Director | undefined {
+/** "CASTELL/BRUNO MR" (airline style: SURNAME/GIVEN) -> "Bruno Castell". */
+function unAirline(name: string): string {
+  const m = name.match(/^\s*([^/]+)\/([^/]+)$/);
+  return m ? `${m[2]} ${m[1]}` : name;
+}
+
+export function matchDirector(rawName: string, roster: Director[]): Director | undefined {
+  const name = unAirline(rawName);
   const n = norm(name);
+  const tokens = n.split(" ").filter(Boolean);
+  // Same set of words in any order (handles "Velloso Chandra" and airline order).
+  const sameWords = roster.filter((d) => {
+    const dt = norm(d.name).split(" ").filter(Boolean);
+    return dt.length === tokens.length && dt.every((w) => tokens.includes(w));
+  });
+  if (sameWords.length === 1) return sameWords[0];
   const exact = roster.find((d) => norm(d.name) === n);
   if (exact) return exact;
   const last = n.split(" ").pop()!;
@@ -66,8 +129,9 @@ export function toFacts(items: { docId: string; extraction: Extraction }[], rost
 
   for (const { docId, extraction } of items) {
     if (extraction.document_type === "minutes") {
-      const s = localToUtc(extraction.meeting.start_local, extraction.meeting.tz);
-      const e = localToUtc(extraction.meeting.end_local, extraction.meeting.tz);
+      const mtz = zoneOrPlace(extraction.meeting.tz, extraction.meeting.place_text);
+      const s = localToUtc(extraction.meeting.start_local, mtz);
+      const e = localToUtc(extraction.meeting.end_local, mtz);
       if (s && e) meetingWindow = { startUtc: s, endUtc: e };
       else rejected.push({ file: docId, reason: "meeting time or zone not readable" });
     }
@@ -79,8 +143,8 @@ export function toFacts(items: { docId: string; extraction: Extraction }[], rost
       }
       const cite: Citation = { docId, page: f.page, quote: f.quote };
       if (f.kind === "flight_leg") {
-        const dep = localToUtc(f.depart_local, f.depart_tz);
-        const arr = localToUtc(f.arrive_local, f.arrive_tz);
+        const dep = localToUtc(f.depart_local, zoneOrPlace(f.depart_tz, f.origin_code));
+        const arr = localToUtc(f.arrive_local, zoneOrPlace(f.arrive_tz, f.dest_code));
         if (!f.origin_code || !f.dest_code || !dep || !arr) {
           rejected.push({ file: docId, reason: "flight leg incomplete or zone unknown" });
           continue;
@@ -88,8 +152,8 @@ export function toFacts(items: { docId: string; extraction: Extraction }[], rost
         facts.push({ kind: "flight_leg", directorId: dir.id, originCode: f.origin_code.toUpperCase(), destCode: f.dest_code.toUpperCase(), departUtc: dep, arriveUtc: arr, cite });
       } else if (f.kind === "hotel_stay") {
         const place = normalizePlace(f.place);
-        const cin = localToUtc(f.check_in_local, f.check_in_tz);
-        const cout = localToUtc(f.check_out_local, f.check_out_tz);
+        const cin = localToUtc(f.check_in_local, zoneOrPlace(f.check_in_tz, f.place));
+        const cout = localToUtc(f.check_out_local, zoneOrPlace(f.check_out_tz, f.place));
         if (!place || !cin || !cout) {
           rejected.push({ file: docId, reason: `hotel stay incomplete, place "${f.place}" or zone unknown` });
           continue;

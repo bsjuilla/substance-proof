@@ -25,9 +25,11 @@ const PLACES: Record<string, string> = {
   IOM: "IM",
   // Others used in synthetic travel
   CDG: "FR",
+  "CITY:PARIS": "FR",
   FRA: "DE",
   ZRH: "CH",
   HKG: "HK",
+  "CITY:HONGKONG": "HK",
   JNB: "ZA",
   MRU: "MU",
   "CITY:PORTLOUIS": "MU",

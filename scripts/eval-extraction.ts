@@ -11,8 +11,10 @@ import { extractDocument, type ExtractResult } from "../src/extract/extractDocum
 import { toFacts } from "../src/extract/toFacts";
 
 const ROOT = join(import.meta.dirname, "..");
-const PACKS = join(ROOT, "synthetic", "generated", "packs");
-const ANSWERS = join(ROOT, "synthetic", "generated", "answers");
+// SET=dev (default) or SET=test (the held-out set used for the published score)
+const SET = process.env.SET ?? "dev";
+const PACKS = join(ROOT, "synthetic", "generated", SET, "packs");
+const ANSWERS = join(ROOT, "synthetic", "generated", SET, "answers");
 const only = process.argv.slice(2);
 // REPLAY=<run folder name> re-scores a saved run for free (no model calls).
 const REPLAY = process.env.REPLAY;

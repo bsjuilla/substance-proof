@@ -82,7 +82,9 @@ export type Extraction = z.infer<typeof ExtractionSchema>;
 
 export const SYSTEM_PROMPT = `You read ONE document from a company board-meeting pack and report only what is printed on it.
 Rules:
-- Report times exactly as printed, in LOCAL time, as "YYYY-MM-DDTHH:MM" (24-hour), together with the time zone label printed next to them (for example GMT, GST, SGT). Never convert between time zones. Never guess a zone that is not printed: use null.
+- Report times exactly as printed, in LOCAL time, as "YYYY-MM-DDTHH:MM" (24-hour), together with the time zone label printed for them, copied as printed (for example GMT, GST, GMT+8, UTC+04:00, Asia/Dubai). If the document only says the times are local time without naming a zone, use the label "local". Never convert between time zones and never invent a zone.
+- Dates may be printed in any format (12/03/2026 is 12 March 2026, day first). Write them as YYYY-MM-DD.
+- Copy people's names as printed, even in airline style such as "CASTELL/BRUNO MR".
 - If an arrival time is printed with a different date, use that date; otherwise use the departure date.
 - Boarding pass: one flight_leg fact with the airport codes, departure and arrival local times. Put the passenger's name in person_name.
 - Hotel folio: one hotel_stay fact: place is the city and country printed, check-in = Arrival, check-out = Departure, with their zone labels. Guest name in person_name.

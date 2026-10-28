@@ -4,6 +4,8 @@ import { runEvidenceAgent, type AgentResult } from "../agent/evidenceAgent";
 import type { Jurisdiction } from "../engine/evaluate";
 import type { Company, Fact, Meeting, MeetingEvaluation } from "../engine/types";
 import { decide, extractAny, pool, type AnyExtract } from "../extract/pipeline";
+import { verdictFrom } from "../engine/evaluate";
+import { runPack, type RulePack } from "../rules/pack";
 
 export type DocKind = "minutes" | "boarding_pass" | "hotel_folio" | "recording" | "other";
 
@@ -24,6 +26,8 @@ export type RunResult = {
   agent?: Omit<AgentResult, "costUsd">;
   costUsd: number;
   seconds: number;
+  /** Set when the verdict came from an AI-written rule pack instead of the hand-written rules. */
+  rulePack?: { jurisdiction: string; source: string };
 };
 
 const ZONE: Record<Jurisdiction, string> = { JE: "Europe/Jersey", SG: "Asia/Singapore" };
@@ -49,6 +53,8 @@ export async function analyzePack(opts: {
   jurisdiction: Jurisdiction;
   withAgent?: boolean;
   onProgress?: (msg: string) => void;
+  /** Optional approved rule pack (e.g. written by Muse Spark from the law) to use instead of the hand-written rules. */
+  pack?: RulePack;
 }): Promise<RunResult> {
   const t0 = Date.now();
   const names = opts.company.directors.map((d) => d.name);
@@ -60,7 +66,14 @@ export async function analyzePack(opts: {
   });
   const rel = (p: string) => relative(opts.packRoot, p).split(sep).join("/");
   const items = extracts.map((x) => ({ docId: rel(x.file), extraction: x.extraction, turnStartsMs: x.turnStartsMs }));
-  const { facts, evaluation, meetingUsed } = decide(items, opts.company, opts.meeting, opts.jurisdiction);
+  const decided = decide(items, opts.company, opts.meeting, opts.jurisdiction);
+  const { facts, meetingUsed } = decided;
+  let evaluation = decided.evaluation;
+  if (opts.pack) {
+    // Use an approved, AI-written rule pack instead of the hand-written rules (same presence inference).
+    const tests = runPack(opts.pack, opts.company, meetingUsed, evaluation.presence);
+    evaluation = { ...evaluation, tests, verdict: verdictFrom(tests, evaluation.contradictions.length) };
+  }
   if (!facts.meetingWindow) facts.rejected.push({ file: "minutes", reason: "Meeting date and time could not be read from the minutes; the setup times were used." });
   const dateText = meetingDateText(meetingUsed, opts.jurisdiction);
 
@@ -90,5 +103,6 @@ export async function analyzePack(opts: {
     agent: agent ? (agentRest as Omit<AgentResult, "costUsd">) : undefined,
     costUsd: +(extracts.reduce((a, x) => a + x.costUsd, 0) + agentCost).toFixed(4),
     seconds: Math.round((Date.now() - t0) / 1000),
+    rulePack: opts.pack ? { jurisdiction: opts.pack.jurisdiction_code, source: opts.pack.source_title } : undefined,
   };
 }

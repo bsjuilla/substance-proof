@@ -1,0 +1,71 @@
+{
+  "model": "muse-spark-1.3",
+  "builtAt": "2026-10-28T17:31:35.598Z",
+  "runs": 3,
+  "costUsd": 0.177,
+  "packs": {
+    "JE": {
+      "proposed": 4,
+      "passedValidation": 4,
+      "notSupported": 5,
+      "inputTokens": 10314
+    },
+    "SG": {
+      "proposed": 1,
+      "passedValidation": 1,
+      "notSupported": 7,
+      "inputTokens": 8425
+    }
+  },
+  "lawLevelVerdictAgreement": "41/41",
+  "perRun": [
+    {
+      "run": 1,
+      "agreement": "41/41",
+      "disagreements": [],
+      "tests": {
+        "JE": [
+          "venue_in_jurisdiction/every_meeting",
+          "quorum_physically_present/every_meeting",
+          "minutes_record_strategic_decisions/every_meeting",
+          "records_kept_in_jurisdiction/every_meeting"
+        ],
+        "SG": [
+          "share_physically_present_or_chair/virtual_or_hybrid_meetings"
+        ]
+      }
+    },
+    {
+      "run": 2,
+      "agreement": "41/41",
+      "disagreements": [],
+      "tests": {
+        "JE": [
+          "venue_in_jurisdiction/every_meeting",
+          "quorum_physically_present/every_meeting",
+          "minutes_record_strategic_decisions/every_meeting",
+          "records_kept_in_jurisdiction/every_meeting"
+        ],
+        "SG": [
+          "share_physically_present_or_chair/virtual_or_hybrid_meetings"
+        ]
+      }
+    },
+    {
+      "run": 3,
+      "agreement": "41/41",
+      "disagreements": [],
+      "tests": {
+        "JE": [
+          "venue_in_jurisdiction/every_meeting",
+          "quorum_physically_present/every_meeting",
+          "minutes_record_strategic_decisions/every_meeting",
+          "records_kept_in_jurisdiction/every_meeting"
+        ],
+        "SG": [
+          "share_physically_present_or_chair/virtual_or_hybrid_meetings"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+ "pack": {
+  "jurisdiction_code": "JE",
+  "jurisdiction_name": "Jersey",
+  "source_title": "Taxation (Companies – Economic Substance) (Jersey) Law 2019",
+  "tests": [
+   {
+    "id": "JE-01",
+    "label": "Board of directors meets in Jersey",
+    "kind": "venue_in_jurisdiction",
+    "applies_to": "every_meeting",
+    "threshold": null,
+    "chair_alternative": false,
+    "count": "attending_directors",
+    "basis": "law",
+    "citation": "Article 5(3)(a)",
+    "quote": "the company’s board of directors meets in Jersey"
+   },
+   {
+    "id": "JE-02",
+    "label": "Quorum of directors physically present in Jersey",
+    "kind": "quorum_physically_present",
+    "applies_to": "every_meeting",
+    "threshold": null,
+    "chair_alternative": false,
+    "count": "attending_directors",
+    "basis": "law",
+    "citation": "Article 5(3)(b)",
+    "quote": "there is a quorum of directors physically present in Jersey"
+   },
+   {
+    "id": "JE-03",
+    "label": "Minutes record making of strategic decisions at meeting",
+    "kind": "minutes_record_strategic_decisions",
+    "applies_to": "every_meeting",
+    "threshold": null,
+    "chair_alternative": false,
+    "count": "attending_directors",
+    "basis": "law",
+    "citation": "Article 5(3)(c)",
+    "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting"
+   },
+   {
+    "id": "JE-04",
+    "label": "Minutes of all board meetings and records kept in Jersey",
+    "kind": "records_kept_in_jurisdiction",
+    "applies_to": "every_meeting",
+    "threshold": null,
+    "chair_alternative": false,
+    "count": "attending_directors",
+    "basis": "law",
+    "citation": "Article 5(3)(e)",
+    "quote": "the minutes of all board meetings and the records of the company are kept in Jersey"
+   }
+  ],
+  "not_supported": [
+   {
+    "requirement": "Board meets at adequate frequency having regard to amount of decision-making required",
+    "quote": "meets in Jersey at an adequate frequency having regard to the amount of decision-making required at that level"
+   },
+   {
+    "requirement": "Directors have necessary knowledge and expertise to discharge duties of the board",
+    "quote": "the directors of the company have the necessary knowledge and expertise to discharge the duties of the board"
+   },
+   {
+    "requirement": "Adequate number of employees physically present in Jersey",
+    "quote": "there are an adequate number of employees in relation to that activity who are physically present in Jersey (whether or not employed by the resident company or by another entity and whether on temporary or long-term contracts)"
+   },
+   {
+    "requirement": "Adequate expenditure incurred in Jersey",
+    "quote": "there is adequate expenditure incurred in Jersey"
+   },
+   {
+    "requirement": "Adequate physical assets in Jersey",
+    "quote": "there are adequate physical assets in Jersey"
+   }
+  ]
+ },
+ "validated": [
+  {
+   "id": "JE-01",
+   "label": "Board of directors meets in Jersey",
+   "kind": "venue_in_jurisdiction",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(a)",
+   "quote": "the company’s board of directors meets in Jersey",
+   "quoteFound": true,
+   "problems": []
+  },
+  {
+   "id": "JE-02",
+   "label": "Quorum of directors physically present in Jersey",
+   "kind": "quorum_physically_present",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(b)",
+   "quote": "there is a quorum of directors physically present in Jersey",
+   "quoteFound": true,
+   "problems": []
+  },
+  {
+   "id": "JE-03",
+   "label": "Minutes record making of strategic decisions at meeting",
+   "kind": "minutes_record_strategic_decisions",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(c)",
+   "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting",
+   "quoteFound": true,
+   "problems": []
+  },
+  {
+   "id": "JE-04",
+   "label": "Minutes of all board meetings and records kept in Jersey",
+   "kind": "records_kept_in_jurisdiction",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(e)",
+   "quote": "the minutes of all board meetings and the records of the company are kept in Jersey",
+   "quoteFound": true,
+   "problems": []
+  }
+ ],
+ "approvedTests": [
+  {
+   "id": "JE-01",
+   "label": "Board of directors meets in Jersey",
+   "kind": "venue_in_jurisdiction",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(a)",
+   "quote": "the company’s board of directors meets in Jersey"
+  },
+  {
+   "id": "JE-02",
+   "label": "Quorum of directors physically present in Jersey",
+   "kind": "quorum_physically_present",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(b)",
+   "quote": "there is a quorum of directors physically present in Jersey"
+  },
+  {
+   "id": "JE-03",
+   "label": "Minutes record making of strategic decisions at meeting",
+   "kind": "minutes_record_strategic_decisions",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(c)",
+   "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting"
+  },
+  {
+   "id": "JE-04",
+   "label": "Minutes of all board meetings and records kept in Jersey",
+   "kind": "records_kept_in_jurisdiction",
+   "applies_to": "every_meeting",
+   "threshold": null,
+   "chair_alternative": false,
+   "count": "attending_directors",
+   "basis": "law",
+   "citation": "Article 5(3)(e)",
+   "quote": "the minutes of all board meetings and the records of the company are kept in Jersey"
+  }
+ ],
+ "rejected": [],
+ "costUsd": 0.03471625,
+ "inputTokens": 10314,
+ "seconds": 29,
+ "sourceUrl": "https://www.jerseylaw.je/laws/current/l_3_2019",
+ "sourceChars": 38730,
+ "model": "muse-spark-1.3",
+ "builtAt": "2026-10-28T17:29:50.677Z"
+}

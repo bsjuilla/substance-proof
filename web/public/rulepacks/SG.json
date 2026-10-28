@@ -1,0 +1,89 @@
+{
+ "pack": {
+  "jurisdiction_code": "SG",
+  "jurisdiction_name": "Singapore",
+  "source_title": "IRAS: Tax Residency of a Company / Certificate of Residence",
+  "tests": [
+   {
+    "id": "SG-IRAS-virtual-50pct-or-chair",
+    "label": "At least 50% of strategic directors physically in Singapore or chair physically in Singapore for virtual meetings",
+    "kind": "share_physically_present_or_chair",
+    "applies_to": "virtual_or_hybrid_meetings",
+    "threshold": 0.5,
+    "chair_alternative": true,
+    "count": "directors_with_strategic_authority",
+    "basis": "regulator",
+    "citation": "Control and Management",
+    "quote": "At least 50% of the directors (with the authority to make strategic decisions) are physically in Singapore during the meetings"
+   }
+  ],
+  "not_supported": [
+   {
+    "requirement": "location of board meetings where strategic decisions are made usually determines where control and management is exercised",
+    "quote": "Usually, the location of the company's Board of Directors meetings where strategic decisions are made determines where the control and management is exercised."
+   },
+   {
+    "requirement": "holding board meetings in Singapore may not be sufficient in certain scenarios",
+    "quote": "holding Board of Directors meetings in Singapore may not be sufficient"
+   },
+   {
+    "requirement": "whether any board meetings are held in Singapore is a factor considered",
+    "quote": "Whether there is any board of directors' meetings held in Singapore"
+   },
+   {
+    "requirement": "whether strategic decisions are made at Singapore board meetings is a factor considered",
+    "quote": "Whether any strategic decisions are made at the board of directors' meetings held in Singapore"
+   },
+   {
+    "requirement": "whether directors are based in or outside Singapore is a factor considered",
+    "quote": "Whether the directors are based in or outside Singapore"
+   },
+   {
+    "requirement": "whether strategic decisions are made by the local director in Singapore is a factor considered",
+    "quote": "Whether any strategic decisions are made by the local director in Singapore"
+   },
+   {
+    "requirement": "whether key employees are based in Singapore is a factor considered",
+    "quote": "Whether there are key employees based in Singapore"
+   }
+  ]
+ },
+ "validated": [
+  {
+   "id": "SG-IRAS-virtual-50pct-or-chair",
+   "label": "At least 50% of strategic directors physically in Singapore or chair physically in Singapore for virtual meetings",
+   "kind": "share_physically_present_or_chair",
+   "applies_to": "virtual_or_hybrid_meetings",
+   "threshold": 0.5,
+   "chair_alternative": true,
+   "count": "directors_with_strategic_authority",
+   "basis": "regulator",
+   "citation": "Control and Management",
+   "quote": "At least 50% of the directors (with the authority to make strategic decisions) are physically in Singapore during the meetings",
+   "quoteFound": true,
+   "problems": []
+  }
+ ],
+ "approvedTests": [
+  {
+   "id": "SG-IRAS-virtual-50pct-or-chair",
+   "label": "At least 50% of strategic directors physically in Singapore or chair physically in Singapore for virtual meetings",
+   "kind": "share_physically_present_or_chair",
+   "applies_to": "virtual_or_hybrid_meetings",
+   "threshold": 0.5,
+   "chair_alternative": true,
+   "count": "directors_with_strategic_authority",
+   "basis": "regulator",
+   "citation": "Control and Management",
+   "quote": "At least 50% of the directors (with the authority to make strategic decisions) are physically in Singapore during the meetings"
+  }
+ ],
+ "rejected": [],
+ "costUsd": 0.0252745,
+ "inputTokens": 8425,
+ "seconds": 17,
+ "sourceUrl": "https://www.iras.gov.sg/taxes/corporate-income-tax/basics-of-corporate-income-tax/tax-residency-of-a-company",
+ "sourceChars": 34859,
+ "model": "muse-spark-1.3",
+ "builtAt": "2026-10-28T17:30:07.899Z"
+}

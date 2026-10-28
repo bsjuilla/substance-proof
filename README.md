@@ -39,6 +39,19 @@ I am an accounting and finance student interning at a trust and corporate-servic
 | **Muse Voice Transcribe** (diarization, keyword hints) | Turns the meeting recording into turns with timestamps | The recording can't be used as evidence; minutes-versus-recording conflicts are invisible |
 | **Muse Spark 1.3** (transcript reasoning) | Finds who said where they were joining from, with the turn it was said in | Spoken claims can't be cited to the second |
 | **Muse Spark 1.3** (function tools, approval-gated agent) | `list_gaps`, `get_rule_result`, `draft_evidence_request`, `draft_minutes_correction` | No follow-up: gaps stay gaps |
+| **Muse Spark 1.3** (long context, strict schema) | **Writes the rules from the law.** Reads a full statute or official guidance (about 10,000 tokens of source) and drafts a rule pack: each rule as data, with the exact words of the law behind it | Every new jurisdiction needs a developer to hand-code it |
+
+### Add a jurisdiction by giving it the law
+
+Muse Spark reads the whole official text and proposes rules, choosing only from test types the engine can compute (quorum present, share of directors present or the chair, minutes record strategic decisions, records kept, and so on). Code then checks each proposal: **its quote must appear word for word in the source**, and its parameters must be valid. Requirements the engine can't compute (for example "adequate frequency" with no number, staff or expenditure) must be listed as *not checkable* rather than dropped silently. A person approves the pack in the app before it is used.
+
+Measured on the official texts (Jersey statute from jerseylaw.je; IRAS company-residency guidance):
+- Every proposed rule's quote was found word for word in the source.
+- Muse Spark wrote the Jersey pack (quorum, meetings in Jersey, minutes, records; Art. 5(3)(a)–(e)) and the Singapore pack (at least 50% of directors with strategic authority, or the chairman, for virtual or hybrid meetings) from the raw text alone.
+- **Decided with the AI-written packs, all 41 dev and held-out meetings got the same law-level verdict as the hand-written rules, in 3 out of 3 independent runs** ([`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)).
+- Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings … determines …*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
+
+`npx tsx scripts/build-packs.ts` reproduces this (about $0.18 for 3 runs). In live mode, *Rules written from the law* lets you paste any substance law and see the proposed rules with their quotes; *Decide with the rules Muse Spark wrote* runs a meeting with the AI-written pack instead of the hand-written rules.
 
 The model **never decides** a legal test. The line between AI and code is deliberate:
 
@@ -81,7 +94,7 @@ Requirements: Node 20+ and Chrome (only for regenerating the synthetic documents
 
 ```bash
 npm install
-npm test                    # 50 tests: rules engine, presence inference, time zones, names, sanity checks
+npm test                    # 56 tests: rules engine, presence inference, time zones, names, sanity checks, rule packs
 cp .env.example .env        # then put your own Meta Model API key in .env (never commit it)
 npm run app                 # builds the web app and serves it at http://127.0.0.1:8787
 ```
@@ -97,6 +110,7 @@ npm run app                 # builds the web app and serves it at http://127.0.0
 src/engine/      rules engine: presence inference, Jersey and Singapore tests, verdicts (no AI)
 src/extract/     Muse Spark + Voice Transcribe extraction, deterministic normalisation
 src/agent/       approval-gated evidence agent (function tools + guardrails)
+src/rules/       rule packs: Muse Spark drafts them from a law's text; code validates quotes; deterministic executor
 src/app/         one function that analyses a pack (used by the server, the demo recorder and the eval)
 server/          local server (127.0.0.1) for live analysis
 web/             React UI; web/public/demo holds recorded real runs

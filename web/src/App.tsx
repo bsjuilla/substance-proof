@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Report } from "./Report";
 import { Upload } from "./Upload";
+import { RulePacks } from "./RulePacks";
 import type { Loaded } from "./types";
 
 type DemoEntry = { id: string; title: string; trap: string; verdict: string; jurisdiction: string };
@@ -28,6 +29,8 @@ export function App() {
   const [loaded, setLoaded] = useState<Loaded | null>(null);
   const [busy, setBusy] = useState<string>("");
   const [error, setError] = useState("");
+  const [view, setView] = useState<"home" | "packs">("home");
+  const [usePack, setUsePack] = useState(false);
 
   useEffect(() => {
     fetch("demo/index.json").then((r) => (r.ok ? r.json() : [])).then(setDemos).catch(() => setDemos([]));
@@ -53,7 +56,7 @@ export function App() {
     setError("");
     setBusy(`${s.set}:${s.id}`);
     try {
-      const r = await fetch("/api/analyze-sample", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ set: s.set, id: s.id }) });
+      const r = await fetch("/api/analyze-sample", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ set: s.set, id: s.id, usePack }) });
       const j = await r.json();
       if (!r.ok) throw new Error(j.error);
       setLoaded(j);
@@ -84,6 +87,8 @@ export function App() {
       <main id="main" className="container">
         {loaded ? (
           <Report loaded={loaded} onBack={() => setLoaded(null)} />
+        ) : view === "packs" ? (
+          <RulePacks live={!!live?.live} onBack={() => setView("home")} />
         ) : (
           <div className="stack" style={{ ["--gap" as any]: "2rem" }}>
             <section className="stack" style={{ ["--gap" as any]: ".75rem", maxWidth: "52rem" }}>
@@ -101,6 +106,14 @@ export function App() {
             </section>
 
             {error && <p className="error" role="alert">{error}</p>}
+
+            <section className="card row" style={{ justifyContent: "space-between", alignItems: "center" }} aria-labelledby="packs-h">
+              <div className="stack" style={{ ["--gap" as any]: ".25rem", flex: "1 1 30rem" }}>
+                <h2 id="packs-h">Add a jurisdiction by giving it the law</h2>
+                <p className="muted" style={{ fontSize: "var(--step--1)" }}>Muse Spark reads a full statute or official guidance and writes the rules as data, quoting the law for each one. Code verifies every quote; a person approves.</p>
+              </div>
+              <button className="btn primary" onClick={() => setView("packs")}>See the rules it wrote</button>
+            </section>
 
             <div className="grid-2">
               <section className="card stack" aria-labelledby="rec-h">
@@ -122,6 +135,9 @@ export function App() {
                 <section className="card stack" aria-labelledby="live-h">
                   <h2 id="live-h">Run live on a sample pack</h2>
                   <p className="muted" style={{ fontSize: "var(--step--1)" }}>Calls Muse Spark, Voice Transcribe and the agent now. Usually 20–60 seconds and a few cents of credit.</p>
+                  <label style={{ fontSize: "var(--step--1)" }}>
+                    <input type="checkbox" checked={usePack} onChange={(e) => setUsePack(e.target.checked)} /> Decide with the rules Muse Spark wrote from the law (instead of the hand-written rules)
+                  </label>
                   <div className="samples" style={{ maxHeight: "28rem", overflow: "auto" }}>
                     {samples.map((s) => (
                       <div key={`${s.set}:${s.id}`} className="sample">

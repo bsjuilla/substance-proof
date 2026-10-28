@@ -34,6 +34,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
         <button className="btn small" onClick={onBack}>← All meetings</button>
         <div className="actions">
           <span className="badge">{result.mode === "replay" ? "Recorded live run" : "Live run"} · {result.model}</span>
+          {result.rulePack && <span className="badge law">Rules written by Muse Spark from: {result.rulePack.source}</span>}
           <button className="btn small" onClick={() => window.print()}>Print evidence memo</button>
         </div>
       </div>

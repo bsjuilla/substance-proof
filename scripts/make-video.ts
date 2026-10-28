@@ -93,7 +93,7 @@ const SCENES: Scene[] = [
   {
     id: "s1-hook", kind: "slide",
     caption: "",
-    narration: "These minutes say all three directors met in Jersey. The hotel bill and the meeting recording say one of them was in Dubai. An e-ticket says another was still on a plane. Substance Proof catches this, and shows you exactly where it found it.",
+    narration: "These minutes say all three directors met in Jersey. The evidence says one was in Dubai, and another was still on a plane. Substance Proof catches it, and shows exactly where.",
     html: slide(`<h1>The minutes say the board met in Jersey.<br>Did it?</h1>
       <div style="display:flex;gap:40px;align-items:stretch;margin-top:20px">
         <div class="box" style="flex:1"><b>Minutes</b><br>Bruno Castell: “present in St Helier”</div>
@@ -103,7 +103,7 @@ const SCENES: Scene[] = [
   {
     id: "s2-problem", kind: "slide",
     caption: "",
-    narration: "Jersey's Economic Substance Law requires a quorum of directors to be physically present in Jersey when the board meets, with penalties of up to one hundred thousand pounds. Singapore has a similar test. Today a company secretary checks this by hand, and the minutes only record what people claimed. I'm an accounting student interning at a trust company, so this is work I see first hand.",
+    narration: "Jersey law requires a quorum of directors physically in Jersey when the board meets, with penalties up to a hundred thousand pounds. Singapore has a similar test. Today it's checked by hand, and minutes only record what people claimed. I'm an accounting student interning at a trust company, so I see this work first hand.",
     html: slide(`<h1>A real rule, checked by hand</h1>
       <p><b>Jersey</b> Economic Substance Law 2019, Art. 5(3)(b): “a quorum of directors physically present in Jersey”. Penalty up to £10,000, then up to £100,000 (Art. 9).</p>
       <p><b>Singapore</b> (IRAS): virtual meetings count as decided in Singapore if at least 50% of strategic directors, or the chairman, are physically there.</p>
@@ -158,7 +158,7 @@ const SCENES: Scene[] = [
   {
     id: "s6-rules", kind: "app",
     caption: "Tested code applies the law; the AI never decides a test",
-    narration: "The verdict is not decided by the AI. Tested code applies the published law. Article five of the Jersey law needs a quorum of two physically present. The evidence shows only one, so the test fails. Stricter points that come from guidance are labelled, and can be switched off.",
+    narration: "The verdict is not decided by the AI. Tested code applies the published law: a quorum of two must be physically present, and the evidence shows only one. Rules that come from guidance are labelled, and can be switched off.",
     act: async (p, secs) => {
       await caption(p, "Tested code applies the law; the AI never decides a test");
       await scrollToSel(p, "#rules-h", 110);
@@ -181,20 +181,39 @@ const SCENES: Scene[] = [
     },
   },
   {
+    id: "s7b-packs", kind: "app",
+    caption: "Muse Spark writes the rules from the law itself; code verifies every quote",
+    narration: "And it isn't limited to two countries. Give Muse Spark the full text of a law, and it writes the rules itself, quoting the exact words behind each one. Code checks every quote word for word, and a person approves. Rules it wrote from the raw Jersey statute and Singapore's guidance gave the same verdicts as my hand-written rules on all forty one meetings.",
+    act: async (p, secs) => {
+      await p.goto(APP, { waitUntil: "networkidle0" });
+      await caption(p, "Muse Spark writes the rules from the law itself; code verifies every quote");
+      await clickText(p, "button", "See the rules it wrote");
+      await sleep(secs * 1000 * 0.25);
+      await clickText(p, "button", "View rules and quotes");
+      await sleep(500);
+      await p.evaluate(() => [...document.querySelectorAll("h2")].find((h) => h.textContent?.includes("proposed rules"))?.scrollIntoView({ behavior: "smooth", block: "start" }));
+      await sleep(secs * 1000 * 0.35);
+      await caption(p, "Same verdicts as the hand-written rules on 41/41 meetings");
+      await p.evaluate(() => window.scrollBy({ top: 420, behavior: "smooth" }));
+      await sleep(secs * 1000 * 0.3);
+    },
+  },
+  {
     id: "s8-results", kind: "slide",
     caption: "",
-    narration: "On thirty held-out meetings with phone photos, scans and different layouts, it read all one hundred and sixty six facts correctly, and every verdict was right. A second AI model, Grok, checked the same documents independently and agreed on all eighty six directors. On a deliberately hostile stress set, accuracy drops to eighty six percent, but it made zero dangerous errors. When it can't read something, it asks for review instead of guessing.",
+    narration: "On thirty held-out meetings with photos, scans and different layouts, it read all one hundred and sixty six facts and got every verdict right. Grok, a second AI model, independently agreed on all eighty six directors. On a hostile stress set it read eighty six percent, with zero dangerous errors: when unsure, it asks for review.",
     html: slide(`<h1>Measured, not claimed</h1>
       <table><tr><th>Test set</th><th>Facts read exactly</th><th>Verdicts</th><th>Dangerous errors</th></tr>
       <tr><td>30 held-out meetings (photos, scans, e-tickets)</td><td class="big">166 / 166</td><td class="big">30 / 30</td><td class="big">0</td></tr>
       <tr><td>Stress set (blurry, handwritten, French)</td><td>55 / 64 (86%)</td><td>9 / 12</td><td class="big">0</td></tr>
-      <tr><td>Independent cross-check by Grok</td><td colspan="2">86 / 86 directors agree</td><td></td></tr></table>
+      <tr><td>Independent cross-check by Grok</td><td colspan="2">86 / 86 directors agree</td><td></td></tr>
+      <tr><td>Rules Muse Spark wrote from the raw law</td><td colspan="2">41 / 41 verdicts match the hand-written rules (3 of 3 runs)</td><td></td></tr></table>
       <p style="margin-top:30px;font-size:30px">Dangerous error = saying PASS or “present” when it isn't true. Misses fall back to REVIEW.</p>`),
   },
   {
     id: "s9-close", kind: "slide",
     caption: "",
-    narration: "Substance Proof. The minutes say the board met in Jersey. Now you can prove it. Built with Muse Spark and Muse Voice Transcribe.",
+    narration: "Substance Proof. Now you can prove where the board really met. Built with Muse Spark and Muse Voice Transcribe.",
     html: slide(`<h1>Substance Proof</h1><p>The minutes say the board met in Jersey. Now you can prove it.</p>
       <p style="font-size:30px;color:#6a7286">Built with Muse Spark · Muse Voice Transcribe · github.com/bsjuilla/substance-proof</p>`),
   },

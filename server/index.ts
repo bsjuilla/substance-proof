@@ -7,6 +7,8 @@ import { extname, join, normalize, resolve } from "node:path";
 import { randomUUID } from "node:crypto";
 import { analyzePack } from "../src/app/analyze";
 import { makeClient } from "../src/extract/client";
+import { buildPack } from "../src/rules/buildPack";
+import type { RulePack } from "../src/rules/pack";
 import type { Company, Meeting } from "../src/engine/types";
 
 const ROOT = resolve(import.meta.dirname, "..");
@@ -78,6 +80,14 @@ function samples() {
 
 const safeName = (n: string) => n.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 80);
 
+/** The validated, AI-written rule pack for a jurisdiction (built by scripts/build-packs.ts from the official text). */
+function loadApprovedPack(j: string): RulePack | undefined {
+  const f = join(ROOT, "web", "public", "rulepacks", `${j}.json`);
+  if (!existsSync(f)) return undefined;
+  const b = JSON.parse(readFileSync(f, "utf8"));
+  return { ...b.pack, tests: b.approvedTests };
+}
+
 const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url ?? "/", "http://localhost");
@@ -94,15 +104,26 @@ const server = createServer(async (req, res) => {
 
     if (p === "/api/analyze-sample" && req.method === "POST") {
       if (!live) return send(res, 400, { error: "No META_API_KEY in .env, so live analysis is off. Recorded runs still work." });
-      const { set, id } = await readJson(req);
+      const { set, id, usePack } = await readJson(req);
       if (!/^(dev|test)$/.test(set) || !/^[a-z]\d{2}$/.test(id)) return send(res, 400, { error: "bad sample id" });
       const packs = join(GEN, set, "packs");
       const ans = JSON.parse(readFileSync(join(GEN, set, "answers", `${id}.json`), "utf8"));
       const result = await analyzePack({
         client: live.client, model: live.model, id, files: listFiles(join(packs, id)), packRoot: packs,
         company: ans.company, meeting: ans.meeting, jurisdiction: ans.scenario.jurisdiction,
+        pack: usePack ? loadApprovedPack(ans.scenario.jurisdiction) : undefined,
       });
       return send(res, 200, { result, fileBase: `/files/${set}/` });
+    }
+
+    if (p === "/api/build-pack" && req.method === "POST") {
+      if (!live) return send(res, 400, { error: "No META_API_KEY in .env, so live analysis is off." });
+      const { title, text } = await readJson(req);
+      const src = String(text ?? "");
+      if (src.length < 200) return send(res, 400, { error: "Paste the full text of the law or guidance (at least a few paragraphs)." });
+      if (src.length > 600_000) return send(res, 400, { error: "Text too long (limit 600,000 characters)." });
+      const built = await buildPack(live.client, live.model, String(title || "Pasted source").slice(0, 200), src);
+      return send(res, 200, { ...built, model: live.model, builtAt: new Date().toISOString(), sourceChars: src.length });
     }
 
     if (p === "/api/analyze-upload" && req.method === "POST") {

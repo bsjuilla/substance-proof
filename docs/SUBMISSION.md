@@ -11,7 +11,7 @@ Economic-substance and tax-residence rules require directors to be physically pr
 
 Substance Proof reads the whole meeting pack. Muse Spark extracts who was where and when from minutes, boarding passes, e-tickets, phone photos, scans and hotel bills, quoting the words behind each fact. Muse Voice Transcribe turns the recording into a roll-call, and Muse Spark finds who said where they were joining from, to the second. A deterministic, unit-tested rules engine (not the AI) applies the published test and flags where the minutes contradict the evidence or the recording. An approval-gated agent using Muse Spark function calling drafts evidence requests and minutes corrections; every tool call is validated by code and nothing is sent without approval.
 
-On 30 held-out synthetic meetings it read 166/166 facts and reached 30/30 correct verdicts. On a hostile stress set it read 86% of facts with zero dangerous errors: it falls back to "review", never a false pass.
+On 30 held-out synthetic meetings it read 166/166 facts and reached 30/30 correct verdicts, and an independent cross-check by a second AI model (Grok) agreed on all 86 director placements. On a hostile stress set it read 86% of facts with zero dangerous errors: it falls back to "review", never a false pass.
 
 ## Meta tooling used
 Muse Spark 1.3 (vision, PDF, strict JSON-schema output, transcript reasoning, function-calling agent); Muse Voice Transcribe 1.0 (diarization, keyword hints).

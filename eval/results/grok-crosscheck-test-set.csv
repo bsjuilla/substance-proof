@@ -1,0 +1,87 @@
+﻿meeting,director,place_to_check,answer,note
+t01,Samuel Achterberg,Jersey,no,t01__hotel-1 London hotel 21 Sep 00:58 UTC to 23 Sep 23:21 UTC covers meeting 22 Sep 09:00-11:00 UTC
+t01,Priya Anand-Lowe,Jersey,no,t01__hotel-2 Paris hotel 20 Sep 18:49 UTC to 23 Sep 00:24 UTC covers meeting 22 Sep 09:00-11:00 UTC
+t02,Mei Lin Tavernier,Jersey,no,t02__travel-1 LHR-JER lands 26 Feb 09:53 UTC after meeting start 09:00 UTC
+t02,Kenji Halloran,Jersey,no,t02__travel-2 HKG-JER departs 02:51 UTC and lands 26 Feb 09:51 UTC after meeting start 09:00 UTC
+t02,Marcus Oyelaran,Jersey,no,t02__travel-3 DXB-JER departs 02:20 UTC and lands 26 Feb 09:20 UTC after meeting start 09:00 UTC
+t02,Tomasz Wierzba,Jersey,cannot_tell,No travel or hotel document for this director in t02; meeting 26 Feb 09:00-11:00 UTC
+t03,Samuel Achterberg,Singapore,yes,t03__hotel-1 Singapore hotel 2 Jul 10:28 UTC to 4 Jul 06:46 UTC covers meeting 3 Jul 02:00-04:00 UTC
+t03,Helena Brookfield,Singapore,no,t03__travel-1 LHR-SIN departs 2 Jul 20:10 UTC and lands 3 Jul 03:10 UTC during meeting 02:00-04:00 UTC
+t04,Helena Brookfield,Jersey,cannot_tell,No travel or hotel document for this director in t04; meeting 16 Feb 09:00-11:00 UTC
+t04,Marcus Oyelaran,Jersey,yes,t04__hotel-1 St Helier stay 14 Feb 23:06 UTC to 17 Feb 07:07 UTC covers meeting 16 Feb 09:00-11:00 UTC
+t05,Helena Brookfield,Jersey,yes,t05__hotel-1 St Helier stay 9 May 14:47 UTC to 11 May 06:42 UTC covers meeting 10 May 09:00-11:00 UTC
+t05,Marcus Oyelaran,Jersey,yes,t05__travel-1 lands JER 10 May 02:12 UTC and t05__travel-2 departs JER 16:55 UTC; meeting 09:00-11:00 UTC
+t05,Daniel Mbeki-Shaw,Jersey,no,t05__hotel-2 London stay 9 May 06:19 UTC to 10 May 23:14 UTC covers meeting 10 May 09:00-11:00 UTC
+t05,Priya Anand-Lowe,Jersey,yes,t05__hotel-3 St Helier stay 9 May 18:13 UTC to 11 May 16:41 UTC covers meeting 10 May 09:00-11:00 UTC
+t06,Ana Sokolova,Singapore,cannot_tell,No travel or hotel document for this director in t06; meeting 15 May 02:00-04:00 UTC
+t06,Lucia Ferrante,Singapore,yes,t06__hotel-1 Singapore hotel 14 May 05:07 UTC to 15 May 22:27 UTC covers meeting 15 May 02:00-04:00 UTC
+t06,Oliver Strand,Singapore,yes,t06__travel-1 lands SIN 14 May 20:28 UTC and t06__travel-2 departs SIN 15 May 06:15 UTC; meeting 02:00-04:00 UTC
+t07,Priya Anand-Lowe,Jersey,no,t07__travel-1 JER-HKG departs 9 Oct 10:22 UTC before meeting end 11:00 UTC
+t07,Lucia Ferrante,Jersey,cannot_tell,No travel or hotel document for this director in t07; meeting 9 Oct 09:00-11:00 UTC
+t08,Daniel Mbeki-Shaw,Jersey,no,t08__travel-1 DXB-JER departs 03:00 UTC and lands 6 Aug 10:00 UTC after meeting start 09:00 UTC
+t08,Lucia Ferrante,Jersey,no,t08__travel-2 JER-HKG departs 6 Aug 10:06 UTC before meeting end 11:00 UTC
+t09,Tomasz Wierzba,Singapore,yes,t09__hotel-1 Singapore stay 9 Jul 22:58 UTC to 12 Jul 16:50 UTC covers meeting 11 Jul 02:00-04:00 UTC
+t09,Helena Brookfield,Singapore,no,t09__hotel-2 Paris stay 9 Jul 21:47 UTC to 12 Jul 02:43 UTC covers meeting 11 Jul 02:00-04:00 UTC
+t09,Samuel Achterberg,Singapore,no,t09__hotel-3 Hong Kong stay 9 Jul 05:20 UTC to 12 Jul 07:53 UTC covers meeting 11 Jul 02:00-04:00 UTC
+t10,Helena Brookfield,Jersey,cannot_tell,No travel or hotel document for this director in t10; meeting 3 Jun 09:00-11:00 UTC
+t10,Daniel Mbeki-Shaw,Jersey,no,t10__hotel-1 London hotel 2 Jun 01:07 UTC to 4 Jun 20:29 UTC covers meeting 3 Jun 09:00-11:00 UTC
+t11,Fatima Zahra Bennis,Jersey,yes,t11__hotel-1 St Helier hotel 18 Aug 15:58 UTC to 20 Aug 19:31 UTC covers meeting 19 Aug 09:00-11:00 UTC
+t11,Daniel Mbeki-Shaw,Jersey,yes,t11__hotel-2 St Helier hotel 18 Aug 10:35 UTC to 20 Aug 06:43 UTC covers meeting 19 Aug 09:00-11:00 UTC
+t12,Oliver Strand,Singapore,no,t12__hotel-1 Dubai hotel 08 Sep 08:53 UTC to 11 Sep 02:09 UTC covers meeting 10 Sep 02:00-04:00 UTC
+t12,Hugo Lindqvist,Singapore,yes,t12__hotel-2 Singapore hotel 09 Sep 07:00 UTC to 11 Sep 03:58 UTC covers meeting 10 Sep 02:00-04:00 UTC
+t12,Tomasz Wierzba,Singapore,no,t12__travel-1 SIN-HKG departs 10 Sep 03:17 UTC before meeting end 04:00 UTC
+t13,Fatima Zahra Bennis,Jersey,cannot_tell,No travel or hotel document for this director in t13
+t13,Oliver Strand,Jersey,yes,t13__hotel-1 St Helier stay 03 Mar 08:45 UTC to 06 Mar 03:41 UTC covers meeting 04 Mar 09:00-11:00 UTC
+t14,Grace Whitlock,Jersey,no,t14__hotel-1 Paris stay 09 Sep 11:39 UTC to 11 Sep 22:09 UTC covers meeting 11 Sep 09:00-11:00 UTC
+t14,Mei Lin Tavernier,Jersey,yes,t14__travel-1 DXB-JER lands 11 Sep 04:20 UTC and t14__travel-2 JER-DXB departs 11 Sep 19:54 UTC; meeting 09:00-11:00 UTC
+t14,Helena Brookfield,Jersey,no,t14__hotel-2 Hong Kong stay 09 Sep 09:31 UTC to 12 Sep 16:57 UTC covers meeting 11 Sep 09:00-11:00 UTC
+t14,Priya Anand-Lowe,Jersey,yes,t14__hotel-3 St Helier stay 10 Sep 05:17 UTC to 12 Sep 09:49 UTC covers meeting 11 Sep 09:00-11:00 UTC
+t15,Marcus Oyelaran,Singapore,no,t15__travel-1 HKG-SIN lands 13 Sep 03:02 UTC after meeting start 02:00 UTC; meeting 02:00-04:00 UTC
+t15,Ana Sokolova,Singapore,yes,t15__travel-2 CDG-SIN lands 12 Sep 23:25 UTC and t15__travel-3 SIN-CDG departs 13 Sep 10:06 UTC; meeting 02:00-04:00 UTC
+t15,Priya Anand-Lowe,Singapore,yes,t15__hotel-1 Singapore hotel 12 Sep 01:03 UTC to 14 Sep 00:24 UTC covers meeting 13 Sep 02:00-04:00 UTC
+t15,Kenji Halloran,Singapore,cannot_tell,No travel or hotel document for this director in t15
+t16,Ana Sokolova,Jersey,no,t16__hotel-1 Dubai hotel 04 Oct 03:36 UTC to 07 Oct 02:43 UTC covers meeting 05 Oct 09:00-11:00 UTC
+t16,Priya Anand-Lowe,Jersey,yes,t16__hotel-2 St Helier hotel 04 Oct 11:32 UTC to 07 Oct 01:25 UTC covers meeting 05 Oct 09:00-11:00 UTC
+t17,Tomasz Wierzba,Jersey,cannot_tell,No travel or hotel document for this director in t17
+t17,Daniel Mbeki-Shaw,Jersey,yes,t17__hotel-1 St Helier hotel 07 Mar 12:03 UTC to 09 Mar 13:01 UTC covers meeting 08 Mar 09:00-11:00 UTC
+t17,Helena Brookfield,Jersey,cannot_tell,No travel or hotel document for this director in t17
+t17,Lucia Ferrante,Jersey,no,t17__travel-1 DXB-JER lands 08 Mar 09:48 UTC after meeting start 09:00 UTC
+t18,Mei Lin Tavernier,Singapore,yes,t18__travel-1 HKG-SIN lands 11 Apr 21:44 UTC and t18__travel-2 SIN-HKG departs 12 Apr 09:35 UTC; meeting 12 Apr 02:00-04:00 UTC
+t18,Fatima Zahra Bennis,Singapore,yes,t18__travel-3 DXB-SIN lands 11 Apr 23:43 UTC and t18__travel-4 SIN-DXB departs 12 Apr 13:43 UTC; meeting 02:00-04:00 UTC
+t18,Marcus Oyelaran,Singapore,yes,t18__hotel-1 Singapore hotel 11 Apr 04:31 UTC to 13 Apr 19:12 UTC covers meeting 12 Apr 02:00-04:00 UTC
+t19,Hugo Lindqvist,Jersey,no,t19__hotel-1 London hotel 11 Apr 22:36 UTC to 15 Apr 01:13 UTC covers meeting 13 Apr 09:00-11:00 UTC
+t19,Priya Anand-Lowe,Jersey,yes,t19__hotel-2 St Helier hotel 12 Apr 10:54 UTC to 14 Apr 05:06 UTC covers meeting 13 Apr 09:00-11:00 UTC
+t19,Helena Brookfield,Jersey,no,t19__travel-1 JER-DXB departs 13 Apr 09:52 UTC before meeting end 11:00 UTC
+t19,Tomasz Wierzba,Jersey,yes,t19__travel-2 DXB-JER lands 13 Apr 01:35 UTC and t19__travel-3 JER-DXB departs 13 Apr 13:10 UTC; meeting 09:00-11:00 UTC
+t20,Lucia Ferrante,Jersey,cannot_tell,No travel or hotel document for this director in t20
+t20,Kenji Halloran,Jersey,yes,t20__travel-1 DXB-JER lands 12 Sep 02:57 UTC and t20__travel-2 JER-DXB departs 12 Sep 16:41 UTC; meeting 09:00-11:00 UTC
+t20,Oliver Strand,Jersey,yes,t20__hotel-1 St Helier hotel 11 Sep 13:59 UTC to 13 Sep 18:50 UTC covers meeting 12 Sep 09:00-11:00 UTC
+t21,Daniel Mbeki-Shaw,Singapore,cannot_tell,No travel or hotel document for this director; meeting 10 Oct 2026 02:00-04:00 UTC
+t21,Tomasz Wierzba,Singapore,no,t21__travel-1 CDG-SIN lands 10 Oct 10:33 GMT+8 (02:33 UTC) after meeting start 10:00 GMT+8 (02:00 UTC)
+t22,Lucia Ferrante,Jersey,cannot_tell,No travel or hotel document for this director; meeting 19 Aug 2026 09:00-11:00 UTC
+t22,Daniel Mbeki-Shaw,Jersey,yes,t22__hotel-1 St Helier stay 17 Aug 23:32 UTC to 20 Aug 19:56 UTC covers meeting 19 Aug 09:00-11:00 UTC
+t22,Ana Sokolova,Jersey,no,t22__hotel-2 Paris stay 18 Aug 03:57 UTC to 20 Aug 12:53 UTC covers meeting 19 Aug 09:00-11:00 UTC
+t22,Grace Whitlock,Jersey,yes,t22__travel-1 lands JER 19 Aug 03:33 UTC and t22__travel-2 departs JER 19 Aug 16:39 UTC; meeting 09:00-11:00 UTC
+t23,Lucia Ferrante,Jersey,yes,t23__hotel-1 St Helier stay 5 Oct 12:06 UTC to 8 Oct 09:14 UTC covers meeting 6 Oct 09:00-11:00 UTC
+t23,Rafael Quintero,Jersey,no,t23__hotel-2 London stay 4 Oct 21:25 UTC to 7 Oct 11:05 UTC covers meeting 6 Oct 09:00-11:00 UTC
+t24,Tomasz Wierzba,Singapore,no,t24__hotel-1 London stay 10 Jul 05:35 UTC to 13 Jul 01:29 UTC covers meeting 12 Jul 02:00-04:00 UTC
+t24,Priya Anand-Lowe,Singapore,yes,t24__travel-1 lands SIN 12 Jul 04:26 GMT+8 and t24__travel-2 departs SIN 12 Jul 17:03 GMT+8; meeting 10:00-12:00 GMT+8
+t24,Mei Lin Tavernier,Singapore,no,t24__travel-3 HKG-SIN lands 12 Jul 10:49 GMT+8 after meeting start 10:00 GMT+8
+t24,Oliver Strand,Singapore,yes,t24__travel-4 lands SIN 11 Jul 21:21 UTC and t24__travel-5 departs SIN 12 Jul 10:35 UTC; meeting 02:00-04:00 UTC
+t25,Fatima Zahra Bennis,Jersey,yes,t25__hotel-1 St Helier stay 13 Aug 04:57 UTC to 15 Aug 19:49 UTC covers meeting 14 Aug 09:00-11:00 UTC
+t25,Grace Whitlock,Jersey,no,t25__hotel-2 Paris stay 12 Aug 08:20 UTC to 16 Aug 01:30 UTC covers meeting 14 Aug 09:00-11:00 UTC
+t25,Helena Brookfield,Jersey,cannot_tell,No travel or hotel document for this director; meeting 14 Aug 2026 09:00-11:00 UTC
+t26,Lucia Ferrante,Jersey,no,t26__travel-1 HKG-JER departs 24 Sep 03:11 UTC and lands 10:11 UTC after meeting start 09:00 UTC
+t26,Oliver Strand,Jersey,no,t26__hotel-1 Dubai stay 23 Sep 10:40 UTC to 25 Sep 15:57 UTC covers meeting 24 Sep 09:00-11:00 UTC
+t27,Tomasz Wierzba,Singapore,cannot_tell,No travel or hotel document for this director; meeting 6 Oct 2026 02:00-04:00 UTC
+t27,Kenji Halloran,Singapore,no,t27__hotel-1 Dubai stay 5 Oct 03:07 UTC to 7 Oct 05:56 UTC covers meeting 6 Oct 02:00-04:00 UTC
+t27,Helena Brookfield,Singapore,yes,t27__hotel-2 Singapore stay 5 Oct 19:24 to 7 Oct 16:46 GMT+8 covers meeting 6 Oct 10:00-12:00 GMT+8
+t27,Fatima Zahra Bennis,Singapore,yes,t27__hotel-3 Singapore stay 5 Oct 18:13 to 8 Oct 03:46 GMT+8 covers meeting 6 Oct 10:00-12:00 GMT+8
+t28,Grace Whitlock,Jersey,yes,t28__hotel-1 St Helier stay 21 Jun 03:39 UTC to 24 Jun 05:47 UTC covers meeting 22 Jun 09:00-11:00 UTC
+t28,Hugo Lindqvist,Jersey,no,t28__travel-1 JER-HKG departs 22 Jun 09:47 UTC before meeting end 11:00 UTC
+t29,Helena Brookfield,Jersey,yes,t29__hotel-1 St Helier stay 17 Mar 04:22 GMT to 19 Mar 09:38 GMT covers meeting 18 Mar 09:00-11:00 GMT
+t29,Mei Lin Tavernier,Jersey,no,t29__travel-1 LHR-JER lands 18 Mar 09:47 GMT after meeting start 09:00 GMT
+t30,Priya Anand-Lowe,Singapore,cannot_tell,No travel or hotel document for this director; meeting 4 May 2026 02:00-04:00 UTC
+t30,Kenji Halloran,Singapore,no,t30__travel-1 HKG-SIN lands 4 May 10:57 GMT+8 after meeting start 10:00 GMT+8
+t30,Marcus Oyelaran,Singapore,cannot_tell,No travel or hotel document for this director; meeting 4 May 2026 02:00-04:00 UTC
+t30,Daniel Mbeki-Shaw,Singapore,cannot_tell,No travel or hotel document for this director; meeting 4 May 2026 02:00-04:00 UTC

@@ -64,7 +64,16 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 - The stress set is no longer held out: after its first run I fixed two general problems it exposed (accented and French city names; flights with impossible times from AM/PM misreads). First run: 54/64 facts, 77% of directors, 9/12 verdicts, 0 dangerous errors.
 - The first held-out run scored 51.8% of facts because my answer key stored seconds while documents print minutes. I fixed the key, not the model, and re-scored the same saved outputs. Both runs are in the git history.
 - Rules: the Jersey law-level tests are from the statute; the stricter points (majority of meetings, majority of directors for strategic decisions) come from practitioner summaries of the Comptroller's guidance, so they are labelled *guidance* and can be switched off. Singapore's 50%/chairman test is from IRAS; IRAS publishes no numeric test for in-person meetings, so that check is labelled as an assumption. See [`docs/SOURCES.md`](docs/SOURCES.md).
-- An independent person is labelling the held-out set from the documents alone; their agreement with the system will be added here when it is in.
+
+**Independent cross-check by a second AI model.** The answer key was generated together with the documents, so I asked a different company's model to read the held-out documents on its own. Three **Grok** agents (xAI) each took 10 of the 30 meetings, given only the documents (renamed neutrally so file names gave no hints) and a blank answer sheet. For each of the 86 directors they answered *"was this director physically in the jurisdiction for the whole meeting?"* (yes / no / cannot tell), with a note showing their own time-zone conversions. They were instructed not to open the answer key or this repository; that was an instruction, not a technical lock.
+
+| Comparison (86 directors) | Agreement |
+|---|---|
+| Grok vs answer key | **86 / 86** |
+| Grok vs Substance Proof | **86 / 86** |
+| Substance Proof vs answer key | **86 / 86** |
+
+Grok's answers (35 yes, 34 no, 17 cannot tell) and notes are in [`eval/results/grok-crosscheck-test-set.csv`](eval/results/grok-crosscheck-test-set.csv); score them with `npx tsx scripts/score-labels.ts <csv>`. This is a check by another AI model, not by a person.
 
 ## Run it
 

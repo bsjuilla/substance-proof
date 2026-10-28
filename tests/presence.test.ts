@@ -57,6 +57,20 @@ describe("presence from independent evidence", () => {
     expect(r.contradiction).toEqual({ claimed: "Jersey", evidence: "United Arab Emirates" });
   });
 
+  it("flags minutes and recording that disagree, even with no travel evidence", () => {
+    const m = meeting(["B"]);
+    const r = resolvePresence("B", m, [claim("B", "CITY:STHELIER", "minutes"), claim("B", "CITY:DUBAI", "recording")], "JE");
+    expect(r.status).toBe("unknown");
+    expect(r.claimConflict?.minutes).toBe("Jersey");
+    expect(r.claimConflict?.recording).toBe("United Arab Emirates");
+  });
+
+  it("no conflict when minutes and recording agree", () => {
+    const m = meeting(["B"]);
+    const r = resolvePresence("B", m, [claim("B", "CITY:STHELIER", "minutes"), claim("B", "CITY:STHELIER", "recording")], "JE");
+    expect(r.claimConflict).toBeUndefined();
+  });
+
   it("an unrecognised place code is unknown, never guessed", () => {
     const loc = independentLocation("B", [stay("B", "XXX")], MEETING_START, MEETING_END);
     expect(loc.kind).toBe("unknown");

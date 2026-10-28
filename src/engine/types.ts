@@ -90,6 +90,8 @@ export type PresenceResult = {
   cites: Citation[];
   /** The minutes or recording claimed this jurisdiction but independent evidence disagrees. */
   contradiction?: { claimed: string; evidence: string };
+  /** The minutes and the meeting recording disagree with each other about where this person was. */
+  claimConflict?: { minutes: string; recording: string; cites: Citation[] };
 };
 
 export type TestStatus = "pass" | "fail" | "inconclusive" | "not_applicable";

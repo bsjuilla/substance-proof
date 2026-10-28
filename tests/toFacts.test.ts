@@ -33,6 +33,17 @@ describe("zone names and 'local time'", () => {
 });
 
 describe("place and name matching", () => {
+  it("speech-recognition spelling slips match only when clearly closest", () => {
+    const roster = [dir("A", { name: "Alice Marlowe" }), dir("B", { name: "Bruno Castell" }), dir("C", { name: "Chandra Velloso" })];
+    expect(matchDirector("Bruno Castel", roster)?.id).toBe("B");
+    expect(matchDirector("Chandra Velaso", roster)?.id).toBe("C");
+    expect(matchDirector("Brian Cassidy", roster)).toBeUndefined();
+  });
+  it("refuses an ambiguous near-match between two similar names", () => {
+    const roster = [dir("A", { name: "Ann Smith" }), dir("B", { name: "Ann Smyth" })];
+    expect(matchDirector("Ann Smoth", roster)).toBeUndefined();
+  });
+
   it("airline-style names and hyphenated names", () => {
     const roster = [dir("A", { name: "Priya Anand-Lowe" }), dir("B", { name: "Bruno Castell" })];
     expect(matchDirector("CASTELL/BRUNO", roster)?.id).toBe("B");

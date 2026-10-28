@@ -24,7 +24,7 @@ export function evaluateMeeting(
     jurisdiction === "JE"
       ? jerseyMeetingTests(company, meeting, presence)
       : singaporeMeetingTests(company, meeting, presence);
-  const contradictions = presence.filter((p) => p.contradiction);
+  const contradictions = presence.filter((p) => p.contradiction || p.claimConflict);
   return {
     meetingId: meeting.id,
     jurisdiction,

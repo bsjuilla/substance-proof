@@ -2,7 +2,9 @@
 // hidden answers. Everything is stamped SPECIMEN. Two sets:
 //   npm run gen -- dev    (10 hand-written traps, used while building)
 //   npm run gen -- test   (30 randomised, varied-layout meetings, held out for the final score)
+import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync, existsSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import puppeteer, { type Page } from "puppeteer-core";
 import { evaluateMeeting } from "../src/engine/evaluate";
@@ -211,7 +213,26 @@ function factsFor(s: Scenario, docPaths: Record<string, string>): Fact[] {
   for (const [id, c] of Object.entries(s.minutesClaims)) {
     if (c.placeCode) facts.push({ kind: "claimed_location", directorId: id, placeCode: c.placeCode, source: "minutes", cite: { docId: `${s.id}/minutes.pdf`, page: 1, quote: c.text } });
   }
+  for (const line of s.recording ?? []) {
+    if (line.claim) facts.push({ kind: "claimed_location", directorId: line.speaker, placeCode: line.claim, source: "recording", cite: { docId: `${s.id}/recording.wav`, quote: line.text } });
+  }
   return facts;
+}
+
+// Distinct synthetic voices per speaker (Windows has two voices; pitch and rate make four).
+const VOICE: Record<string, { voice: number; pitch: string; rate: string }> = {
+  A: { voice: 1, pitch: "+0%", rate: "0%" },
+  B: { voice: 0, pitch: "-10%", rate: "-5%" },
+  C: { voice: 1, pitch: "+25%", rate: "-5%" },
+  D: { voice: 0, pitch: "+15%", rate: "5%" },
+};
+
+function makeRecording(s: Scenario, outWav: string) {
+  const lines = (s.recording ?? []).map((l) => ({ ...(VOICE[l.speaker] ?? VOICE.A), text: l.text }));
+  const json = join(tmpdir(), `sp-rec-${s.id}.json`);
+  writeFileSync(json, JSON.stringify(lines));
+  const ps1 = join(import.meta.dirname, "tts.ps1");
+  execFileSync("powershell", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", ps1, "-Json", json, "-Out", outWav], { stdio: "pipe" });
 }
 
 async function main() {
@@ -270,6 +291,7 @@ async function main() {
       }
     }
 
+    if (s.recording?.length) makeRecording(s, join(dir, "recording.wav"));
     const facts = factsFor(s, docPaths);
     const expected = evaluateMeeting(s.company, s.meeting, facts, s.jurisdiction);
     writeFileSync(join(ANSWERS, `${s.id}.json`), JSON.stringify({ scenario: { id: s.id, trap: s.trap, jurisdiction: s.jurisdiction, style }, company: s.company, meeting: s.meeting, facts, expected }, null, 2));

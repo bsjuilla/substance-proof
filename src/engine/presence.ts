@@ -109,8 +109,20 @@ export function resolvePresence(
   const claims = facts.filter(
     (f): f is Extract<Fact, { kind: "claimed_location" }> => f.kind === "claimed_location" && f.directorId === directorId,
   );
-  const claimedJ = claims.map((c) => jurisdictionOf(c.placeCode)).find((j) => j !== undefined);
+  const claimOf = (src: "minutes" | "recording") =>
+    claims.filter((c) => c.source === src).map((c) => ({ j: jurisdictionOf(c.placeCode), c })).find((x) => x.j !== undefined);
+  const fromMinutes = claimOf("minutes");
+  const fromRecording = claimOf("recording");
+  const claimedJ = fromMinutes?.j ?? fromRecording?.j ?? claims.map((c) => jurisdictionOf(c.placeCode)).find((j) => j !== undefined);
+  const conflict =
+    fromMinutes && fromRecording && fromMinutes.j !== fromRecording.j
+      ? { minutes: name(fromMinutes.j), recording: name(fromRecording.j), cites: [fromMinutes.c.cite, fromRecording.c.cite] }
+      : undefined;
+  const withConflict = (r: PresenceResult): PresenceResult => (conflict ? { ...r, claimConflict: conflict } : r);
 
+  return withConflict(fromIndependent());
+
+  function fromIndependent(): PresenceResult {
   if (loc.kind === "located") {
     const present = loc.j === target;
     const res: PresenceResult = {
@@ -153,4 +165,5 @@ export function resolvePresence(
       : loc.why,
     cites: claims.map((c) => c.cite),
   };
+  }
 }

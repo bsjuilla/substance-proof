@@ -113,7 +113,36 @@ export function matchDirector(rawName: string, roster: Director[]): Director | u
   if (exact) return exact;
   const last = n.split(" ").pop()!;
   const byLast = roster.filter((d) => norm(d.name).split(" ").pop() === last);
-  return byLast.length === 1 ? byLast[0] : undefined;
+  if (byLast.length === 1) return byLast[0];
+  return fuzzyDirector(n, roster);
+}
+
+/** Edit distance between two strings. */
+export function editDistance(a: string, b: string): number {
+  const prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    let diag = prev[0];
+    prev[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const tmp = prev[j];
+      prev[j] = Math.min(prev[j] + 1, prev[j - 1] + 1, diag + (a[i - 1] === b[j - 1] ? 0 : 1));
+      diag = tmp;
+    }
+  }
+  return prev[b.length];
+}
+
+/** Spelling slips from speech recognition ("Bruno Castel", "Chandra Velaso"): accept only a clear,
+ *  unique closest match within a small edit distance; otherwise refuse. */
+function fuzzyDirector(n: string, roster: Director[]): Director | undefined {
+  const scored = roster
+    .map((d) => ({ d, dist: editDistance(n, norm(d.name)) }))
+    .sort((x, y) => x.dist - y.dist);
+  const best = scored[0];
+  if (!best) return undefined;
+  const limit = Math.max(2, Math.floor(norm(best.d.name).length * 0.15));
+  const runnerUp = scored[1]?.dist ?? Infinity;
+  return best.dist <= limit && runnerUp - best.dist >= 3 ? best.d : undefined;
 }
 
 export type ToFactsResult = {
@@ -122,12 +151,20 @@ export type ToFactsResult = {
   rejected: { file: string; reason: string }[];
 };
 
-export function toFacts(items: { docId: string; extraction: Extraction }[], roster: Director[]): ToFactsResult {
+export type ExtractedItem = {
+  docId: string;
+  extraction: Extraction;
+  /** For recordings: start time of each numbered turn, so a claim can cite its timestamp. */
+  turnStartsMs?: number[];
+};
+
+export function toFacts(items: ExtractedItem[], roster: Director[]): ToFactsResult {
   const facts: Fact[] = [];
   const rejected: ToFactsResult["rejected"] = [];
   let meetingWindow: ToFactsResult["meetingWindow"];
 
-  for (const { docId, extraction } of items) {
+  for (const { docId, extraction, turnStartsMs } of items) {
+    const isRecording = !!turnStartsMs;
     if (extraction.document_type === "minutes") {
       const mtz = zoneOrPlace(extraction.meeting.tz, extraction.meeting.place_text);
       const s = localToUtc(extraction.meeting.start_local, mtz);
@@ -141,7 +178,9 @@ export function toFacts(items: { docId: string; extraction: Extraction }[], rost
         rejected.push({ file: docId, reason: `name "${f.person_name}" matches no director` });
         continue;
       }
-      const cite: Citation = { docId, page: f.page, quote: f.quote };
+      const cite: Citation = isRecording
+        ? { docId, timestampSec: Math.round((turnStartsMs![f.page - 1] ?? 0) / 100) / 10, quote: f.quote }
+        : { docId, page: f.page, quote: f.quote };
       if (f.kind === "flight_leg") {
         const dep = localToUtc(f.depart_local, zoneOrPlace(f.depart_tz, f.origin_code));
         const arr = localToUtc(f.arrive_local, zoneOrPlace(f.arrive_tz, f.dest_code));
@@ -165,7 +204,7 @@ export function toFacts(items: { docId: string; extraction: Extraction }[], rost
           rejected.push({ file: docId, reason: `claimed place "${f.place}" not recognised` });
           continue;
         }
-        facts.push({ kind: "claimed_location", directorId: dir.id, placeCode: place, source: "minutes", cite });
+        facts.push({ kind: "claimed_location", directorId: dir.id, placeCode: place, source: isRecording ? "recording" : "minutes", cite });
       }
     }
   }

@@ -27,6 +27,8 @@ export type Scenario = {
   minutesClaims: Record<string, { text: string; placeCode?: string }>;
   /** Independent evidence per director. A director with no entry has NO evidence on file. */
   travel: Record<string, TravelItem[]>;
+  /** Optional meeting recording (synthetic voices). `claim` = where the speaker SAYS they are (truth for scoring). */
+  recording?: { speaker: string; text: string; claim?: string }[];
 };
 
 const NAMES: Record<string, string> = {
@@ -102,6 +104,13 @@ export const SCENARIOS: Scenario[] = [
     meeting: jeMeeting("m02", { mode: "hybrid" }),
     minutesClaims: { A: claimJe, B: { text: "by video from Dubai", placeCode: "CITY:DUBAI" }, C: claimJe },
     travel: { A: [inJersey()], B: [inDubai()], C: [inJersey()] },
+    recording: [
+      { speaker: "A", text: "Good morning. Let's take the roll call. Please give your name and say where you are." },
+      { speaker: "A", text: "Alice Marlowe, here in the boardroom in St Helier.", claim: "CITY:STHELIER" },
+      { speaker: "B", text: "Bruno Castell. I'm joining by video from Dubai today.", claim: "CITY:DUBAI" },
+      { speaker: "C", text: "Chandra Velloso, also in the room in St Helier.", claim: "CITY:STHELIER" },
+      { speaker: "A", text: "Thank you. We are quorate. First item, the quarterly accounts." },
+    ],
   },
   {
     id: "m03",
@@ -146,6 +155,13 @@ export const SCENARIOS: Scenario[] = [
       B: [{ type: "flight", origin: "DXB", dest: "LHR", departUtc: "2026-03-12T10:30:00Z", arriveUtc: "2026-03-12T18:45:00Z", flightNo: "SA 118" }],
       C: [inJersey()],
     },
+    recording: [
+      { speaker: "A", text: "Shall we start? Roll call please, name and location." },
+      { speaker: "A", text: "Alice Marlowe, St Helier.", claim: "CITY:STHELIER" },
+      { speaker: "C", text: "Chandra Velloso, I'm in St Helier as well.", claim: "CITY:STHELIER" },
+      { speaker: "B", text: "Bruno Castell here. Apologies for the noise, I'm at the gate at Dubai airport, boarding shortly.", claim: "CITY:DUBAI" },
+      { speaker: "A", text: "Noted, Bruno. Let's move through the agenda quickly." },
+    ],
   },
   {
     id: "m07",
@@ -236,6 +252,30 @@ export const SCENARIOS: Scenario[] = [
       C: [inDubaiMay()],
       D: [inDubaiMay()],
     },
+  },
+  {
+    // HERO demo meeting. Minutes say all three directors were in St Helier for a strategic decision.
+    // Evidence: only A was. B spoke from Dubai on the recording and stayed at a Dubai hotel.
+    // C's e-ticket shows the plane landing in Jersey 40 minutes after the meeting started.
+    id: "m11",
+    jurisdiction: "JE",
+    trap: "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C landed mid-meeting. Quorum fails.",
+    style: { boardingPass: "eticket", folio: "table", minutes: "table", passengerName: "airline" },
+    company: JE_CO(["A", "B", "C"]),
+    meeting: jeMeeting("m11", { isStrategic: true }),
+    minutesClaims: { A: claimJe, B: claimJe, C: claimJe },
+    travel: {
+      A: [inJersey()],
+      B: [inDubai()],
+      C: [{ type: "flight", origin: "LHR", dest: "JER", departUtc: "2026-03-12T08:35:00Z", arriveUtc: "2026-03-12T09:40:00Z", flightNo: "SA 233" }],
+    },
+    recording: [
+      { speaker: "A", text: "Good morning everyone. This is a strategic meeting, so a roll call for the record: name and where you are, please." },
+      { speaker: "A", text: "Alice Marlowe, chairing from the boardroom in St Helier.", claim: "CITY:STHELIER" },
+      { speaker: "B", text: "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed.", claim: "CITY:DUBAI" },
+      { speaker: "A", text: "And Chandra? We can't hear Chandra yet. We'll proceed and note her arrival." },
+      { speaker: "A", text: "First item: the proposed acquisition of a forty per cent interest in Meridian Logistics." },
+    ],
   },
 ];
 

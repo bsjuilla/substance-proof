@@ -1,0 +1,22 @@
+# secrets: never commit
+.env
+.env.*
+!.env.example
+
+# dependencies and build output
+node_modules/
+dist/
+.next/
+out/
+
+# generated synthetic files can be regenerated; keep only the small sample set committed
+synthetic/generated/
+eval/runs/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.log
+
+# local reference copies of third-party legal text (cite the source URL instead)
+docs/sources/

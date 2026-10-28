@@ -41,6 +41,16 @@ export function jurisdictionOf(placeCode: string): string | undefined {
   return PLACES[placeCode.trim().toUpperCase()];
 }
 
+const PLACE_NAMES: Record<string, string> = {
+  "CITY:STHELIER": "St Helier", "CITY:JERSEY": "Jersey", "CITY:SINGAPORE": "Singapore", "CITY:DUBAI": "Dubai",
+  "CITY:LONDON": "London", "CITY:HONGKONG": "Hong Kong", "CITY:PARIS": "Paris", "CITY:PORTLOUIS": "Port Louis", "CITY:BRIDGETOWN": "Bridgetown",
+};
+
+/** Human-readable place: "CITY:STHELIER" -> "St Helier"; airport codes stay as codes ("JER"). */
+export function placeName(code: string): string {
+  return PLACE_NAMES[code.trim().toUpperCase()] ?? code;
+}
+
 export const JURISDICTION_NAMES: Record<string, string> = {
   JE: "Jersey",
   SG: "Singapore",

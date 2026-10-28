@@ -1,0 +1,282 @@
+{
+ "id": "m10",
+ "createdAt": "2026-10-28T15:24:40.250Z",
+ "model": "muse-spark-1.3",
+ "mode": "replay",
+ "company": {
+  "id": "ACME-SG",
+  "name": "Northwind Capital Pte Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Alice Marlowe",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   },
+   {
+    "id": "B",
+    "name": "Bruno Castell",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   },
+   {
+    "id": "C",
+    "name": "Chandra Velloso",
+    "hasStrategicAuthority": true,
+    "isChair": true
+   },
+   {
+    "id": "D",
+    "name": "Dmitri Ashby",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "SG",
+ "meeting": {
+  "id": "m10",
+  "startUtc": "2026-05-19T02:00:00Z",
+  "endUtc": "2026-05-19T04:00:00Z",
+  "mode": "hybrid",
+  "venueCode": "CITY:SINGAPORE",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "chairId": "C",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "19 May 2026",
+ "docs": [
+  {
+   "docId": "m10/minutes.pdf",
+   "kind": "minutes"
+  },
+  {
+   "docId": "m10/stay/folio_A_SINGAPORE.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m10/stay/folio_B_SINGAPORE.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m10/stay/folio_C_DUBAI.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m10/stay/folio_D_DUBAI.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m10/travel/BP_B_DXB-SIN.png",
+   "kind": "boarding_pass"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:SINGAPORE",
+   "source": "minutes",
+   "cite": {
+    "docId": "m10/minutes.pdf",
+    "page": 1,
+    "quote": "present in Singapore"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:SINGAPORE",
+   "source": "minutes",
+   "cite": {
+    "docId": "m10/minutes.pdf",
+    "page": 1,
+    "quote": "present in Singapore"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:DUBAI",
+   "source": "minutes",
+   "cite": {
+    "docId": "m10/minutes.pdf",
+    "page": 1,
+    "quote": "(Chairman) by video from Dubai"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "D",
+   "placeCode": "CITY:DUBAI",
+   "source": "minutes",
+   "cite": {
+    "docId": "m10/minutes.pdf",
+    "page": 1,
+    "quote": "by video from Dubai"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "A",
+   "placeCode": "CITY:SINGAPORE",
+   "checkInUtc": "2026-05-18T05:00:00Z",
+   "checkOutUtc": "2026-05-21T02:00:00Z",
+   "cite": {
+    "docId": "m10/stay/folio_A_SINGAPORE.pdf",
+    "page": 1,
+    "quote": "18 May 2026 13:00 (GMT+8)"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "B",
+   "placeCode": "CITY:SINGAPORE",
+   "checkInUtc": "2026-05-18T16:30:00Z",
+   "checkOutUtc": "2026-05-20T02:00:00Z",
+   "cite": {
+    "docId": "m10/stay/folio_B_SINGAPORE.pdf",
+    "page": 1,
+    "quote": "19 May 2026 00:30 (GMT+8)"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "C",
+   "placeCode": "CITY:DUBAI",
+   "checkInUtc": "2026-05-16T20:00:00Z",
+   "checkOutUtc": "2026-05-22T08:00:00Z",
+   "cite": {
+    "docId": "m10/stay/folio_C_DUBAI.pdf",
+    "page": 1,
+    "quote": "17 May 2026 00:00 (GST)"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "D",
+   "placeCode": "CITY:DUBAI",
+   "checkInUtc": "2026-05-16T20:00:00Z",
+   "checkOutUtc": "2026-05-22T08:00:00Z",
+   "cite": {
+    "docId": "m10/stay/folio_D_DUBAI.pdf",
+    "page": 1,
+    "quote": "17 May 2026 00:00 (GST)"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "DXB",
+   "destCode": "SIN",
+   "departUtc": "2026-05-18T08:30:00Z",
+   "arriveUtc": "2026-05-18T15:50:00Z",
+   "cite": {
+    "docId": "m10/travel/BP_B_DXB-SIN.png",
+    "page": 1,
+    "quote": "SA 77"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "m10",
+  "jurisdiction": "SG",
+  "verdict": "PASS",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:SINGAPORE covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m10/stay/folio_A_SINGAPORE.pdf",
+      "page": 1,
+      "quote": "18 May 2026 13:00 (GMT+8)"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:SINGAPORE covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m10/stay/folio_B_SINGAPORE.pdf",
+      "page": 1,
+      "quote": "19 May 2026 00:30 (GMT+8)"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "absent",
+    "elsewhere": "AE",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:DUBAI covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m10/stay/folio_C_DUBAI.pdf",
+      "page": 1,
+      "quote": "17 May 2026 00:00 (GST)"
+     }
+    ]
+   },
+   {
+    "directorId": "D",
+    "status": "absent",
+    "elsewhere": "AE",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:DUBAI covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m10/stay/folio_D_DUBAI.pdf",
+      "page": 1,
+      "quote": "17 May 2026 00:00 (GST)"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "SG-virtual-50pct-or-chair",
+    "label": "Virtual or hybrid meeting: at least 50% of strategic directors in Singapore, or the chairman",
+    "status": "pass",
+    "basis": "regulator",
+    "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+    "detail": "Directors with strategic authority: 4; 2 needed for 50%. Evidence: 2 present, 2 absent, 0 unproven. Chairman physically in Singapore: no."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I reviewed the gaps for the 19 May 2026 meeting of Northwind Capital Pte Ltd. No evidence requests or minutes corrections were required.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "19 May 2026",
+     "jurisdiction": "SG",
+     "gaps": []
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0539,
+ "seconds": 49
+}

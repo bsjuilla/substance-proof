@@ -1,4 +1,4 @@
-import { jurisdictionOf, JURISDICTION_NAMES } from "./gazetteer";
+import { jurisdictionOf, JURISDICTION_NAMES, placeName } from "./gazetteer";
 import type { Citation, Fact, Meeting, PresenceResult } from "./types";
 
 // Where was a director during a meeting window, judged ONLY from independent evidence
@@ -41,9 +41,9 @@ export function independentLocation(
       const j = jurisdictionOf(f.placeCode);
       const from = ms(f.checkInUtc);
       const to = ms(f.checkOutUtc);
-      stays.push({ from, to, j, cite: f.cite, what: `hotel stay in ${f.placeCode}` });
-      anchors.push({ t: from, j, cite: f.cite, what: `hotel check-in ${f.placeCode}` });
-      anchors.push({ t: to, j, cite: f.cite, what: `hotel check-out ${f.placeCode}` });
+      stays.push({ from, to, j, cite: f.cite, what: `hotel stay in ${placeName(f.placeCode)}` });
+      anchors.push({ t: from, j, cite: f.cite, what: `hotel check-in in ${placeName(f.placeCode)}` });
+      anchors.push({ t: to, j, cite: f.cite, what: `hotel check-out in ${placeName(f.placeCode)}` });
     } else if (f.kind === "flight_leg") {
       const dep = ms(f.departUtc);
       const arr = ms(f.arriveUtc);

@@ -1,0 +1,571 @@
+{
+ "id": "m11",
+ "createdAt": "2026-10-28T15:23:00.642Z",
+ "model": "muse-spark-1.3",
+ "mode": "replay",
+ "company": {
+  "id": "ACME-JE",
+  "name": "Acme Holdings (Jersey) Limited",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Alice Marlowe",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   },
+   {
+    "id": "B",
+    "name": "Bruno Castell",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   },
+   {
+    "id": "C",
+    "name": "Chandra Velloso",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "m11",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "m11/minutes.pdf",
+   "kind": "minutes"
+  },
+  {
+   "docId": "m11/recording.wav",
+   "kind": "recording",
+   "transcript": [
+    {
+     "startMs": 460,
+     "endMs": 5580,
+     "text": "Good morning everyone.",
+     "speaker": "A"
+    },
+    {
+     "startMs": 6140,
+     "endMs": 23900,
+     "text": "This is a strategic meeting so a roll call for the record name and where you are please",
+     "speaker": "A"
+    },
+    {
+     "startMs": 27260,
+     "endMs": 38460,
+     "text": "Alice Marlowe chairing from the boardroom in in St Helier Helier",
+     "speaker": "A"
+    },
+    {
+     "startMs": 39900,
+     "endMs": 46060,
+     "text": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed",
+     "speaker": "B"
+    },
+    {
+     "startMs": 47820,
+     "endMs": 51900,
+     "text": "And Chandra",
+     "speaker": "A"
+    },
+    {
+     "startMs": 52620,
+     "endMs": 58700,
+     "text": "We can't hear Chandra yet.",
+     "speaker": "A"
+    },
+    {
+     "startMs": 59740,
+     "endMs": 65340,
+     "text": "We'll proceed and note her arrival.",
+     "speaker": "A"
+    },
+    {
+     "startMs": 68380,
+     "endMs": 84060,
+     "text": "First item the proposed acquisition of a 40% interest in Meridian Logistics",
+     "speaker": "A"
+    }
+   ]
+  },
+  {
+   "docId": "m11/stay/folio_A_STHELIER.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m11/stay/folio_B_DUBAI.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
+   "kind": "other"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m11/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m11/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m11/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "recording",
+   "cite": {
+    "docId": "m11/recording.wav",
+    "timestampSec": 27.3,
+    "quote": "Alice Marlowe chairing from the boardroom in in St Helier Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:DUBAI",
+   "source": "recording",
+   "cite": {
+    "docId": "m11/recording.wav",
+    "timestampSec": 39.9,
+    "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "checkInUtc": "2026-03-11T15:00:00Z",
+   "checkOutUtc": "2026-03-13T09:00:00Z",
+   "cite": {
+    "docId": "m11/stay/folio_A_STHELIER.pdf",
+    "page": 1,
+    "quote": "Arrival 11 Mar 2026 15:00 (GMT)"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "B",
+   "placeCode": "CITY:DUBAI",
+   "checkInUtc": "2026-03-10T20:00:00Z",
+   "checkOutUtc": "2026-03-14T08:00:00Z",
+   "cite": {
+    "docId": "m11/stay/folio_B_DUBAI.pdf",
+    "page": 1,
+    "quote": "Thank you for staying with us. Folio settled by card on departure."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "LHR",
+   "destCode": "JER",
+   "departUtc": "2026-03-12T08:35:00Z",
+   "arriveUtc": "2026-03-12T09:40:00Z",
+   "cite": {
+    "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
+    "page": 1,
+    "quote": "Fare basis YSPEC. Baggage 2PC. This receipt is not a boarding pass."
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "m11",
+  "jurisdiction": "JE",
+  "verdict": "FAIL",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:STHELIER covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m11/stay/folio_A_STHELIER.pdf",
+      "page": 1,
+      "quote": "Arrival 11 Mar 2026 15:00 (GMT)"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "absent",
+    "elsewhere": "AE",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:DUBAI covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m11/stay/folio_B_DUBAI.pdf",
+      "page": 1,
+      "quote": "Thank you for staying with us. Folio settled by card on departure."
+     },
+     {
+      "docId": "m11/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     },
+     {
+      "docId": "m11/recording.wav",
+      "timestampSec": 39.9,
+      "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "United Arab Emirates"
+    },
+    "claimConflict": {
+     "minutes": "Jersey",
+     "recording": "United Arab Emirates",
+     "cites": [
+      {
+       "docId": "m11/minutes.pdf",
+       "page": 1,
+       "quote": "present in St Helier"
+      },
+      {
+       "docId": "m11/recording.wav",
+       "timestampSec": 39.9,
+       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
+      }
+     ]
+    }
+   },
+   {
+    "directorId": "C",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
+      "page": 1,
+      "quote": "Fare basis YSPEC. Baggage 2PC. This receipt is not a boarding pass."
+     },
+     {
+      "docId": "m11/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "fail",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 1 present, 2 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "fail",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 1 present, 2 absent, 0 unproven."
+   }
+  ],
+  "contradictions": [
+   {
+    "directorId": "B",
+    "status": "absent",
+    "elsewhere": "AE",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:DUBAI covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m11/stay/folio_B_DUBAI.pdf",
+      "page": 1,
+      "quote": "Thank you for staying with us. Folio settled by card on departure."
+     },
+     {
+      "docId": "m11/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     },
+     {
+      "docId": "m11/recording.wav",
+      "timestampSec": 39.9,
+      "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "United Arab Emirates"
+    },
+    "claimConflict": {
+     "minutes": "Jersey",
+     "recording": "United Arab Emirates",
+     "cites": [
+      {
+       "docId": "m11/minutes.pdf",
+       "page": 1,
+       "quote": "present in St Helier"
+      },
+      {
+       "docId": "m11/recording.wav",
+       "timestampSec": 39.9,
+       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
+      }
+     ]
+    }
+   },
+   {
+    "directorId": "C",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
+      "page": 1,
+      "quote": "Fare basis YSPEC. Baggage 2PC. This receipt is not a boarding pass."
+     },
+     {
+      "docId": "m11/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ]
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "minutes_correction",
+    "directorId": "B",
+    "directorName": "Bruno Castell",
+    "subject": "Acme Holdings (Jersey) Limited - Minutes review 12 March 2026 - Bruno Castell",
+    "message": "Bruno Castell - Meeting date: 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This appears to differ from m11/stay/folio_B_DUBAI.pdf which states \"Thank you for staying with us. Folio settled by card on departure.\" and from m11/recording.wav which states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
+    "citations": [
+     "m11/stay/folio_B_DUBAI.pdf#p1",
+     "m11/minutes.pdf#p1",
+     "m11/recording.wav@39.9s"
+    ],
+    "status": "awaiting_approval"
+   },
+   {
+    "id": "D2",
+    "kind": "minutes_correction",
+    "directorId": "C",
+    "directorName": "Chandra Velloso",
+    "subject": "Acme Holdings (Jersey) Limited - Minutes review 12 March 2026 - Chandra Velloso",
+    "message": "Chandra Velloso - Meeting date: 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This appears to differ from m11/travel/ETKT_C_LHR-JER.pdf which states \"Fare basis YSPEC. Baggage 2PC. This receipt is not a boarding pass.\" Please review.",
+    "citations": [
+     "m11/travel/ETKT_C_LHR-JER.pdf#p1",
+     "m11/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared minutes correction drafts for Bruno Castell and Chandra Velloso for the 12 March 2026 meeting. Both drafts are awaiting approval and no evidence requests were drafted.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "B",
+       "name": "Bruno Castell",
+       "status": "absent",
+       "basis": "independent",
+       "engine_reason": "hotel stay in CITY:DUBAI covers the whole meeting.",
+       "contradiction": {
+        "claimed": "Jersey",
+        "evidence": "United Arab Emirates"
+       },
+       "minutes_vs_recording": {
+        "minutes": "Jersey",
+        "recording": "United Arab Emirates"
+       },
+       "documents": [
+        "m11/stay/folio_B_DUBAI.pdf#p1",
+        "m11/minutes.pdf#p1",
+        "m11/recording.wav@39.9s"
+       ],
+       "quotes": [
+        {
+         "doc": "m11/stay/folio_B_DUBAI.pdf",
+         "words": "Thank you for staying with us. Folio settled by card on departure."
+        },
+        {
+         "doc": "m11/minutes.pdf",
+         "words": "present in St Helier"
+        },
+        {
+         "doc": "m11/recording.wav",
+         "words": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
+        }
+       ]
+      },
+      {
+       "director_id": "C",
+       "name": "Chandra Velloso",
+       "status": "absent",
+       "basis": "independent",
+       "engine_reason": "In flight (flight LHR-JER) during part of the meeting window.",
+       "contradiction": {
+        "claimed": "Jersey",
+        "evidence": "in flight"
+       },
+       "minutes_vs_recording": null,
+       "documents": [
+        "m11/travel/ETKT_C_LHR-JER.pdf#p1",
+        "m11/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "m11/travel/ETKT_C_LHR-JER.pdf",
+         "words": "Fare basis YSPEC. Baggage 2PC. This receipt is not a boarding pass."
+        },
+        {
+         "doc": "m11/minutes.pdf",
+         "words": "present in St Helier"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_minutes_correction",
+    "args": {
+     "citations": [
+      "m11/stay/folio_B_DUBAI.pdf#p1",
+      "m11/minutes.pdf#p1",
+      "m11/recording.wav@39.9s"
+     ],
+     "director_id": "B",
+     "message": "Bruno Castell - Meeting date: 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This appears to differ from m11/stay/folio_B_DUBAI.pdf which states \"Thank you for staying with us. Folio settled by card on departure.\" and from m11/recording.wav which states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
+     "subject": "Acme Holdings (Jersey) Limited - Minutes review 12 March 2026 - Bruno Castell"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "m11/travel/ETKT_C_LHR-JER.pdf#p1",
+      "m11/minutes.pdf#p1"
+     ],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Chandra Velloso, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 for the Acme Holdings (Jersey) Limited meeting on that date.",
+     "subject": "Acme Holdings (Jersey) Limited - Documents for 12 March 2026 meeting - Chandra Velloso"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "evidence requests are only for directors whose presence is unproven"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_minutes_correction",
+    "args": {
+     "citations": [
+      "m11/travel/ETKT_C_LHR-JER.pdf#p1",
+      "m11/minutes.pdf#p1"
+     ],
+     "director_id": "C",
+     "message": "Chandra Velloso - Meeting date: 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This appears to differ from m11/travel/ETKT_C_LHR-JER.pdf which states \"Fare basis YSPEC. Baggage 2PC. This receipt is not a boarding pass.\" Please review.",
+     "subject": "Acme Holdings (Jersey) Limited - Minutes review 12 March 2026 - Chandra Velloso"
+    },
+    "result": {
+     "draft_id": "D2",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 1
+ },
+ "costUsd": 0.0636,
+ "seconds": 59
+}

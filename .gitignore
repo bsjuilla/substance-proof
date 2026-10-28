@@ -13,6 +13,9 @@ out/
 synthetic/generated/
 eval/runs/
 
+# user uploads in live mode (may contain real documents): never commit
+uploads/
+
 # OS and editor
 .DS_Store
 Thumbs.db

@@ -1,0 +1,330 @@
+{
+ "id": "m03",
+ "createdAt": "2026-10-28T15:23:51.550Z",
+ "model": "muse-spark-1.3",
+ "mode": "replay",
+ "company": {
+  "id": "ACME-JE",
+  "name": "Acme Holdings (Jersey) Limited",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Alice Marlowe",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   },
+   {
+    "id": "B",
+    "name": "Bruno Castell",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   },
+   {
+    "id": "C",
+    "name": "Chandra Velloso",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "m03",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "isStrategic": false,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "m03/minutes.pdf",
+   "kind": "minutes"
+  },
+  {
+   "docId": "m03/stay/folio_A_STHELIER.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m03/stay/folio_C_STHELIER.pdf",
+   "kind": "hotel_folio"
+  },
+  {
+   "docId": "m03/travel/BP_B_JER-LHR.png",
+   "kind": "boarding_pass"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m03/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m03/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m03/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "checkInUtc": "2026-03-11T15:00:00Z",
+   "checkOutUtc": "2026-03-13T09:00:00Z",
+   "cite": {
+    "docId": "m03/stay/folio_A_STHELIER.pdf",
+    "page": 1,
+    "quote": "11 Mar 2026 15:00 (GMT)"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "checkInUtc": "2026-03-11T15:00:00Z",
+   "checkOutUtc": "2026-03-13T09:00:00Z",
+   "cite": {
+    "docId": "m03/stay/folio_C_STHELIER.pdf",
+    "page": 1,
+    "quote": "11 Mar 2026 15:00 (GMT)"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "LHR",
+   "departUtc": "2026-03-12T10:30:00Z",
+   "arriveUtc": "2026-03-12T11:45:00Z",
+   "cite": {
+    "docId": "m03/travel/BP_B_JER-LHR.png",
+    "page": 1,
+    "quote": "BRUNO CASTELL"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "m03",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:STHELIER covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m03/stay/folio_A_STHELIER.pdf",
+      "page": 1,
+      "quote": "11 Mar 2026 15:00 (GMT)"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight JER-LHR) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "m03/travel/BP_B_JER-LHR.png",
+      "page": 1,
+      "quote": "BRUNO CASTELL"
+     },
+     {
+      "docId": "m03/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   },
+   {
+    "directorId": "C",
+    "status": "present",
+    "basis": "independent",
+    "reason": "hotel stay in CITY:STHELIER covers the whole meeting.",
+    "cites": [
+     {
+      "docId": "m03/stay/folio_C_STHELIER.pdf",
+      "page": 1,
+      "quote": "11 Mar 2026 15:00 (GMT)"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "not_applicable",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "No strategic decisions were taken at this meeting."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "not_applicable",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "No strategic decisions were taken at this meeting."
+   }
+  ],
+  "contradictions": [
+   {
+    "directorId": "B",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight JER-LHR) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "m03/travel/BP_B_JER-LHR.png",
+      "page": 1,
+      "quote": "BRUNO CASTELL"
+     },
+     {
+      "docId": "m03/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ]
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "minutes_correction",
+    "directorId": "B",
+    "directorName": "Bruno Castell",
+    "subject": "Minutes review - 12 March 2026 - Bruno Castell",
+    "message": "Hello, Please review the record for Bruno Castell for the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"BRUNO CASTELL\". Please advise.",
+    "citations": [
+     "m03/travel/BP_B_JER-LHR.png#p1",
+     "m03/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I reviewed the gaps for the meeting on 12 March 2026. I prepared one minutes correction draft for Bruno Castell for review.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "B",
+       "name": "Bruno Castell",
+       "status": "absent",
+       "basis": "independent",
+       "engine_reason": "In flight (flight JER-LHR) during part of the meeting window.",
+       "contradiction": {
+        "claimed": "Jersey",
+        "evidence": "in flight"
+       },
+       "minutes_vs_recording": null,
+       "documents": [
+        "m03/travel/BP_B_JER-LHR.png#p1",
+        "m03/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "m03/travel/BP_B_JER-LHR.png",
+         "words": "BRUNO CASTELL"
+        },
+        {
+         "doc": "m03/minutes.pdf",
+         "words": "present in St Helier"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_minutes_correction",
+    "args": {
+     "citations": [
+      "m03/travel/BP_B_JER-LHR.png#p1",
+      "m03/minutes.pdf#p1"
+     ],
+     "director_id": "B",
+     "message": "Hello, Please review the record for Bruno Castell for the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"BRUNO CASTELL\". Please advise.",
+     "subject": "Minutes review - 12 March 2026 - Bruno Castell"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0412,
+ "seconds": 51
+}

@@ -89,5 +89,6 @@ Rules:
 - Boarding pass: one flight_leg fact with the airport codes, departure and arrival local times. Put the passenger's name in person_name.
 - Hotel folio: one hotel_stay fact: place is the city and country printed, check-in = Arrival, check-out = Departure, with their zone labels. Guest name in person_name.
 - Minutes: set meeting.start_local, meeting.end_local, meeting.tz and meeting.place_text from the heading. Then one claimed_location fact per person in the attendance table: place is the place named in their "Attended" text (for example "St Helier" or "Dubai"), quote is that attendance text copied exactly, person_name is the person's name.
-- For fields that do not apply to a fact, use null. quote must be copied exactly from the document. page is the 1-based page number.
+- For fields that do not apply to a fact, use null. page is the 1-based page number.
+- quote must be copied exactly from the document and must be the text that proves the fact: for a flight, the line or cells with the airports and times; for a hotel, the arrival or departure line (with the hotel's city if on the same line); for minutes, the person's attendance text.
 - Do not decide whether anyone met any legal test. Do not add facts that are not printed.`;

@@ -1,8 +1,8 @@
 {
   "set": "test",
   "model": "replay:2026-10-28T15-28-35-483Z",
-  "commit": "77f689e",
-  "runAt": "2026-10-28T15:50:17.848Z",
+  "commit": "f235eb8",
+  "runAt": "2026-10-28T18:26:57.422Z",
   "meetings": 30,
   "costUsd": 0.9211,
   "factsExact": "166/166 (100.0%)",
@@ -35,7 +35,7 @@
     },
     {
       "id": "t02",
-      "trap": "Mei Lin Tavernier claimed present but late arrival; Mei Lin Tavernier: late arrival (time-zone check); Kenji Halloran claimed present but late arrival; Kenji Halloran: late arrival (time-zone check); Marcus Oyelaran claimed present but late arrival; Marcus Oyelaran: late arrival (time-zone check); no evidence for Tomasz Wierzba",
+      "trap": "minutes say Mei Lin Tavernier was there, but evidence shows a flight landing after it started; minutes say Kenji Halloran was there, but evidence shows a flight landing after it started; minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Tomasz Wierzba",
       "style": {
         "boardingPass": "eticket",
         "folio": "letter",
@@ -51,7 +51,7 @@
     },
     {
       "id": "t03",
-      "trap": "Helena Brookfield claimed present but late arrival; Helena Brookfield: late arrival (time-zone check)",
+      "trap": "minutes say Helena Brookfield was there, but evidence shows a flight landing after it started",
       "style": {
         "boardingPass": "photo",
         "folio": "table",
@@ -67,7 +67,7 @@
     },
     {
       "id": "t04",
-      "trap": "no evidence for Helena Brookfield",
+      "trap": "no travel or hotel evidence for Helena Brookfield",
       "style": {
         "boardingPass": "photo",
         "folio": "letter",
@@ -83,7 +83,7 @@
     },
     {
       "id": "t05",
-      "trap": "Daniel Mbeki-Shaw claimed present but stay out",
+      "trap": "minutes say Daniel Mbeki-Shaw was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "eticket",
         "folio": "letter",
@@ -99,7 +99,7 @@
     },
     {
       "id": "t06",
-      "trap": "no evidence for Ana Sokolova",
+      "trap": "no travel or hotel evidence for Ana Sokolova",
       "style": {
         "boardingPass": "eticket",
         "folio": "table",
@@ -115,7 +115,7 @@
     },
     {
       "id": "t07",
-      "trap": "Priya Anand-Lowe: flight during (time-zone check); no evidence for Lucia Ferrante",
+      "trap": "no travel or hotel evidence for Lucia Ferrante",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -131,7 +131,7 @@
     },
     {
       "id": "t08",
-      "trap": "Daniel Mbeki-Shaw claimed present but late arrival; Daniel Mbeki-Shaw: late arrival (time-zone check); Lucia Ferrante claimed present but flight during; Lucia Ferrante: flight during (time-zone check)",
+      "trap": "minutes say Daniel Mbeki-Shaw was there, but evidence shows a flight landing after it started; minutes say Lucia Ferrante was there, but evidence shows a flight leaving during the meeting",
       "style": {
         "boardingPass": "eticket",
         "folio": "table",
@@ -147,7 +147,7 @@
     },
     {
       "id": "t09",
-      "trap": "Helena Brookfield claimed present but stay out; Samuel Achterberg claimed present but stay out",
+      "trap": "minutes say Helena Brookfield was there, but evidence shows a hotel elsewhere; minutes say Samuel Achterberg was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -163,7 +163,7 @@
     },
     {
       "id": "t10",
-      "trap": "no evidence for Helena Brookfield",
+      "trap": "no travel or hotel evidence for Helena Brookfield",
       "style": {
         "boardingPass": "eticket",
         "folio": "table",
@@ -195,15 +195,15 @@
     },
     {
       "id": "t12",
-      "trap": "Oliver Strand claimed present but stay out; Tomasz Wierzba: flight during (time-zone check)",
+      "trap": "minutes say Oliver Strand was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "photo",
         "folio": "table",
         "minutes": "table",
         "passengerName": "airline"
       },
-      "expected": "FAIL",
-      "got": "FAIL",
+      "expected": "REVIEW",
+      "got": "REVIEW",
       "facts": "6/6",
       "missed": [],
       "spurious": [],
@@ -211,7 +211,7 @@
     },
     {
       "id": "t13",
-      "trap": "no evidence for Fatima Zahra Bennis",
+      "trap": "no travel or hotel evidence for Fatima Zahra Bennis",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -227,7 +227,7 @@
     },
     {
       "id": "t14",
-      "trap": "Helena Brookfield claimed present but stay out",
+      "trap": "minutes say Helena Brookfield was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -243,7 +243,7 @@
     },
     {
       "id": "t15",
-      "trap": "Marcus Oyelaran claimed present but late arrival; Marcus Oyelaran: late arrival (time-zone check); no evidence for Kenji Halloran",
+      "trap": "minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Kenji Halloran",
       "style": {
         "boardingPass": "photo",
         "folio": "table",
@@ -275,7 +275,7 @@
     },
     {
       "id": "t17",
-      "trap": "no evidence for Tomasz Wierzba; no evidence for Helena Brookfield; Lucia Ferrante claimed present but late arrival; Lucia Ferrante: late arrival (time-zone check)",
+      "trap": "no travel or hotel evidence for Tomasz Wierzba; no travel or hotel evidence for Helena Brookfield; minutes say Lucia Ferrante was there, but evidence shows a flight landing after it started",
       "style": {
         "boardingPass": "eticket",
         "folio": "table",
@@ -307,7 +307,7 @@
     },
     {
       "id": "t19",
-      "trap": "Hugo Lindqvist claimed present but stay out; Helena Brookfield claimed present but flight during; Helena Brookfield: flight during (time-zone check)",
+      "trap": "minutes say Hugo Lindqvist was there, but evidence shows a hotel elsewhere; minutes say Helena Brookfield was there, but evidence shows a flight leaving during the meeting",
       "style": {
         "boardingPass": "photo",
         "folio": "table",
@@ -323,7 +323,7 @@
     },
     {
       "id": "t20",
-      "trap": "no evidence for Lucia Ferrante",
+      "trap": "no travel or hotel evidence for Lucia Ferrante",
       "style": {
         "boardingPass": "card",
         "folio": "table",
@@ -339,7 +339,7 @@
     },
     {
       "id": "t21",
-      "trap": "no evidence for Daniel Mbeki-Shaw; Tomasz Wierzba: late arrival (time-zone check)",
+      "trap": "no travel or hotel evidence for Daniel Mbeki-Shaw",
       "style": {
         "boardingPass": "eticket",
         "folio": "letter",
@@ -355,7 +355,7 @@
     },
     {
       "id": "t22",
-      "trap": "no evidence for Lucia Ferrante; Ana Sokolova claimed present but stay out",
+      "trap": "no travel or hotel evidence for Lucia Ferrante; minutes say Ana Sokolova was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "eticket",
         "folio": "table",
@@ -387,15 +387,15 @@
     },
     {
       "id": "t24",
-      "trap": "Tomasz Wierzba claimed present but stay out; Mei Lin Tavernier: late arrival (time-zone check)",
+      "trap": "minutes say Tomasz Wierzba was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "eticket",
         "folio": "letter",
         "minutes": "prose",
         "passengerName": "airline"
       },
-      "expected": "FAIL",
-      "got": "FAIL",
+      "expected": "REVIEW",
+      "got": "REVIEW",
       "facts": "10/10",
       "missed": [],
       "spurious": [],
@@ -403,7 +403,7 @@
     },
     {
       "id": "t25",
-      "trap": "Grace Whitlock claimed present but stay out; no evidence for Helena Brookfield",
+      "trap": "minutes say Grace Whitlock was there, but evidence shows a hotel elsewhere; no travel or hotel evidence for Helena Brookfield",
       "style": {
         "boardingPass": "photo",
         "folio": "letter",
@@ -419,7 +419,7 @@
     },
     {
       "id": "t26",
-      "trap": "Lucia Ferrante claimed present but late arrival; Lucia Ferrante: late arrival (time-zone check)",
+      "trap": "minutes say Lucia Ferrante was there, but evidence shows a flight landing after it started",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -435,7 +435,7 @@
     },
     {
       "id": "t27",
-      "trap": "no evidence for Tomasz Wierzba; Kenji Halloran claimed present but stay out",
+      "trap": "no travel or hotel evidence for Tomasz Wierzba; minutes say Kenji Halloran was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -451,7 +451,7 @@
     },
     {
       "id": "t28",
-      "trap": "Hugo Lindqvist claimed present but flight during; Hugo Lindqvist: flight during (time-zone check)",
+      "trap": "minutes say Hugo Lindqvist was there, but evidence shows a flight leaving during the meeting",
       "style": {
         "boardingPass": "card",
         "folio": "table",
@@ -467,7 +467,7 @@
     },
     {
       "id": "t29",
-      "trap": "Mei Lin Tavernier: late arrival (time-zone check)",
+      "trap": "no traps",
       "style": {
         "boardingPass": "photo",
         "folio": "letter",
@@ -483,7 +483,7 @@
     },
     {
       "id": "t30",
-      "trap": "no evidence for Priya Anand-Lowe; Kenji Halloran claimed present but late arrival; Kenji Halloran: late arrival (time-zone check); no evidence for Marcus Oyelaran; no evidence for Daniel Mbeki-Shaw",
+      "trap": "no travel or hotel evidence for Priya Anand-Lowe; minutes say Kenji Halloran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Marcus Oyelaran; no travel or hotel evidence for Daniel Mbeki-Shaw",
       "style": {
         "boardingPass": "card",
         "folio": "letter",

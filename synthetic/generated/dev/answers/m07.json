@@ -1,0 +1,243 @@
+{
+  "scenario": {
+    "id": "m07",
+    "trap": "Strategic meeting, 4 directors: quorum met (2) but only 2 of 4 in Jersey, so the majority guidance test fails",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "ACME-JE",
+    "name": "Acme Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Alice Marlowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Bruno Castell",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Chandra Velloso",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Dmitri Ashby",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "m07",
+    "startUtc": "2026-03-12T09:00:00Z",
+    "endUtc": "2026-03-12T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-11T15:00:00Z",
+      "checkOutUtc": "2026-03-13T09:00:00Z",
+      "cite": {
+        "docId": "m07/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-11T15:00:00Z",
+      "checkOutUtc": "2026-03-13T09:00:00Z",
+      "cite": {
+        "docId": "m07/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-03-10T20:00:00Z",
+      "checkOutUtc": "2026-03-14T08:00:00Z",
+      "cite": {
+        "docId": "m07/stay/folio_C_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "D",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-03-10T20:00:00Z",
+      "checkOutUtc": "2026-03-14T08:00:00Z",
+      "cite": {
+        "docId": "m07/stay/folio_D_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m07/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m07/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:DUBAI",
+      "source": "minutes",
+      "cite": {
+        "docId": "m07/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Dubai"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:DUBAI",
+      "source": "minutes",
+      "cite": {
+        "docId": "m07/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Dubai"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "m07",
+    "jurisdiction": "JE",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m07/stay/folio_A_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m07/stay/folio_B_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m07/stay/folio_C_DUBAI.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "D",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m07/stay/folio_D_DUBAI.pdf",
+            "page": 1
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 2 present, 2 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "fail",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 4 directors is 3. Evidence: 2 present, 2 absent, 0 unproven."
+      }
+    ],
+    "contradictions": []
+  }
+}

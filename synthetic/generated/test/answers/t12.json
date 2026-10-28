@@ -1,0 +1,240 @@
+{
+  "scenario": {
+    "id": "t12",
+    "trap": "minutes say Oliver Strand was there, but evidence shows a hotel elsewhere",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t12",
+    "name": "Larkspur Ventures Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Oliver Strand",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Hugo Lindqvist",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t12",
+    "startUtc": "2026-09-10T02:00:00Z",
+    "endUtc": "2026-09-10T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-09-08T08:53:00Z",
+      "checkOutUtc": "2026-09-11T02:09:00Z",
+      "cite": {
+        "docId": "t12/stay/folio_A_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-09-09T07:00:00Z",
+      "checkOutUtc": "2026-09-11T03:58:00Z",
+      "cite": {
+        "docId": "t12/stay/folio_B_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "SIN",
+      "destCode": "HKG",
+      "departUtc": "2026-09-10T03:17:00Z",
+      "arriveUtc": "2026-09-10T10:17:00Z",
+      "cite": {
+        "docId": "t12/travel/PHOTO_BP_C_SIN-HKG.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t12/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t12/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:HONGKONG",
+      "source": "minutes",
+      "cite": {
+        "docId": "t12/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Hong Kong"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t12",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t12/stay/folio_A_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t12/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in Singapore covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t12/stay/folio_B_SINGAPORE.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight SIN-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t12/travel/PHOTO_BP_C_SIN-HKG.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t12/minutes.pdf",
+            "page": 1,
+            "quote": "by video from Hong Kong"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Hong Kong",
+          "evidence": "in flight"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "fail",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 1 present, 2 absent, 0 unproven. Chairman physically in Singapore: no."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t12/stay/folio_A_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t12/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight SIN-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t12/travel/PHOTO_BP_C_SIN-HKG.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t12/minutes.pdf",
+            "page": 1,
+            "quote": "by video from Hong Kong"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Hong Kong",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

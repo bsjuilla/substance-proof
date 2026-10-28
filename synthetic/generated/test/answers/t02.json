@@ -1,0 +1,325 @@
+{
+  "scenario": {
+    "id": "t02",
+    "trap": "minutes say Mei Lin Tavernier was there, but evidence shows a flight landing after it started; minutes say Kenji Halloran was there, but evidence shows a flight landing after it started; minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Tomasz Wierzba",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t02",
+    "name": "Meridian Bay (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Mei Lin Tavernier",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Kenji Halloran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Marcus Oyelaran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t02",
+    "startUtc": "2026-02-26T09:00:00Z",
+    "endUtc": "2026-02-26T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "LHR",
+      "destCode": "JER",
+      "departUtc": "2026-02-26T02:53:00Z",
+      "arriveUtc": "2026-02-26T09:53:00Z",
+      "cite": {
+        "docId": "t02/travel/ETKT_A_LHR-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "HKG",
+      "destCode": "JER",
+      "departUtc": "2026-02-26T02:51:00Z",
+      "arriveUtc": "2026-02-26T09:51:00Z",
+      "cite": {
+        "docId": "t02/travel/ETKT_B_HKG-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "DXB",
+      "destCode": "JER",
+      "departUtc": "2026-02-26T02:20:00Z",
+      "arriveUtc": "2026-02-26T09:20:00Z",
+      "cite": {
+        "docId": "t02/travel/ETKT_C_DXB-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t02",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t02/travel/ETKT_A_LHR-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t02/travel/ETKT_B_HKG-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight DXB-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t02/travel/ETKT_C_DXB-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "D",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 0 present, 3 absent, 1 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "not_applicable",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "No strategic decisions were taken at this meeting."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "not_applicable",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "No strategic decisions were taken at this meeting."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t02/travel/ETKT_A_LHR-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t02/travel/ETKT_B_HKG-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight DXB-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t02/travel/ETKT_C_DXB-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

@@ -12,6 +12,8 @@ function headline(r: Loaded["result"]): string {
   const failedLaw = ev.tests.find((t) => t.status === "fail" && (t.basis === "law" || t.basis === "regulator"));
   if (ev.verdict === "FAIL" && failedLaw) return `${failedLaw.label}: not met. ${failedLaw.detail}`;
   const parts: string[] = [];
+  const regulatorFails = ev.tests.filter((t) => t.status === "fail" && t.basis === "regulator").map((t) => t.label);
+  if (regulatorFails.length) parts.push(`regulator guidance indicator not met: ${regulatorFails.join("; ")}`);
   const unproven = ev.tests.filter((t) => t.status === "inconclusive").map((t) => t.label.toLowerCase());
   const guidanceFails = ev.tests.filter((t) => t.status === "fail" && t.basis === "guidance").map((t) => t.label.toLowerCase());
   if (ev.contradictions.length) parts.push(`${ev.contradictions.length} director${ev.contradictions.length > 1 ? "s'" : "'s"} location in the minutes conflicts with the evidence`);
@@ -48,7 +50,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
         <h1 id="co-h">{result.company.name}</h1>
         <div className={`verdict ${ev.verdict}`} role="status">
           <span className="word">{ev.verdict === "FAIL" ? "✕ FAIL" : ev.verdict === "REVIEW" ? "? REVIEW" : "✓ PASS"}</span>
-          <p><b>{ev.verdict === "FAIL" ? "A legal presence test is not met by the evidence." : ev.verdict === "REVIEW" ? "Needs a person to review before relying on these minutes." : "Presence tests met."}</b></p>
+          <p><b>{ev.verdict === "FAIL" ? "The evidence does not show a test in the law being met." : ev.verdict === "REVIEW" ? "Needs a person to review before relying on these minutes." : "Presence tests met."}</b></p>
           <p>{headline(result)}</p>
         </div>
         <div className="stats">

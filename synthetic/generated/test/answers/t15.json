@@ -1,0 +1,256 @@
+{
+  "scenario": {
+    "id": "t15",
+    "trap": "minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Kenji Halloran",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "table",
+      "minutes": "prose",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t15",
+    "name": "Harbourline Holdings Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Marcus Oyelaran",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Ana Sokolova",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Kenji Halloran",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t15",
+    "startUtc": "2026-09-13T02:00:00Z",
+    "endUtc": "2026-09-13T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "HKG",
+      "destCode": "SIN",
+      "departUtc": "2026-09-12T20:02:00Z",
+      "arriveUtc": "2026-09-13T03:02:00Z",
+      "cite": {
+        "docId": "t15/travel/PHOTO_BP_A_HKG-SIN.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "CDG",
+      "destCode": "SIN",
+      "departUtc": "2026-09-12T12:00:00Z",
+      "arriveUtc": "2026-09-12T23:25:00Z",
+      "cite": {
+        "docId": "t15/travel/PHOTO_BP_B_CDG-SIN.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "SIN",
+      "destCode": "CDG",
+      "departUtc": "2026-09-13T10:06:00Z",
+      "arriveUtc": "2026-09-13T20:00:00Z",
+      "cite": {
+        "docId": "t15/travel/PHOTO_BP_B_SIN-CDG.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-09-12T01:03:00Z",
+      "checkOutUtc": "2026-09-14T00:24:00Z",
+      "cite": {
+        "docId": "t15/stay/folio_C_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t15/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t15/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t15/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t15/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t15",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t15/travel/PHOTO_BP_A_HKG-SIN.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t15/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "present",
+        "basis": "independent",
+        "reason": "Bracketed by arrival SIN before and departure SIN after the meeting, with no flight in between.",
+        "cites": [
+          {
+            "docId": "t15/travel/PHOTO_BP_B_CDG-SIN.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t15/travel/PHOTO_BP_B_SIN-CDG.jpg",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "C",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in Singapore covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t15/stay/folio_C_SINGAPORE.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "D",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t15/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "pass",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 2 present, 1 absent, 0 unproven. Chairman physically in Singapore: no."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t15/travel/PHOTO_BP_A_HKG-SIN.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t15/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

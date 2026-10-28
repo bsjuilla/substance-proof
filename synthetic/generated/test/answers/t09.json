@@ -1,0 +1,242 @@
+{
+  "scenario": {
+    "id": "t09",
+    "trap": "minutes say Helena Brookfield was there, but evidence shows a hotel elsewhere; minutes say Samuel Achterberg was there, but evidence shows a hotel elsewhere",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "scan",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t09",
+    "name": "Meridian Bay Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Samuel Achterberg",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t09",
+    "startUtc": "2026-07-11T02:00:00Z",
+    "endUtc": "2026-07-11T04:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:SINGAPORE",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-07-09T22:58:00Z",
+      "checkOutUtc": "2026-07-12T16:50:00Z",
+      "cite": {
+        "docId": "t09/stay/folio_A_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:PARIS",
+      "checkInUtc": "2026-07-09T21:47:00Z",
+      "checkOutUtc": "2026-07-12T02:43:00Z",
+      "cite": {
+        "docId": "t09/stay/folio_B_PARIS.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:HONGKONG",
+      "checkInUtc": "2026-07-09T05:20:00Z",
+      "checkOutUtc": "2026-07-12T07:53:00Z",
+      "cite": {
+        "docId": "t09/stay/folio_C_HONGKONG.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t09/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t09/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t09/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t09",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in Singapore covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t09/stay/folio_A_SINGAPORE.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "FR",
+        "basis": "independent",
+        "reason": "hotel stay in Paris covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t09/stay/folio_B_PARIS.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t09/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "France"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "elsewhere": "HK",
+        "basis": "independent",
+        "reason": "hotel stay in Hong Kong covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t09/stay/folio_C_HONGKONG.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t09/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "Hong Kong"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "pass",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 1 present, 2 absent, 0 unproven. Chairman physically in Singapore: yes."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "FR",
+        "basis": "independent",
+        "reason": "hotel stay in Paris covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t09/stay/folio_B_PARIS.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t09/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "France"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "elsewhere": "HK",
+        "basis": "independent",
+        "reason": "hotel stay in Hong Kong covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t09/stay/folio_C_HONGKONG.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t09/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "Hong Kong"
+        }
+      }
+    ]
+  }
+}

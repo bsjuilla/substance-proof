@@ -89,6 +89,12 @@ describe("Jersey Economic Substance Law 2019, Art. 5(3)", () => {
     expect(ev.verdict).toBe("REVIEW");
   });
 
+  it("J11 dialling in from inside Jersey still counts: presence is decided by evidence, not by attendance mode", () => {
+    const facts = three.map((d) => stay(d.id, "CITY:STHELIER"));
+    const ev = evaluateMeeting(company(three), meeting(["A", "B", "C"], { mode: "hybrid" }), [...facts, claim("B", "CITY:STHELIER")], "JE");
+    expect(status(ev, "JE-quorum")).toBe("pass");
+  });
+
   it("J10 the guidance-level majority test can be switched off", () => {
     const four = [dir("A"), dir("B"), dir("C"), dir("D")];
     const facts = [stay("A", "CITY:STHELIER"), stay("B", "CITY:STHELIER"), stay("C", "CITY:DUBAI"), stay("D", "CITY:DUBAI")];

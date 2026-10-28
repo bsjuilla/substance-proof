@@ -23,11 +23,18 @@ describe("Singapore IRAS control and management: virtual and hybrid meetings", (
     expect(st(ev, "SG-virtual-50pct-or-chair")).toBe("pass");
   });
 
-  it("S3 only one in Singapore and the chairman is in Dubai: FAIL (regulator-level)", () => {
+  it("S3 only one in Singapore and the chairman is in Dubai: indicator not met, REVIEW (IRAS guidance is not a legal pass/fail)", () => {
     const facts = [stay("A", SG), stay("B", AE), stay("C", AE), stay("D", AE)];
     const ev = evaluateMeeting(company(four), virtual(), facts, "SG");
     expect(st(ev, "SG-virtual-50pct-or-chair")).toBe("fail");
-    expect(ev.verdict).toBe("FAIL");
+    expect(ev.verdict).toBe("REVIEW");
+  });
+
+  it("S3b a director who merely chairs one meeting is not 'the chairman' for IRAS", () => {
+    const noBoardChair = [dir("A"), dir("B"), dir("C"), dir("D")];
+    const facts = [stay("A", AE), stay("B", AE), stay("C", SG), stay("D", AE)];
+    const ev = evaluateMeeting(company(noBoardChair), virtual({ chairId: "C" }), facts, "SG");
+    expect(st(ev, "SG-virtual-50pct-or-chair")).toBe("fail"); // C chaired the meeting but is not Chairman of the Board
   });
 
   it("S4 no evidence for most directors: REVIEW, not FAIL", () => {

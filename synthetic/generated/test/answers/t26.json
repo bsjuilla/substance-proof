@@ -1,0 +1,193 @@
+{
+  "scenario": {
+    "id": "t26",
+    "trap": "minutes say Lucia Ferrante was there, but evidence shows a flight landing after it started",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "scan",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t26",
+    "name": "Larkspur Ventures (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Oliver Strand",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t26",
+    "startUtc": "2026-09-24T09:00:00Z",
+    "endUtc": "2026-09-24T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "HKG",
+      "destCode": "JER",
+      "departUtc": "2026-09-24T03:11:00Z",
+      "arriveUtc": "2026-09-24T10:11:00Z",
+      "cite": {
+        "docId": "t26/travel/BP_A_HKG-JER.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-09-23T10:40:00Z",
+      "checkOutUtc": "2026-09-25T15:57:00Z",
+      "cite": {
+        "docId": "t26/stay/folio_B_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t26/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "source": "minutes",
+      "cite": {
+        "docId": "t26/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Dubai"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t26",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t26/travel/BP_A_HKG-JER.png",
+            "page": 1
+          },
+          {
+            "docId": "t26/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t26/stay/folio_B_DUBAI.pdf",
+            "page": 1
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 0 present, 2 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "not_applicable",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "No strategic decisions were taken at this meeting."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "not_applicable",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "No strategic decisions were taken at this meeting."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t26/travel/BP_A_HKG-JER.png",
+            "page": 1
+          },
+          {
+            "docId": "t26/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

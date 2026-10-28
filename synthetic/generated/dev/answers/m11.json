@@ -1,0 +1,322 @@
+{
+  "scenario": {
+    "id": "m11",
+    "trap": "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C landed mid-meeting. Quorum fails.",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "ACME-JE",
+    "name": "Acme Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Alice Marlowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Bruno Castell",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Chandra Velloso",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "m11",
+    "startUtc": "2026-03-12T09:00:00Z",
+    "endUtc": "2026-03-12T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-11T15:00:00Z",
+      "checkOutUtc": "2026-03-13T09:00:00Z",
+      "cite": {
+        "docId": "m11/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-03-10T20:00:00Z",
+      "checkOutUtc": "2026-03-14T08:00:00Z",
+      "cite": {
+        "docId": "m11/stay/folio_B_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "LHR",
+      "destCode": "JER",
+      "departUtc": "2026-03-12T08:35:00Z",
+      "arriveUtc": "2026-03-12T09:40:00Z",
+      "cite": {
+        "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m11/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m11/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m11/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "recording",
+      "cite": {
+        "docId": "m11/recording.wav",
+        "quote": "Alice Marlowe, chairing from the boardroom in St Helier."
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "source": "recording",
+      "cite": {
+        "docId": "m11/recording.wav",
+        "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "m11",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m11/stay/folio_A_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m11/stay/folio_B_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m11/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          },
+          {
+            "docId": "m11/recording.wav",
+            "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "United Arab Emirates"
+        },
+        "claimConflict": {
+          "minutes": "Jersey",
+          "recording": "United Arab Emirates",
+          "cites": [
+            {
+              "docId": "m11/minutes.pdf",
+              "page": 1,
+              "quote": "present in St Helier"
+            },
+            {
+              "docId": "m11/recording.wav",
+              "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
+            }
+          ]
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m11/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 1 present, 2 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "fail",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 3 directors is 2. Evidence: 1 present, 2 absent, 0 unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m11/stay/folio_B_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m11/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          },
+          {
+            "docId": "m11/recording.wav",
+            "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "United Arab Emirates"
+        },
+        "claimConflict": {
+          "minutes": "Jersey",
+          "recording": "United Arab Emirates",
+          "cites": [
+            {
+              "docId": "m11/minutes.pdf",
+              "page": 1,
+              "quote": "present in St Helier"
+            },
+            {
+              "docId": "m11/recording.wav",
+              "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
+            }
+          ]
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m11/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

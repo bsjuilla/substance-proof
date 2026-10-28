@@ -1,4 +1,4 @@
-# Substance Proof
+﻿# Substance Proof
 
 **The minutes say the board met in Jersey. Did it?**
 
@@ -16,7 +16,7 @@ Built for the **Meta Global AI Developer Hackathon** (Indie track, theme: *Build
 
 Economic-substance and tax-residence rules decide where a company is managed and controlled, and they hinge on where directors physically are when the board decides.
 
-- **Jersey.** The Taxation (Companies – Economic Substance) (Jersey) Law 2019, **Art. 5(3)**, requires the board to meet in Jersey at an adequate frequency, with **a quorum of directors physically present in Jersey**, minutes that record the strategic decisions, and records kept in Jersey. Failing the test carries a penalty of up to **£10,000**, then up to **£100,000** for a following period (**Art. 9(2), 9(4)**).
+- **Jersey.** The Taxation (Companies â€“ Economic Substance) (Jersey) Law 2019, **Art. 5(3)**, requires the board to meet in Jersey at an adequate frequency, with **a quorum of directors physically present in Jersey**, minutes that record the strategic decisions, and records kept in Jersey. Failing the test carries a penalty of up to **Â£10,000**, then up to **Â£100,000** for a following period (**Art. 9(2), 9(4)**).
 - **Singapore.** IRAS treats a board meeting held with video technology as making strategic decisions in Singapore if **at least 50% of the directors with authority to make strategic decisions**, or the **chairman**, are physically in Singapore during the meeting.
 
 Today a company secretary checks this by hand, comparing the minutes with travel and hotel documents. Minutes record what was *claimed*. Nothing checks the claim against the evidence. That gap is the problem: a minutes line saying "present in St Helier" next to a Dubai boarding pass.
@@ -47,9 +47,9 @@ Muse Spark reads the whole official text and proposes rules, choosing only from 
 
 Measured on the official texts (Jersey statute from jerseylaw.je; IRAS company-residency guidance):
 - Every proposed rule's quote was found word for word in the source.
-- Muse Spark wrote the Jersey pack (quorum, meetings in Jersey, minutes, records; Art. 5(3)(a)–(e)) and the Singapore pack (at least 50% of directors with strategic authority, or the chairman, for virtual or hybrid meetings) from the raw text alone.
+- Muse Spark wrote the Jersey pack (quorum, meetings in Jersey, minutes, records; Art. 5(3)(a)â€“(e)) and the Singapore pack (at least 50% of directors with strategic authority, or the chairman, for virtual or hybrid meetings) from the raw text alone.
 - **Decided with the AI-written packs, all 41 dev and held-out meetings got the same law-level verdict as the hand-written rules, in 3 out of 3 independent runs** ([`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)).
-- Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings … determines …*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
+- Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings â€¦ determines â€¦*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
 
 `npx tsx scripts/build-packs.ts` reproduces this (about $0.18 for 3 runs). In live mode, *Rules written from the law* lets you paste any substance law and see the proposed rules with their quotes; *Decide with the rules Muse Spark wrote* runs a meeting with the AI-written pack instead of the hand-written rules.
 
@@ -70,7 +70,7 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 
 \* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
 
-**Cost:** one meeting costs about **$0.03–0.06** of API credit and 35–70 seconds. The full 30-meeting held-out run cost **$0.92**.
+**Cost:** one meeting costs about **$0.03â€“0.06** of API credit and 35â€“70 seconds. The full 30-meeting held-out run cost **$0.92**.
 
 **Honest caveats**
 - All documents are synthetic, rendered from templates I wrote. Real packs are messier (real handwriting, multi-page bundles, other languages), and the stress set shows accuracy falls as documents get worse.
@@ -120,12 +120,17 @@ eval/results/    scoreboards behind the numbers above
 docs/            rule sources, demo script
 ```
 
+## Not modelled (yet)
+
+Corporate directors (look-through to the individual), alternate directors, and partial attendance (a director present for only some resolutions) are not modelled; presence is judged for the whole meeting. The Art. 5(3) tests apply only to Jersey tax-resident companies carrying on a relevant activity; the tool assumes they apply. A hotel stay is supporting evidence of presence, not proof. Singapore's IRAS test is guidance ("will generally be regarded"), so a miss gives REVIEW, not FAIL.
+
 ## Built during the hackathon
 
-Everything in this repository was written during the hackathon (26 October – 4 November 2026); the commit history starts on 28 October 2026. No earlier code was reused.
+Everything in this repository was written during the hackathon (26 October â€“ 4 November 2026); the commit history starts on 28 October 2026. No earlier code was reused.
 
 ## Safety and privacy
 
 - Synthetic data only in the demo. Do not upload real client documents to a third-party API without your organisation's approval.
 - The model output is validated by a strict JSON schema and again by code; the agent can only draft, and every draft needs a human decision.
 - The app never gives a legal conclusion in its drafts: a guardrail rejects agent messages that state an outcome.
+

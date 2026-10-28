@@ -43,6 +43,10 @@ describe("zone names and 'local time'", () => {
     expect(localToUtc("2026-01-15T10:00", "Europe/Jersey")).toBe("2026-01-15T10:00:00Z");
     expect(localToUtc("2026-03-12T14:30", "Asia/Dubai")).toBe("2026-03-12T10:30:00Z");
   });
+  it("handles the summer-time changeover (Jersey clocks go forward on 29 March 2026)", () => {
+    expect(localToUtc("2026-03-28T10:00", "Europe/Jersey")).toBe("2026-03-28T10:00:00Z");
+    expect(localToUtc("2026-03-30T10:00", "Europe/Jersey")).toBe("2026-03-30T09:00:00Z");
+  });
   it("a bogus zone name is rejected", () => expect(localToUtc("2026-03-12T14:30", "Mars/Olympus")).toBeNull());
   it("'local time' falls back to the zone of the named place, and only then", () => {
     expect(zoneOrPlace("local", "at the registered office, St Helier, Jersey")).toBe("Europe/Jersey");

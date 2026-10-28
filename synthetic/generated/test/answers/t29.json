@@ -1,0 +1,192 @@
+{
+  "scenario": {
+    "id": "t29",
+    "trap": "no traps",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t29",
+    "name": "Harbourline Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Mei Lin Tavernier",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t29",
+    "startUtc": "2026-03-18T09:00:00Z",
+    "endUtc": "2026-03-18T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-17T04:22:00Z",
+      "checkOutUtc": "2026-03-19T09:38:00Z",
+      "cite": {
+        "docId": "t29/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "LHR",
+      "destCode": "JER",
+      "departUtc": "2026-03-18T02:47:00Z",
+      "arriveUtc": "2026-03-18T09:47:00Z",
+      "cite": {
+        "docId": "t29/travel/PHOTO_BP_B_LHR-JER.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t29/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:LONDON",
+      "source": "minutes",
+      "cite": {
+        "docId": "t29/minutes.pdf",
+        "page": 1,
+        "quote": "by video from London"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t29",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t29/stay/folio_A_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t29/travel/PHOTO_BP_B_LHR-JER.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t29/minutes.pdf",
+            "page": 1,
+            "quote": "by video from London"
+          }
+        ],
+        "contradiction": {
+          "claimed": "United Kingdom",
+          "evidence": "in flight"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 1 present, 1 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "fail",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 2 directors is 2. Evidence: 1 present, 1 absent, 0 unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t29/travel/PHOTO_BP_B_LHR-JER.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t29/minutes.pdf",
+            "page": 1,
+            "quote": "by video from London"
+          }
+        ],
+        "contradiction": {
+          "claimed": "United Kingdom",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "scenario": {
+    "id": "t03",
+    "trap": "minutes say Helena Brookfield was there, but evidence shows a flight landing after it started",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "table",
+      "minutes": "scan",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t03",
+    "name": "Saltmarsh Investments Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Samuel Achterberg",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t03",
+    "startUtc": "2026-07-03T02:00:00Z",
+    "endUtc": "2026-07-03T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-07-02T10:28:00Z",
+      "checkOutUtc": "2026-07-04T06:46:00Z",
+      "cite": {
+        "docId": "t03/stay/folio_A_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "LHR",
+      "destCode": "SIN",
+      "departUtc": "2026-07-02T20:10:00Z",
+      "arriveUtc": "2026-07-03T03:10:00Z",
+      "cite": {
+        "docId": "t03/travel/PHOTO_BP_B_LHR-SIN.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t03/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t03/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t03",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in Singapore covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t03/stay/folio_A_SINGAPORE.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-SIN) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t03/travel/PHOTO_BP_B_LHR-SIN.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t03/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "pass",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 2; 1 needed for 50%. Evidence: 1 present, 1 absent, 0 unproven. Chairman physically in Singapore: yes."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight LHR-SIN) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t03/travel/PHOTO_BP_B_LHR-SIN.jpg",
+            "page": 1
+          },
+          {
+            "docId": "t03/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

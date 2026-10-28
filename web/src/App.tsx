@@ -117,14 +117,14 @@ export function App() {
 
             <div className="grid-2">
               <section className="card stack" aria-labelledby="rec-h">
-                <h2 id="rec-h">Recorded live runs</h2>
+                <h2 id="rec-h">See a finished check (instant)</h2>
                 <p className="muted" style={{ fontSize: "var(--step--1)" }}>Real outputs from Meta's models on synthetic meeting packs, saved so anyone can explore them without an API key. All people and companies are fictional.</p>
                 <div className="samples">
                   {demos.length === 0 && <p className="note">No recorded runs found.</p>}
                   {demos.map((d, i) => (
                     <div key={d.id} className={`sample${i === 0 ? " hero" : ""}`}>
                       <strong>{d.title}</strong>
-                      <button className="btn small primary" onClick={() => openDemo(d.id)} aria-label={`Open recorded run ${d.title}`}>Open</button>
+                      <button className="btn small primary" onClick={() => openDemo(d.id)} aria-label={`Open recorded run ${d.title}`}>{i === 0 ? "Start here" : "Open"}</button>
                       <p>{JN[d.jurisdiction]} · {d.verdict} · {d.trap.replace(/^HERO: /, "")}</p>
                     </div>
                   ))}
@@ -133,8 +133,8 @@ export function App() {
 
               {live?.live ? (
                 <section className="card stack" aria-labelledby="live-h">
-                  <h2 id="live-h">Run live on a sample pack</h2>
-                  <p className="muted" style={{ fontSize: "var(--step--1)" }}>Calls Muse Spark, Voice Transcribe and the agent now. Usually 20–60 seconds and a few cents of credit.</p>
+                  <h2 id="live-h">Run a check now (live, about 1 minute)</h2>
+                  <p className="muted" style={{ fontSize: "var(--step--1)" }}>Calls Muse Spark, Voice Transcribe and the agent now. Usually 30–90 seconds and a few cents of credit.</p>
                   <label style={{ fontSize: "var(--step--1)" }}>
                     <input type="checkbox" checked={usePack} onChange={(e) => setUsePack(e.target.checked)} /> Decide with the rules Muse Spark wrote from the law (instead of the hand-written rules)
                   </label>

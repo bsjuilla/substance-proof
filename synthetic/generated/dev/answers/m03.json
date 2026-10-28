@@ -1,0 +1,232 @@
+{
+  "scenario": {
+    "id": "m03",
+    "trap": "Contradiction: minutes say B was in St Helier but his flight left at 10:30 during the meeting",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "ACME-JE",
+    "name": "Acme Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Alice Marlowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Bruno Castell",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Chandra Velloso",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "m03",
+    "startUtc": "2026-03-12T09:00:00Z",
+    "endUtc": "2026-03-12T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-11T15:00:00Z",
+      "checkOutUtc": "2026-03-13T09:00:00Z",
+      "cite": {
+        "docId": "m03/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "JER",
+      "destCode": "LHR",
+      "departUtc": "2026-03-12T10:30:00Z",
+      "arriveUtc": "2026-03-12T11:45:00Z",
+      "cite": {
+        "docId": "m03/travel/BP_B_JER-LHR.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-11T15:00:00Z",
+      "checkOutUtc": "2026-03-13T09:00:00Z",
+      "cite": {
+        "docId": "m03/stay/folio_C_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m03/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m03/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m03/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "m03",
+    "jurisdiction": "JE",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m03/stay/folio_A_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-LHR) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "m03/travel/BP_B_JER-LHR.png",
+            "page": 1
+          },
+          {
+            "docId": "m03/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m03/stay/folio_C_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "not_applicable",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "No strategic decisions were taken at this meeting."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "not_applicable",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "No strategic decisions were taken at this meeting."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-LHR) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "m03/travel/BP_B_JER-LHR.png",
+            "page": 1
+          },
+          {
+            "docId": "m03/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

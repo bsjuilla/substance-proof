@@ -45,7 +45,7 @@ export function Timeline({ result, onCite }: Props) {
             const p = evaluation.presence.find((q) => q.directorId === d.id);
             const mine = facts.filter((f) => f.directorId === d.id);
             const status = p?.status ?? "unknown";
-            const label = status === "present" ? `Present in ${target}` : status === "absent" ? "Not in " + target : "Unproven";
+            const label = status === "present" ? `Evidence places in ${target}` : status === "absent" ? `Evidence: not in ${target}` : "Unproven";
             const claimPlace = (f: Extract<Fact, { kind: "claimed_location" }>) => JURISDICTION_NAMES[jurisdictionOf(f.placeCode) ?? ""] ?? f.placeCode;
             return (
               <div className="lane" key={d.id}>
@@ -82,7 +82,7 @@ export function Timeline({ result, onCite }: Props) {
                         <g key={i} onClick={() => onCite(f.cite)} style={{ cursor: "pointer" }}>
                           <title>Flight {f.originCode}→{f.destCode}, {hm(a)}–{hm(b)} {zoneName} (click to open)</title>
                           <rect x={x(a)} y={20} width={Math.max(3, x(b) - x(a))} height={22} style={{ fill: `url(#hatch-${d.id})`, stroke: "var(--flight)" }} />
-                          <text x={x(a) + 4} y={16} style={{ fill: "var(--text)", fontSize: 12 }}>{f.originCode}→{f.destCode} {hm(a)}</text>
+                          <text x={x(a) + 4} y={16} style={{ fill: "var(--text)", fontSize: 12 }}>{f.originCode}→{f.destCode} {hm(a)}–{hm(b)}</text>
                         </g>
                       );
                     }

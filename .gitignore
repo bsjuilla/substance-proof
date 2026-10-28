@@ -1,4 +1,4 @@
-# secrets: never commit
+﻿# secrets: never commit
 .env
 .env.*
 !.env.example
@@ -9,8 +9,6 @@ dist/
 .next/
 out/
 
-# generated synthetic files can be regenerated; keep only the small sample set committed
-synthetic/generated/
 eval/runs/
 
 # user uploads in live mode (may contain real documents): never commit

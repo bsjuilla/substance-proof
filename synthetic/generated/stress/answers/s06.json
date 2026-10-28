@@ -1,0 +1,190 @@
+{
+  "scenario": {
+    "id": "s06",
+    "trap": "minutes say Lucia Ferrante was there, but evidence shows a flight leaving during the meeting; no travel or hotel evidence for Oliver Strand; no travel or hotel evidence for Isabel Carrow",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "photo_bad",
+      "folio": "french",
+      "minutes": "handwritten",
+      "passengerName": "airline",
+      "clock": "12h"
+    }
+  },
+  "company": {
+    "id": "CO-s06",
+    "name": "Ardent Ridge Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Oliver Strand",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Isabel Carrow",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "s06",
+    "startUtc": "2026-02-03T02:00:00Z",
+    "endUtc": "2026-02-03T04:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:SINGAPORE",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "SIN",
+      "destCode": "DXB",
+      "departUtc": "2026-02-03T03:28:00Z",
+      "arriveUtc": "2026-02-03T10:28:00Z",
+      "cite": {
+        "docId": "s06/travel/PHOTO_BP_A_SIN-DXB.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "s06/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "s06/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "s06/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "s06",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight SIN-DXB) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s06/travel/PHOTO_BP_A_SIN-DXB.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s06/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "s06/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ]
+      },
+      {
+        "directorId": "C",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "s06/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "inconclusive",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 0 present, 1 absent, 2 unproven. Chairman physically in Singapore: no."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight SIN-DXB) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s06/travel/PHOTO_BP_A_SIN-DXB.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s06/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

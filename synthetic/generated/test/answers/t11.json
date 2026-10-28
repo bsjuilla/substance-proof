@@ -1,0 +1,160 @@
+{
+  "scenario": {
+    "id": "t11",
+    "trap": "no traps",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "table",
+      "minutes": "prose",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t11",
+    "name": "Calloway Partners (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Fatima Zahra Bennis",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Daniel Mbeki-Shaw",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t11",
+    "startUtc": "2026-08-19T09:00:00Z",
+    "endUtc": "2026-08-19T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-08-18T15:58:00Z",
+      "checkOutUtc": "2026-08-20T19:31:00Z",
+      "cite": {
+        "docId": "t11/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-08-18T10:35:00Z",
+      "checkOutUtc": "2026-08-20T06:43:00Z",
+      "cite": {
+        "docId": "t11/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t11/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t11/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t11",
+    "jurisdiction": "JE",
+    "verdict": "PASS",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t11/stay/folio_A_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t11/stay/folio_B_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 2 present, 0 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "pass",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 2 directors is 2. Evidence: 2 present, 0 absent, 0 unproven."
+      }
+    ],
+    "contradictions": []
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "scenario": {
+    "id": "t08",
+    "trap": "minutes say Daniel Mbeki-Shaw was there, but evidence shows a flight landing after it started; minutes say Lucia Ferrante was there, but evidence shows a flight leaving during the meeting",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t08",
+    "name": "Pelagos Group (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Daniel Mbeki-Shaw",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t08",
+    "startUtc": "2026-08-06T09:00:00Z",
+    "endUtc": "2026-08-06T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "DXB",
+      "destCode": "JER",
+      "departUtc": "2026-08-06T03:00:00Z",
+      "arriveUtc": "2026-08-06T10:00:00Z",
+      "cite": {
+        "docId": "t08/travel/ETKT_A_DXB-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "JER",
+      "destCode": "HKG",
+      "departUtc": "2026-08-06T10:06:00Z",
+      "arriveUtc": "2026-08-06T17:06:00Z",
+      "cite": {
+        "docId": "t08/travel/ETKT_B_JER-HKG.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t08/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t08/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t08",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight DXB-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t08/travel/ETKT_A_DXB-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t08/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t08/travel/ETKT_B_JER-HKG.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t08/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 0 present, 2 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "fail",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 2 directors is 2. Evidence: 0 present, 2 absent, 0 unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight DXB-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t08/travel/ETKT_A_DXB-JER.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t08/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t08/travel/ETKT_B_JER-HKG.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t08/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

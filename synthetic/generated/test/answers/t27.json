@@ -1,0 +1,240 @@
+{
+  "scenario": {
+    "id": "t27",
+    "trap": "no travel or hotel evidence for Tomasz Wierzba; minutes say Kenji Halloran was there, but evidence shows a hotel elsewhere",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t27",
+    "name": "Pelagos Group Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Kenji Halloran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Fatima Zahra Bennis",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t27",
+    "startUtc": "2026-10-06T02:00:00Z",
+    "endUtc": "2026-10-06T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-10-05T03:07:00Z",
+      "checkOutUtc": "2026-10-07T05:56:00Z",
+      "cite": {
+        "docId": "t27/stay/folio_B_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-10-05T11:24:00Z",
+      "checkOutUtc": "2026-10-07T08:46:00Z",
+      "cite": {
+        "docId": "t27/stay/folio_C_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "D",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-10-05T10:13:00Z",
+      "checkOutUtc": "2026-10-07T19:46:00Z",
+      "cite": {
+        "docId": "t27/stay/folio_D_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t27/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t27/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t27/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t27/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t27",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t27/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t27/stay/folio_B_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t27/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in Singapore covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t27/stay/folio_C_SINGAPORE.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "D",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in Singapore covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t27/stay/folio_D_SINGAPORE.pdf",
+            "page": 1
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "inconclusive",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 1 present, 1 absent, 1 unproven. Chairman physically in Singapore: unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t27/stay/folio_B_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t27/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      }
+    ]
+  }
+}

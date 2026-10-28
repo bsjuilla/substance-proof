@@ -8,7 +8,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    proxy: { "/api": "http://127.0.0.1:8787", "/files": "http://127.0.0.1:8787", "/uploads": "http://127.0.0.1:8787" },
+    // changeOrigin rewrites Host to the server's, which the server's anti-CSRF check requires.
+    proxy: {
+      "/api": { target: "http://127.0.0.1:8787", changeOrigin: true },
+      "/files": { target: "http://127.0.0.1:8787", changeOrigin: true },
+      "/uploads": { target: "http://127.0.0.1:8787", changeOrigin: true },
+    },
   },
   build: { outDir: "dist", emptyOutDir: true },
 });

@@ -41,6 +41,7 @@ type Situation = "stay_in" | "bracket_in" | "stay_out" | "flight_during" | "late
 const SITUATIONS: Situation[] = ["stay_in", "stay_in", "bracket_in", "stay_out", "stay_out", "flight_during", "late_arrival", "none"];
 
 const H = 3600_000;
+const WHAT: Record<string, string> = { stay_out: "a hotel elsewhere", flight_during: "a flight leaving during the meeting", late_arrival: "a flight landing after it started" };
 // Documents print times to the minute, so the answer key is floored to the minute as well.
 const iso = (t: number) => new Date(Math.floor(t / 60_000) * 60_000).toISOString().replace(".000Z", "Z");
 
@@ -108,14 +109,13 @@ export function buildTestScenarios(seed = 20261028, n = 30, stress = false): Sce
       if (present || sit === "none" || r() < 0.55) {
         // claims presence: true for present ones, FALSE (planted contradiction) otherwise
         claims[d.id] = { text: `present in ${homeShort}`, placeCode: home.cityCode };
-        if (!present && sit !== "none") traps.push(`${d.name} claimed present but ${sit.replace("_", " ")}`);
+        if (!present && sit !== "none") traps.push(`minutes say ${d.name} was there, but evidence shows ${WHAT[sit]}`);
       } else {
         const where = away.city.split(",")[0];
         claims[d.id] = { text: `by video from ${where}`, placeCode: away.cityCode };
         anyRemoteHonest = true;
       }
-      if (sit === "none") traps.push(`no evidence for ${d.name}`);
-      if (sit === "flight_during" || sit === "late_arrival") traps.push(`${d.name}: ${sit.replace("_", " ")} (time-zone check)`);
+      if (sit === "none") traps.push(`no travel or hotel evidence for ${d.name}`);
     }
 
     const meeting: Meeting = {

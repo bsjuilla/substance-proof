@@ -1,0 +1,594 @@
+{
+  "model": "muse-spark-1.3",
+  "meetings": 30,
+  "costUsd": 0.8812,
+  "factRecall": "51.8%",
+  "spuriousFacts": 80,
+  "rejectedFacts": 0,
+  "meetingWindowCorrect": "100.0%",
+  "perDirectorPresenceAgreement": "100.0%",
+  "meetingVerdictAgreement": "100.0%",
+  "contradictionsFound": "27/27",
+  "rows": [
+    {
+      "id": "t01",
+      "trap": "no traps",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:LONDON|2026-09-21T00:58:15.240Z|2026-09-23T23:21:26.042Z",
+        "H|B|CITY:PARIS|2026-09-20T18:49:56.252Z|2026-09-23T00:24:54.270Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:LONDON|2026-09-21T00:58:00Z|2026-09-23T23:21:00Z",
+        "H|B|CITY:PARIS|2026-09-20T18:49:00Z|2026-09-23T00:24:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t02",
+      "trap": "Mei Lin Tavernier claimed present but late arrival; Mei Lin Tavernier: late arrival (time-zone check); Kenji Halloran claimed present but late arrival; Kenji Halloran: late arrival (time-zone check); Marcus Oyelaran claimed present but late arrival; Marcus Oyelaran: late arrival (time-zone check); no evidence for Tomasz Wierzba",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "4/7",
+      "spurious": 3,
+      "rejected": 0,
+      "missed": [
+        "F|A|LHR|JER|2026-02-26T02:53:58.489Z|2026-02-26T09:53:58.489Z",
+        "F|B|HKG|JER|2026-02-26T02:51:54.227Z|2026-02-26T09:51:54.227Z",
+        "F|C|DXB|JER|2026-02-26T02:20:47.386Z|2026-02-26T09:20:47.386Z"
+      ],
+      "spuriousKeys": [
+        "F|A|LHR|JER|2026-02-26T02:53:00Z|2026-02-26T09:53:00Z",
+        "F|B|HKG|JER|2026-02-26T02:51:00Z|2026-02-26T09:51:00Z",
+        "F|C|DXB|JER|2026-02-26T02:20:00Z|2026-02-26T09:20:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t03",
+      "trap": "Helena Brookfield claimed present but late arrival; Helena Brookfield: late arrival (time-zone check)",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:SINGAPORE|2026-07-02T10:28:16.738Z|2026-07-04T06:46:57.276Z",
+        "F|B|LHR|SIN|2026-07-02T20:10:40.741Z|2026-07-03T03:10:40.741Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:SINGAPORE|2026-07-02T10:28:00Z|2026-07-04T06:46:00Z",
+        "F|B|LHR|SIN|2026-07-02T20:10:00Z|2026-07-03T03:10:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t04",
+      "trap": "no evidence for Helena Brookfield",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "2/3",
+      "spurious": 1,
+      "rejected": 0,
+      "missed": [
+        "H|B|CITY:STHELIER|2026-02-14T23:06:03.051Z|2026-02-17T07:07:49.672Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:STHELIER|2026-02-14T23:06:00Z|2026-02-17T07:07:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t05",
+      "trap": "Daniel Mbeki-Shaw claimed present but stay out",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/9",
+      "spurious": 5,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:STHELIER|2026-05-09T14:47:06.938Z|2026-05-11T06:42:53.267Z",
+        "F|B|CDG|JER|2026-05-09T19:00:00Z|2026-05-10T02:12:39.070Z",
+        "F|B|JER|CDG|2026-05-10T16:55:57.827Z|2026-05-11T03:00:00Z",
+        "H|C|CITY:LONDON|2026-05-09T06:19:11.276Z|2026-05-10T23:14:33.056Z",
+        "H|D|CITY:STHELIER|2026-05-09T18:13:32.896Z|2026-05-11T16:41:33.434Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:STHELIER|2026-05-09T14:47:00Z|2026-05-11T06:42:00Z",
+        "H|C|CITY:LONDON|2026-05-09T06:19:00Z|2026-05-10T23:14:00Z",
+        "H|D|CITY:STHELIER|2026-05-09T18:13:00Z|2026-05-11T16:41:00Z",
+        "F|B|CDG|JER|2026-05-09T19:00:00Z|2026-05-10T02:12:00Z",
+        "F|B|JER|CDG|2026-05-10T16:55:00Z|2026-05-11T03:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t06",
+      "trap": "no evidence for Ana Sokolova",
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "3/6",
+      "spurious": 3,
+      "rejected": 0,
+      "missed": [
+        "H|B|CITY:SINGAPORE|2026-05-14T05:07:53.871Z|2026-05-15T22:27:18.254Z",
+        "F|C|HKG|SIN|2026-05-14T12:00:00Z|2026-05-14T20:28:52.626Z",
+        "F|C|SIN|HKG|2026-05-15T06:15:16.178Z|2026-05-15T20:00:00Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:SINGAPORE|2026-05-14T05:07:00Z|2026-05-15T22:27:00Z",
+        "F|C|HKG|SIN|2026-05-14T12:00:00Z|2026-05-14T20:28:00Z",
+        "F|C|SIN|HKG|2026-05-15T06:15:00Z|2026-05-15T20:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t07",
+      "trap": "Priya Anand-Lowe: flight during (time-zone check); no evidence for Lucia Ferrante",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/3",
+      "spurious": 1,
+      "rejected": 0,
+      "missed": [
+        "F|A|JER|HKG|2026-10-09T10:22:55.318Z|2026-10-09T17:22:55.318Z"
+      ],
+      "spuriousKeys": [
+        "F|A|JER|HKG|2026-10-09T10:22:00Z|2026-10-09T17:22:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t08",
+      "trap": "Daniel Mbeki-Shaw claimed present but late arrival; Daniel Mbeki-Shaw: late arrival (time-zone check); Lucia Ferrante claimed present but flight during; Lucia Ferrante: flight during (time-zone check)",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "F|A|DXB|JER|2026-08-06T03:00:50.386Z|2026-08-06T10:00:50.386Z",
+        "F|B|JER|HKG|2026-08-06T10:06:00.380Z|2026-08-06T17:06:00.380Z"
+      ],
+      "spuriousKeys": [
+        "F|A|DXB|JER|2026-08-06T03:00:00Z|2026-08-06T10:00:00Z",
+        "F|B|JER|HKG|2026-08-06T10:06:00Z|2026-08-06T17:06:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t09",
+      "trap": "Helena Brookfield claimed present but stay out; Samuel Achterberg claimed present but stay out",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "3/6",
+      "spurious": 3,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:SINGAPORE|2026-07-09T22:58:43.989Z|2026-07-12T16:50:28.280Z",
+        "H|B|CITY:PARIS|2026-07-09T21:47:55.672Z|2026-07-12T02:43:27.865Z",
+        "H|C|CITY:HONGKONG|2026-07-09T05:20:44.038Z|2026-07-12T07:53:38.763Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:SINGAPORE|2026-07-09T22:58:00Z|2026-07-12T16:50:00Z",
+        "H|B|CITY:PARIS|2026-07-09T21:47:00Z|2026-07-12T02:43:00Z",
+        "H|C|CITY:HONGKONG|2026-07-09T05:20:00Z|2026-07-12T07:53:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t10",
+      "trap": "no evidence for Helena Brookfield",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/3",
+      "spurious": 1,
+      "rejected": 0,
+      "missed": [
+        "H|B|CITY:LONDON|2026-06-02T01:07:41.606Z|2026-06-04T20:29:00.737Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:LONDON|2026-06-02T01:07:00Z|2026-06-04T20:29:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t11",
+      "trap": "no traps",
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:STHELIER|2026-08-18T15:58:46.621Z|2026-08-20T19:31:33.106Z",
+        "H|B|CITY:STHELIER|2026-08-18T10:35:45.397Z|2026-08-20T06:43:15.164Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:STHELIER|2026-08-18T15:58:00Z|2026-08-20T19:31:00Z",
+        "H|B|CITY:STHELIER|2026-08-18T10:35:00Z|2026-08-20T06:43:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t12",
+      "trap": "Oliver Strand claimed present but stay out; Tomasz Wierzba: flight during (time-zone check)",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "3/6",
+      "spurious": 3,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:DUBAI|2026-09-08T08:53:10.218Z|2026-09-11T02:09:24.041Z",
+        "H|B|CITY:SINGAPORE|2026-09-09T07:00:52.705Z|2026-09-11T03:58:17.809Z",
+        "F|C|SIN|HKG|2026-09-10T03:17:41.140Z|2026-09-10T10:17:41.140Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:DUBAI|2026-09-08T08:53:00Z|2026-09-11T02:09:00Z",
+        "H|B|CITY:SINGAPORE|2026-09-09T07:00:00Z|2026-09-11T03:58:00Z",
+        "F|C|SIN|HKG|2026-09-10T03:17:00Z|2026-09-10T10:17:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t13",
+      "trap": "no evidence for Fatima Zahra Bennis",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "2/3",
+      "spurious": 1,
+      "rejected": 0,
+      "missed": [
+        "H|B|CITY:STHELIER|2026-03-03T08:45:42.902Z|2026-03-06T03:41:48.221Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:STHELIER|2026-03-03T08:45:00Z|2026-03-06T03:41:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t14",
+      "trap": "Helena Brookfield claimed present but stay out",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/9",
+      "spurious": 5,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:PARIS|2026-09-09T11:39:39Z|2026-09-11T22:09:02.387Z",
+        "F|B|DXB|JER|2026-09-10T19:00:00Z|2026-09-11T04:20:22.742Z",
+        "F|B|JER|DXB|2026-09-11T19:54:07.001Z|2026-09-12T03:00:00Z",
+        "H|C|CITY:HONGKONG|2026-09-09T09:31:06.090Z|2026-09-12T16:57:29.449Z",
+        "H|D|CITY:STHELIER|2026-09-10T05:17:50.467Z|2026-09-12T09:49:13.548Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:PARIS|2026-09-09T11:39:00Z|2026-09-11T22:09:00Z",
+        "H|C|CITY:HONGKONG|2026-09-09T09:31:00Z|2026-09-12T16:57:00Z",
+        "H|D|CITY:STHELIER|2026-09-10T05:17:00Z|2026-09-12T09:49:00Z",
+        "F|B|DXB|JER|2026-09-10T19:00:00Z|2026-09-11T04:20:00Z",
+        "F|B|JER|DXB|2026-09-11T19:54:00Z|2026-09-12T03:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t15",
+      "trap": "Marcus Oyelaran claimed present but late arrival; Marcus Oyelaran: late arrival (time-zone check); no evidence for Kenji Halloran",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/8",
+      "spurious": 4,
+      "rejected": 0,
+      "missed": [
+        "F|A|HKG|SIN|2026-09-12T20:02:32.767Z|2026-09-13T03:02:32.767Z",
+        "F|B|CDG|SIN|2026-09-12T12:00:00Z|2026-09-12T23:25:50.551Z",
+        "F|B|SIN|CDG|2026-09-13T10:06:51.393Z|2026-09-13T20:00:00Z",
+        "H|C|CITY:SINGAPORE|2026-09-12T01:03:53.689Z|2026-09-14T00:24:39.530Z"
+      ],
+      "spuriousKeys": [
+        "H|C|CITY:SINGAPORE|2026-09-12T01:03:00Z|2026-09-14T00:24:00Z",
+        "F|A|HKG|SIN|2026-09-12T20:02:00Z|2026-09-13T03:02:00Z",
+        "F|B|CDG|SIN|2026-09-12T12:00:00Z|2026-09-12T23:25:00Z",
+        "F|B|SIN|CDG|2026-09-13T10:06:00Z|2026-09-13T20:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t16",
+      "trap": "no traps",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:DUBAI|2026-10-04T03:36:00.996Z|2026-10-07T02:43:21.879Z",
+        "H|B|CITY:STHELIER|2026-10-04T11:32:41.984Z|2026-10-07T01:25:53.933Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:DUBAI|2026-10-04T03:36:00Z|2026-10-07T02:43:00Z",
+        "H|B|CITY:STHELIER|2026-10-04T11:32:00Z|2026-10-07T01:25:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t17",
+      "trap": "no evidence for Tomasz Wierzba; no evidence for Helena Brookfield; Lucia Ferrante claimed present but late arrival; Lucia Ferrante: late arrival (time-zone check)",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/6",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|B|CITY:STHELIER|2026-03-07T12:03:30.137Z|2026-03-09T13:01:47.864Z",
+        "F|D|DXB|JER|2026-03-08T02:48:37.732Z|2026-03-08T09:48:37.732Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:STHELIER|2026-03-07T12:03:00Z|2026-03-09T13:01:00Z",
+        "F|D|DXB|JER|2026-03-08T02:48:00Z|2026-03-08T09:48:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t18",
+      "trap": "no traps",
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "3/8",
+      "spurious": 5,
+      "rejected": 0,
+      "missed": [
+        "F|A|HKG|SIN|2026-04-11T12:00:00Z|2026-04-11T21:44:05.673Z",
+        "F|A|SIN|HKG|2026-04-12T09:35:35.251Z|2026-04-12T20:00:00Z",
+        "F|B|DXB|SIN|2026-04-11T12:00:00Z|2026-04-11T23:43:51.231Z",
+        "F|B|SIN|DXB|2026-04-12T13:43:43.585Z|2026-04-12T20:00:00Z",
+        "H|C|CITY:SINGAPORE|2026-04-11T04:31:06.812Z|2026-04-13T19:12:33.917Z"
+      ],
+      "spuriousKeys": [
+        "H|C|CITY:SINGAPORE|2026-04-11T04:31:00Z|2026-04-13T19:12:00Z",
+        "F|A|HKG|SIN|2026-04-11T12:00:00Z|2026-04-11T21:44:00Z",
+        "F|A|SIN|HKG|2026-04-12T09:35:00Z|2026-04-12T20:00:00Z",
+        "F|B|DXB|SIN|2026-04-11T12:00:00Z|2026-04-11T23:43:00Z",
+        "F|B|SIN|DXB|2026-04-12T13:43:00Z|2026-04-12T20:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t19",
+      "trap": "Hugo Lindqvist claimed present but stay out; Helena Brookfield claimed present but flight during; Helena Brookfield: flight during (time-zone check)",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/9",
+      "spurious": 5,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:LONDON|2026-04-11T22:36:44.264Z|2026-04-15T01:13:57.313Z",
+        "H|B|CITY:STHELIER|2026-04-12T10:54:53.354Z|2026-04-14T05:06:59.370Z",
+        "F|C|JER|DXB|2026-04-13T09:52:33.609Z|2026-04-13T16:52:33.609Z",
+        "F|D|DXB|JER|2026-04-12T19:00:00Z|2026-04-13T01:35:29.791Z",
+        "F|D|JER|DXB|2026-04-13T13:10:53.375Z|2026-04-14T03:00:00Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:LONDON|2026-04-11T22:36:00Z|2026-04-15T01:13:00Z",
+        "H|B|CITY:STHELIER|2026-04-12T10:54:00Z|2026-04-14T05:06:00Z",
+        "F|C|JER|DXB|2026-04-13T09:52:00Z|2026-04-13T16:52:00Z",
+        "F|D|DXB|JER|2026-04-12T19:00:00Z|2026-04-13T01:35:00Z",
+        "F|D|JER|DXB|2026-04-13T13:10:00Z|2026-04-14T03:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t20",
+      "trap": "no evidence for Lucia Ferrante",
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "3/6",
+      "spurious": 3,
+      "rejected": 0,
+      "missed": [
+        "F|B|DXB|JER|2026-09-11T19:00:00Z|2026-09-12T02:57:09.567Z",
+        "F|B|JER|DXB|2026-09-12T16:41:56.147Z|2026-09-13T03:00:00Z",
+        "H|C|CITY:STHELIER|2026-09-11T13:59:53.641Z|2026-09-13T18:50:40.497Z"
+      ],
+      "spuriousKeys": [
+        "H|C|CITY:STHELIER|2026-09-11T13:59:00Z|2026-09-13T18:50:00Z",
+        "F|B|DXB|JER|2026-09-11T19:00:00Z|2026-09-12T02:57:00Z",
+        "F|B|JER|DXB|2026-09-12T16:41:00Z|2026-09-13T03:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t21",
+      "trap": "no evidence for Daniel Mbeki-Shaw; Tomasz Wierzba: late arrival (time-zone check)",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "2/3",
+      "spurious": 1,
+      "rejected": 0,
+      "missed": [
+        "F|B|CDG|SIN|2026-10-09T19:33:22.791Z|2026-10-10T02:33:22.791Z"
+      ],
+      "spuriousKeys": [
+        "F|B|CDG|SIN|2026-10-09T19:33:00Z|2026-10-10T02:33:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t22",
+      "trap": "no evidence for Lucia Ferrante; Ana Sokolova claimed present but stay out",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/8",
+      "spurious": 4,
+      "rejected": 0,
+      "missed": [
+        "H|B|CITY:STHELIER|2026-08-17T23:32:25.847Z|2026-08-20T19:56:06.724Z",
+        "H|C|CITY:PARIS|2026-08-18T03:57:00.440Z|2026-08-20T12:53:20.626Z",
+        "F|D|DXB|JER|2026-08-18T19:00:00Z|2026-08-19T03:33:20.861Z",
+        "F|D|JER|DXB|2026-08-19T16:39:53.561Z|2026-08-20T03:00:00Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:STHELIER|2026-08-17T23:32:00Z|2026-08-20T19:56:00Z",
+        "H|C|CITY:PARIS|2026-08-18T03:57:00Z|2026-08-20T12:53:00Z",
+        "F|D|DXB|JER|2026-08-18T19:00:00Z|2026-08-19T03:33:00Z",
+        "F|D|JER|DXB|2026-08-19T16:39:00Z|2026-08-20T03:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t23",
+      "trap": "no traps",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:STHELIER|2026-10-05T12:06:45.108Z|2026-10-08T09:14:51.221Z",
+        "H|B|CITY:LONDON|2026-10-04T21:25:32.204Z|2026-10-07T11:05:38.312Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:STHELIER|2026-10-05T12:06:00Z|2026-10-08T09:14:00Z",
+        "H|B|CITY:LONDON|2026-10-04T21:25:00Z|2026-10-07T11:05:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t24",
+      "trap": "Tomasz Wierzba claimed present but stay out; Mei Lin Tavernier: late arrival (time-zone check)",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "4/10",
+      "spurious": 6,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:LONDON|2026-07-10T05:35:26.652Z|2026-07-13T01:29:27.356Z",
+        "F|B|HKG|SIN|2026-07-11T12:00:00Z|2026-07-11T20:26:52.605Z",
+        "F|B|SIN|HKG|2026-07-12T09:03:57.337Z|2026-07-12T20:00:00Z",
+        "F|C|HKG|SIN|2026-07-11T19:49:03.855Z|2026-07-12T02:49:03.855Z",
+        "F|D|LHR|SIN|2026-07-11T12:00:00Z|2026-07-11T21:21:24.870Z",
+        "F|D|SIN|LHR|2026-07-12T10:35:38.477Z|2026-07-12T20:00:00Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:LONDON|2026-07-10T05:35:00Z|2026-07-13T01:29:00Z",
+        "F|B|HKG|SIN|2026-07-11T12:00:00Z|2026-07-11T20:26:00Z",
+        "F|B|SIN|HKG|2026-07-12T09:03:00Z|2026-07-12T20:00:00Z",
+        "F|C|HKG|SIN|2026-07-11T19:49:00Z|2026-07-12T02:49:00Z",
+        "F|D|LHR|SIN|2026-07-11T12:00:00Z|2026-07-11T21:21:00Z",
+        "F|D|SIN|LHR|2026-07-12T10:35:00Z|2026-07-12T20:00:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t25",
+      "trap": "Grace Whitlock claimed present but stay out; no evidence for Helena Brookfield",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "3/5",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:STHELIER|2026-08-13T04:57:34.538Z|2026-08-15T19:49:36.083Z",
+        "H|B|CITY:PARIS|2026-08-12T08:20:58.674Z|2026-08-16T01:30:31.564Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:STHELIER|2026-08-13T04:57:00Z|2026-08-15T19:49:00Z",
+        "H|B|CITY:PARIS|2026-08-12T08:20:00Z|2026-08-16T01:30:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t26",
+      "trap": "Lucia Ferrante claimed present but late arrival; Lucia Ferrante: late arrival (time-zone check)",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "F|A|HKG|JER|2026-09-24T03:11:46.826Z|2026-09-24T10:11:46.826Z",
+        "H|B|CITY:DUBAI|2026-09-23T10:40:27.364Z|2026-09-25T15:57:34.743Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:DUBAI|2026-09-23T10:40:00Z|2026-09-25T15:57:00Z",
+        "F|A|HKG|JER|2026-09-24T03:11:00Z|2026-09-24T10:11:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t27",
+      "trap": "no evidence for Tomasz Wierzba; Kenji Halloran claimed present but stay out",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/7",
+      "spurious": 3,
+      "rejected": 0,
+      "missed": [
+        "H|B|CITY:DUBAI|2026-10-05T03:07:27.467Z|2026-10-07T05:56:30.571Z",
+        "H|C|CITY:SINGAPORE|2026-10-05T11:24:06.059Z|2026-10-07T08:46:04.209Z",
+        "H|D|CITY:SINGAPORE|2026-10-05T10:13:28.613Z|2026-10-07T19:46:51.371Z"
+      ],
+      "spuriousKeys": [
+        "H|B|CITY:DUBAI|2026-10-05T03:07:00Z|2026-10-07T05:56:00Z",
+        "H|C|CITY:SINGAPORE|2026-10-05T11:24:00Z|2026-10-07T08:46:00Z",
+        "H|D|CITY:SINGAPORE|2026-10-05T10:13:00Z|2026-10-07T19:46:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t28",
+      "trap": "Hugo Lindqvist claimed present but flight during; Hugo Lindqvist: flight during (time-zone check)",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:STHELIER|2026-06-21T03:39:56.748Z|2026-06-24T05:47:27.006Z",
+        "F|B|JER|HKG|2026-06-22T09:47:12.455Z|2026-06-22T16:47:12.455Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:STHELIER|2026-06-21T03:39:00Z|2026-06-24T05:47:00Z",
+        "F|B|JER|HKG|2026-06-22T09:47:00Z|2026-06-22T16:47:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t29",
+      "trap": "Mei Lin Tavernier: late arrival (time-zone check)",
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "2/4",
+      "spurious": 2,
+      "rejected": 0,
+      "missed": [
+        "H|A|CITY:STHELIER|2026-03-17T04:22:39.829Z|2026-03-19T09:38:48.066Z",
+        "F|B|LHR|JER|2026-03-18T02:47:36.458Z|2026-03-18T09:47:36.458Z"
+      ],
+      "spuriousKeys": [
+        "H|A|CITY:STHELIER|2026-03-17T04:22:00Z|2026-03-19T09:38:00Z",
+        "F|B|LHR|JER|2026-03-18T02:47:00Z|2026-03-18T09:47:00Z"
+      ],
+      "rejectedWhy": []
+    },
+    {
+      "id": "t30",
+      "trap": "no evidence for Priya Anand-Lowe; Kenji Halloran claimed present but late arrival; Kenji Halloran: late arrival (time-zone check); no evidence for Marcus Oyelaran; no evidence for Daniel Mbeki-Shaw",
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "4/5",
+      "spurious": 1,
+      "rejected": 0,
+      "missed": [
+        "F|B|HKG|SIN|2026-05-03T19:57:53.542Z|2026-05-04T02:57:53.542Z"
+      ],
+      "spuriousKeys": [
+        "F|B|HKG|SIN|2026-05-03T19:57:00Z|2026-05-04T02:57:00Z"
+      ],
+      "rejectedWhy": []
+    }
+  ]
+}

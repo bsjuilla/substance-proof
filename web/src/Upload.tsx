@@ -112,7 +112,7 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
       {error && <p className="error" role="alert">{error}</p>}
       <div className="actions">
         <button className="btn primary" disabled={busy || files.length === 0}>{busy ? "Reading documents…" : "Analyse"}</button>
-        {busy && <span className="progress muted"><span className="spin" aria-hidden="true" /> About 30–60 seconds. Muse Spark is reading each file.</span>}
+        {busy && <span className="progress muted"><span className="spin" aria-hidden="true" /> About 30–90 seconds. Muse Spark is reading each file.</span>}
       </div>
     </form>
   );

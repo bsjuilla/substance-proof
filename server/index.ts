@@ -3,7 +3,7 @@
 // Run: npm run app   (then open http://127.0.0.1:8787)
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { extname, join, normalize, resolve } from "node:path";
+import { extname, join, normalize, resolve, sep } from "node:path";
 import { randomUUID } from "node:crypto";
 import { analyzePack } from "../src/app/analyze";
 import { makeClient } from "../src/extract/client";
@@ -38,7 +38,7 @@ function send(res: ServerResponse, status: number, body: unknown, type = "applic
 /** Serve a file only if it resolves inside `base` (no path traversal). */
 function serveFile(res: ServerResponse, base: string, relPath: string) {
   const full = normalize(join(base, decodeURIComponent(relPath)));
-  if (!full.startsWith(base) || !existsSync(full) || !statSync(full).isFile()) return send(res, 404, { error: "not found" });
+  if (!full.startsWith(base + sep) || !existsSync(full) || !statSync(full).isFile()) return send(res, 404, { error: "not found" });
   send(res, 200, readFileSync(full), TYPES[extname(full).toLowerCase()] ?? "application/octet-stream");
 }
 
@@ -92,6 +92,19 @@ const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url ?? "/", "http://localhost");
     const p = url.pathname;
+
+    // Every POST spends API credit, so only accept JSON requests from this app's own pages. This blocks other
+    // websites from making the browser call this local server (CSRF / DNS rebinding).
+    if (req.method === "POST") {
+      const host = req.headers.host ?? "";
+      const origin = req.headers.origin ?? "";
+      const allowedHosts = [`127.0.0.1:${PORT}`, `localhost:${PORT}`];
+      const allowedOrigins = [...allowedHosts.map((h) => `http://${h}`), "http://localhost:5173", "http://127.0.0.1:5173"];
+      const json = (req.headers["content-type"] ?? "").startsWith("application/json");
+      if (!allowedHosts.includes(host) || (origin && !allowedOrigins.includes(origin)) || !json) {
+        return send(res, 403, { error: "Rejected: requests must come from the Substance Proof app itself." });
+      }
+    }
 
     if (p === "/api/health") return send(res, 200, { live: !!live, model: live?.model ?? null });
     if (p === "/api/samples") return send(res, 200, samples());
@@ -166,7 +179,7 @@ const server = createServer(async (req, res) => {
     if (!existsSync(DIST)) return send(res, 200, "Run `npm run web:build` first, or use `npm run web:dev` for development.", "text/plain");
     const rel = p === "/" ? "index.html" : p.slice(1);
     const full = normalize(join(DIST, rel));
-    if (full.startsWith(DIST) && existsSync(full) && statSync(full).isFile()) return serveFile(res, DIST, rel);
+    if (full.startsWith(DIST + sep) && existsSync(full) && statSync(full).isFile()) return serveFile(res, DIST, rel);
     return serveFile(res, DIST, "index.html");
   } catch (e: any) {
     console.error(e);

@@ -16,8 +16,6 @@ export type Director = {
   isChair?: boolean;
   /** Has authority to make strategic decisions (Singapore 50% test counts only these). */
   hasStrategicAuthority: boolean;
-  /** Corporate director: rules look through to the individuals acting for it. */
-  isCorporate?: boolean;
 };
 
 /** A raw fact read out of a document (by the AI or, in tests, by hand). */

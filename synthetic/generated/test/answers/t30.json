@@ -1,0 +1,220 @@
+{
+  "scenario": {
+    "id": "t30",
+    "trap": "no travel or hotel evidence for Priya Anand-Lowe; minutes say Kenji Halloran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Marcus Oyelaran; no travel or hotel evidence for Daniel Mbeki-Shaw",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "prose",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t30",
+    "name": "Thornbury Assets Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Kenji Halloran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Marcus Oyelaran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Daniel Mbeki-Shaw",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t30",
+    "startUtc": "2026-05-04T02:00:00Z",
+    "endUtc": "2026-05-04T04:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:SINGAPORE",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "HKG",
+      "destCode": "SIN",
+      "departUtc": "2026-05-03T19:57:00Z",
+      "arriveUtc": "2026-05-04T02:57:00Z",
+      "cite": {
+        "docId": "t30/travel/BP_B_HKG-SIN.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t30/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t30/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t30/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t30/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t30",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t30/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t30/travel/BP_B_HKG-SIN.png",
+            "page": 1
+          },
+          {
+            "docId": "t30/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t30/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ]
+      },
+      {
+        "directorId": "D",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t30/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "inconclusive",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 0 present, 1 absent, 2 unproven. Chairman physically in Singapore: unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t30/travel/BP_B_HKG-SIN.png",
+            "page": 1
+          },
+          {
+            "docId": "t30/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

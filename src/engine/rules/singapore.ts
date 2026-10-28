@@ -13,7 +13,8 @@ export function singaporeMeetingTests(company: Company, meeting: Meeting, presen
   const t = tally(presence, strategicIds);
   const need = Math.ceil(strategicIds.length / 2); // "at least 50%"
 
-  const chair = meeting.chairId ?? company.directors.find((d) => d.isChair)?.id;
+  // IRAS means the Chairman of the Board ("if the company has such an appointment"), not whoever chairs one meeting.
+  const chair = company.directors.find((d) => d.isChair)?.id;
   const chairPresence = chair ? presence.find((p) => p.directorId === chair) : undefined;
 
   if (meeting.mode === "virtual" || meeting.mode === "hybrid") {
@@ -36,7 +37,7 @@ export function singaporeMeetingTests(company: Company, meeting: Meeting, presen
     return [
       {
         id: "SG-virtual-50pct-or-chair",
-        label: "Virtual or hybrid meeting: at least 50% of strategic directors in Singapore, or the chairman",
+        label: "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
         status,
         basis: "regulator",
         citation: `${SRC}: virtual meeting technology conditions`,

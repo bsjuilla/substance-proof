@@ -1,0 +1,182 @@
+{
+  "scenario": {
+    "id": "t07",
+    "trap": "no travel or hotel evidence for Lucia Ferrante",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t07",
+    "name": "Quillon Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t07",
+    "startUtc": "2026-10-09T09:00:00Z",
+    "endUtc": "2026-10-09T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "JER",
+      "destCode": "HKG",
+      "departUtc": "2026-10-09T10:22:00Z",
+      "arriveUtc": "2026-10-09T17:22:00Z",
+      "cite": {
+        "docId": "t07/travel/BP_A_JER-HKG.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:HONGKONG",
+      "source": "minutes",
+      "cite": {
+        "docId": "t07/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Hong Kong"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t07/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t07",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t07/travel/BP_A_JER-HKG.png",
+            "page": 1
+          },
+          {
+            "docId": "t07/minutes.pdf",
+            "page": 1,
+            "quote": "by video from Hong Kong"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Hong Kong",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t07/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 0 present, 1 absent, 1 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "fail",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 2 directors is 2. Evidence: 0 present, 1 absent, 1 unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "t07/travel/BP_A_JER-HKG.png",
+            "page": 1
+          },
+          {
+            "docId": "t07/minutes.pdf",
+            "page": 1,
+            "quote": "by video from Hong Kong"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Hong Kong",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

@@ -88,7 +88,7 @@ export function runPack(pack: RulePack, company: Company, meeting: Meeting, pres
         const need = Math.ceil(group.length * share - 1e-9);
         const tl = tally(presence, group);
         const shareStatus = group.length === 0 ? "inconclusive" : atLeast(tl, need);
-        const chair = meeting.chairId ?? company.directors.find((d) => d.isChair)?.id;
+        const chair = company.directors.find((d) => d.isChair)?.id; // the Chairman of the Board
         const cp = chair ? presence.find((p) => p.directorId === chair)?.status : undefined;
         const chairStatus = !t.chair_alternative || !chair ? "none" : cp === "present" ? "pass" : cp === "absent" ? "fail" : "inconclusive";
         const status = shareStatus === "pass" || chairStatus === "pass" ? "pass"

@@ -1,0 +1,182 @@
+{
+  "scenario": {
+    "id": "s10",
+    "trap": "no travel or hotel evidence for Daniel Mbeki-Shaw; no travel or hotel evidence for Helena Brookfield",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "french",
+      "minutes": "handwritten",
+      "passengerName": "normal",
+      "clock": "12h"
+    }
+  },
+  "company": {
+    "id": "CO-s10",
+    "name": "Calloway Partners (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Daniel Mbeki-Shaw",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Hugo Lindqvist",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "s10",
+    "startUtc": "2026-05-15T09:00:00Z",
+    "endUtc": "2026-05-15T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-05-14T00:53:00Z",
+      "checkOutUtc": "2026-05-16T22:09:00Z",
+      "cite": {
+        "docId": "s10/stay/folio_C_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s10/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s10/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s10/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "s10",
+    "jurisdiction": "JE",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "s10/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "s10/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ]
+      },
+      {
+        "directorId": "C",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "s10/stay/folio_C_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "inconclusive",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 1 present, 0 absent, 2 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "not_applicable",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "No strategic decisions were taken at this meeting."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "not_applicable",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "No strategic decisions were taken at this meeting."
+      }
+    ],
+    "contradictions": []
+  }
+}

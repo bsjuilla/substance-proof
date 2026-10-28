@@ -1,0 +1,338 @@
+{
+  "scenario": {
+    "id": "s02",
+    "trap": "minutes say Samuel Achterberg was there, but evidence shows a flight leaving during the meeting; minutes say Kenji Halloran was there, but evidence shows a hotel elsewhere",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo_bad",
+      "folio": "letter",
+      "minutes": "handwritten",
+      "passengerName": "normal",
+      "clock": "12h"
+    }
+  },
+  "company": {
+    "id": "CO-s02",
+    "name": "Corbel Capital (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Samuel Achterberg",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Kenji Halloran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Ana Sokolova",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "s02",
+    "startUtc": "2026-06-10T09:00:00Z",
+    "endUtc": "2026-06-10T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "JER",
+      "destCode": "HKG",
+      "departUtc": "2026-06-10T09:57:00Z",
+      "arriveUtc": "2026-06-10T16:57:00Z",
+      "cite": {
+        "docId": "s02/travel/PHOTO_BP_A_JER-HKG.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-06-09T03:29:00Z",
+      "checkOutUtc": "2026-06-11T11:25:00Z",
+      "cite": {
+        "docId": "s02/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:LONDON",
+      "checkInUtc": "2026-06-09T07:21:00Z",
+      "checkOutUtc": "2026-06-11T11:22:00Z",
+      "cite": {
+        "docId": "s02/stay/folio_C_LONDON.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "D",
+      "originCode": "JER",
+      "destCode": "LHR",
+      "departUtc": "2026-06-10T10:25:00Z",
+      "arriveUtc": "2026-06-10T17:25:00Z",
+      "cite": {
+        "docId": "s02/travel/PHOTO_BP_D_JER-LHR.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:LONDON",
+      "source": "minutes",
+      "cite": {
+        "docId": "s02/minutes.pdf",
+        "page": 1,
+        "quote": "by video from London"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "s02",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s02/travel/PHOTO_BP_A_JER-HKG.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "s02/stay/folio_B_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "elsewhere": "GB",
+        "basis": "independent",
+        "reason": "hotel stay in London covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "s02/stay/folio_C_LONDON.pdf",
+            "page": 1
+          },
+          {
+            "docId": "s02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "United Kingdom"
+        }
+      },
+      {
+        "directorId": "D",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-LHR) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s02/travel/PHOTO_BP_D_JER-LHR.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s02/minutes.pdf",
+            "page": 1,
+            "quote": "by video from London"
+          }
+        ],
+        "contradiction": {
+          "claimed": "United Kingdom",
+          "evidence": "in flight"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 1 present, 3 absent, 0 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "fail",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 4 directors is 3. Evidence: 1 present, 3 absent, 0 unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-HKG) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s02/travel/PHOTO_BP_A_JER-HKG.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "elsewhere": "GB",
+        "basis": "independent",
+        "reason": "hotel stay in London covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "s02/stay/folio_C_LONDON.pdf",
+            "page": 1
+          },
+          {
+            "docId": "s02/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "United Kingdom"
+        }
+      },
+      {
+        "directorId": "D",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight JER-LHR) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s02/travel/PHOTO_BP_D_JER-LHR.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s02/minutes.pdf",
+            "page": 1,
+            "quote": "by video from London"
+          }
+        ],
+        "contradiction": {
+          "claimed": "United Kingdom",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

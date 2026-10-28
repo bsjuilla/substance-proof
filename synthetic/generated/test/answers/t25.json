@@ -1,0 +1,223 @@
+{
+  "scenario": {
+    "id": "t25",
+    "trap": "minutes say Grace Whitlock was there, but evidence shows a hotel elsewhere; no travel or hotel evidence for Helena Brookfield",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t25",
+    "name": "Pelagos Group (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Fatima Zahra Bennis",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Grace Whitlock",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t25",
+    "startUtc": "2026-08-14T09:00:00Z",
+    "endUtc": "2026-08-14T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-08-13T04:57:00Z",
+      "checkOutUtc": "2026-08-15T19:49:00Z",
+      "cite": {
+        "docId": "t25/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:PARIS",
+      "checkInUtc": "2026-08-12T08:20:00Z",
+      "checkOutUtc": "2026-08-16T01:30:00Z",
+      "cite": {
+        "docId": "t25/stay/folio_B_PARIS.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t25/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t25/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t25/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "t25",
+    "jurisdiction": "JE",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in St Helier covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t25/stay/folio_A_STHELIER.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "FR",
+        "basis": "independent",
+        "reason": "hotel stay in Paris covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t25/stay/folio_B_PARIS.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t25/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "France"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "t25/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "inconclusive",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 1 present, 1 absent, 1 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "The minutes record the strategic decisions."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "inconclusive",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "A majority of 3 directors is 2. Evidence: 1 present, 1 absent, 1 unproven."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "FR",
+        "basis": "independent",
+        "reason": "hotel stay in Paris covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "t25/stay/folio_B_PARIS.pdf",
+            "page": 1
+          },
+          {
+            "docId": "t25/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "France"
+        }
+      }
+    ]
+  }
+}

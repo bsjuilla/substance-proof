@@ -1,0 +1,182 @@
+{
+  "scenario": {
+    "id": "s01",
+    "trap": "minutes say Rafael Quintero was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Grace Whitlock",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo_bad",
+      "folio": "letter",
+      "minutes": "handwritten",
+      "passengerName": "airline",
+      "clock": "12h"
+    }
+  },
+  "company": {
+    "id": "CO-s01",
+    "name": "Meridian Bay (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Rafael Quintero",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Grace Whitlock",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "s01",
+    "startUtc": "2026-04-06T09:00:00Z",
+    "endUtc": "2026-04-06T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "HKG",
+      "destCode": "JER",
+      "departUtc": "2026-04-06T03:19:00Z",
+      "arriveUtc": "2026-04-06T10:19:00Z",
+      "cite": {
+        "docId": "s01/travel/PHOTO_BP_A_HKG-JER.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s01/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "s01/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "s01",
+    "jurisdiction": "JE",
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s01/travel/PHOTO_BP_A_HKG-JER.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s01/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      },
+      {
+        "directorId": "B",
+        "status": "unknown",
+        "basis": "claim_only",
+        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+        "cites": [
+          {
+            "docId": "s01/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "JE-quorum",
+        "label": "Quorum of directors physically present in Jersey",
+        "status": "fail",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+        "detail": "Quorum under the articles is 2. Evidence: 0 present, 1 absent, 1 unproven."
+      },
+      {
+        "id": "JE-minutes-strategic",
+        "label": "Minutes record the strategic decisions made",
+        "status": "not_applicable",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+        "detail": "No strategic decisions were taken at this meeting."
+      },
+      {
+        "id": "JE-records-kept",
+        "label": "Minutes and company records kept in Jersey",
+        "status": "pass",
+        "basis": "law",
+        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+        "detail": "Records are kept in Jersey."
+      },
+      {
+        "id": "JE-majority-strategic",
+        "label": "Majority of directors in Jersey for strategic decisions",
+        "status": "not_applicable",
+        "basis": "guidance",
+        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+        "detail": "No strategic decisions were taken at this meeting."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A",
+        "status": "absent",
+        "basis": "independent",
+        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
+        "cites": [
+          {
+            "docId": "s01/travel/PHOTO_BP_A_HKG-JER.jpg",
+            "page": 1
+          },
+          {
+            "docId": "s01/minutes.pdf",
+            "page": 1,
+            "quote": "present in St Helier"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Jersey",
+          "evidence": "in flight"
+        }
+      }
+    ]
+  }
+}

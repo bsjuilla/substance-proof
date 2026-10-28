@@ -5,9 +5,11 @@ import type { Company, Fact, Meeting, MeetingEvaluation, MeetingVerdict, TestRes
 
 export type Jurisdiction = "JE" | "SG";
 
-/** FAIL: a law- or regulator-level test failed. REVIEW: something unproven, a guidance-level failure, or a contradiction. PASS: nothing wrong. */
+/** FAIL: a test from the statute itself failed. REVIEW: a regulator's guidance condition is not met (guidance such as
+ *  IRAS says a meeting "will generally be regarded" one way; it is an indicator, not a legal pass/fail), something is
+ *  unproven, a guidance-level test failed, or there is a contradiction. PASS: nothing wrong. */
 export function verdictFrom(tests: TestResult[], contradictionCount: number): MeetingVerdict {
-  if (tests.some((t) => t.status === "fail" && (t.basis === "law" || t.basis === "regulator"))) return "FAIL";
+  if (tests.some((t) => t.status === "fail" && t.basis === "law")) return "FAIL";
   if (tests.some((t) => t.status === "fail" || t.status === "inconclusive")) return "REVIEW";
   if (contradictionCount > 0) return "REVIEW";
   return "PASS";

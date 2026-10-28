@@ -1,8 +1,8 @@
 {
   "set": "stress",
   "model": "replay:2026-10-28T15-46-32-357Z",
-  "commit": "77f689e",
-  "runAt": "2026-10-28T15:50:14.362Z",
+  "commit": "f235eb8",
+  "runAt": "2026-10-28T18:30:34.477Z",
   "meetings": 12,
   "costUsd": 0.3213,
   "factsExact": "55/64 (85.9%)",
@@ -19,7 +19,7 @@
   "rows": [
     {
       "id": "s01",
-      "trap": "Rafael Quintero claimed present but late arrival; Rafael Quintero: late arrival (time-zone check); no evidence for Grace Whitlock",
+      "trap": "minutes say Rafael Quintero was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Grace Whitlock",
       "style": {
         "boardingPass": "photo_bad",
         "folio": "letter",
@@ -43,7 +43,7 @@
     },
     {
       "id": "s02",
-      "trap": "Samuel Achterberg claimed present but flight during; Samuel Achterberg: flight during (time-zone check); Kenji Halloran claimed present but stay out; Ana Sokolova: flight during (time-zone check)",
+      "trap": "minutes say Samuel Achterberg was there, but evidence shows a flight leaving during the meeting; minutes say Kenji Halloran was there, but evidence shows a hotel elsewhere",
       "style": {
         "boardingPass": "photo_bad",
         "folio": "letter",
@@ -72,7 +72,7 @@
     },
     {
       "id": "s03",
-      "trap": "Lucia Ferrante claimed present but flight during; Lucia Ferrante: flight during (time-zone check)",
+      "trap": "minutes say Lucia Ferrante was there, but evidence shows a flight leaving during the meeting",
       "style": {
         "boardingPass": "card",
         "folio": "french",
@@ -89,7 +89,7 @@
     },
     {
       "id": "s04",
-      "trap": "no evidence for Fatima Zahra Bennis",
+      "trap": "no travel or hotel evidence for Fatima Zahra Bennis",
       "style": {
         "boardingPass": "photo_bad",
         "folio": "letter",
@@ -112,7 +112,7 @@
     },
     {
       "id": "s05",
-      "trap": "Mei Lin Tavernier claimed present but stay out; Fatima Zahra Bennis claimed present but flight during; Fatima Zahra Bennis: flight during (time-zone check); Marcus Oyelaran claimed present but flight during; Marcus Oyelaran: flight during (time-zone check)",
+      "trap": "minutes say Mei Lin Tavernier was there, but evidence shows a hotel elsewhere; minutes say Fatima Zahra Bennis was there, but evidence shows a flight leaving during the meeting; minutes say Marcus Oyelaran was there, but evidence shows a flight leaving during the meeting",
       "style": {
         "boardingPass": "photo_bad",
         "folio": "letter",
@@ -141,7 +141,7 @@
     },
     {
       "id": "s06",
-      "trap": "Lucia Ferrante claimed present but flight during; Lucia Ferrante: flight during (time-zone check); no evidence for Oliver Strand; no evidence for Isabel Carrow",
+      "trap": "minutes say Lucia Ferrante was there, but evidence shows a flight leaving during the meeting; no travel or hotel evidence for Oliver Strand; no travel or hotel evidence for Isabel Carrow",
       "style": {
         "boardingPass": "photo_bad",
         "folio": "french",
@@ -165,7 +165,7 @@
     },
     {
       "id": "s07",
-      "trap": "Hugo Lindqvist: late arrival (time-zone check); no evidence for Grace Whitlock; Marcus Oyelaran claimed present but late arrival; Marcus Oyelaran: late arrival (time-zone check)",
+      "trap": "no travel or hotel evidence for Grace Whitlock; minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -182,7 +182,7 @@
     },
     {
       "id": "s08",
-      "trap": "Tomasz Wierzba claimed present but stay out; Fatima Zahra Bennis claimed present but late arrival; Fatima Zahra Bennis: late arrival (time-zone check)",
+      "trap": "minutes say Tomasz Wierzba was there, but evidence shows a hotel elsewhere; minutes say Fatima Zahra Bennis was there, but evidence shows a flight landing after it started",
       "style": {
         "boardingPass": "card",
         "folio": "letter",
@@ -199,7 +199,7 @@
     },
     {
       "id": "s09",
-      "trap": "Marcus Oyelaran: flight during (time-zone check)",
+      "trap": "no traps",
       "style": {
         "boardingPass": "card",
         "folio": "french",
@@ -216,7 +216,7 @@
     },
     {
       "id": "s10",
-      "trap": "no evidence for Daniel Mbeki-Shaw; no evidence for Helena Brookfield",
+      "trap": "no travel or hotel evidence for Daniel Mbeki-Shaw; no travel or hotel evidence for Helena Brookfield",
       "style": {
         "boardingPass": "card",
         "folio": "french",
@@ -233,7 +233,7 @@
     },
     {
       "id": "s11",
-      "trap": "no evidence for Helena Brookfield",
+      "trap": "no travel or hotel evidence for Helena Brookfield",
       "style": {
         "boardingPass": "card",
         "folio": "french",
@@ -250,7 +250,7 @@
     },
     {
       "id": "s12",
-      "trap": "Grace Whitlock claimed present but flight during; Grace Whitlock: flight during (time-zone check)",
+      "trap": "minutes say Grace Whitlock was there, but evidence shows a flight leaving during the meeting",
       "style": {
         "boardingPass": "photo_bad",
         "folio": "letter",
@@ -258,8 +258,8 @@
         "passengerName": "airline",
         "clock": "12h"
       },
-      "expected": "FAIL",
-      "got": "FAIL",
+      "expected": "REVIEW",
+      "got": "REVIEW",
       "facts": "5/6",
       "missed": [
         "F|C|SIN|DXB|2026-04-14T03:35:00Z|2026-04-14T10:35:00Z"

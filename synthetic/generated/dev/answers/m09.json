@@ -1,0 +1,283 @@
+{
+  "scenario": {
+    "id": "m09",
+    "trap": "Virtual meeting fail: 1 of 4 in Singapore and the chairman is in Dubai",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "card",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "ACME-SG",
+    "name": "Northwind Capital Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Alice Marlowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Bruno Castell",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Chandra Velloso",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "D",
+        "name": "Dmitri Ashby",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "m09",
+    "startUtc": "2026-05-19T02:00:00Z",
+    "endUtc": "2026-05-19T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "C",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-05-18T05:00:00Z",
+      "checkOutUtc": "2026-05-21T02:00:00Z",
+      "cite": {
+        "docId": "m09/stay/folio_A_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-05-16T20:00:00Z",
+      "checkOutUtc": "2026-05-22T08:00:00Z",
+      "cite": {
+        "docId": "m09/stay/folio_B_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-05-16T20:00:00Z",
+      "checkOutUtc": "2026-05-22T08:00:00Z",
+      "cite": {
+        "docId": "m09/stay/folio_C_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "D",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-05-16T20:00:00Z",
+      "checkOutUtc": "2026-05-22T08:00:00Z",
+      "cite": {
+        "docId": "m09/stay/folio_D_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "m09/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "m09/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "m09/minutes.pdf",
+        "page": 1,
+        "quote": "(Chairman) present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:DUBAI",
+      "source": "minutes",
+      "cite": {
+        "docId": "m09/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Dubai"
+      }
+    }
+  ],
+  "expected": {
+    "meetingId": "m09",
+    "jurisdiction": "SG",
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present",
+        "basis": "independent",
+        "reason": "hotel stay in Singapore covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m09/stay/folio_A_SINGAPORE.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m09/stay/folio_B_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m09/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m09/stay/folio_C_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m09/minutes.pdf",
+            "page": 1,
+            "quote": "(Chairman) present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      },
+      {
+        "directorId": "D",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m09/stay/folio_D_DUBAI.pdf",
+            "page": 1
+          }
+        ]
+      }
+    ],
+    "tests": [
+      {
+        "id": "SG-virtual-50pct-or-chair",
+        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+        "status": "fail",
+        "basis": "regulator",
+        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+        "detail": "Directors with strategic authority: 4; 2 needed for 50%. Evidence: 1 present, 3 absent, 0 unproven. Chairman physically in Singapore: no."
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m09/stay/folio_B_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m09/minutes.pdf",
+            "page": 1,
+            "quote": "present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      },
+      {
+        "directorId": "C",
+        "status": "absent",
+        "elsewhere": "AE",
+        "basis": "independent",
+        "reason": "hotel stay in Dubai covers the whole meeting.",
+        "cites": [
+          {
+            "docId": "m09/stay/folio_C_DUBAI.pdf",
+            "page": 1
+          },
+          {
+            "docId": "m09/minutes.pdf",
+            "page": 1,
+            "quote": "(Chairman) present in Singapore"
+          }
+        ],
+        "contradiction": {
+          "claimed": "Singapore",
+          "evidence": "United Arab Emirates"
+        }
+      }
+    ]
+  }
+}

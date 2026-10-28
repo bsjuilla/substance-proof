@@ -41,7 +41,8 @@ type Situation = "stay_in" | "bracket_in" | "stay_out" | "flight_during" | "late
 const SITUATIONS: Situation[] = ["stay_in", "stay_in", "bracket_in", "stay_out", "stay_out", "flight_during", "late_arrival", "none"];
 
 const H = 3600_000;
-const iso = (t: number) => new Date(t).toISOString().replace(".000Z", "Z");
+// Documents print times to the minute, so the answer key is floored to the minute as well.
+const iso = (t: number) => new Date(Math.floor(t / 60_000) * 60_000).toISOString().replace(".000Z", "Z");
 
 export function buildTestScenarios(seed = 20261028, n = 30): Scenario[] {
   const r = rng(seed);

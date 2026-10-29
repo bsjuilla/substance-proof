@@ -21,3 +21,6 @@ Thumbs.db
 
 # local reference copies of third-party legal text (cite the source URL instead)
 docs/sources/
+
+# security proof-of-concept outputs
+security/poc-out/

@@ -82,6 +82,18 @@ You do NOT decide whether any legal test is met and must never say so. Your job:
 4. When done, reply with a two-sentence plain summary of the drafts you prepared.
 Keep messages short, factual and polite. Address people by their full name only, never with a title such as Mr or Ms. Use the meeting date exactly as given. Quote the exact words from "quotes" (in quotation marks) and name the document each comes from. Never invent documents, words or facts.`;
 
+// Any statement of a legal outcome, positive or negative. ("pass" alone is fine: "boarding pass" is normal.)
+export const OUTCOME = new RegExp(
+  [
+    /\b(fail(s|ed|ure)?|breach(es|ed)?|(non-?)?complian(t|ce with)|(in|not )?quorate)\b/,
+    /\bpass(es|ed)?\s+(the\s+)?(\w+\s+){0,3}(test|requirement|rule)s?\b/,
+    /\b(met|meets|satisf(y|ies|ied)|fulfil(s|led)?)\s+(the\s+)?(\w+\s+){0,3}(test|requirement|rule)s?\b/,
+    /\b(test|requirement|rule)s?\s+(was|were|is|are|has been|have been)\s+(not\s+)?(met|satisfied)\b/,
+    /\bno (further )?action (is )?(needed|required)\b/,
+  ].map((r) => r.source).join("|"),
+  "i",
+);
+
 export async function runEvidenceAgent(
   client: OpenAI,
   model: string,
@@ -120,12 +132,17 @@ export async function runEvidenceAgent(
   const validCites = (cs: unknown) =>
     Array.isArray(cs) && cs.length > 0 && cs.every((c) => typeof c === "string" && docIds.has(c.split(/[@#]/)[0]));
 
-  // Deterministic guardrails on every tool call.
+  // Deterministic guardrails on every tool call. They assume the model may be hijacked by text inside a
+  // document, so they check everything the model controls: tool name, director, wording, citations, size.
   function execute(name: string, args: any): unknown {
     if (name === "list_gaps") return { meeting_date: meetingDateText, jurisdiction: evaluation.jurisdiction, gaps };
     if (name === "get_rule_result") {
       const t = evaluation.tests.find((x) => x.id === args?.test_id);
       return t ?? { error: `unknown test id; valid ids: ${evaluation.tests.map((x) => x.id).join(", ")}` };
+    }
+    if (name !== "draft_evidence_request" && name !== "draft_minutes_correction") {
+      rejectedCalls++;
+      return { rejected: true, problems: [`unknown tool "${String(name).slice(0, 40)}"`] };
     }
     const id = String(args?.director_id ?? "");
     const already = drafts.some((d) => d.directorId === id && d.kind === (name === "draft_evidence_request" ? "evidence_request" : "minutes_correction"));
@@ -133,8 +150,13 @@ export async function runEvidenceAgent(
     if (!gapIds.has(id)) problems.push("director is not in list_gaps");
     if (already) problems.push("a draft of this kind already exists for this director");
     if (typeof args?.message !== "string" || !args.message.includes(meetingDateText)) problems.push(`message must state the meeting date exactly as "${meetingDateText}"`);
-    // ("pass" is not banned: "boarding pass" is a normal phrase.)
-    if (/\b(fail(s|ed|ure)?|non-?compliant|breach(es|ed)?|not quorate|inquorate)\b/i.test(String(args?.message ?? ""))) problems.push("message must not state any legal outcome");
+    const subject = String(args?.subject ?? "");
+    const message = String(args?.message ?? "");
+    if (OUTCOME.test(`${subject}\n${message}`)) problems.push("subject and message must not state any legal outcome, either way");
+    if (subject.length > 200 || message.length > 3000) problems.push("subject or message too long");
+    const docs = args?.documents_requested;
+    if (docs !== undefined && !(Array.isArray(docs) && docs.length <= 10 && docs.every((d: unknown) => typeof d === "string" && d.length < 200)))
+      problems.push("documents_requested must be a short list of strings");
     if (!validCites(args?.citations)) problems.push("citations must be docIds returned by list_gaps");
     if (name === "draft_evidence_request" && !missingIds.has(id)) problems.push("evidence requests are only for directors whose presence is unproven");
     if (name === "draft_minutes_correction" && !conflictIds.has(id)) problems.push("minutes corrections are only for directors with a contradiction or conflict");

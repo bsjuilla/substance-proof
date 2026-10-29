@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validatePack } from "../src/rules/buildPack";
+import { thresholdInQuote, validatePack } from "../src/rules/buildPack";
 import { runPack, type RulePack } from "../src/rules/pack";
 import { resolvePresence } from "../src/engine/presence";
 import { company, dir, meeting, stay } from "./helpers";
@@ -50,4 +50,15 @@ describe("rule pack execution (deterministic)", () => {
     const r = runPack(pack([strategicOnly]), company(three), m, presence([]));
     expect(r[0].status).toBe("not_applicable");
   });
+});
+
+describe("rule pack thresholds must be stated in the law", () => {
+  const q = "At least 50% of the directors (with the authority to make strategic decisions) are physically in Singapore";
+  it("accepts 0.5 when the quote says 50%", () => expect(thresholdInQuote(0.5, q)).toBe(true));
+  it("accepts 0.5 for 'one half' and 50 per cent", () => {
+    expect(thresholdInQuote(0.5, "at least one half of the directors")).toBe(true);
+    expect(thresholdInQuote(0.5, "not less than 50 per cent of the directors")).toBe(true);
+  });
+  it("rejects a weakened threshold the law never states (hijacked model)", () => expect(thresholdInQuote(0.01, q)).toBe(false));
+  it("does not read 150% as 50%", () => expect(thresholdInQuote(0.5, "150% of the fee")).toBe(false));
 });

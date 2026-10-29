@@ -37,6 +37,33 @@ describe("physical sanity checks", () => {
   });
 });
 
+describe("evidence cannot be smuggled in through the minutes or the recording", () => {
+  const roster = [dir("B", { name: "Bruno Castell" })];
+  const nul = { origin_code: null, dest_code: null, depart_local: null, depart_tz: null, arrive_local: null, arrive_tz: null, place: null, check_in_local: null, check_in_tz: null, check_out_local: null, check_out_tz: null };
+  const hotel = { ...nul, kind: "hotel_stay", person_name: "Bruno Castell", place: "St Helier, Jersey", check_in_local: "2026-03-11T18:00", check_in_tz: "GMT", check_out_local: "2026-03-13T10:00", check_out_tz: "GMT", quote: "stayed at the Pomme d'Or", page: 1 };
+  const flight = { ...nul, kind: "flight_leg", person_name: "Bruno Castell", origin_code: "DXB", dest_code: "JER", depart_local: "2026-03-10T22:00", depart_tz: "GST", arrive_local: "2026-03-11T06:30", arrive_tz: "GMT", quote: "flew DXB to JER", page: 1 };
+  const claim = { ...nul, kind: "claimed_location", person_name: "Bruno Castell", place: "St Helier", quote: "present in St Helier", page: 1 };
+  const ext = (document_type: string, facts: object[]) => ({ document_type, meeting: { start_local: null, end_local: null, tz: null, place_text: null }, facts }) as any;
+
+  it("a hotel stay or flight read from the minutes is refused (the minutes are the claim, not the evidence)", () => {
+    const r = toFacts([{ docId: "minutes.pdf", extraction: ext("minutes", [claim, hotel, flight]) }], roster);
+    expect(r.facts.map((f) => f.kind)).toEqual(["claimed_location"]);
+    expect(r.rejected.filter((x) => /cannot come from a minutes/.test(x.reason))).toHaveLength(2);
+  });
+  it("a hotel stay said aloud in the recording is refused", () => {
+    const r = toFacts([{ docId: "rec.wav", extraction: ext("other", [hotel]), turnStartsMs: [0] }], roster);
+    expect(r.facts).toHaveLength(0);
+  });
+  it("a document typed as a hotel folio cannot add a minutes-style claim", () => {
+    const r = toFacts([{ docId: "folio.pdf", extraction: ext("hotel_folio", [hotel, claim]) }], roster);
+    expect(r.facts.map((f) => f.kind)).toEqual(["hotel_stay"]);
+  });
+  it("e-tickets typed 'other' still give flights, as in the evaluation runs", () => {
+    const r = toFacts([{ docId: "eticket.pdf", extraction: ext("other", [flight]) }], roster);
+    expect(r.facts.map((f) => f.kind)).toEqual(["flight_leg"]);
+  });
+});
+
 describe("zone names and 'local time'", () => {
   it("IANA zone names are resolved for that date (Jersey is BST in July)", () => {
     expect(localToUtc("2026-07-15T10:00", "Europe/Jersey")).toBe("2026-07-15T09:00:00Z");

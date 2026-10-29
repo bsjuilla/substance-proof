@@ -16,7 +16,8 @@
     "web:build": "vite build --config web/vite.config.ts",
     "typecheck:web": "tsc -p web --noEmit",
     "server": "tsx server/index.ts",
-    "app": "npm run web:build && tsx server/index.ts"
+    "app": "npm run web:build && tsx server/index.ts",
+    "security:http": "node security/poc-http.mjs"
   },
   "license": "MIT",
   "devDependencies": {

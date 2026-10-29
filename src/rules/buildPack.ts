@@ -77,6 +77,15 @@ export type BuildResult = {
   seconds: number;
 };
 
+/** True if the quote states this share, e.g. "50%", "50 per cent" or "one half". */
+export function thresholdInQuote(threshold: number, quote: string): boolean {
+  const q = quote.toLowerCase();
+  const pct = Math.round(threshold * 1000) / 10;
+  if (new RegExp(`(^|[^\\d.])${String(pct).replace(".", "\\.")}\\s*(%|per\\s*cent|percent)`).test(q)) return true;
+  if (threshold === 0.5 && /\b(one[\s-])?half\b/.test(q)) return true;
+  return false;
+}
+
 export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResult, "costUsd" | "inputTokens" | "seconds"> {
   const src = norm(sourceText);
   const validated: ValidatedTest[] = pack.tests.map((t) => {
@@ -86,6 +95,8 @@ export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResu
     if (!quoteFound) problems.push("quote not found word for word in the source");
     if (t.kind === "share_physically_present_or_chair" && !(t.threshold && t.threshold > 0 && t.threshold <= 1)) problems.push("share test needs a threshold between 0 and 1");
     if (t.kind !== "share_physically_present_or_chair" && t.threshold !== null) problems.push("threshold only allowed on share tests");
+    // The number must come from the law, not from the model (or from instructions hidden in the pasted text).
+    if (t.threshold && !thresholdInQuote(t.threshold, t.quote)) problems.push(`threshold ${t.threshold} is not stated in the quoted words`);
     if (!t.citation.trim()) problems.push("missing citation");
     return { ...t, quoteFound, problems };
   });

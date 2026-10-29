@@ -24,12 +24,19 @@ const TYPES: Record<string, string> = {
   ".wav": "audio/wav", ".svg": "image/svg+xml", ".ico": "image/x-icon",
 };
 
+// The app loads nothing from other sites. Inline style attributes are used by React components.
+const CSP = "default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; frame-src 'self'; " +
+  "frame-ancestors 'self'; object-src 'self'; base-uri 'none'; form-action 'self'";
+
 function send(res: ServerResponse, status: number, body: unknown, type = "application/json") {
   res.writeHead(status, {
     "Content-Type": type,
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "no-referrer",
     "Cache-Control": "no-store",
+    "X-Frame-Options": "SAMEORIGIN",
+    // Only the app's pages get the CSP: on a PDF response it stops Chrome's built-in PDF viewer from rendering.
+    ...(type.startsWith("text/html") ? { "Content-Security-Policy": CSP } : {}),
   });
   const raw = Buffer.isBuffer(body) || typeof body === "string";
   res.end(raw ? (body as Buffer | string) : JSON.stringify(body));
@@ -37,9 +44,21 @@ function send(res: ServerResponse, status: number, body: unknown, type = "applic
 
 /** Serve a file only if it resolves inside `base` (no path traversal). */
 function serveFile(res: ServerResponse, base: string, relPath: string) {
-  const full = normalize(join(base, decodeURIComponent(relPath)));
+  let decoded: string;
+  try {
+    decoded = decodeURIComponent(relPath);
+  } catch {
+    return send(res, 404, { error: "not found" });
+  }
+  const full = normalize(join(base, decoded));
   if (!full.startsWith(base + sep) || !existsSync(full) || !statSync(full).isFile()) return send(res, 404, { error: "not found" });
   send(res, 200, readFileSync(full), TYPES[extname(full).toLowerCase()] ?? "application/octet-stream");
+}
+
+class HttpError extends Error {
+  constructor(public status: number, message: string) {
+    super(message);
+  }
 }
 
 async function readJson(req: IncomingMessage): Promise<any> {
@@ -47,10 +66,14 @@ async function readJson(req: IncomingMessage): Promise<any> {
   let size = 0;
   for await (const c of req) {
     size += (c as Buffer).length;
-    if (size > MAX_BODY) throw new Error("Upload too large (limit 60 MB).");
+    if (size > MAX_BODY) throw new HttpError(413, "Upload too large (limit 60 MB).");
     chunks.push(c as Buffer);
   }
-  return JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}");
+  try {
+    return JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}");
+  } catch {
+    throw new HttpError(400, "Request body is not valid JSON.");
+  }
 }
 
 const listFiles = (dir: string): string[] =>
@@ -93,17 +116,22 @@ const server = createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", "http://localhost");
     const p = url.pathname;
 
-    // Every POST spends API credit, so only accept JSON requests from this app's own pages. This blocks other
-    // websites from making the browser call this local server (CSRF / DNS rebinding).
+    // A page on another site must not be able to use this server through the visitor's browser.
+    // Host check on every request blocks DNS rebinding (a foreign name pointed at 127.0.0.1), which would
+    // otherwise let that page read uploaded documents. POSTs spend API credit, so they must also be JSON
+    // from this app's own origin (CSRF).
+    const host = req.headers.host ?? "";
+    const allowedHosts = [`127.0.0.1:${PORT}`, `localhost:${PORT}`];
+    if (!allowedHosts.includes(host)) return send(res, 403, { error: "Rejected: unknown host." });
     if (req.method === "POST") {
-      const host = req.headers.host ?? "";
       const origin = req.headers.origin ?? "";
-      const allowedHosts = [`127.0.0.1:${PORT}`, `localhost:${PORT}`];
       const allowedOrigins = [...allowedHosts.map((h) => `http://${h}`), "http://localhost:5173", "http://127.0.0.1:5173"];
       const json = (req.headers["content-type"] ?? "").startsWith("application/json");
-      if (!allowedHosts.includes(host) || (origin && !allowedOrigins.includes(origin)) || !json) {
+      if ((origin && !allowedOrigins.includes(origin)) || !json) {
         return send(res, 403, { error: "Rejected: requests must come from the Substance Proof app itself." });
       }
+    } else if (req.method !== "GET" && req.method !== "HEAD") {
+      return send(res, 405, { error: "method not allowed" });
     }
 
     if (p === "/api/health") return send(res, 200, { live: !!live, model: live?.model ?? null });
@@ -182,8 +210,10 @@ const server = createServer(async (req, res) => {
     if (full.startsWith(DIST + sep) && existsSync(full) && statSync(full).isFile()) return serveFile(res, DIST, rel);
     return serveFile(res, DIST, "index.html");
   } catch (e: any) {
+    if (e instanceof HttpError) return send(res, e.status, { error: e.message });
     console.error(e);
-    return send(res, 500, { error: String(e?.message ?? e).slice(0, 300) });
+    // Internal details stay in this terminal; the browser gets a short message without file paths.
+    return send(res, 500, { error: String(e?.message ?? e).replace(/[A-Za-z]:\\[^\s"']+|\/(?:Users|home)\/[^\s"']+/g, "<path>").slice(0, 300) });
   }
 });
 

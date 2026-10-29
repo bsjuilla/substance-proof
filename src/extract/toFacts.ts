@@ -174,6 +174,13 @@ export function toFacts(items: ExtractedItem[], roster: Director[]): ToFactsResu
       else rejected.push({ file: docId, reason: "meeting time or zone not readable" });
     }
     for (const f of extraction.facts) {
+      // The minutes and the recording are what the company says; they can never supply travel or hotel
+      // evidence, whatever the model was talked into reporting. Claims come only from them.
+      const fromClaimSource = isRecording || extraction.document_type === "minutes";
+      if ((f.kind === "claimed_location") !== fromClaimSource) {
+        rejected.push({ file: docId, reason: `a ${f.kind.replace("_", " ")} cannot come from ${isRecording ? "the recording" : `a ${extraction.document_type.replace("_", " ")} document`}; ignored` });
+        continue;
+      }
       const dir = matchDirector(f.person_name, roster);
       if (!dir) {
         rejected.push({ file: docId, reason: `name "${f.person_name}" matches no director` });

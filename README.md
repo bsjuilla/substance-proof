@@ -94,7 +94,7 @@ Requirements: Node 20+ and Chrome (only for regenerating the synthetic documents
 
 ```bash
 npm install
-npm test                    # 56 tests: rules engine, presence inference, time zones, names, sanity checks, rule packs
+npm test                    # 79 tests: rules engine, presence inference, time zones, names, sanity checks, rule packs, agent guardrails
 cp .env.example .env        # then put your own Meta Model API key in .env (never commit it)
 npm run app                 # builds the web app and serves it at http://127.0.0.1:8787
 ```
@@ -127,6 +127,10 @@ Corporate directors (look-through to the individual), alternate directors, and p
 ## Built during the hackathon
 
 Everything in this repository was written during the hackathon (26 October â€“ 4 November 2026); the commit history starts on 28 October 2026. No earlier code was reused.
+
+## Security
+
+The minutes are written by the party that wants a PASS, so the review treats every document, recording and pasted law as hostile. [`SECURITY.md`](SECURITY.md) lists the threat model and five findings, each shown by a working attack before it was fixed. The worst was that the agent's guardrail blocked "non-compliant" but not "compliant". The review also covers code-level defences that no longer depend on the model behaving well: the minutes and the recording can never supply travel or hotel evidence, a rule's threshold must appear in the quoted law, and every agent tool call is checked even if the model is hijacked. CI runs the type checks, the tests and a 17-attack HTTP suite (CSRF, DNS rebinding, path traversal) on every push.
 
 ## Safety and privacy
 

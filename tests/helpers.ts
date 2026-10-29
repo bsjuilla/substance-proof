@@ -8,7 +8,7 @@ export function dir(id: string, opts: Partial<Director> = {}): Director {
 }
 
 export function company(directors: Director[], quorumRequired = 2, options: Company["options"] = {}): Company {
-  return { id: "co1", name: "Acme Holdings Ltd", directors, quorumRequired, options };
+  return { id: "co1", name: "Quenvale Holdings Ltd", directors, quorumRequired, options };
 }
 
 export function meeting(attendees: string[], over: Partial<Meeting> = {}): Meeting {

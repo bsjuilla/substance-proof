@@ -22,7 +22,7 @@ const attendance = `
 <tr><td>Chandra Velloso</td><td>Director</td><td>present in St Helier</td></tr></table>`;
 
 const page = (extra: string) => `<html><body style="font-family:Georgia;padding:40px;font-size:13px">
-<h2>ACME HOLDINGS (JERSEY) LIMITED</h2><p>Minutes of a meeting of the Board of Directors</p>
+<h2>QUENVALE HOLDINGS (JERSEY) LIMITED</h2><p>Minutes of a meeting of the Board of Directors</p>
 <p>Date: 12 Mar 2026 &nbsp; Time: 09:00 - 11:00 (GMT) &nbsp; Place: St Helier, Jersey</p>
 <h3>ATTENDANCE</h3>${attendance}
 <h3>BUSINESS</h3><p>The Board considered and RESOLVED to approve the Company's 2026 investment strategy.</p>${extra}

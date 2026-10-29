@@ -1,21 +1,21 @@
 [
  {
   "id": "m11",
-  "title": "Acme Holdings (Jersey) Limited",
+  "title": "Quenvale Holdings (Jersey) Limited",
   "trap": "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C landed mid-meeting. Quorum fails.",
   "verdict": "FAIL",
   "jurisdiction": "JE"
  },
  {
   "id": "m03",
-  "title": "Acme Holdings (Jersey) Limited",
+  "title": "Quenvale Holdings (Jersey) Limited",
   "trap": "Contradiction: minutes say B was in St Helier but his flight left at 10:30 during the meeting",
   "verdict": "REVIEW",
   "jurisdiction": "JE"
  },
  {
   "id": "m10",
-  "title": "Northwind Capital Pte Ltd",
+  "title": "Tembusu Ridge Capital Pte Ltd",
   "trap": "Exactly 50%: A and B in Singapore (B landed at 23:50 the night before, crossing midnight), C and D in Dubai",
   "verdict": "PASS",
   "jurisdiction": "SG"
@@ -23,7 +23,7 @@
  {
   "id": "t14",
   "title": "Harbourline Holdings (Jersey) Limited",
-  "trap": "Helena Brookfield claimed present but stay out",
+  "trap": "minutes say Helena Brookfield was there, but evidence shows a hotel elsewhere",
   "verdict": "REVIEW",
   "jurisdiction": "JE"
  }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Icon } from "./Icon";
 
 // "Add a jurisdiction by giving it the law": Muse Spark reads the full official text and drafts a rule pack;
 // code checks every quote word for word; a person approves. Shows recorded packs and (live mode) a builder.
@@ -46,7 +47,7 @@ export function PackView({ built, approvable }: { built: Built; approvable?: boo
             </p>
             <blockquote style={{ margin: ".5rem 0", padding: ".5rem .75rem", borderLeft: "3px solid var(--border-strong)", background: "var(--surface-2)", fontFamily: "var(--font-serif)" }}>“{t.quote}”</blockquote>
             <p className={ok ? "st pass" : "st fail"} style={{ fontSize: "var(--step--1)" }}>
-              {ok ? "✓ Quote found word for word in the official text · parameters valid" : `✕ Rejected by code: ${t.problems?.join("; ")}`}
+              {ok ? <><Icon name="check" /> Quote found word for word in the official text · parameters valid</> : <><Icon name="cross" /> Rejected by code: {t.problems?.join("; ")}</>}
             </p>
           </article>
         );
@@ -59,7 +60,7 @@ export function PackView({ built, approvable }: { built: Built; approvable?: boo
       )}
       {approvable && (
         <div className="actions no-print">
-          {approved ? <span className="st pass">✓ Approved for this session (a person reviewed every rule above)</span>
+          {approved ? <span className="st pass"><Icon name="check" /> Approved for this session (a person reviewed every rule above)</span>
             : <button className="btn primary small" onClick={() => setApproved(true)} disabled={built.approvedTests.length === 0}>Approve {built.approvedTests.length} rule(s)</button>}
         </div>
       )}

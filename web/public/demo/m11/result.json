@@ -1,11 +1,11 @@
 {
  "id": "m11",
- "createdAt": "2026-10-28T15:36:51.008Z",
+ "createdAt": "2026-10-29T10:49:14.835Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
-  "id": "ACME-JE",
-  "name": "Acme Holdings (Jersey) Limited",
+  "id": "QV-JE",
+  "name": "Quenvale Holdings (Jersey) Limited",
   "directors": [
    {
     "id": "A",
@@ -56,62 +56,62 @@
    "kind": "recording",
    "transcript": [
     {
-     "startMs": 380,
-     "endMs": 5500,
+     "startMs": 220,
+     "endMs": 5580,
      "text": "Good morning, everyone.",
      "speaker": "A"
     },
     {
-     "startMs": 6380,
-     "endMs": 21100,
-     "text": "This is a strategic meeting. So a roll call for the record. Name and where you are.",
+     "startMs": 6060,
+     "endMs": 21660,
+     "text": "This is a strategic meeting so a roll call for the record name and where you are",
      "speaker": "A"
     },
     {
-     "startMs": 22300,
-     "endMs": 24140,
-     "text": "Please.",
+     "startMs": 22060,
+     "endMs": 23660,
+     "text": "please",
      "speaker": "A"
     },
     {
-     "startMs": 27340,
-     "endMs": 27340,
-     "text": "speaker_A|>"
-    },
-    {
-     "startMs": 27340,
-     "endMs": 38300,
-     "text": "Alice Marlowe chairing from the boardroom in Saint Saint Helier,",
+     "startMs": 27180,
+     "endMs": 38060,
+     "text": "Alice Marlowe chairing from the boardroom in Saint Helier",
      "speaker": "A"
     },
     {
      "startMs": 39900,
-     "endMs": 46620,
-     "text": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed",
+     "endMs": 47580,
+     "text": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed",
      "speaker": "B"
     },
     {
      "startMs": 47900,
-     "endMs": 51580,
-     "text": "and Chandra",
+     "endMs": 51820,
+     "text": "And Chandra",
      "speaker": "A"
     },
     {
      "startMs": 52620,
-     "endMs": 58700,
+     "endMs": 57180,
      "text": "we can't hear Chandra yet",
      "speaker": "A"
     },
     {
-     "startMs": 59580,
-     "endMs": 65740,
-     "text": "we'll proceed and note her arrival",
+     "startMs": 59900,
+     "endMs": 59980,
+     "text": ""
+    },
+    {
+     "startMs": 59980,
+     "endMs": 65020,
+     "text": "We'll proceed and and note her arrival",
      "speaker": "A"
     },
     {
-     "startMs": 68540,
-     "endMs": 84140,
-     "text": "first item the proposed acquisition of a 40% interest in Meridian Logistics",
+     "startMs": 68300,
+     "endMs": 83740,
+     "text": "First item the proposed acquisition of a 40% interest in Meridian Logistics",
      "speaker": "A"
     }
    ]
@@ -170,8 +170,8 @@
    "source": "recording",
    "cite": {
     "docId": "m11/recording.wav",
-    "timestampSec": 27.3,
-    "quote": "Alice Marlowe chairing from the boardroom in Saint Saint Helier,"
+    "timestampSec": 27.2,
+    "quote": "Alice Marlowe chairing from the boardroom in Saint Helier"
    }
   },
   {
@@ -182,7 +182,7 @@
    "cite": {
     "docId": "m11/recording.wav",
     "timestampSec": 39.9,
-    "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed"
+    "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
    }
   },
   {
@@ -219,7 +219,7 @@
    "cite": {
     "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
     "page": 1,
-    "quote": "London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+    "quote": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
    }
   }
  ],
@@ -262,7 +262,7 @@
      {
       "docId": "m11/recording.wav",
       "timestampSec": 39.9,
-      "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed"
+      "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
      }
     ],
     "contradiction": {
@@ -281,7 +281,7 @@
       {
        "docId": "m11/recording.wav",
        "timestampSec": 39.9,
-       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed"
+       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
       }
      ]
     }
@@ -295,7 +295,7 @@
      {
       "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
       "page": 1,
-      "quote": "London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+      "quote": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
      },
      {
       "docId": "m11/minutes.pdf",
@@ -364,7 +364,7 @@
      {
       "docId": "m11/recording.wav",
       "timestampSec": 39.9,
-      "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed"
+      "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
      }
     ],
     "contradiction": {
@@ -383,7 +383,7 @@
       {
        "docId": "m11/recording.wav",
        "timestampSec": 39.9,
-       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed"
+       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
       }
      ]
     }
@@ -397,7 +397,7 @@
      {
       "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
       "page": 1,
-      "quote": "London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+      "quote": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
      },
      {
       "docId": "m11/minutes.pdf",
@@ -419,8 +419,8 @@
     "kind": "minutes_correction",
     "directorId": "B",
     "directorName": "Bruno Castell",
-    "subject": "Review of minutes entry for Bruno Castell - 12 March 2026",
-    "message": "Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/stay/folio_B_DUBAI.pdf states \"11 Mar 2026 00:00 (GST)\" and the recording in m11/recording.wav states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed\". Please review.",
+    "subject": "Review of minutes entry - Bruno Castell - 12 March 2026",
+    "message": "Hello, Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/stay/folio_B_DUBAI.pdf which states \"11 Mar 2026 00:00 (GST)\" and m11/recording.wav which states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
     "citations": [
      "m11/stay/folio_B_DUBAI.pdf#p1",
      "m11/minutes.pdf#p1",
@@ -433,8 +433,8 @@
     "kind": "minutes_correction",
     "directorId": "C",
     "directorName": "Chandra Velloso",
-    "subject": "Review of minutes entry for Chandra Velloso - 12 March 2026",
-    "message": "Please review the minutes entry for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/travel/ETKT_C_LHR-JER.pdf states \"London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)\". Please review.",
+    "subject": "Review of minutes entry - Chandra Velloso - 12 March 2026",
+    "message": "Hello, Please review the minutes entry for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/travel/ETKT_C_LHR-JER.pdf which states \"SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)\". Please review.",
     "citations": [
      "m11/travel/ETKT_C_LHR-JER.pdf#p1",
      "m11/minutes.pdf#p1"
@@ -442,7 +442,7 @@
     "status": "awaiting_approval"
    }
   ],
-  "summary": "I prepared draft minutes correction notes for Bruno Castell and Chandra Velloso regarding the meeting on 12 March 2026.\n\nBoth drafts are awaiting approval.",
+  "summary": "I prepared two minutes correction drafts for the meeting on 12 March 2026. They are for Bruno Castell and Chandra Velloso and are awaiting approval.",
   "trace": [
    {
     "step": 1,
@@ -482,7 +482,7 @@
         },
         {
          "doc": "m11/recording.wav",
-         "words": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed"
+         "words": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
         }
        ]
       },
@@ -504,7 +504,7 @@
        "quotes": [
         {
          "doc": "m11/travel/ETKT_C_LHR-JER.pdf",
-         "words": "London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+         "words": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
         },
         {
          "doc": "m11/minutes.pdf",
@@ -525,8 +525,8 @@
       "m11/recording.wav@39.9s"
      ],
      "director_id": "B",
-     "message": "Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/stay/folio_B_DUBAI.pdf states \"11 Mar 2026 00:00 (GST)\" and the recording in m11/recording.wav states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed delayed\". Please review.",
-     "subject": "Review of minutes entry for Bruno Castell - 12 March 2026"
+     "message": "Hello, Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/stay/folio_B_DUBAI.pdf which states \"11 Mar 2026 00:00 (GST)\" and m11/recording.wav which states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
+     "subject": "Review of minutes entry - Bruno Castell - 12 March 2026"
     },
     "result": {
      "draft_id": "D1",
@@ -542,8 +542,8 @@
       "m11/minutes.pdf#p1"
      ],
      "director_id": "C",
-     "message": "Please review the minutes entry for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/travel/ETKT_C_LHR-JER.pdf states \"London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)\". Please review.",
-     "subject": "Review of minutes entry for Chandra Velloso - 12 March 2026"
+     "message": "Hello, Please review the minutes entry for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/travel/ETKT_C_LHR-JER.pdf which states \"SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)\". Please review.",
+     "subject": "Review of minutes entry - Chandra Velloso - 12 March 2026"
     },
     "result": {
      "draft_id": "D2",
@@ -553,6 +553,6 @@
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0582,
- "seconds": 67
+ "costUsd": 0.0601,
+ "seconds": 43
 }

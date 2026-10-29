@@ -1,6 +1,7 @@
 import { jurisdictionOf, JURISDICTION_NAMES, placeName } from "../../src/engine/gazetteer";
 import type { Citation, Fact } from "../../src/engine/types";
 import type { RunResult } from "./types";
+import { StatusIcon } from "./Icon";
 
 const ZONE: Record<string, string> = { JE: "Europe/Jersey", SG: "Asia/Singapore" };
 
@@ -29,9 +30,9 @@ export function Timeline({ result, onCite }: Props) {
 
   return (
     <section className="card stack" aria-labelledby="tl-h">
-      <div className="row" style={{ justifyContent: "space-between", alignItems: "center" }}>
+      <div className="stack" style={{ ["--gap" as any]: ".4rem" }}>
+        <p className="sec-num"><span>01</span> Read · every mark opens its source</p>
         <h2 id="tl-h">Where was each director?</h2>
-        <span className="role-chip"><b>1</b> AI read these · every mark opens its source</span>
       </div>
       <p className="muted" style={{ fontSize: "var(--step--1)" }}>
         Meeting {hm(S)}–{hm(E)} {zoneName}, {result.meetingDateText}. Window shown: 6 hours either side.
@@ -68,7 +69,7 @@ export function Timeline({ result, onCite }: Props) {
               <div className="tl-dir" key={d.id}>
                 <div className="tl-who">
                   <strong>{d.name}{d.isChair ? " (Chair)" : ""}</strong>
-                  <span className={`pill ${status}`}>{status === "present" ? "✓" : status === "absent" ? "✕" : "?"} {label}</span>
+                  <span className={`pill ${status}`}><StatusIcon s={status} /> {label}</span>
                 </div>
 
                 <div className="tl-rows">
@@ -107,7 +108,7 @@ export function Timeline({ result, onCite }: Props) {
                           return (
                             <button key={i} className={`tl-bar ${inT ? "ok" : "bad"}`} style={{ left: `${a}%`, width: `${Math.max(1, b - a)}%` }} onClick={() => onCite(f.cite)}
                               aria-label={`Hotel stay in ${where(f.placeCode)}. Open the hotel bill.`}>
-                              {inT ? "✓" : "✕"} Hotel stay · {where(f.placeCode)}{!inT && status === "absent" ? " · covers the whole meeting" : ""}
+                              <StatusIcon s={inT ? "ok" : "bad"} /> Hotel stay · {where(f.placeCode)}{!inT && status === "absent" ? " · covers the whole meeting" : ""}
                             </button>
                           );
                         }
@@ -141,7 +142,7 @@ export function Timeline({ result, onCite }: Props) {
                 </ul>
 
                 <p className={`tl-finding${p?.contradiction || p?.claimConflict ? " bad" : ""}`}>
-                  {p?.contradiction || p?.claimConflict ? "✕ " : status === "present" ? "✓ " : "? "}{finding}{" "}
+                  <StatusIcon s={p?.contradiction || p?.claimConflict ? "bad" : status} /> {finding}{" "}
                   {cites.map((c, i) => <button key={i} className="chip" onClick={() => onCite(c)}>{chipText(c)}</button>)}
                 </p>
               </div>
@@ -151,8 +152,8 @@ export function Timeline({ result, onCite }: Props) {
 
       <div className="legend" aria-hidden="true">
         <span><i className="lg-claim" />Claimed (not yet proven)</span>
-        <span><i style={{ background: "var(--ok)" }} />✓ Evidence in {target}</span>
-        <span><i style={{ background: "var(--bad)" }} />✕ Evidence elsewhere</span>
+        <span><i style={{ background: "var(--ok)" }} />Evidence in {target}</span>
+        <span><i style={{ background: "var(--bad)" }} />Evidence elsewhere</span>
         <span><i className="lg-flight" />In flight</span>
       </div>
     </section>

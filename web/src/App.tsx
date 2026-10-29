@@ -5,6 +5,8 @@ import { RulePacks } from "./RulePacks";
 import { ProofStrip } from "./ProofStrip";
 import { EvidenceDesk } from "./EvidenceDesk";
 import type { Loaded } from "./types";
+import { Icon, StatusIcon } from "./Icon";
+import { Logo } from "./Logo";
 
 type DemoEntry = { id: string; title: string; trap: string; verdict: string; jurisdiction: string };
 type Sample = { set: string; id: string; company: string; jurisdiction: string; trap: string };
@@ -74,7 +76,7 @@ export function App() {
       <a href="#main" className="sr-only">Skip to content</a>
       <header className="top">
         <div className="container bar">
-          <a className="brand" href="./" onClick={(e) => { e.preventDefault(); setLoaded(null); }}><span className="mark">SP</span>Substance Proof</a>
+          <a className="brand" href="./" onClick={(e) => { e.preventDefault(); setLoaded(null); }}><Logo />Substance Proof</a>
           <span className="badge">{live?.live ? `Live · ${live.model}` : "Recorded runs"}</span>
           <span className="spacer" />
           <div className="seg" role="group" aria-label="Colour theme">
@@ -91,7 +93,7 @@ export function App() {
         ) : view === "packs" ? (
           <RulePacks live={!!live?.live} onBack={() => setView("home")} />
         ) : (
-          <div className="stack" style={{ ["--gap" as any]: "2rem" }}>
+          <div className="home stack" style={{ ["--gap" as any]: "2rem" }}>
             <section className="hero">
               <div className="hero-copy">
                 <p className="eyebrow">Board-meeting evidence check · Jersey and Singapore</p>
@@ -101,7 +103,7 @@ export function App() {
                 </p>
                 <div className="hero-actions">
                   <button className="btn primary big" onClick={() => openDemo("m11")}>Open the case</button>
-                  <a className="link-arrow" href="#how">How it decides</a>
+                  <a className="link-arrow" href="#how">How it decides <Icon name="arrow-down" /></a>
                 </div>
                 <dl className="proofs">
                   <div><dt>Facts read exactly</dt><dd>166/166</dd></div>
@@ -113,13 +115,17 @@ export function App() {
               <EvidenceDesk />
             </section>
 
-            <ol className="roles" id="how" aria-label="How it works">
-              <li><span className="n" aria-hidden="true">1</span><strong>AI reads</strong><span className="d">Muse Spark and Muse Voice Transcribe extract who was where, and when.</span></li>
-              <li><span className="n" aria-hidden="true">2</span><strong>Code decides</strong><span className="d">A rules engine, not the AI, applies the law.</span></li>
-              <li><span className="n" aria-hidden="true">3</span><strong>A person approves</strong><span className="d">An agent drafts evidence requests; you approve.</span></li>
-            </ol>
-
             <ProofStrip id="m11" onOpen={() => openDemo("m11")} />
+
+            <section className="how" id="how" aria-labelledby="how-h">
+              <h2 id="how-h">The model reads.<br />Code decides.<br /><span>A person approves.</span></h2>
+              <ol className="how-steps">
+                <li><span className="n">01</span><div><h3>Read</h3><p>Muse Spark reads every PDF and photo; Muse Voice Transcribe turns the recording into a timed roll-call. Each fact comes back with the exact words it was read from.</p><p className="tool">Muse Spark 1.3 · Muse Voice Transcribe</p></div></li>
+                <li><span className="n">02</span><div><h3>Decide</h3><p>Deterministic, unit-tested code converts time zones, matches names, places each director, and applies the published rule. The model never decides a test.</p><p className="tool">79 tests · Jersey Art. 5(3) · IRAS guidance</p></div></li>
+                <li><span className="n">03</span><div><h3>Approve</h3><p>A Muse Spark agent drafts evidence requests and minutes corrections through function tools. Code checks every call, and nothing is sent without a person.</p><p className="tool">Function calling · guardrails · human approval</p></div></li>
+              </ol>
+            </section>
+
 
             {error && <p className="error" role="alert">{error}</p>}
 
@@ -131,7 +137,7 @@ export function App() {
                   {demos.length === 0 && <p className="note">No recorded runs found.</p>}
                   {demos.map((d, i) => (
                     <div key={d.id} className={`sample${i === 0 ? " hero" : ""}`}>
-                      <strong><span className={`tag ${d.verdict}`}>{d.verdict === "FAIL" ? "✕" : d.verdict === "REVIEW" ? "?" : "✓"} {d.verdict}</span> {d.trap.replace(/^HERO: /, "")}</strong>
+                      <strong><span className={`tag ${d.verdict}`}><StatusIcon s={d.verdict} /> {d.verdict}</span> {d.trap.replace(/^HERO: /, "")}</strong>
                       <button className="btn small primary" onClick={() => openDemo(d.id)} aria-label={`Open recorded run ${d.title}`}>{i === 0 ? "Start here" : "Open"}</button>
                       <p>{d.title} · {JN[d.jurisdiction]}</p>
                     </div>

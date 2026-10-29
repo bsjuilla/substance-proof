@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { placeName } from "../../src/engine/gazetteer";
 import type { Loaded } from "./types";
+import { Icon } from "./Icon";
 
 type Result = Loaded["result"];
 type Cite = { docId: string; page?: number; timestampSec?: number; quote?: string };
@@ -39,42 +40,38 @@ export function ProofStrip({ id, onOpen }: { id: string; onOpen: () => void }) {
   const finding = p.reason.charAt(0).toUpperCase() + p.reason.slice(1);
 
   return (
-    <section className="proof" aria-labelledby="proof-h">
-      <p className="proof-kicker" id="proof-h">One real case, read by Muse Spark and Muse Voice Transcribe · {r.company.name}, {r.meetingDateText}</p>
-      <ol className="proof-row">
-        <li className="proof-card claim">
-          <span className="proof-src">The minutes say</span>
-          <span className="proof-meta">Minutes · p{minutes?.page ?? 1}</span>
-          <q className="big">{minutes?.quote ?? "present"}</q>
-          <span className="proof-who">{name}</span>
+    <section className="ledger-wrap" aria-labelledby="proof-h">
+      <header className="section-head">
+        <p className="eyebrow">One real case · {r.company.name} · {r.meetingDateText}</p>
+        <h2 id="proof-h">Three sources. One claim. They don't agree.</h2>
+      </header>
+      <ol className="ledger">
+        <li className="claim">
+          <span className="l-src">The minutes say<small>Minutes · page {minutes?.page ?? 1} · {name}</small></span>
+          <q className="l-quote">{minutes?.quote ?? "present"}</q>
+          <span className="l-tag claim">Claim</span>
         </li>
         {rec && (
-          <li className="proof-card against">
-            <span className="proof-src">The recording says</span>
-            <span className="proof-meta">Recording · {mmss(rec.timestampSec!)}</span>
-            <q>{mark(rec.quote ?? "", place)}</q>
-            <span className="proof-who">Muse Voice Transcribe</span>
+          <li>
+            <span className="l-src">The recording says<small>recording.wav · {mmss(rec.timestampSec!)} · Muse Voice Transcribe</small></span>
+            <q className="l-quote">{mark(rec.quote ?? "", place)}</q>
+            <span className="l-tag bad"><Icon name="cross" /> Contradicts</span>
           </li>
         )}
         {evidence && (
-          <li className="proof-card against">
-            <span className="proof-src">{evidenceLabel}</span>
-            <span className="proof-meta">{evidence.cite.docId.split("/").pop()}</span>
-            <b className="proof-finding">{finding}</b>
-            <span className="proof-meta">Quoted from the bill: “{evidence.cite.quote}”</span>
+          <li>
+            <span className="l-src">{evidenceLabel}<small>{evidence.cite.docId.split("/").pop()} · quoted “{evidence.cite.quote}”</small></span>
+            <span className="l-quote finding">{finding}</span>
+            <span className="l-tag bad"><Icon name="cross" /> Contradicts</span>
           </li>
         )}
-        <li className="proof-card decided">
-          <span className="proof-src bad">Rules engine (code, not AI)</span>
-          <b className="proof-fail">✕ {r.evaluation.verdict}</b>
-          <span>{law ? `${law.label}: not met` : "Needs review"}</span>
-          <span className="proof-meta">{law?.citation}</span>
+        <li className="decided">
+          <span className="l-src">Rules engine<small>Code, not the model · {law?.citation}</small></span>
+          <span className="l-quote l-verdict"><b>{r.evaluation.verdict}</b> {law ? `${law.label}: not met.` : "Needs review."}</span>
+          <button className="btn primary" onClick={onOpen}>Open the case <Icon name="arrow-right" /></button>
         </li>
       </ol>
-      <div className="proof-cta">
-        <button className="btn primary big" onClick={onOpen}>Open this case →</button>
-        <span className="muted">Every finding links to its page or second. Synthetic documents; real model outputs. No API key needed.</span>
-      </div>
+      <p className="muted small">Every finding links to its page or second. Synthetic documents; real model outputs; no API key needed.</p>
     </section>
   );
 }

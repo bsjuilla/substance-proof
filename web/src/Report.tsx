@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Timeline } from "./Timeline";
 import { Viewer } from "./Viewer";
 import type { Citation, Draft, Loaded, TestResult } from "./types";
+import { Icon, StatusIcon } from "./Icon";
 
 const NAMES: Record<string, string> = { JE: "Jersey", SG: "Singapore" };
-const STATUS_TEXT: Record<TestResult["status"], string> = { pass: "✓ Met", fail: "✕ Not met", inconclusive: "? Unproven", not_applicable: "– N/A" };
+const STATUS_TEXT: Record<TestResult["status"], string> = { pass: "Met", fail: "Not met", inconclusive: "Unproven", not_applicable: "N/A" };
 const BASIS_TEXT: Record<TestResult["basis"], string> = { law: "Law", regulator: "Regulator", guidance: "Guidance (switchable)" };
 
 function headline(r: Loaded["result"]): string {
@@ -23,7 +24,7 @@ function headline(r: Loaded["result"]): string {
   return parts.join(". ") + ".";
 }
 
-/** One mark per director: ✓ evidence places them in the jurisdiction, ✕ elsewhere, ? unproven. */
+/** One mark per director: a check where evidence places them in the jurisdiction, a cross elsewhere, ? unproven. */
 function QuorumMeter({ result }: { result: Loaded["result"] }) {
   const ev = result.evaluation;
   const marks = ev.presence.map((p) => ({ id: p.directorId, s: p.status }));
@@ -31,7 +32,7 @@ function QuorumMeter({ result }: { result: Loaded["result"] }) {
   const nameOf = (id: string) => result.company.directors.find((d) => d.id === id)?.name ?? id;
   return (
     <div className="meter" aria-hidden="true">
-      <div className="dots">{marks.map((m) => <span key={m.id} className={`dot ${m.s}`} title={nameOf(m.id)}>{m.s === "present" ? "✓" : m.s === "absent" ? "✕" : "?"}</span>)}</div>
+      <div className="dots">{marks.map((m) => <span key={m.id} className={`dot ${m.s}`} title={nameOf(m.id)}><StatusIcon s={m.s} /></span>)}</div>
       <p><b>{present} of {marks.length}</b> directors in {NAMES[result.jurisdiction] ?? result.jurisdiction}</p>
       {result.jurisdiction === "JE" && <p className="muted">Quorum needs {result.company.quorumRequired}</p>}
     </div>
@@ -48,7 +49,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
   const pending = (result.agent?.drafts ?? []).filter((d) => !decisions[d.id]).length;
 
   return (
-    <div className="stack" style={{ ["--gap" as any]: "1.5rem" }}>
+    <div className="report stack" style={{ ["--gap" as any]: "1.5rem" }}>
       <div className="row no-print" style={{ justifyContent: "space-between" }}>
         <button className="btn small" onClick={onBack}>← All meetings</button>
         <div className="actions">
@@ -65,13 +66,13 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
       <section className="stack" aria-labelledby="co-h">
         <p className="muted" style={{ fontSize: "var(--step--1)" }}>{NAMES[result.jurisdiction]} · board meeting of {result.meetingDateText} · {result.meeting.mode.replace("_", " ")}{result.meeting.isStrategic ? " · strategic decisions taken" : ""}</p>
         <h1 id="co-h" className="report-h1">{result.company.name}</h1>
-        <nav className="pipeline no-print" aria-label="What happened in this check">
-          <a href="#tl-h"><span className="pip done" aria-hidden="true">✓</span><span><b>1 · AI read the pack</b><br />{result.docs.length} files · {result.facts.length} facts, each cited</span></a>
-          <a href="#rules-h"><span className="pip done" aria-hidden="true">✓</span><span><b>2 · Code decided</b><br />{ev.tests.length} tests · {ev.tests.filter((t) => t.status === "pass").length} met · {ev.tests.filter((t) => t.status === "fail").length} not met</span></a>
-          <a href="#agent-h"><span className="pip wait" aria-hidden="true">3</span><span><b>3 · You approve</b><br />{pending} draft{pending === 1 ? "" : "s"} waiting for your decision</span></a>
-        </nav>
+        <p className="run-line no-print">
+          <a href="#tl-h"><span>01</span> Read {result.docs.length} files, {result.facts.length} facts cited</a>
+          <a href="#rules-h"><span>02</span> Decided {ev.tests.length} tests</a>
+          <a href="#agent-h"><span>03</span> {pending} draft{pending === 1 ? "" : "s"} waiting for you</a>
+        </p>
         <div className={`verdict ${ev.verdict}`} role="status">
-          <span className="word">{ev.verdict === "FAIL" ? "✕ FAIL" : ev.verdict === "REVIEW" ? "? REVIEW" : "✓ PASS"}</span>
+          <span className="word"><StatusIcon s={ev.verdict} /> {ev.verdict}</span>
           <div className="verdict-text">
             <p><b>{ev.verdict === "FAIL" ? "The evidence does not show a test in the law being met." : ev.verdict === "REVIEW" ? "Needs a person to review before relying on these minutes." : "Presence tests met."}</b></p>
             <p>{headline(result)}</p>
@@ -91,12 +92,12 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
 
       <div className="grid-2">
         <section className="card stack" aria-labelledby="rules-h">
+          <p className="sec-num"><span>02</span> Decide · tested code, not the model</p>
           <h2 id="rules-h">Rule tests</h2>
-          <span className="role-chip"><b>2</b> Code decided</span>
           <p className="muted" style={{ fontSize: "var(--step--1)" }}>Decided by tested code from the published rules. The AI only reads documents; it never decides a test.</p>
           <p className="test-summary">
-            {failCount > 0 && <span className="st fail">✕ {failCount} not met</span>}
-            <span className="st pass">✓ {ev.tests.filter((t) => t.status === "pass").length} met</span>
+            {failCount > 0 && <span className="st fail"><Icon name="cross" /> {failCount} not met</span>}
+            <span className="st pass"><Icon name="check" /> {ev.tests.filter((t) => t.status === "pass").length} met</span>
             {ev.tests.some((t) => t.status === "inconclusive") && <span className="st inconclusive">? {ev.tests.filter((t) => t.status === "inconclusive").length} unproven</span>}
           </p>
           <div style={{ overflowX: "auto" }}>
@@ -105,7 +106,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
               <tbody>
                 {ev.tests.map((t) => (
                   <tr key={t.id} className={t.status === "fail" ? (t.basis === "law" ? "row-fail-law" : "row-fail-soft") : undefined}>
-                    <td className={`st ${t.status}`}>{STATUS_TEXT[t.status]}</td>
+                    <td className={`st ${t.status}`}><StatusIcon s={t.status} /> {STATUS_TEXT[t.status]}</td>
                     <td><b>{t.label}</b><br /><span className="muted">{t.detail}</span><br /><span className="mono muted" style={{ fontSize: ".75rem" }}>{t.citation}</span></td>
                     <td><span className={`badge ${t.basis === "law" || t.basis === "regulator" ? "law" : "guidance"}`}>{BASIS_TEXT[t.basis]}</span></td>
                   </tr>
@@ -116,11 +117,11 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
         </section>
 
         <section className="card stack" aria-labelledby="agent-h">
+          <p className="sec-num"><span>03</span> Approve · nothing is sent without you</p>
           <h2 id="agent-h">Drafted by the evidence agent</h2>
           <p className="muted" style={{ fontSize: "var(--step--1)" }}>
             Muse Spark used tools to look at the gaps and draft these. Every tool call was checked by code. Nothing is sent: each draft waits for your decision.
           </p>
-          <span className="role-chip"><b>3</b> You approve · nothing is sent</span>
           {result.agent && (
             <p className="guardrails">
               <b>{result.agent.trace.length} tool call{result.agent.trace.length === 1 ? "" : "s"} · {result.agent.rejectedCalls} rejected by the guardrails</b>
@@ -135,7 +136,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
               <article key={d.id} className={`draft ${state ?? ""}`} aria-label={`${d.kind === "evidence_request" ? "Evidence request" : "Minutes correction"} for ${d.directorName}`}>
                 <div className="row" style={{ justifyContent: "space-between" }}>
                   <span className="badge">{d.kind === "evidence_request" ? "Evidence request" : "Minutes correction"} · {d.directorName}</span>
-                  <span className={`draft-state ${state ?? "waiting"}`}>{state === "approved" ? "✓ Approved (demo: not actually sent)" : state === "declined" ? "Declined" : "● Awaiting your approval"}</span>
+                  <span className={`draft-state ${state ?? "waiting"}`}>{state === "approved" ? <><Icon name="check" /> Approved (demo: not actually sent)</> : state === "declined" ? "Declined" : <><Icon name="dot" /> Awaiting your approval</>}</span>
                 </div>
                 <p style={{ marginTop: ".5rem" }}><b>{d.subject}</b></p>
                 {d.message.length > 220 ? (

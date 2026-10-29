@@ -48,8 +48,8 @@ const dirs = (ids: string[], strategic = true, chair?: string): Director[] =>
   }));
 
 const JE_CO = (ids: string[], extra: Partial<Company> = {}): Company => ({
-  id: "ACME-JE",
-  name: "Acme Holdings (Jersey) Limited",
+  id: "QV-JE",
+  name: "Quenvale Holdings (Jersey) Limited",
   directors: dirs(ids),
   quorumRequired: 2,
   options: {},
@@ -57,8 +57,8 @@ const JE_CO = (ids: string[], extra: Partial<Company> = {}): Company => ({
 });
 
 const SG_CO = (): Company => ({
-  id: "ACME-SG",
-  name: "Northwind Capital Pte Ltd",
+  id: "TR-SG",
+  name: "Tembusu Ridge Capital Pte Ltd",
   directors: dirs(["A", "B", "C", "D"], true, "C"),
   quorumRequired: 2,
   options: {},

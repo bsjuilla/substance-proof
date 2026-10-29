@@ -3,11 +3,12 @@ import type { Citation, Fact } from "../../src/engine/types";
 import type { RunResult } from "./types";
 
 const ZONE: Record<string, string> = { JE: "Europe/Jersey", SG: "Asia/Singapore" };
-const W = 1000;
-const H = 64;
 
 type Props = { result: RunResult; onCite: (c: Citation) => void };
+type Claim = Extract<Fact, { kind: "claimed_location" }>;
 
+/** Each director gets rows that put what was CLAIMED (minutes, recording) above what the EVIDENCE shows.
+ *  Built from HTML (not a scaled SVG) so text stays readable at every width and every mark is a real button. */
 export function Timeline({ result, onCite }: Props) {
   const { evaluation, meeting, facts, company, jurisdiction } = result;
   const S = Date.parse(meeting.startUtc);
@@ -15,30 +16,36 @@ export function Timeline({ result, onCite }: Props) {
   const pad = 6 * 3600_000;
   const t0 = S - pad;
   const t1 = E + pad;
-  const x = (t: number) => ((Math.min(Math.max(t, t0), t1) - t0) / (t1 - t0)) * W;
+  const pct = (t: number) => ((Math.min(Math.max(t, t0), t1) - t0) / (t1 - t0)) * 100;
   const zone = ZONE[jurisdiction];
   const hm = (t: number) => new Intl.DateTimeFormat("en-GB", { timeZone: zone, hour: "2-digit", minute: "2-digit" }).format(new Date(t));
   const zoneName = new Intl.DateTimeFormat("en-GB", { timeZone: zone, timeZoneName: "short" }).formatToParts(new Date(S)).find((p) => p.type === "timeZoneName")?.value;
   const ticks: number[] = [];
   for (let t = Math.ceil(t0 / 7200_000) * 7200_000; t <= t1; t += 7200_000) ticks.push(t);
   const target = JURISDICTION_NAMES[jurisdiction];
+  const where = (code: string) => placeName(code);
+  const meetingBox = { left: `${pct(S)}%`, width: `${pct(E) - pct(S)}%` };
+  const chipText = (c: Citation) => `${c.docId.split("/").pop()}${c.timestampSec != null ? ` @${c.timestampSec}s` : c.page ? ` p${c.page}` : ""}`;
 
   return (
     <section className="card stack" aria-labelledby="tl-h">
-      <div className="row" style={{ justifyContent: "space-between" }}>
+      <div className="row" style={{ justifyContent: "space-between", alignItems: "center" }}>
         <h2 id="tl-h">Where was each director?</h2>
-        <span className="muted" style={{ fontSize: "var(--step--1)" }}>
-          Meeting {hm(S)}–{hm(E)} {zoneName}, {result.meetingDateText}. Window shown: 6 hours either side.
-        </span>
+        <span className="role-chip"><b>1</b> AI read these · every mark opens its source</span>
       </div>
-      <div className="legend" aria-hidden="true">
-        <span><i style={{ background: "var(--ok)" }} />Stay in {target}</span>
-        <span><i style={{ background: "var(--warn)" }} />Stay elsewhere</span>
-        <span><i style={{ background: "repeating-linear-gradient(45deg,var(--flight) 0 3px,transparent 3px 6px)", border: "1px solid var(--flight)" }} />In flight</span>
-        <span><i style={{ background: "var(--meeting)", border: "1px solid var(--accent)" }} />Meeting</span>
-        <span>■ minutes claim · ● recording claim</span>
-      </div>
-      <div>
+      <p className="muted" style={{ fontSize: "var(--step--1)" }}>
+        Meeting {hm(S)}–{hm(E)} {zoneName}, {result.meetingDateText}. Window shown: 6 hours either side.
+      </p>
+
+      <div className="tl">
+        <div className="tl-axis" aria-hidden="true">
+          <span className="tl-label" />
+          <div className="tl-track">
+            <span className="tl-meeting-tab" style={meetingBox}>Meeting</span>
+            {ticks.map((t) => <span key={t} className="tl-tick" style={{ left: `${pct(t)}%` }}>{hm(t)}</span>)}
+          </div>
+        </div>
+
         {company.directors
           .filter((d) => meeting.attendeeIds.includes(d.id))
           .map((d) => {
@@ -46,78 +53,107 @@ export function Timeline({ result, onCite }: Props) {
             const mine = facts.filter((f) => f.directorId === d.id);
             const status = p?.status ?? "unknown";
             const label = status === "present" ? `Evidence places in ${target}` : status === "absent" ? `Evidence: not in ${target}` : "Unproven";
-            const claimPlace = (f: Extract<Fact, { kind: "claimed_location" }>) => JURISDICTION_NAMES[jurisdictionOf(f.placeCode) ?? ""] ?? f.placeCode;
+            const claims = mine.filter((f): f is Claim => f.kind === "claimed_location");
+            const minutes = claims.find((f) => f.source === "minutes");
+            const recording = claims.find((f) => f.source === "recording");
+            const evidence = mine.filter((f) => f.kind === "hotel_stay" || f.kind === "flight_leg");
+            // A spoken or written claim that puts the director outside the jurisdiction undermines the minutes: red.
+            const conflicts = (f: Claim) => jurisdictionOf(f.placeCode) !== jurisdiction;
+            const cites = (p?.cites ?? []).concat(p?.claimConflict?.cites ?? []).filter((c, i, a) => a.findIndex((z) => z.docId === c.docId && z.timestampSec === c.timestampSec) === i);
+            const finding = p?.contradiction
+              ? `Minutes say ${p.contradiction.claimed}. Evidence says ${p.contradiction.evidence}.`
+              : p?.claimConflict ? `Minutes say ${p.claimConflict.minutes}. The recording says ${p.claimConflict.recording}.` : p?.reason ?? "";
+
             return (
-              <div className="lane" key={d.id}>
-                <div className="who">
+              <div className="tl-dir" key={d.id}>
+                <div className="tl-who">
                   <strong>{d.name}{d.isChair ? " (Chair)" : ""}</strong>
                   <span className={`pill ${status}`}>{status === "present" ? "✓" : status === "absent" ? "✕" : "?"} {label}</span>
                 </div>
-                <div style={{ overflowX: "auto" }}>
-                <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${d.name}: ${label}. ${p?.reason ?? ""}`} style={{ width: "100%", minWidth: 560, height: "auto" }}>
-                  <defs>
-                    <pattern id={`hatch-${d.id}`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                      <rect width="3" height="6" style={{ fill: "var(--flight)" }} />
-                    </pattern>
-                  </defs>
-                  <rect x={x(S)} y={0} width={Math.max(2, x(E) - x(S))} height={H} style={{ fill: "var(--meeting)", stroke: "var(--accent)", strokeDasharray: "4 3" }} />
-                  {ticks.map((t) => (
-                    <line key={t} x1={x(t)} x2={x(t)} y1={H - 8} y2={H} style={{ stroke: "var(--border-strong)" }} />
-                  ))}
-                  {mine.map((f, i) => {
-                    if (f.kind === "hotel_stay") {
-                      const inT = jurisdictionOf(f.placeCode) === jurisdiction;
-                      const a = Date.parse(f.checkInUtc), b = Date.parse(f.checkOutUtc);
-                      return (
-                        <g key={i} onClick={() => onCite(f.cite)} style={{ cursor: "pointer" }}>
-                          <title>Hotel stay in {placeName(f.placeCode)} (click to open)</title>
-                          <rect x={x(a)} y={20} width={Math.max(3, x(b) - x(a))} height={22} rx={3} style={{ fill: inT ? "var(--ok)" : "var(--warn)", opacity: 0.9 }} />
-                          <text x={x(a) + 8} y={35} style={{ fill: inT ? "var(--on-ok)" : "var(--on-warn)", fontSize: 12, fontWeight: 600 }}>{placeName(f.placeCode)}</text>
-                        </g>
-                      );
-                    }
-                    if (f.kind === "flight_leg") {
-                      const a = Date.parse(f.departUtc), b = Date.parse(f.arriveUtc);
-                      return (
-                        <g key={i} onClick={() => onCite(f.cite)} style={{ cursor: "pointer" }}>
-                          <title>Flight {f.originCode}→{f.destCode}, {hm(a)}–{hm(b)} {zoneName} (click to open)</title>
-                          <rect x={x(a)} y={20} width={Math.max(3, x(b) - x(a))} height={22} style={{ fill: `url(#hatch-${d.id})`, stroke: "var(--flight)" }} />
-                          <text x={x(a) + 4} y={16} style={{ fill: "var(--text)", fontSize: 12 }}>{f.originCode}→{f.destCode} {hm(a)}–{hm(b)}</text>
-                        </g>
-                      );
-                    }
-                    const conflict = jurisdictionOf(f.placeCode) !== (p?.status === "present" ? jurisdiction : p?.elsewhere ?? jurisdictionOf(f.placeCode));
-                    const y = f.source === "recording" ? 54 : 8;
-                    const cx = x(S) + (f.source === "recording" ? 28 : 12);
-                    return (
-                      <g key={i} onClick={() => onCite(f.cite)} style={{ cursor: "pointer" }}>
-                        <title>{f.source === "recording" ? "Recording" : "Minutes"} claim: {claimPlace(f)} — “{f.cite.quote}” (click to open)</title>
-                        {f.source === "recording" ? (
-                          <circle cx={cx} cy={y} r={6} style={{ fill: conflict ? "var(--bad)" : "var(--accent)" }} />
-                        ) : (
-                          <rect x={cx - 6} y={y - 6} width={12} height={12} style={{ fill: conflict ? "var(--bad)" : "var(--accent)" }} />
-                        )}
-                      </g>
-                    );
-                  })}
-                </svg>
+
+                <div className="tl-rows">
+                  {minutes && (
+                    <div className="tl-row">
+                      <span className="tl-label">Minutes say</span>
+                      <div className="tl-track">
+                        <span className="tl-window" style={meetingBox} />
+                        <button className="tl-claim" style={meetingBox} onClick={() => onCite(minutes.cite)} aria-label={`Minutes claim ${where(minutes.placeCode)}: “${minutes.cite.quote}”. Open the minutes.`}>
+                          {where(minutes.placeCode)}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                  {recording && (
+                    <div className="tl-row">
+                      <span className="tl-label">Recording</span>
+                      <div className="tl-track">
+                        <span className="tl-window" style={meetingBox} />
+                        <button className={`tl-dot${conflicts(recording) ? " bad" : ""}`} style={{ left: `${pct(S)}%` }} onClick={() => onCite(recording.cite)} aria-label={`Recording at ${recording.cite.timestampSec}s says ${where(recording.placeCode)}. Play it.`} />
+                        <span className={`tl-note${conflicts(recording) ? " bad" : ""}`} style={{ left: `calc(${pct(E)}% + .5rem)` }}>
+                          Recording at {Math.floor((recording.cite.timestampSec ?? 0) / 60)}:{String(Math.round((recording.cite.timestampSec ?? 0) % 60)).padStart(2, "0")} · says {where(recording.placeCode)}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  <div className="tl-row">
+                    <span className="tl-label">Evidence</span>
+                    <div className="tl-track">
+                      <span className="tl-window" style={meetingBox} />
+                      {evidence.length === 0 && <span className="tl-note" style={{ left: 0 }}>No travel or hotel evidence in the pack</span>}
+                      {evidence.map((f, i) => {
+                        if (f.kind === "hotel_stay") {
+                          const inT = jurisdictionOf(f.placeCode) === jurisdiction;
+                          const a = pct(Date.parse(f.checkInUtc)), b = pct(Date.parse(f.checkOutUtc));
+                          return (
+                            <button key={i} className={`tl-bar ${inT ? "ok" : "bad"}`} style={{ left: `${a}%`, width: `${Math.max(1, b - a)}%` }} onClick={() => onCite(f.cite)}
+                              aria-label={`Hotel stay in ${where(f.placeCode)}. Open the hotel bill.`}>
+                              {inT ? "✓" : "✕"} Hotel stay · {where(f.placeCode)}{!inT && status === "absent" ? " · covers the whole meeting" : ""}
+                            </button>
+                          );
+                        }
+                        if (f.kind === "flight_leg") {
+                          const a = pct(Date.parse(f.departUtc)), b = pct(Date.parse(f.arriveUtc));
+                          const text = `Flight ${f.originCode}→${f.destCode} ${hm(Date.parse(f.departUtc))}–${hm(Date.parse(f.arriveUtc))}`;
+                          const after = b < 70;
+                          return (
+                            <span key={i}>
+                              <button className="tl-bar flight" style={{ left: `${a}%`, width: `${Math.max(1.5, b - a)}%` }} onClick={() => onCite(f.cite)} aria-label={`${text}. Open the travel document.`} />
+                              <span className="tl-note" style={after ? { left: `calc(${b}% + .5rem)` } : { right: `calc(${100 - a}% + .5rem)` }}>{text}</span>
+                            </span>
+                          );
+                        }
+                        return null;
+                      })}
+                    </div>
+                  </div>
                 </div>
-                <p className="why">
-                  {p?.reason}{" "}
-                  {p?.contradiction && <span className="contra">Minutes say {p.contradiction.claimed}; evidence says {p.contradiction.evidence}. </span>}
-                  {p?.claimConflict && <span className="contra">Minutes say {p.claimConflict.minutes}; the recording says {p.claimConflict.recording}. </span>}
-                  {(p?.cites ?? []).concat(p?.claimConflict?.cites ?? []).filter((c, i, a) => a.findIndex((z) => z.docId === c.docId && z.timestampSec === c.timestampSec) === i).map((c, i) => (
-                    <button key={i} className="chip" onClick={() => onCite(c)} style={{ marginInlineEnd: ".35rem" }}>
-                      {c.docId.split("/").pop()}{c.timestampSec != null ? ` @${c.timestampSec}s` : c.page ? ` p${c.page}` : ""}
-                    </button>
+
+                {/* Phone layout: the same three sources as stacked cards. */}
+                <ul className="tl-cards">
+                  {minutes && <li className="said claim"><span className="proof-src">Minutes say</span><span>{where(minutes.placeCode)} · <q>{minutes.cite.quote}</q></span></li>}
+                  {recording && <li className={`said ${conflicts(recording) ? "against" : ""}`}><span className="proof-src">Recording · {recording.cite.timestampSec}s</span><q>{recording.cite.quote}</q></li>}
+                  {evidence.map((f, i) => (
+                    <li key={i} className={`said ${f.kind === "hotel_stay" ? (jurisdictionOf(f.placeCode) === jurisdiction ? "ok" : "against") : ""}`}>
+                      <span className="proof-src">Evidence</span>
+                      <span>{f.kind === "hotel_stay" ? `Hotel stay · ${where(f.placeCode)}` : `Flight ${f.originCode}→${f.destCode} ${hm(Date.parse(f.departUtc))}–${hm(Date.parse(f.arriveUtc))}`}</span>
+                    </li>
                   ))}
+                </ul>
+
+                <p className={`tl-finding${p?.contradiction || p?.claimConflict ? " bad" : ""}`}>
+                  {p?.contradiction || p?.claimConflict ? "✕ " : status === "present" ? "✓ " : "? "}{finding}{" "}
+                  {cites.map((c, i) => <button key={i} className="chip" onClick={() => onCite(c)}>{chipText(c)}</button>)}
                 </p>
               </div>
             );
           })}
       </div>
-      <div className="row muted" style={{ justifyContent: "space-between", fontSize: "var(--step--1)" }} aria-hidden="true">
-        <span>{hm(t0)}</span><span>{hm(S)} meeting starts</span><span>{hm(E)} ends</span><span>{hm(t1)}</span>
+
+      <div className="legend" aria-hidden="true">
+        <span><i className="lg-claim" />Claimed (not yet proven)</span>
+        <span><i style={{ background: "var(--ok)" }} />✓ Evidence in {target}</span>
+        <span><i style={{ background: "var(--bad)" }} />✕ Evidence elsewhere</span>
+        <span><i className="lg-flight" />In flight</span>
       </div>
     </section>
   );

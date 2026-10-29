@@ -76,12 +76,11 @@ export function App() {
           <a className="brand" href="./" onClick={(e) => { e.preventDefault(); setLoaded(null); }}><span className="mark">SP</span>Substance Proof</a>
           <span className="badge">{live?.live ? `Live · ${live.model}` : "Recorded runs"}</span>
           <span className="spacer" />
-          <label className="muted" style={{ fontSize: "var(--step--1)" }}>
-            Theme{" "}
-            <select value={theme} onChange={(e) => setTheme(e.target.value)} style={{ minHeight: "2.25rem", border: "1px solid var(--border-strong)", borderRadius: "var(--radius)", background: "var(--surface)" }}>
-              <option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option>
-            </select>
-          </label>
+          <div className="seg" role="group" aria-label="Colour theme">
+            {(["system", "light", "dark"] as const).map((v) => (
+              <button key={v} type="button" aria-pressed={theme === v} onClick={() => setTheme(v)}>{v === "system" ? "Auto" : v[0].toUpperCase() + v.slice(1)}</button>
+            ))}
+          </div>
         </div>
       </header>
 
@@ -92,32 +91,23 @@ export function App() {
           <RulePacks live={!!live?.live} onBack={() => setView("home")} />
         ) : (
           <div className="stack" style={{ ["--gap" as any]: "2rem" }}>
-            <section className="stack" style={{ ["--gap" as any]: ".75rem", maxWidth: "52rem" }}>
-              <h1>The minutes say the board met in Jersey. Did it?</h1>
-              <p className="muted" style={{ fontSize: "var(--step-1)" }}>
-                Economic-substance and tax-residence rules require directors to be physically present where the board meets.
-                Substance Proof reads the meeting pack (minutes, boarding passes, hotel bills, the recording) with Meta's Muse models,
-                then tested code applies the published rule and cites the page or second behind every finding.
+            <section className="stack" style={{ ["--gap" as any]: ".9rem" }}>
+              <p className="eyebrow">Board-meeting evidence check · Jersey and Singapore</p>
+              <h1 className="home-h1">The minutes say the board met in Jersey. Did it?</h1>
+              <p className="deck">
+                Substance Proof reads the meeting pack with Meta's Muse models, then tested code applies the published rule and cites the page or second behind every finding.
               </p>
             </section>
 
-            <ProofStrip id="m11" onOpen={() => openDemo("m11")} />
-
-            <ol className="stats" style={{ paddingInlineStart: "1.1rem" }}>
-              <li><b>Read</b>: Muse Spark and Muse Voice Transcribe extract who was where, and when.</li>
-              <li><b>Decide</b>: a rules engine, not the AI, applies the law.</li>
-              <li><b>Act</b>: an agent drafts evidence requests; you approve.</li>
+            <ol className="roles" aria-label="How it works">
+              <li><span className="n" aria-hidden="true">1</span><strong>AI reads</strong><span className="d">Muse Spark and Muse Voice Transcribe extract who was where, and when.</span></li>
+              <li><span className="n" aria-hidden="true">2</span><strong>Code decides</strong><span className="d">A rules engine, not the AI, applies the law.</span></li>
+              <li><span className="n" aria-hidden="true">3</span><strong>A person approves</strong><span className="d">An agent drafts evidence requests; you approve.</span></li>
             </ol>
 
-            {error && <p className="error" role="alert">{error}</p>}
+            <ProofStrip id="m11" onOpen={() => openDemo("m11")} />
 
-            <section className="card row" style={{ justifyContent: "space-between", alignItems: "center" }} aria-labelledby="packs-h">
-              <div className="stack" style={{ ["--gap" as any]: ".25rem", flex: "1 1 30rem" }}>
-                <h2 id="packs-h">Add a jurisdiction by giving it the law</h2>
-                <p className="muted" style={{ fontSize: "var(--step--1)" }}>Muse Spark reads a full statute or official guidance and writes the rules as data, quoting the law for each one. Code verifies every quote; a person approves.</p>
-              </div>
-              <button className="btn primary" onClick={() => setView("packs")}>See the rules it wrote</button>
-            </section>
+            {error && <p className="error" role="alert">{error}</p>}
 
             <div className="grid-2">
               <section className="card stack" aria-labelledby="rec-h">
@@ -127,9 +117,9 @@ export function App() {
                   {demos.length === 0 && <p className="note">No recorded runs found.</p>}
                   {demos.map((d, i) => (
                     <div key={d.id} className={`sample${i === 0 ? " hero" : ""}`}>
-                      <strong>{d.title}</strong>
+                      <strong><span className={`tag ${d.verdict}`}>{d.verdict === "FAIL" ? "✕" : d.verdict === "REVIEW" ? "?" : "✓"} {d.verdict}</span> {d.trap.replace(/^HERO: /, "")}</strong>
                       <button className="btn small primary" onClick={() => openDemo(d.id)} aria-label={`Open recorded run ${d.title}`}>{i === 0 ? "Start here" : "Open"}</button>
-                      <p>{JN[d.jurisdiction]} · {d.verdict} · {d.trap.replace(/^HERO: /, "")}</p>
+                      <p>{d.title} · {JN[d.jurisdiction]}</p>
                     </div>
                   ))}
                 </div>
@@ -139,7 +129,7 @@ export function App() {
                 <section className="card stack" aria-labelledby="live-h">
                   <h2 id="live-h">Run a check now (live, about 1 minute)</h2>
                   <p className="muted" style={{ fontSize: "var(--step--1)" }}>Calls Muse Spark, Voice Transcribe and the agent now. Usually 30–90 seconds and a few cents of credit.</p>
-                  <label style={{ fontSize: "var(--step--1)" }}>
+                  <label style={{ fontSize: "var(--step--1)", display: "flex", gap: ".5rem", alignItems: "start" }}>
                     <input type="checkbox" checked={usePack} onChange={(e) => setUsePack(e.target.checked)} /> Decide with the rules Muse Spark wrote from the law (instead of the hand-written rules)
                   </label>
                   <div className="samples" style={{ maxHeight: "28rem", overflow: "auto" }}>
@@ -161,7 +151,20 @@ export function App() {
               )}
             </div>
 
-            {live?.live && <Upload onLoaded={setLoaded} />}
+            <section className="card row" style={{ justifyContent: "space-between", alignItems: "center" }} aria-labelledby="packs-h">
+              <div className="stack" style={{ ["--gap" as any]: ".25rem", flex: "1 1 30rem" }}>
+                <h2 id="packs-h">Add a jurisdiction by giving it the law</h2>
+                <p className="muted" style={{ fontSize: "var(--step--1)" }}>Muse Spark reads a full statute or official guidance and writes the rules as data, quoting the law for each one. Code verifies every quote; a person approves.</p>
+              </div>
+              <button className="btn" onClick={() => setView("packs")}>See the rules it wrote</button>
+            </section>
+
+            {live?.live && (
+              <details className="card">
+                <summary>Analyse your own meeting pack</summary>
+                <div style={{ marginTop: "1rem" }}><Upload onLoaded={setLoaded} /></div>
+              </details>
+            )}
           </div>
         )}
       </main>

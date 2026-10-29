@@ -2,7 +2,7 @@
 // never reaches the browser. Serves the built web app, the sample packs, and two analysis endpoints.
 // Run: npm run app   (then open http://127.0.0.1:8787)
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
-import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { extname, join, normalize, resolve, sep } from "node:path";
 import { randomUUID } from "node:crypto";
 import { analyzePack } from "../src/app/analyze";
@@ -103,6 +103,22 @@ function samples() {
 }
 
 const safeName = (n: string) => n.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 80);
+
+/** Uploaded packs may hold personal data, so they are kept only long enough to review the report. */
+const UPLOAD_TTL_MS = 24 * 3_600_000;
+function sweepUploads() {
+  if (!existsSync(UPLOADS)) return;
+  for (const e of readdirSync(UPLOADS, { withFileTypes: true })) {
+    const p = join(UPLOADS, e.name);
+    try {
+      if (Date.now() - statSync(p).mtimeMs > UPLOAD_TTL_MS) rmSync(p, { recursive: true, force: true });
+    } catch {
+      /* already gone or locked: try again next sweep */
+    }
+  }
+}
+sweepUploads();
+setInterval(sweepUploads, 3_600_000).unref();
 
 /** The validated, AI-written rule pack for a jurisdiction (built by scripts/build-packs.ts from the official text). */
 function loadApprovedPack(j: string): RulePack | undefined {

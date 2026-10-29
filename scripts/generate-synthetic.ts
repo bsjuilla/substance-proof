@@ -11,6 +11,7 @@ import { evaluateMeeting } from "../src/engine/evaluate";
 import type { Fact } from "../src/engine/types";
 import { SCENARIOS, type DocStyle, type Scenario, type TravelItem } from "./scenarios";
 import { buildTestScenarios } from "./testset";
+import { oracle } from "./oracle";
 
 const CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 const SET = (process.argv[2] ?? "dev") as "dev" | "test" | "stress";
@@ -85,7 +86,7 @@ export function minutesHtml(s: Scenario, style: DocStyle): string {
   const place = virtual ? "By video conference (no physical venue)" : s.meeting.venueCode ? (PLACES[s.meeting.venueCode]?.city ?? "—") : "—";
   const dirOf = (id: string) => s.company.directors.find((x) => x.id === id)!;
   const business = s.meeting.isStrategic
-    ? `<p>The Board considered and <b>RESOLVED</b> to approve the Company's 2026–2028 investment strategy, to acquire a 40% interest in Meridian Logistics Ltd for USD 18,500,000, and to appoint the Company's bankers.</p>`
+    ? `<p>The Board considered and <b>RESOLVED</b> to approve the Company's 2026–2028 investment strategy, to acquire a 40% interest in Vantrell Logistics Ltd for USD 18,500,000, and to appoint the Company's bankers.</p>`
     : `<p>The Board received and noted the management accounts for the quarter and confirmed the next meeting date. No other business was transacted.</p>`;
   const records = `<p>The minutes of this and all board meetings and the records of the Company are kept at the registered office of the Company${s.jurisdiction === "SG" ? " in Singapore" : " in St Helier, Jersey"}.</p>`;
 
@@ -279,6 +280,7 @@ async function main() {
   const p = await browser.newPage();
   const labelRows = ["meeting,director,place_to_check,physically_there_during_whole_meeting (yes/no/cannot_tell),note"];
   let seed = 1;
+  let rulesDisagree = 0;
 
   for (const s of scenarios) {
     const style = s.style ?? DEFAULT_STYLE;
@@ -328,7 +330,14 @@ async function main() {
 
     if (s.recording?.length) makeRecording(s, join(dir, "recording.wav"));
     const facts = factsFor(s, docPaths);
-    const expected = evaluateMeeting(s.company, s.meeting, facts, s.jurisdiction);
+    // The answer key comes from the independent oracle (scripts/oracle.ts), not from our engine. The engine is
+    // still run on the TRUE facts as a check of the rules: any disagreement is printed and counted.
+    const expected = { ...oracle(s), source: "independent oracle (scripts/oracle.ts)" };
+    const engineOnTruth = evaluateMeeting(s.company, s.meeting, facts, s.jurisdiction);
+    if (engineOnTruth.verdict !== expected.verdict) {
+      rulesDisagree += 1;
+      console.warn(`  !! ${s.id}: engine on true facts says ${engineOnTruth.verdict}, oracle says ${expected.verdict}`);
+    }
     writeFileSync(join(ANSWERS, `${s.id}.json`), JSON.stringify({ scenario: { id: s.id, trap: s.trap, jurisdiction: s.jurisdiction, style }, company: s.company, meeting: s.meeting, facts, expected }, null, 2));
     for (const id of s.meeting.attendeeIds) labelRows.push(`${s.id},${nameOf(id)},${s.jurisdiction === "JE" ? "Jersey" : "Singapore"},,`);
     console.log(`${s.id}  ${s.jurisdiction}  ${expected.verdict.padEnd(6)}  [${style.minutes}/${style.boardingPass}/${style.folio}/${style.passengerName}]  ${s.trap}`);
@@ -353,7 +362,10 @@ Important:
 - Do not guess. Use "cannot_tell" if unsure, and add a short note.
 - Please do not ask the builder for hints. Send back the filled-in CSV.
 `);
-  console.log(`\nDone (${SET}). Packs: ${PACKS}\nAnswers (keep hidden from the labeller): ${ANSWERS}`);
+  console.log(`
+Done (${SET}). Packs: ${PACKS}
+Answers (keep hidden from the labeller): ${ANSWERS}
+Engine-on-truth vs independent oracle: ${rulesDisagree} disagreement(s).`);
 }
 
 // Only generate when run directly, so other scripts can reuse the document templates.

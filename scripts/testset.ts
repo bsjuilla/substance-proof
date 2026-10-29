@@ -20,8 +20,9 @@ const NAME_POOL = [
   "Ana Sokolova", "Daniel Mbeki-Shaw", "Grace Whitlock", "Hugo Lindqvist",
 ];
 const COMPANY_POOL = [
-  "Harbourline Holdings", "Corbel Capital", "Saltmarsh Investments", "Ardent Ridge", "Larkspur Ventures", "Pelagos Group",
-  "Thornbury Assets", "Calloway Partners", "Meridian Bay", "Quillon Holdings",
+  // Coined names: none should belong to a real company (an earlier pool included a real UK accountancy firm).
+  "Brantwick Orral Holdings", "Velmouth Arden", "Corrisande Holdings", "Halvenmoor Capital", "Tarnwick Ellery", "Oskerby Vance",
+  "Merrowind Capital", "Lissandre Holdings", "Fenmarrow Group", "Quillmere Holdings",
 ];
 
 type Home = { j: "JE" | "SG"; airport: string; city: string; cityCode: string };

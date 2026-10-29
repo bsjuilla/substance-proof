@@ -58,7 +58,7 @@ const JE_CO = (ids: string[], extra: Partial<Company> = {}): Company => ({
 
 const SG_CO = (): Company => ({
   id: "TR-SG",
-  name: "Tembusu Ridge Capital Pte Ltd",
+  name: "Sennoway Capital Pte Ltd",
   directors: dirs(["A", "B", "C", "D"], true, "C"),
   quorumRequired: 2,
   options: {},
@@ -257,10 +257,10 @@ export const SCENARIOS: Scenario[] = [
   {
     // HERO demo meeting. Minutes say all three directors were in St Helier for a strategic decision.
     // Evidence: only A was. B spoke from Dubai on the recording and stayed at a Dubai hotel.
-    // C's e-ticket shows the plane landing in Jersey 40 minutes after the meeting started.
+    // C's e-ticket shows her still in the air from London until after the meeting ended.
     id: "m11",
     jurisdiction: "JE",
-    trap: "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C landed mid-meeting. Quorum fails.",
+    trap: "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C was still flying in from London. Quorum fails.",
     style: { boardingPass: "eticket", folio: "table", minutes: "table", passengerName: "airline" },
     company: JE_CO(["A", "B", "C"]),
     meeting: jeMeeting("m11", { isStrategic: true }),
@@ -268,14 +268,14 @@ export const SCENARIOS: Scenario[] = [
     travel: {
       A: [inJersey()],
       B: [inDubai()],
-      C: [{ type: "flight", origin: "LHR", dest: "JER", departUtc: "2026-03-12T08:35:00Z", arriveUtc: "2026-03-12T09:40:00Z", flightNo: "SA 233" }],
+      C: [{ type: "flight", origin: "LHR", dest: "JER", departUtc: "2026-03-12T10:20:00Z", arriveUtc: "2026-03-12T11:25:00Z", flightNo: "SA 233" }],
     },
     recording: [
       { speaker: "A", text: "Good morning everyone. This is a strategic meeting, so a roll call for the record: name and where you are, please." },
       { speaker: "A", text: "Alice Marlowe, chairing from the boardroom in St Helier.", claim: "CITY:STHELIER" },
       { speaker: "B", text: "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed.", claim: "CITY:DUBAI" },
-      { speaker: "A", text: "And Chandra? We can't hear Chandra yet. We'll proceed and note her arrival." },
-      { speaker: "A", text: "First item: the proposed acquisition of a forty per cent interest in Meridian Logistics." },
+      { speaker: "A", text: "And Chandra? Her flight from London hasn't landed yet, so we'll proceed without her." },
+      { speaker: "A", text: "First item: the proposed acquisition of a forty per cent interest in Vantrell Logistics." },
     ],
   },
 ];

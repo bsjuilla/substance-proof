@@ -42,7 +42,7 @@ export function ProofStrip({ id, onOpen }: { id: string; onOpen: () => void }) {
   return (
     <section className="ledger-wrap" aria-labelledby="proof-h">
       <header className="section-head">
-        <p className="eyebrow">One real case · {r.company.name} · {r.meetingDateText}</p>
+        <p className="eyebrow">Demo case (synthetic) · {r.company.name} · {r.meetingDateText}</p>
         <h2 id="proof-h">Three sources. One claim. They don't agree.</h2>
       </header>
       <ol className="ledger">

@@ -1,4 +1,4 @@
-﻿# Substance Proof
+# Substance Proof
 
 ![Substance Proof: the minutes say the board met in Jersey. Did it?](docs/og.jpg)
 
@@ -18,7 +18,7 @@ Built for the **Meta Global AI Developer Hackathon** (Indie track, theme: *Build
 
 Economic-substance and tax-residence rules decide where a company is managed and controlled, and they hinge on where directors physically are when the board decides.
 
-- **Jersey.** The Taxation (Companies â€“ Economic Substance) (Jersey) Law 2019, **Art. 5(3)**, requires the board to meet in Jersey at an adequate frequency, with **a quorum of directors physically present in Jersey**, minutes that record the strategic decisions, and records kept in Jersey. Failing the test carries a penalty of up to **Â£10,000**, then up to **Â£100,000** for a following period (**Art. 9(2), 9(4)**).
+- **Jersey.** The Taxation (Companies – Economic Substance) (Jersey) Law 2019, **Art. 5(3)**, says the company is directed and managed in Jersey *if* the board meets in Jersey at an adequate frequency, **a quorum of directors is physically present in Jersey** at those meetings, the minutes record the strategic decisions, and the minutes and records are kept in Jersey. Being directed and managed in Jersey is one part of the economic substance test (Art. 5(2)). A company that fails the test can be fined up to **£10,000**, and up to **£100,000** for a following period (**Art. 9(2), 9(4)**). Substance Proof checks the board-meeting conditions one meeting at a time; it does not decide the whole test for a year.
 - **Singapore.** IRAS treats a board meeting held with video technology as making strategic decisions in Singapore if **at least 50% of the directors with authority to make strategic decisions**, or the **chairman**, are physically in Singapore during the meeting.
 
 Today a company secretary checks this by hand, comparing the minutes with travel and hotel documents. Minutes record what was *claimed*. Nothing checks the claim against the evidence. That gap is the problem: a minutes line saying "present in St Helier" next to a Dubai boarding pass.
@@ -49,9 +49,9 @@ Muse Spark reads the whole official text and proposes rules, choosing only from 
 
 Measured on the official texts (Jersey statute from jerseylaw.je; IRAS company-residency guidance):
 - Every proposed rule's quote was found word for word in the source.
-- Muse Spark wrote the Jersey pack (quorum, meetings in Jersey, minutes, records; Art. 5(3)(a)â€“(e)) and the Singapore pack (at least 50% of directors with strategic authority, or the chairman, for virtual or hybrid meetings) from the raw text alone.
+- Muse Spark wrote the Jersey pack (quorum, meetings in Jersey, minutes, records; Art. 5(3)(a)–(e)) and the Singapore pack (at least 50% of directors with strategic authority, or the chairman, for virtual or hybrid meetings) from the raw text alone.
 - **Decided with the AI-written packs, all 41 dev and held-out meetings got the same law-level verdict as the hand-written rules, in 3 out of 3 independent runs** ([`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)).
-- Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings â€¦ determines â€¦*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
+- Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings … determines …*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
 
 `npx tsx scripts/build-packs.ts` reproduces this (about $0.18 for 3 runs). In live mode, *Rules written from the law* lets you paste any substance law and see the proposed rules with their quotes; *Decide with the rules Muse Spark wrote* runs a meeting with the AI-written pack instead of the hand-written rules.
 
@@ -62,7 +62,9 @@ The model **never decides** a legal test. The line between AI and code is delibe
 
 ## Results
 
-Every number below comes from a script in this repo (`npm run eval`); the scoreboards are in [`eval/results/`](eval/results/). Ground truth is generated with the documents, so it is exact.
+Every number below comes from a script in this repo (`npm run eval`); the scoreboards are in [`eval/results/`](eval/results/).
+
+**Where the answer key comes from.** The synthetic generator knows what really happened in each meeting (who stayed where, who flew when), so the truth is exact. The expected verdict for each meeting is computed by an **independent oracle** ([`scripts/oracle.ts`](scripts/oracle.ts)): a second, deliberately simple implementation of the rules that shares no code with the engine. When the documents are generated, the engine is also run on the *true* facts, and every disagreement with the oracle is reported; there are none on all 53 meetings. The scores below therefore measure the whole system (reading, matching, time zones, rules) against a key the engine did not write.
 
 | Set | What it is | Facts read exactly | Directors placed correctly | Meeting verdicts | Contradictions caught | Dangerous errors* |
 |---|---|---|---|---|---|---|
@@ -72,7 +74,7 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 
 \* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
 
-**Cost:** one meeting costs about **$0.03â€“0.06** of API credit and 35â€“70 seconds. The full 30-meeting held-out run cost **$0.92**.
+**Cost:** one meeting costs about **$0.03–0.06** of API credit and 35–70 seconds. The full 30-meeting held-out run cost **$0.92**.
 
 **Honest caveats**
 - All documents are synthetic, rendered from templates I wrote. Real packs are messier (real handwriting, multi-page bundles, other languages), and the stress set shows accuracy falls as documents get worse.
@@ -126,9 +128,15 @@ docs/            rule sources, demo script
 
 Corporate directors (look-through to the individual), alternate directors, and partial attendance (a director present for only some resolutions) are not modelled; presence is judged for the whole meeting. The Art. 5(3) tests apply only to Jersey tax-resident companies carrying on a relevant activity; the tool assumes they apply. A hotel stay is supporting evidence of presence, not proof. Singapore's IRAS test is guidance ("will generally be regarded"), so a miss gives REVIEW, not FAIL.
 
+## Red-team review
+
+Before submitting, I asked an outside AI model (Grok) to act as the harshest judge and run attacks on the engine itself. It found four ways to get a false PASS from genuine-looking documents, and the model never noticed: "Jersey City, New Jersey" was read as Jersey; a spouse's boarding pass matched the director by surname; an arrival in January and a departure in December "proved" presence at a June meeting; and the ambiguous zone label "AST" was guessed. It also showed that the minutes, the hostile document, chose the meeting time and could be relabelled as a hotel bill by planted text. All of these are fixed, each with a test that reproduces the attack ([`tests/redteam.test.ts`](tests/redteam.test.ts)): places must be the Channel Island, surname-only matches are refused, arrival/departure brackets must be within 72 hours of the meeting, ambiguous zones are refused, presence is judged at the scheduled time with the minutes checked against it, and each file's role comes from the person, not the model.
+
 ## Built during the hackathon
 
-Everything in this repository was written during the hackathon (26 October â€“ 4 November 2026); the commit history starts on 28 October 2026. No earlier code was reused.
+Everything in this repository was written during the hackathon (26 October – 4 November 2026); the commit history starts on 28 October 2026. No earlier code was reused.
+
+**Tools used to build it.** I wrote this with an AI coding assistant (Claude Code). The images for social media and the link preview were made with an AI image generator from prompts I wrote; they show the synthetic documents. Grok (xAI) was used only outside the product: for the cross-check above and as a red-team reviewer. The product itself uses only Meta's models.
 
 ## Security
 
@@ -137,6 +145,8 @@ The minutes are written by the party that wants a PASS, so the review treats eve
 ## Safety and privacy
 
 - Synthetic data only in the demo. Do not upload real client documents to a third-party API without your organisation's approval.
+- Calls use Muse Spark in **Standard** mode (`muse-spark-1.3`), never Contributor mode, which would let Meta train on the documents. Uploaded packs are deleted from `uploads/` 24 hours after they were analysed.
+- Board packs contain personal data (names, travel, hotel stays, voices). Using this on real clients needs a lawful basis and a cross-border transfer assessment under the applicable law (for example GDPR / UK GDPR, the Data Protection (Jersey) Law 2018, Singapore's PDPA or Mauritius's Data Protection Act 2017). That assessment is not part of this hackathon project.
 - The model output is validated by a strict JSON schema and again by code; the agent can only draft, and every draft needs a human decision.
 - The app never gives a legal conclusion in its drafts: a guardrail rejects agent messages that state an outcome.
 

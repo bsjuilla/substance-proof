@@ -36,8 +36,8 @@ const attacks = [
   { name: "Traversal: /files/dev/..%5C..%5C..%5C..%5C.env", safe: 404, req: { path: "/files/dev/..%5C..%5C..%5C..%5C.env" } },
   { name: "Traversal: /uploads/..%2F.env", safe: 404, req: { path: "/uploads/..%2F.env" } },
   // The URL parser folds %2e%2e into "..", so this lands on the app's index page, never on .env.
-  { name: "Traversal: /uploads/%2e%2e/.env", safe: 200, expectNot: "META_API_KEY", req: { path: "/uploads/%2e%2e/.env" } },
-  { name: "Traversal: static /..%2F.env", safe: 200, expectNot: "META_API_KEY", req: { path: "/..%2F.env" } },
+  { name: "Traversal: /uploads/%2e%2e/.env", safe: 200, expectNot: "META_API_KEY=", req: { path: "/uploads/%2e%2e/.env" } },
+  { name: "Traversal: static /..%2F.env", safe: 200, expectNot: "META_API_KEY=", req: { path: "/..%2F.env" } },
   { name: "Traversal: absolute C:%5CWindows%5Cwin.ini", safe: 404, req: { path: "/uploads/C:%5CWindows%5Cwin.ini" } },
   { name: "Traversal: sibling prefix /files/dev/..%2Fpacks-evil", safe: 404, req: { path: "/files/dev/..%2Fpacks-evil" } },
   // Malformed input should fail closed with a short error, not crash or leak a stack trace.
@@ -50,7 +50,8 @@ const attacks = [
 let failures = 0;
 for (const a of attacks) {
   const r = await hit(a.req);
-  const leaked = /META_API_KEY|sk-|at Object\.|\\Users\\/i.test(r.body);
+  // A leak is a key VALUE, a stack trace or a local path; naming the variable in an error message is fine.
+  const leaked = /META_API_KEY\s*=|\bsk-[A-Za-z0-9]{8}|at Object\.|\\Users\\|\/home\//i.test(r.body);
   const ok = r.status === a.safe && !leaked && (!a.expectNot || !r.body.includes(a.expectNot));
   if (!ok) failures++;
   console.log(`${ok ? "SAFE  " : "VULN  "} ${String(r.status).padEnd(4)} ${a.name}${leaked ? "  (response leaks secrets or paths)" : ""}`);

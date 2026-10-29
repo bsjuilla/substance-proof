@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Report } from "./Report";
 import { Upload } from "./Upload";
 import { RulePacks } from "./RulePacks";
+import { ProofStrip } from "./ProofStrip";
 import type { Loaded } from "./types";
 
 type DemoEntry = { id: string; title: string; trap: string; verdict: string; jurisdiction: string };
@@ -98,12 +99,15 @@ export function App() {
                 Substance Proof reads the meeting pack (minutes, boarding passes, hotel bills, the recording) with Meta's Muse models,
                 then tested code applies the published rule and cites the page or second behind every finding.
               </p>
-              <ol className="stats" style={{ paddingInlineStart: "1.1rem" }}>
-                <li><b>Read</b>: Muse Spark and Muse Voice Transcribe extract who was where, and when.</li>
-                <li><b>Decide</b>: a rules engine, not the AI, applies the law.</li>
-                <li><b>Act</b>: an agent drafts evidence requests; you approve.</li>
-              </ol>
             </section>
+
+            <ProofStrip id="m11" onOpen={() => openDemo("m11")} />
+
+            <ol className="stats" style={{ paddingInlineStart: "1.1rem" }}>
+              <li><b>Read</b>: Muse Spark and Muse Voice Transcribe extract who was where, and when.</li>
+              <li><b>Decide</b>: a rules engine, not the AI, applies the law.</li>
+              <li><b>Act</b>: an agent drafts evidence requests; you approve.</li>
+            </ol>
 
             {error && <p className="error" role="alert">{error}</p>}
 

@@ -167,6 +167,23 @@
   .trace { font-family: var(--font-mono); font-size: .75rem; white-space: pre-wrap; background: var(--surface-2); padding: .75rem; border-radius: var(--radius); max-height: 22rem; overflow: auto; }
 }
 
+@layer components {
+  /* Hero proof strip: the claim, the sources that contradict it, then the verdict, left to right. */
+  .proof { display: grid; gap: .9rem; }
+  .proof-kicker { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .02em; opacity: .8; max-inline-size: none; }
+  .proof-row { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .9rem; }
+  .proof-card { position: relative; display: grid; align-content: start; gap: .45rem; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+  .proof-card q { font-family: var(--font-serif); font-size: var(--step-1); line-height: 1.35; }
+  .proof-src { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; opacity: .75; }
+  .proof-who { font-size: var(--step--1); opacity: .75; }
+  .proof-card.claim { border-top: 3px solid var(--warn); }
+  .proof-card.against { border-top: 3px solid var(--bad); }
+  .proof-card.decided { border-color: var(--bad); background: var(--bad-bg); }
+  .proof-fail { font-family: var(--font-serif); font-size: var(--step-3); line-height: 1; color: var(--bad); }
+  .proof-card:not(:last-child)::after { content: "→"; position: absolute; right: -.75rem; top: 50%; translate: 0 -50%; color: var(--border-strong); background: var(--bg); line-height: 1; }
+  @media (max-width: 40rem) { .proof-card:not(:last-child)::after { content: none; } }
+}
+
 @layer print {
   @media print {
     header.top, .no-print, footer.foot .no-print, dialog { display: none !important; }

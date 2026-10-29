@@ -3,6 +3,7 @@ import { Report } from "./Report";
 import { Upload } from "./Upload";
 import { RulePacks } from "./RulePacks";
 import { ProofStrip } from "./ProofStrip";
+import { EvidenceDesk } from "./EvidenceDesk";
 import type { Loaded } from "./types";
 
 type DemoEntry = { id: string; title: string; trap: string; verdict: string; jurisdiction: string };
@@ -91,15 +92,28 @@ export function App() {
           <RulePacks live={!!live?.live} onBack={() => setView("home")} />
         ) : (
           <div className="stack" style={{ ["--gap" as any]: "2rem" }}>
-            <section className="stack" style={{ ["--gap" as any]: ".9rem" }}>
-              <p className="eyebrow">Board-meeting evidence check · Jersey and Singapore</p>
-              <h1 className="home-h1">The minutes say the board met in Jersey. Did it?</h1>
-              <p className="deck">
-                Substance Proof reads the meeting pack with Meta's Muse models, then tested code applies the published rule and cites the page or second behind every finding.
-              </p>
+            <section className="hero">
+              <div className="hero-copy">
+                <p className="eyebrow">Board-meeting evidence check · Jersey and Singapore</p>
+                <h1 className="home-h1">The minutes say the board met in Jersey. <span>Did it?</span></h1>
+                <p className="deck">
+                  Substance Proof reads the meeting pack with Meta's Muse models. Tested code, not the model, applies the published rule, and every finding points to the page or second it came from.
+                </p>
+                <div className="hero-actions">
+                  <button className="btn primary big" onClick={() => openDemo("m11")}>Open the case</button>
+                  <a className="link-arrow" href="#how">How it decides</a>
+                </div>
+                <dl className="proofs">
+                  <div><dt>Facts read exactly</dt><dd>166/166</dd></div>
+                  <div><dt>Meeting verdicts</dt><dd>30/30</dd></div>
+                  <div><dt>Dangerous errors</dt><dd>0</dd></div>
+                </dl>
+                <p className="proofs-note">Held-out test set: 30 synthetic meetings, 110 files, never used for tuning.</p>
+              </div>
+              <EvidenceDesk />
             </section>
 
-            <ol className="roles" aria-label="How it works">
+            <ol className="roles" id="how" aria-label="How it works">
               <li><span className="n" aria-hidden="true">1</span><strong>AI reads</strong><span className="d">Muse Spark and Muse Voice Transcribe extract who was where, and when.</span></li>
               <li><span className="n" aria-hidden="true">2</span><strong>Code decides</strong><span className="d">A rules engine, not the AI, applies the law.</span></li>
               <li><span className="n" aria-hidden="true">3</span><strong>A person approves</strong><span className="d">An agent drafts evidence requests; you approve.</span></li>

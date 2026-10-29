@@ -77,7 +77,7 @@ function meetingZone(s: Scenario): string {
   return s.jurisdiction === "SG" ? "Asia/Singapore" : "Europe/Jersey";
 }
 
-function minutesHtml(s: Scenario, style: DocStyle): string {
+export function minutesHtml(s: Scenario, style: DocStyle): string {
   const tz = meetingZone(s);
   const st = local(s.meeting.startUtc, tz);
   const en = local(s.meeting.endUtc, tz);
@@ -136,7 +136,7 @@ function minutesHtml(s: Scenario, style: DocStyle): string {
    <p style="margin-top:40px">Signed: ______________________ Chairman</p>`);
 }
 
-function cardHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, style: DocStyle): string {
+export function cardHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, style: DocStyle): string {
   const o = PLACES[f.origin], d = PLACES[f.dest];
   const dep = local(f.departUtc, o.tz), arr = local(f.arriveUtc, d.tz);
   if (style.clock === "12h") { dep.time = dep.time12; arr.time = arr.time12; }
@@ -157,7 +157,7 @@ function cardHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, styl
    </div></div>`;
 }
 
-function eticketHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, style: DocStyle): string {
+export function eticketHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, style: DocStyle): string {
   const o = PLACES[f.origin], d = PLACES[f.dest];
   const dep = local(f.departUtc, o.tz), arr = local(f.arriveUtc, d.tz);
   return page(`
@@ -169,7 +169,7 @@ function eticketHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, s
    <p>Fare basis YSPEC. Baggage 2PC. This receipt is not a boarding pass.</p>`);
 }
 
-function folioHtml(name: string, st: Extract<TravelItem, { type: "stay" }>, style: DocStyle): string {
+export function folioHtml(name: string, st: Extract<TravelItem, { type: "stay" }>, style: DocStyle): string {
   const tz = PLACES[st.placeCode].tz;
   const a = local(st.fromUtc, tz), b = local(st.toUtc, tz);
   if (style.folio === "french") {
@@ -356,7 +356,10 @@ Important:
   console.log(`\nDone (${SET}). Packs: ${PACKS}\nAnswers (keep hidden from the labeller): ${ANSWERS}`);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// Only generate when run directly, so other scripts can reuse the document templates.
+if (process.argv[1]?.replace(/\\/g, "/").endsWith("scripts/generate-synthetic.ts")) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

@@ -1,5 +1,8 @@
 @layer reset, tokens, base, layout, components, print;
 
+@font-face { font-family: "Geist"; src: url("/fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("/fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
   * { margin: 0; }
@@ -12,15 +15,15 @@
   :root {
     color-scheme: light dark;
     --hue: 250;
-    --bg: oklch(0.985 0.004 var(--hue));
-    --surface: oklch(1 0 0);
-    --surface-2: oklch(0.965 0.006 var(--hue));
-    --border: oklch(0.88 0.01 var(--hue));
+    --bg: oklch(0.972 0.006 80);
+    --surface: oklch(0.993 0.003 80);
+    --surface-2: oklch(0.95 0.008 80);
+    --border: oklch(0.885 0.008 80);
     --border-strong: oklch(0.62 0.02 var(--hue));
-    --text: oklch(0.20 0.02 var(--hue));
-    --text-muted: oklch(0.42 0.02 var(--hue));
-    --accent: oklch(0.36 0.09 var(--hue));
-    --accent-hover: oklch(0.30 0.09 var(--hue));
+    --text: oklch(0.2 0.012 60);
+    --text-muted: oklch(0.45 0.012 60);
+    --accent: oklch(0.22 0.012 60);
+    --accent-hover: oklch(0.32 0.012 60);
     --on-accent: oklch(0.99 0 0);
     --focus: oklch(0.55 0.16 var(--hue));
     --ok: oklch(0.50 0.11 165);
@@ -35,11 +38,12 @@
     --on-bad: oklch(0.99 0 0);
     --flight: oklch(0.55 0.02 var(--hue));
     --meeting: oklch(0.36 0.09 var(--hue) / 0.10);
-    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-    --font-mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    --font-sans: "Geist", system-ui, sans-serif;
+    --font-serif: "Geist", system-ui, sans-serif; /* kept as an alias: headings now use Geist */
+    --font-mono: "Geist Mono", ui-monospace, Consolas, monospace;
     --step--1: 0.8125rem; --step-0: 0.9375rem; --step-1: 1.125rem; --step-2: 1.5rem; --step-3: clamp(1.6rem, 1.3rem + 1.4vw, 2.25rem);
-    --radius: 6px;
+    --radius: 10px;
+    --hl: oklch(0.92 0.16 100); /* highlighter, imagery only */
     --shadow: 0 1px 2px oklch(0 0 0 / .06), 0 4px 16px oklch(0 0 0 / .05);
     --container: 76rem;
     --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
@@ -67,7 +71,7 @@
 @layer base {
   html { background: var(--bg); }
   body { font-family: var(--font-sans); font-size: var(--step-0); line-height: 1.55; color: var(--text); background: var(--bg); min-height: 100dvh; }
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; text-wrap: balance; }
+  h1, h2, h3 { font-family: var(--font-sans); font-weight: 600; line-height: 1.15; letter-spacing: -0.025em; text-wrap: balance; }
   h1 { font-size: var(--step-3); } h2 { font-size: var(--step-2); } h3 { font-size: var(--step-1); }
   p { max-width: 70ch; }
   a { color: var(--accent); text-underline-offset: 2px; }
@@ -95,7 +99,7 @@
   .badge { display: inline-flex; align-items: center; gap: .35rem; font-size: var(--step--1); font-weight: 600; padding: .15rem .55rem; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-muted); background: var(--surface-2); white-space: nowrap; }
   .badge.law { border-color: var(--accent); color: var(--accent); }
   .badge.guidance { border-style: dashed; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
   .card h2, .card h3 { margin-bottom: .5rem; }
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 2.75rem; padding: .5rem 1rem; border-radius: var(--radius); border: 1px solid var(--border-strong); background: var(--surface); cursor: pointer; font-weight: 600; text-decoration: none; color: var(--text); }
   .btn:hover { background: var(--surface-2); }
@@ -364,6 +368,59 @@
     header.top .badge { display: none; }
     .brand { white-space: nowrap; font-size: 1rem; }
     .seg button { padding-inline: .55rem; }
+  }
+}
+
+@layer components {
+  /* Hero: copy left, the evidence desk right. */
+  .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; padding-block: clamp(1rem, 3vw, 2.5rem) 1rem; }
+  .hero-copy { display: grid; gap: 1.25rem; align-content: center; }
+  .home-h1 { font-size: clamp(2.3rem, 1.4rem + 3vw, 4rem); line-height: 1.02; letter-spacing: -0.045em; font-weight: 600; }
+  .home-h1 span { display: block; color: var(--bad); }
+  .deck { font-size: 1.1rem; line-height: 1.55; color: var(--text-muted); max-width: 36rem; }
+  .eyebrow { font: 500 .78rem/1.2 var(--font-mono); letter-spacing: 0; text-transform: none; color: var(--text-muted); }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
+  .btn { border-radius: 999px; transition: transform .2s cubic-bezier(.22,1,.36,1), background .2s; }
+  .btn:active { transform: translateY(1px) scale(.99); }
+  .link-arrow { color: var(--text); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+  .link-arrow::after { content: " ↓"; }
+  .proofs { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 2.5rem; margin: .5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .proofs div { display: flex; flex-direction: column-reverse; gap: .2rem; }
+  .proofs dd { margin: 0; font: 500 1.6rem/1 var(--font-mono); letter-spacing: -0.03em; }
+  .proofs dt { font-size: .8rem; color: var(--text-muted); }
+  .proofs-note { font-size: .8rem; color: var(--text-muted); }
+
+  /* The desk: real documents, rotated slightly, marked up. */
+  .desk { position: relative; aspect-ratio: 1 / .92; margin: 0; isolation: isolate; }
+  .paper { position: absolute; background: #fff; border-radius: 3px; box-shadow: 0 1px 1px oklch(0.3 0.02 60 / .08), 0 12px 32px -12px oklch(0.3 0.03 60 / .28); overflow: hidden; }
+  .paper img { display: block; width: 100%; height: auto; }
+  .paper.folio { width: 64%; right: 0; top: 0; rotate: 2.2deg; z-index: 1; }
+  .paper.minutes { width: 74%; left: 0; top: 17%; rotate: -1.6deg; z-index: 2; }
+  .paper.tape { left: 16%; right: 4%; bottom: 2%; z-index: 3; rotate: .6deg; padding: .8rem 1rem; display: grid; grid-template-columns: auto 1fr; gap: .25rem 1rem; align-items: center; background: oklch(0.21 0.012 60); color: oklch(0.95 0.005 80); border-radius: 8px; overflow: visible; }
+  .tape-label { font: .72rem var(--font-mono); opacity: .75; }
+  .tape-label b { font-weight: 600; opacity: 1; }
+  .paper .wave { height: 1.9rem; width: 100%; opacity: .5; filter: invert(1); }
+  .cursor { position: absolute; top: .65rem; height: 1.9rem; width: 2px; background: oklch(0.72 0.17 27); }
+  .tape-quote { grid-column: 1 / -1; font-size: .92rem; }
+  .hl { position: absolute; background: var(--hl); mix-blend-mode: multiply; border-radius: 2px; rotate: -.5deg; }
+  .ring { position: absolute; border: 2.5px solid oklch(0.55 0.2 27); border-radius: 50%; rotate: -3deg; }
+  .ink-note { position: absolute; font: 600 .78rem var(--font-mono); color: oklch(0.5 0.2 27); white-space: nowrap; }
+  .ink-note.claim { color: oklch(0.45 0.1 85); }
+  .stamp-verdict { position: absolute; z-index: 4; right: 3%; top: 44%; display: grid; gap: .2rem; padding: .7rem 1rem; background: var(--surface); border: 1px solid var(--bad); border-radius: 8px; box-shadow: 0 10px 30px -12px oklch(0.4 0.1 27 / .45); font-size: .78rem; color: var(--text-muted); max-width: 16rem; }
+  .stamp-verdict .v { font: 700 1.6rem/1 var(--font-sans); letter-spacing: -0.03em; color: var(--bad); }
+  @media (prefers-reduced-motion: no-preference) {
+    .paper, .stamp-verdict { animation: settle .9s cubic-bezier(.22,1,.36,1) both; }
+    .paper.minutes { animation-delay: .1s; } .paper.tape { animation-delay: .3s; } .stamp-verdict { animation-delay: .7s; }
+    @keyframes settle { from { opacity: 0; translate: 0 1.25rem; } to { opacity: 1; translate: 0 0; } }
+  }
+  @media (max-width: 56rem) {
+    .hero { grid-template-columns: 1fr; }
+    .desk { max-width: 34rem; }
+  }
+  @media (max-width: 40rem) {
+    .proofs { gap: 1.25rem; }
+    .proofs dd { font-size: 1.25rem; }
+    .stamp-verdict { top: auto; bottom: 28%; }
   }
 }
 

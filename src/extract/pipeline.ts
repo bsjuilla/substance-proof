@@ -1,7 +1,7 @@
 import { extname } from "node:path";
 import type OpenAI from "openai";
-import { evaluateMeeting, type Jurisdiction } from "../engine/evaluate";
-import type { Company, Meeting, MeetingEvaluation } from "../engine/types";
+import { evaluateMeeting, verdictFrom, type Jurisdiction } from "../engine/evaluate";
+import type { Company, Meeting, MeetingEvaluation, TestResult } from "../engine/types";
 import { extractDocument } from "./extractDocument";
 import type { Extraction } from "./schema";
 import { toFacts, type ExtractedItem, type ToFactsResult } from "./toFacts";
@@ -62,6 +62,30 @@ export function decide(
   jurisdiction: Jurisdiction,
 ): { facts: ToFactsResult; evaluation: MeetingEvaluation; meetingUsed: Meeting } {
   const facts = toFacts(items, company.directors);
-  const meetingUsed = { ...meeting, ...(facts.meetingWindow ?? {}) };
-  return { facts, evaluation: evaluateMeeting(company, meetingUsed, facts.facts, jurisdiction), meetingUsed };
+  // The minutes are written by the party that wants a PASS, so they do not get to choose the meeting window.
+  // When the scheduled time is known (calendar or user), presence is judged at that time and the minutes are
+  // checked against it. Only when nobody supplied it do the minutes set the window, and that is flagged.
+  const meetingUsed = meeting.scheduleUnknown ? { ...meeting, ...(facts.meetingWindow ?? {}) } : meeting;
+  const timing = timingTest(meeting, facts.meetingWindow);
+  const base = evaluateMeeting(company, meetingUsed, facts.facts, jurisdiction);
+  const tests = [...base.tests, timing];
+  return { facts, evaluation: { ...base, tests, verdict: verdictFrom(tests, base.contradictions.length) }, meetingUsed };
+}
+
+const MAX_TIME_DIFF_MIN = 15;
+
+/** Do the minutes record the meeting at the time it was actually scheduled? */
+export function timingTest(meeting: Meeting, fromMinutes: { startUtc: string; endUtc: string } | undefined): TestResult {
+  const base = { id: "MEETING-TIME", label: "Minutes record the scheduled meeting time", basis: "evidence" as const, citation: "Evidence check (not a legal test)" };
+  if (meeting.scheduleUnknown) {
+    return { ...base, status: "inconclusive", detail: "No scheduled time was given, so the time printed in the minutes was used without an independent check." };
+  }
+  if (!fromMinutes) return { ...base, status: "inconclusive", detail: "The meeting time could not be read from the minutes." };
+  const d = (a: string, b: string) => Math.abs(Date.parse(a) - Date.parse(b)) / 60_000;
+  const off = Math.max(d(meeting.startUtc, fromMinutes.startUtc), d(meeting.endUtc, fromMinutes.endUtc));
+  if (off > MAX_TIME_DIFF_MIN) {
+    const hm = (iso: string) => iso.slice(11, 16);
+    return { ...base, status: "fail", detail: `The minutes say ${hm(fromMinutes.startUtc)}–${hm(fromMinutes.endUtc)} UTC; the scheduled time was ${hm(meeting.startUtc)}–${hm(meeting.endUtc)} UTC. Presence was judged at the scheduled time.` };
+  }
+  return { ...base, status: "pass", detail: "The time in the minutes matches the scheduled time." };
 }

@@ -2,6 +2,12 @@ import { useState } from "react";
 import type { Loaded } from "./types";
 
 type Director = { name: string; isChair: boolean; strategic: boolean };
+type Role = "minutes" | "travel" | "hotel" | "recording";
+type Picked = { file: File; role: Role };
+const ROLES: [Role, string][] = [["minutes", "Minutes"], ["travel", "Boarding pass / e-ticket"], ["hotel", "Hotel bill"], ["recording", "Meeting recording"]];
+
+/** A first guess from the file name; the person confirms it, and the engine uses their answer, not the model's. */
+const guessRole = (n: string): Role => (/\.wav$/i.test(n) ? "recording" : /minute/i.test(n) ? "minutes" : /folio|hotel|stay|bill|invoice/i.test(n) ? "hotel" : "travel");
 
 const toBase64 = (f: File) =>
   new Promise<string>((ok, bad) => {
@@ -19,14 +25,20 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
   const [mode, setMode] = useState("in_person");
   const [isStrategic, setStrategic] = useState(false);
   const [recordsKept, setRecordsKept] = useState("unknown");
+  const [minutesRecord, setMinutesRecord] = useState("unknown");
+  const [date, setDate] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
   const [directors, setDirectors] = useState<Director[]>([{ name: "", isChair: true, strategic: true }, { name: "", isChair: false, strategic: true }]);
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<Picked[]>([]);
   const [over, setOver] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
   const setDir = (i: number, patch: Partial<Director>) => setDirectors((ds) => ds.map((d, k) => (k === i ? { ...d, ...patch } : d)));
-  const addFiles = (list: FileList | null) => list && setFiles((fs) => [...fs, ...Array.from(list).filter((f) => /\.(pdf|png|jpe?g|webp|wav)$/i.test(f.name))]);
+  const addFiles = (list: FileList | null) =>
+    list && setFiles((fs) => [...fs, ...Array.from(list).filter((f) => /\.(pdf|png|jpe?g|webp|wav)$/i.test(f.name)).map((file) => ({ file, role: guessRole(file.name) }))]);
+  const setRole = (i: number, role: Role) => setFiles((fs) => fs.map((p, k) => (k === i ? { ...p, role } : p)));
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -34,8 +46,8 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
     setBusy(true);
     try {
       const payload = {
-        setup: { companyName, jurisdiction, quorum, mode, isStrategic, recordsKept, directors },
-        files: await Promise.all(files.map(async (f) => ({ name: f.name, base64: await toBase64(f) }))),
+        setup: { companyName, jurisdiction, quorum, mode, isStrategic, recordsKept, minutesRecordStrategic: isStrategic ? minutesRecord : "unknown", date, start, end, directors },
+        files: await Promise.all(files.map(async (p) => ({ name: p.file.name, role: p.role, base64: await toBase64(p.file) }))),
       };
       const r = await fetch("/api/analyze-upload", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
       const j = await r.json();
@@ -86,6 +98,29 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
           <input type="checkbox" checked={isStrategic} onChange={(e) => setStrategic(e.target.checked)} /> Strategic decisions taken
         </label>
       </div>
+      <div className="row">
+        <div className="field">
+          <label htmlFor="md">Meeting date</label>
+          <input id="md" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        </div>
+        <div className="field">
+          <label htmlFor="ms">Scheduled start</label>
+          <input id="ms" type="time" value={start} onChange={(e) => setStart(e.target.value)} />
+        </div>
+        <div className="field">
+          <label htmlFor="me">Scheduled end</label>
+          <input id="me" type="time" value={end} onChange={(e) => setEnd(e.target.value)} />
+        </div>
+        <p className="small muted" style={{ flex: "1 1 18rem" }}>Local time where the board met, from the calendar invite. The minutes are checked against it. If you leave it empty, the minutes' own time is used and flagged.</p>
+      </div>
+      {isStrategic && (
+        <div className="field" style={{ maxWidth: "26rem" }}>
+          <label htmlFor="mr">Do the minutes record the strategic decisions?</label>
+          <select id="mr" value={minutesRecord} onChange={(e) => setMinutesRecord(e.target.value)}>
+            <option value="unknown">Not checked</option><option value="yes">Yes</option><option value="no">No</option>
+          </select>
+        </div>
+      )}
       <fieldset className="field" style={{ border: 0, padding: 0 }}>
         <legend>Directors</legend>
         {directors.map((d, i) => (
@@ -107,8 +142,20 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
         <p style={{ marginTop: ".5rem" }}>
           <label className="btn small">Choose files<input type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.wav" className="sr-only" onChange={(e) => addFiles(e.target.files)} /></label>
         </p>
-        {files.length > 0 && <p className="muted" style={{ marginTop: ".5rem" }}>{files.length} file(s): {files.map((f) => f.name).join(", ")}</p>}
       </div>
+      {files.length > 0 && (
+        <ul className="file-roles" aria-label="What each file is">
+          {files.map((p, i) => (
+            <li key={i}>
+              <span className="mono">{p.file.name}</span>
+              <select aria-label={`What ${p.file.name} is`} value={p.role} onChange={(e) => setRole(i, e.target.value as Role)}>
+                {ROLES.map(([v, t]) => <option key={v} value={v}>{t}</option>)}
+              </select>
+              <button type="button" className="btn small" onClick={() => setFiles((fs) => fs.filter((_, k) => k !== i))}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      )}
       {error && <p className="error" role="alert">{error}</p>}
       <div className="actions">
         <button className="btn primary" disabled={busy || files.length === 0}>{busy ? "Reading documents…" : "Analyse"}</button>

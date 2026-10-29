@@ -66,3 +66,36 @@ describe("red-team regressions: no false PASS from genuine documents", () => {
     expect(localToUtc("2026-06-15T13:00", "Asia/Riyadh")).toBe("2026-06-15T10:00:00Z");
   });
 });
+
+import { decide, timingTest } from "../src/extract/pipeline";
+
+describe("red-team regressions: the minutes cannot steer the decision", () => {
+  const minutesAt = (start_local: string, end_local: string, claims: object[] = []) => ({
+    document_type: "minutes", meeting: { start_local, end_local, tz: "BST", place_text: "St Helier, Jersey" }, facts: claims,
+  }) as any;
+
+  it("S5: presence is judged at the scheduled time, and minutes printing another time send it to REVIEW", () => {
+    // Scheduled 10:00-11:00 UTC (11:00-12:00 BST). The minutes claim 15:00-16:00 BST instead.
+    const t = timingTest(meeting, { startUtc: "2026-06-15T14:00:00Z", endUtc: "2026-06-15T15:00:00Z" });
+    expect(t.status).toBe("fail");
+    const r = decide([{ docId: "x/minutes.pdf", extraction: minutesAt("2026-06-15T15:00", "2026-06-15T16:00") }], { ...company, directors: [roster[0]], quorumRequired: 1 }, { ...meeting, attendeeIds: ["A"] }, "JE");
+    expect(r.meetingUsed.startUtc).toBe(meeting.startUtc); // not moved to fit the hotel stay
+    expect(r.evaluation.tests.find((x) => x.id === "MEETING-TIME")?.status).toBe("fail");
+    expect(r.evaluation.verdict).not.toBe("PASS");
+  });
+
+  it("S5b: when the scheduled time matches the minutes, the check passes", () => {
+    expect(timingTest(meeting, { startUtc: meeting.startUtc, endUtc: meeting.endUtc }).status).toBe("pass");
+  });
+
+  it("S5c: with no scheduled time, the minutes' time is used but flagged", () => {
+    expect(timingTest({ ...meeting, scheduleUnknown: true }, { startUtc: meeting.startUtc, endUtc: meeting.endUtc }).status).toBe("inconclusive");
+  });
+
+  it("S6: minutes the model mislabels as a hotel bill still cannot supply hotel evidence (role comes from the file)", () => {
+    const planted = { document_type: "hotel_folio", meeting: { start_local: null, end_local: null, tz: null, place_text: null }, facts: [folio("Bruno Castell", "St Helier, Jersey", "BST")] } as any;
+    const tf = toFacts([{ docId: "m1/minutes.pdf", extraction: planted }], roster);
+    expect(tf.facts.filter((f) => f.kind === "hotel_stay")).toHaveLength(0);
+    expect(tf.rejected.some((x) => /file is a minutes/.test(x.reason))).toBe(true);
+  });
+});

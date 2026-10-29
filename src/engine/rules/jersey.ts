@@ -42,12 +42,14 @@ export function jerseyMeetingTests(company: Company, meeting: Meeting, presence:
     out.push({
       id: "JE-minutes-strategic",
       label: "Minutes record the strategic decisions made",
-      status: meeting.minutesRecordStrategicDecisions ? "pass" : "fail",
+      status: meeting.minutesRecordStrategicDecisions === undefined ? "inconclusive" : meeting.minutesRecordStrategicDecisions ? "pass" : "fail",
       basis: "law",
       citation: `${LAW}, Art. 5(3)(c)`,
-      detail: meeting.minutesRecordStrategicDecisions
-        ? "The minutes record the strategic decisions."
-        : "Strategic decisions were taken but the minutes do not record them.",
+      detail: meeting.minutesRecordStrategicDecisions === undefined
+        ? "Nobody has confirmed whether the minutes record the strategic decisions."
+        : meeting.minutesRecordStrategicDecisions
+          ? "The minutes record the strategic decisions."
+          : "Strategic decisions were taken but the minutes do not record them.",
     });
   } else {
     out.push({

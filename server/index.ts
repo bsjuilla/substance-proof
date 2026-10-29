@@ -7,6 +7,7 @@ import { extname, join, normalize, resolve, sep } from "node:path";
 import { randomUUID } from "node:crypto";
 import { analyzePack } from "../src/app/analyze";
 import { makeClient } from "../src/extract/client";
+import { localToUtc } from "../src/extract/toFacts";
 import { buildPack } from "../src/rules/buildPack";
 import type { RulePack } from "../src/rules/pack";
 import type { Company, Meeting } from "../src/engine/types";
@@ -175,13 +176,18 @@ const server = createServer(async (req, res) => {
       const directors = (s.directors ?? []).filter((d: any) => d?.name?.trim()).slice(0, 12)
         .map((d: any, i: number) => ({ id: String.fromCharCode(65 + i), name: String(d.name).trim().slice(0, 80), isChair: !!d.isChair, hasStrategicAuthority: d.strategic !== false }));
       if (directors.length === 0) return send(res, 400, { error: "Add at least one director." });
-      const files: { name: string; base64: string }[] = (body.files ?? []).slice(0, 40);
+      const files: { name: string; base64: string; role?: string }[] = (body.files ?? []).slice(0, 40);
       if (files.length === 0) return send(res, 400, { error: "Add the meeting documents." });
       const runId = randomUUID();
       const dir = join(UPLOADS, runId, "pack");
       mkdirSync(dir, { recursive: true });
+      // Each file is saved in a folder named after the role the user gave it; the engine takes the role from
+      // there, not from the model (so planted text cannot turn the minutes into "hotel evidence").
+      const ROLE_DIR: Record<string, string> = { minutes: "minutes", travel: "travel", hotel: "stay", recording: "recording" };
       const paths = files.map((f) => {
-        const out = join(dir, safeName(f.name));
+        const sub = join(dir, ROLE_DIR[f.role ?? ""] ?? "other");
+        mkdirSync(sub, { recursive: true });
+        const out = join(sub, safeName(f.name));
         if (!/\.(pdf|png|jpe?g|webp|wav)$/i.test(out)) throw new Error(`Unsupported file type: ${f.name}`);
         writeFileSync(out, Buffer.from(f.base64, "base64"));
         return out;
@@ -190,13 +196,20 @@ const server = createServer(async (req, res) => {
         id: "UPLOAD", name: String(s.companyName || "Uploaded company").slice(0, 120), directors,
         quorumRequired: Math.max(1, Math.min(12, Number(s.quorum) || 2)), options: {},
       };
+      // Scheduled time as entered by the user (local time where the board meets). If it is missing, the minutes'
+      // own time is used and the report flags that it was not independently checked.
+      const zone = j === "JE" ? "Europe/Jersey" : "Asia/Singapore";
+      const okDate = /^\d{4}-\d{2}-\d{2}$/.test(String(s.date ?? ""));
+      const okTime = (x: unknown) => /^\d{2}:\d{2}$/.test(String(x ?? ""));
+      const start = okDate && okTime(s.start) ? localToUtc(`${s.date}T${s.start}`, zone) : null;
+      const end = okDate && okTime(s.end) ? localToUtc(`${s.date}T${s.end}`, zone) : null;
       const now = new Date().toISOString();
       const meeting: Meeting = {
-        id: runId, startUtc: now, endUtc: now, // replaced by the time read from the minutes
+        id: runId, startUtc: start ?? now, endUtc: end ?? now, scheduleUnknown: !(start && end && end > start),
         mode: s.mode === "virtual" ? "virtual" : s.mode === "hybrid" ? "hybrid" : "in_person",
         venueCode: s.mode === "virtual" ? undefined : j === "JE" ? "CITY:STHELIER" : "CITY:SINGAPORE",
         attendeeIds: directors.map((d: any) => d.id), chairId: directors.find((d: any) => d.isChair)?.id,
-        isStrategic: !!s.isStrategic, minutesRecordStrategicDecisions: s.minutesRecordStrategic !== false,
+        isStrategic: !!s.isStrategic, minutesRecordStrategicDecisions: s.minutesRecordStrategic === "yes" ? true : s.minutesRecordStrategic === "no" ? false : undefined,
         minutesAndRecordsKeptInJurisdiction: s.recordsKept === "yes" ? true : s.recordsKept === "no" ? false : undefined,
       };
       const result = await analyzePack({ client: live.client, model: live.model, id: runId, files: paths, packRoot: join(UPLOADS, runId), company, meeting, jurisdiction: j });

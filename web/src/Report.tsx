@@ -6,7 +6,7 @@ import { Icon, StatusIcon } from "./Icon";
 
 const NAMES: Record<string, string> = { JE: "Jersey", SG: "Singapore" };
 const STATUS_TEXT: Record<TestResult["status"], string> = { pass: "Met", fail: "Not met", inconclusive: "Unproven", not_applicable: "N/A" };
-const BASIS_TEXT: Record<TestResult["basis"], string> = { law: "Law", regulator: "Regulator", guidance: "Guidance (switchable)" };
+const BASIS_TEXT: Record<TestResult["basis"], string> = { law: "Law", regulator: "Regulator", guidance: "Guidance (switchable)", evidence: "Evidence check" };
 
 function headline(r: Loaded["result"]): string {
   const ev = r.evaluation;
@@ -20,6 +20,8 @@ function headline(r: Loaded["result"]): string {
   if (ev.contradictions.length) parts.push(`${ev.contradictions.length} director${ev.contradictions.length > 1 ? "s'" : "'s"} location in the minutes conflicts with the evidence`);
   if (unproven.length) parts.push(`unproven: ${unproven.join("; ")}`);
   if (guidanceFails.length) parts.push(`guidance-level test not met: ${guidanceFails.join("; ")}`);
+  const timing = ev.tests.find((t) => t.basis === "evidence" && t.status === "fail");
+  if (timing) parts.push(timing.detail);
   if (ev.verdict === "PASS") return "Every rule test is met by independent evidence, and the minutes match it.";
   return parts.join(". ") + ".";
 }

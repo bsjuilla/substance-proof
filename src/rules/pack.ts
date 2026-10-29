@@ -103,7 +103,9 @@ export function runPack(pack: RulePack, company: Company, meeting: Meeting, pres
       }
       case "minutes_record_strategic_decisions":
         out.push(meeting.isStrategic
-          ? { ...base, status: meeting.minutesRecordStrategicDecisions ? "pass" : "fail", detail: meeting.minutesRecordStrategicDecisions ? "The minutes record the strategic decisions." : "Strategic decisions not recorded." }
+          ? meeting.minutesRecordStrategicDecisions === undefined
+            ? { ...base, status: "inconclusive", detail: "Nobody has confirmed whether the minutes record the strategic decisions." }
+            : { ...base, status: meeting.minutesRecordStrategicDecisions ? "pass" : "fail", detail: meeting.minutesRecordStrategicDecisions ? "The minutes record the strategic decisions." : "Strategic decisions not recorded." }
           : { ...base, status: "not_applicable", detail: "No strategic decisions were taken." });
         break;
       case "records_kept_in_jurisdiction": {

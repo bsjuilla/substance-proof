@@ -71,7 +71,8 @@ export async function analyzePack(opts: {
   let evaluation = decided.evaluation;
   if (opts.pack) {
     // Use an approved, AI-written rule pack instead of the hand-written rules (same presence inference).
-    const tests = runPack(opts.pack, opts.company, meetingUsed, evaluation.presence);
+    // Keep the meeting-time evidence check alongside the pack's legal tests.
+    const tests = [...runPack(opts.pack, opts.company, meetingUsed, evaluation.presence), ...evaluation.tests.filter((t) => t.basis === "evidence")];
     evaluation = { ...evaluation, tests, verdict: verdictFrom(tests, evaluation.contradictions.length) };
   }
   if (!facts.meetingWindow) facts.rejected.push({ file: "minutes", reason: "Meeting date and time could not be read from the minutes; the setup times were used." });

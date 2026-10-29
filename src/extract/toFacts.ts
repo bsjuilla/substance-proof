@@ -159,6 +159,15 @@ export type ToFactsResult = {
   rejected: { file: string; reason: string }[];
 };
 
+/** Role of a document from its path: "…/minutes.pdf" or "…/minutes/…", "…/travel/…", "…/stay/…". */
+export function declaredRole(docId: string): "minutes" | "boarding_pass" | "hotel_folio" | undefined {
+  const p = docId.replace(/\\/g, "/").toLowerCase();
+  if (/(^|\/)minutes(\/|\.(pdf|png|jpe?g|webp)$)/.test(p)) return "minutes";
+  if (/(^|\/)travel\//.test(p)) return "boarding_pass";
+  if (/(^|\/)stay\//.test(p)) return "hotel_folio";
+  return undefined;
+}
+
 export type ExtractedItem = {
   docId: string;
   extraction: Extraction;
@@ -171,8 +180,16 @@ export function toFacts(items: ExtractedItem[], roster: Director[]): ToFactsResu
   const rejected: ToFactsResult["rejected"] = [];
   let meetingWindow: ToFactsResult["meetingWindow"];
 
-  for (const { docId, extraction, turnStartsMs } of items) {
+  for (const { docId, extraction: read, turnStartsMs } of items) {
     const isRecording = !!turnStartsMs;
+    // The document's role comes from where the person put it (its folder or name), not from the model, so text
+    // planted in the minutes cannot get the minutes treated as a hotel bill. The model's type is used only
+    // when the role is unknown.
+    const role = declaredRole(docId);
+    const extraction = role && !isRecording && read.document_type !== role ? { ...read, document_type: role } : read;
+    if (role && !isRecording && read.document_type !== role && read.document_type !== "other") {
+      rejected.push({ file: docId, reason: `the model read this as ${read.document_type.replace("_", " ")}, but the file is a ${role.replace("_", " ")}; treated as ${role.replace("_", " ")}` });
+    }
     if (extraction.document_type === "minutes") {
       const mtz = zoneOrPlace(extraction.meeting.tz, extraction.meeting.place_text);
       const s = localToUtc(extraction.meeting.start_local, mtz);

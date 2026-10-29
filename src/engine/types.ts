@@ -58,8 +58,10 @@ export type Meeting = {
   attendeeIds: string[]; // directors who attended in any way
   chairId?: string;
   isStrategic: boolean; // decisions on strategic matters / core income-generating activities were taken
-  minutesRecordStrategicDecisions: boolean;
+  minutesRecordStrategicDecisions?: boolean; // undefined = nobody has checked
   minutesAndRecordsKeptInJurisdiction?: boolean; // undefined = not provided
+  /** True when nobody supplied the scheduled time, so startUtc/endUtc can only come from the minutes. */
+  scheduleUnknown?: boolean;
 };
 
 export type Company = {
@@ -99,7 +101,7 @@ export type TestResult = {
   label: string;
   status: TestStatus;
   /** "law" = the statute text. "regulator" = official guidance page. "guidance" = secondary summary (toggle). */
-  basis: "law" | "regulator" | "guidance";
+  basis: "law" | "regulator" | "guidance" | "evidence";
   citation: string; // human-readable rule citation, e.g. "Jersey ES Law 2019, Art. 5(3)(b)"
   detail: string;
 };

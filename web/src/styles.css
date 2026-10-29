@@ -611,3 +611,10 @@
   .drop p { margin-inline: auto; }
   .field input, .field select, .packs textarea, .row > input { border-radius: 8px; }
 }
+
+@layer components {
+  .file-roles { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; }
+  .file-roles li { display: grid; grid-template-columns: 1fr auto auto; gap: .75rem; align-items: center; padding: .4rem 0; border-bottom: 1px solid var(--border); }
+  .file-roles select { min-height: 2.25rem; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--surface); padding: 0 .5rem; }
+  @media (max-width: 40rem) { .file-roles li { grid-template-columns: 1fr; } }
+}

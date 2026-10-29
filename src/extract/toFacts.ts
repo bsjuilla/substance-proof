@@ -3,10 +3,12 @@ import type { Extraction } from "./schema";
 
 // Deterministic conversion of what the model READ into engine inputs. Nothing here uses AI.
 
-// Zone labels -> minutes east of UTC. Unknown labels are rejected, never guessed.
+// Zone labels -> minutes east of UTC. Unknown labels are rejected, never guessed. Labels that mean different
+// zones in different countries (AST: Atlantic UTC-4 or Arabia UTC+3; IST: India, Ireland or Israel) are left out
+// on purpose, so a document printing them needs a numeric offset, an IANA name or the place's own zone.
 const TZ_MINUTES: Record<string, number> = {
   UTC: 0, GMT: 0, BST: 60, WET: 0, WEST: 60, CET: 60, CEST: 120, EET: 120, EEST: 180,
-  GST: 240, MUT: 240, SGT: 480, HKT: 480, SAST: 120, AST: -240, EST: -300, EDT: -240, PST: -480, PDT: -420,
+  GST: 240, MUT: 240, SGT: 480, HKT: 480, SAST: 120, EST: -300, EDT: -240, PST: -480, PDT: -420,
 };
 
 /** Minutes east of UTC for a printed zone label: "GST", "GMT+8", "UTC-05:00", "+0530". Null if unknown. */
@@ -80,6 +82,8 @@ export function normalizePlace(text: string | null): string | null {
   if (!text) return null;
   // Strip accents ("Dubaï", "Saint-Hélier") and accept common French names.
   const t = text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  // "Jersey" must be the Channel Island: New Jersey and Jersey City (USA) are refused, not mapped to St Helier.
+  if (/\bnew jersey\b|\bjersey city\b|\bnj\b|\busa\b|\bunited states\b/.test(t)) return null;
   if (/\bhelier\b|\bjersey\b/.test(t)) return "CITY:STHELIER";
   if (/\bdubai\b/.test(t)) return "CITY:DUBAI";
   if (/\bsingapore\b|\bsingapour\b/.test(t)) return "CITY:SINGAPORE";
@@ -112,9 +116,8 @@ export function matchDirector(rawName: string, roster: Director[]): Director | u
   if (sameWords.length === 1) return sameWords[0];
   const exact = roster.find((d) => norm(d.name) === n);
   if (exact) return exact;
-  const last = n.split(" ").pop()!;
-  const byLast = roster.filter((d) => norm(d.name).split(" ").pop() === last);
-  if (byLast.length === 1) return byLast[0];
+  // No surname-only matching: "CASTELL/MARIA MRS" (a spouse) must not become director Bruno Castell.
+  // Fuzzy matching below also requires the given name to be close.
   return fuzzyDirector(n, roster);
 }
 
@@ -143,7 +146,11 @@ function fuzzyDirector(n: string, roster: Director[]): Director | undefined {
   if (!best) return undefined;
   const limit = Math.max(2, Math.floor(norm(best.d.name).length * 0.15));
   const runnerUp = scored[1]?.dist ?? Infinity;
-  return best.dist <= limit && runnerUp - best.dist >= 3 ? best.d : undefined;
+  if (!(best.dist <= limit && runnerUp - best.dist >= 3)) return undefined;
+  // The given name must be close too: a speech slip changes a letter or two, not the whole first name.
+  const given = n.split(" ")[0];
+  const dGiven = norm(best.d.name).split(" ")[0];
+  return editDistance(given, dGiven) <= Math.max(1, Math.floor(dGiven.length * 0.34)) ? best.d : undefined;
 }
 
 export type ToFactsResult = {

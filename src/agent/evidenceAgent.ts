@@ -90,6 +90,14 @@ export const OUTCOME = new RegExp(
     /\b(met|meets|satisf(y|ies|ied)|fulfil(s|led)?)\s+(the\s+)?(\w+\s+){0,3}(test|requirement|rule)s?\b/,
     /\b(test|requirement|rule)s?\s+(was|were|is|are|has been|have been)\s+(not\s+)?(met|satisfied)\b/,
     /\bno (further )?action (is )?(needed|required)\b/,
+    // Paraphrased conclusions (found by an external red-team review).
+    /\b(meeting|board|resolution|quorum)\s+(is|was|were)\s+(valid|invalid|properly constituted|in order|fine)\b/,
+    /\bproperly constituted\b/,
+    /\b(all|everything)\s+(is\s+)?in order\b/,
+    /\bnothing (further|more|else) (is )?(needed|required)\b/,
+    /\b(substance|residence|residency|tax) (position|status|test) (is|was) (fine|ok|okay|sound|good|safe|secure|met)\b/,
+    /\b(records|evidence|documents) (show|shows|confirm|confirms|prove|proves) (that )?you were present\b/,
+    /\battendance (in \w+ )?(is|was|has been) (confirmed|verified|established)\b/,
   ].map((r) => r.source).join("|"),
   "i",
 );

@@ -119,7 +119,8 @@ describe("place and name matching", () => {
   it("matches names regardless of case and punctuation", () => {
     const roster = [dir("A", { name: "Alice Marlowe" }), dir("B", { name: "Bruno Castell" })];
     expect(matchDirector("BRUNO CASTELL", roster)?.id).toBe("B");
-    expect(matchDirector("Marlowe", roster)?.id).toBe("A");
+    // A surname alone is refused (it could be a spouse or child); see tests/redteam.test.ts S2.
+    expect(matchDirector("Marlowe", roster)).toBeUndefined();
     expect(matchDirector("Zed Nobody", roster)).toBeUndefined();
   });
 });

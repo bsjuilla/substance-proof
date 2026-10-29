@@ -6,6 +6,10 @@ import type { Citation, Fact, Meeting, PresenceResult } from "./types";
 // proves presence, but a claim that independent evidence contradicts is flagged.
 
 type Anchor = { t: number; j: string | undefined; cite: Citation; what: string };
+
+/** A bracket (arrived before, left after) only counts if both ends are close to the meeting. Months apart proves
+ *  nothing: a ferry, a car or a private flight in between would leave no boarding pass in the pack. */
+export const MAX_BRACKET_GAP_H = 72;
 type Interval = { from: number; to: number; j: string | undefined; cite: Citation; what: string };
 
 const ms = (iso: string): number => {
@@ -76,6 +80,15 @@ export function independentLocation(
   anchors.sort((a, b) => a.t - b.t);
   const before = [...anchors].reverse().find((a) => a.t <= S);
   const after = anchors.find((a) => a.t >= E);
+  const gapH = (x: number) => x / 3_600_000;
+  if (before && after && (gapH(S - before.t) > MAX_BRACKET_GAP_H || gapH(after.t - E) > MAX_BRACKET_GAP_H)) {
+    const days = (x: number) => Math.round(x / 86_400_000);
+    return {
+      kind: "unknown",
+      why: `The nearest evidence is ${days(S - before.t)} day(s) before and ${days(after.t - E)} day(s) after the meeting: too far away to show where the director was (limit ${MAX_BRACKET_GAP_H} hours each side).`,
+      cites: [before.cite, after.cite],
+    };
+  }
   if (before && after) {
     const flightBetween = transits.some((x) => x.from < after.t && x.to > before.t);
     if (!flightBetween && before.j && after.j && before.j === after.j) {

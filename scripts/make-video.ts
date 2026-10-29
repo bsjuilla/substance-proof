@@ -14,6 +14,7 @@ const OUT = join(homedir(), "Downloads", "SubstanceProof-VIDEO");
 const WORK = join(OUT, "work");
 const FF = ffmpegPath as unknown as string;
 const W = 1920, H = 1080;
+const ROOT = join(import.meta.dirname, "..");
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const ff = (args: string[]) => execFileSync(FF, ["-y", "-loglevel", "error", ...args], { stdio: "pipe" });
@@ -201,12 +202,11 @@ const SCENES: Scene[] = [
   {
     id: "s8-results", kind: "slide",
     caption: "",
-    narration: "On thirty held-out meetings with photos, scans and different layouts, it read all one hundred and sixty six facts and got every verdict right. Grok, a second AI model, independently agreed on all eighty six directors. On a hostile stress set it read eighty six percent, with zero dangerous errors: when unsure, it asks for review.",
+    narration: "On thirty held-out meetings with photos, scans and different layouts, it read all one hundred and sixty six facts and got every verdict right. On a hostile stress set it read eighty six percent, with zero dangerous errors: when unsure, it asks for review.",
     html: slide(`<h1>Measured, not claimed</h1>
       <table><tr><th>Test set</th><th>Facts read exactly</th><th>Verdicts</th><th>Dangerous errors</th></tr>
       <tr><td>30 held-out meetings (photos, scans, e-tickets)</td><td class="big">166 / 166</td><td class="big">30 / 30</td><td class="big">0</td></tr>
       <tr><td>Stress set (blurry, handwritten, French)</td><td>55 / 64 (86%)</td><td>9 / 12</td><td class="big">0</td></tr>
-      <tr><td>Independent cross-check by Grok</td><td colspan="2">86 / 86 directors agree</td><td></td></tr>
       <tr><td>Rules Muse Spark wrote from the raw law</td><td colspan="2">41 / 41 verdicts match the hand-written rules (3 of 3 runs)</td><td></td></tr></table>
       <p style="margin-top:30px;font-size:30px">Dangerous error = saying PASS or “present” when it isn't true. Misses fall back to REVIEW.</p>`),
   },
@@ -214,8 +214,8 @@ const SCENES: Scene[] = [
     id: "s9-close", kind: "slide",
     caption: "",
     narration: "Substance Proof. Now you can prove where the board really met. Built with Muse Spark and Muse Voice Transcribe.",
-    html: slide(`<h1>Substance Proof</h1><p>The minutes say the board met in Jersey. Now you can prove it.</p>
-      <p style="font-size:30px;color:#6a7286">Built with Muse Spark · Muse Voice Transcribe · github.com/bsjuilla/substance-proof</p>`),
+    // Designed end card (docs/end-card.jpg), shown full frame.
+    html: `<html><body style="margin:0;background:#f7f4ee"><img style="display:block;width:${W}px;height:${H}px;object-fit:cover" src="data:image/jpeg;base64,${readFileSync(join(ROOT, "docs", "end-card.jpg")).toString("base64")}"></body></html>`,
   },
 ];
 

@@ -1,5 +1,7 @@
 ﻿# Substance Proof
 
+![Substance Proof: the minutes say the board met in Jersey. Did it?](docs/og.jpg)
+
 **The minutes say the board met in Jersey. Did it?**
 
 Substance Proof checks whether a board meeting really met a jurisdiction's *physical-presence* rule, using the evidence in the meeting pack (minutes, boarding passes, e-tickets, hotel bills and the meeting recording) instead of what the minutes merely claim. Meta's Muse models read the evidence; tested code applies the published rule; every finding cites the page or the second it came from.

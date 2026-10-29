@@ -37,7 +37,7 @@ export function Viewer({ cite, result, fileBase, onClose }: Props) {
   const isMinutes = doc?.kind === "minutes";
   const role = ROLE[doc?.kind ?? "other"] ?? "Document";
   const title = [role, director?.name, cite.page ? `page ${cite.page}` : cite.timestampSec != null ? mmss(t) : ""].filter(Boolean).join(" · ");
-  const seek = () => { if (audio.current) { audio.current.currentTime = Math.max(0, t - 1); audio.current.focus(); } };
+  const seek = () => { if (audio.current) audio.current.currentTime = Math.max(0, t - 1); };
 
   return (
     <dialog ref={dlg} className="viewer" onClose={onClose} aria-labelledby="viewer-h">

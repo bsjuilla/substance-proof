@@ -11,7 +11,7 @@ type Built = {
   approvedTests: Test[];
   model?: string; inputTokens?: number; seconds?: number; costUsd?: number; sourceUrl?: string; sourceChars?: number;
 };
-type Index = { agreement: string; packs: { code: string; name: string; source: string; sourceUrl: string; sourceChars: number; inputTokens: number; seconds: number; costUsd: number; proposed: number; approved: number; notSupported: number }[] };
+type Index = { agreement: string; perRun: string[]; packs: { code: string; name: string; source: string; sourceUrl: string; sourceChars: number; inputTokens: number; seconds: number; costUsd: number; proposed: number; approved: number; notSupported: number }[] };
 
 const KIND: Record<string, string> = {
   quorum_physically_present: "Quorum physically present",
@@ -25,43 +25,51 @@ const KIND: Record<string, string> = {
 
 export function PackView({ built, approvable }: { built: Built; approvable?: boolean }) {
   const [approved, setApproved] = useState(false);
+  const passed = built.validated.filter((t) => !t.problems?.length).length;
   return (
-    <div className="stack">
-      <p className="stats">
-        <span><b>{built.pack.jurisdiction_name}</b> · {built.pack.source_title}</span>
-        {built.sourceChars != null && <span><b>{built.sourceChars.toLocaleString()}</b> characters of source</span>}
-        {built.inputTokens != null && <span>Muse Spark read <b>{built.inputTokens.toLocaleString()}</b> tokens in <b>{built.seconds}s</b> (${built.costUsd?.toFixed(3)})</span>}
-      </p>
-      {built.sourceUrl && <p style={{ fontSize: "var(--step--1)" }}>Official source: <a href={built.sourceUrl} target="_blank" rel="noreferrer">{built.sourceUrl}</a></p>}
-      {built.validated.map((t) => {
-        const ok = !t.problems?.length;
-        return (
-          <article key={t.id} className="draft" style={{ borderLeftColor: ok ? "var(--ok)" : "var(--bad)" }}>
-            <div className="row" style={{ justifyContent: "space-between" }}>
-              <b>{KIND[t.kind] ?? t.kind}</b>
-              <span className="badge law">{t.citation}</span>
-            </div>
-            <p className="muted" style={{ fontSize: "var(--step--1)", marginTop: ".25rem" }}>
-              Applies to {t.applies_to.replace(/_/g, " ")} · counts {t.count.replace(/_/g, " ")}
-              {t.threshold != null ? ` · at least ${Math.round(t.threshold * 100)}%` : ""}{t.chair_alternative ? " · or the chair" : ""} · basis: {t.basis}
-            </p>
-            <blockquote style={{ margin: ".5rem 0", padding: ".5rem .75rem", borderLeft: "3px solid var(--border-strong)", background: "var(--surface-2)", fontFamily: "var(--font-serif)" }}>“{t.quote}”</blockquote>
-            <p className={ok ? "st pass" : "st fail"} style={{ fontSize: "var(--step--1)" }}>
-              {ok ? <><Icon name="check" /> Quote found word for word in the official text · parameters valid</> : <><Icon name="cross" /> Rejected by code: {t.problems?.join("; ")}</>}
-            </p>
-          </article>
-        );
-      })}
+    <div className="stack" style={{ ["--gap" as any]: "1.25rem" }}>
+      <ol className="flow" aria-label="How this pack was made">
+        {built.sourceChars != null && <li><b>{built.sourceChars.toLocaleString()}</b> characters of official text</li>}
+        {built.inputTokens != null && <li><b>{built.inputTokens.toLocaleString()}</b> tokens read by Muse Spark in {built.seconds}s{built.costUsd != null ? ` · $${built.costUsd.toFixed(3)}` : ""}</li>}
+        <li><b>{built.validated.length}</b> rule{built.validated.length === 1 ? "" : "s"} proposed</li>
+        <li><b>{passed}/{built.validated.length}</b> quotes found word for word{built.pack.not_supported.length ? ` · ${built.pack.not_supported.length} marked not checkable` : ""}</li>
+        <li><b>A person</b> approves before use</li>
+      </ol>
+      {built.sourceUrl && <p className="small muted">Official source: <a href={built.sourceUrl} target="_blank" rel="noreferrer">{built.sourceUrl}</a></p>}
+      <ol className="pairs">
+        {built.validated.map((t) => {
+          const ok = !t.problems?.length;
+          return (
+            <li key={t.id} className={ok ? "" : "rejected"}>
+              <div className="law">
+                <span className="sec-num"><span>{t.citation}</span> the law says</span>
+                <q>{t.quote}</q>
+              </div>
+              <div className="rule">
+                <span className="sec-num">the rule it became</span>
+                <b>{KIND[t.kind] ?? t.kind}</b>
+                <span className="small muted">
+                  Applies to {t.applies_to.replace(/_/g, " ")} · counts {t.count.replace(/_/g, " ")}
+                  {t.threshold != null ? ` · at least ${Math.round(t.threshold * 100)}%` : ""}{t.chair_alternative ? " · or the chair" : ""} · basis: {t.basis}
+                </span>
+                <span className={`small ${ok ? "st pass" : "st fail"}`}>
+                  {ok ? <><Icon name="check" /> Quote verified, parameters valid</> : <><Icon name="cross" /> Rejected by code: {t.problems?.join("; ")}</>}
+                </span>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
       {built.pack.not_supported.length > 0 && (
-        <details>
-          <summary>Found in the text but not checkable by this engine ({built.pack.not_supported.length})</summary>
-          <ul style={{ marginTop: ".5rem" }}>{built.pack.not_supported.map((n, i) => <li key={i}>{n.requirement}</li>)}</ul>
-        </details>
+        <div className="not-checkable">
+          <p className="sec-num"><span>{built.pack.not_supported.length}</span> found in the text but not checkable from travel evidence, listed rather than dropped</p>
+          <ul>{built.pack.not_supported.map((n, i) => <li key={i}>{n.requirement}</li>)}</ul>
+        </div>
       )}
       {approvable && (
         <div className="actions no-print">
           {approved ? <span className="st pass"><Icon name="check" /> Approved for this session (a person reviewed every rule above)</span>
-            : <button className="btn primary small" onClick={() => setApproved(true)} disabled={built.approvedTests.length === 0}>Approve {built.approvedTests.length} rule(s)</button>}
+            : <button className="btn primary" onClick={() => setApproved(true)} disabled={built.approvedTests.length === 0}>Approve {built.approvedTests.length} rule{built.approvedTests.length === 1 ? "" : "s"}</button>}
         </div>
       )}
     </div>
@@ -71,6 +79,7 @@ export function PackView({ built, approvable }: { built: Built; approvable?: boo
 export function RulePacks({ live, onBack }: { live: boolean; onBack: () => void }) {
   const [index, setIndex] = useState<Index | null>(null);
   const [open, setOpen] = useState<Built | null>(null);
+  const [code, setCode] = useState("JE");
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
@@ -79,10 +88,12 @@ export function RulePacks({ live, onBack }: { live: boolean; onBack: () => void 
 
   useEffect(() => {
     fetch("rulepacks/index.json").then((r) => (r.ok ? r.json() : null)).then(setIndex).catch(() => setIndex(null));
+    show("JE");
   }, []);
 
-  async function show(code: string) {
-    const r = await fetch(`rulepacks/${code}.json`);
+  async function show(c: string) {
+    setCode(c);
+    const r = await fetch(`rulepacks/${c}.json`);
     if (r.ok) setOpen(await r.json());
   }
 
@@ -102,31 +113,44 @@ export function RulePacks({ live, onBack }: { live: boolean; onBack: () => void 
   }
 
   return (
-    <div className="stack" style={{ ["--gap" as any]: "1.5rem" }}>
-      <div><button className="btn small" onClick={onBack}>← Back</button></div>
-      <section className="stack" style={{ maxWidth: "52rem" }}>
-        <h1>Rules written by Muse Spark from the law</h1>
-        <p className="muted" style={{ fontSize: "var(--step-1)" }}>
-          Give Muse Spark the full text of a law or official guidance. It reads all of it and drafts the presence rules as data, quoting the exact words behind each one.
-          Code then checks every quote against the source word for word and rejects anything the engine cannot compute. A person approves the pack before it is used.
-        </p>
-        {index && <p className="note">On all {index.agreement.split("/")[1]} dev and held-out meetings, the packs Muse Spark wrote from the raw Jersey statute and the IRAS guidance reached the same law-level verdicts as the hand-written rules: <b>{index.agreement}</b>.</p>}
+    <div className="packs stack" style={{ ["--gap" as any]: "1.75rem" }}>
+      <div><button className="btn small" onClick={onBack}><Icon name="arrow-right" className="flip" /> Back</button></div>
+      <section className="packs-head">
+        <div className="stack" style={{ ["--gap" as any]: ".9rem" }}>
+          <p className="eyebrow">Add a jurisdiction by giving it the law</p>
+          <h1 className="report-h1">Muse Spark wrote the rules from the statute.</h1>
+          <p className="deck">
+            It reads the whole official text and drafts each presence rule as data, quoting the exact words behind it. Code checks every quote against the source word for word and refuses anything the engine cannot compute. A person approves the pack before it is used.
+          </p>
+        </div>
+        {index && (
+          <div className="big-stat">
+            <span className="n">{index.agreement}</span>
+            <span>meetings got the same law-level verdict with the AI-written rules as with the hand-written ones</span>
+            <span className="small muted">{index.perRun.length} independent runs: {index.perRun.join(" · ")}</span>
+          </div>
+        )}
       </section>
 
-      <div className="grid-2">
-        {index?.packs.map((p) => (
-          <section key={p.code} className="card stack">
-            <h2>{p.name}</h2>
-            <p className="muted" style={{ fontSize: "var(--step--1)" }}>{p.source}</p>
-            <p className="stats"><span><b>{p.approved}</b>/{p.proposed} rules passed the checks</span><span><b>{p.notSupported}</b> flagged as not checkable</span><span>{p.inputTokens.toLocaleString()} tokens · {p.seconds}s</span></p>
-            <div><button className="btn small primary" onClick={() => show(p.code)}>View rules and quotes</button></div>
-          </section>
-        ))}
-      </div>
-      {open && <section className="card stack"><h2>{open.pack.jurisdiction_name}: proposed rules</h2><PackView built={open} /></section>}
+      <section className="card stack" aria-label="Rule packs">
+        <div className="seg" role="tablist" aria-label="Jurisdiction">
+          {index?.packs.map((p) => (
+            <button key={p.code} role="tab" aria-selected={code === p.code} aria-pressed={code === p.code} onClick={() => show(p.code)}>
+              {p.name} · {p.approved}/{p.proposed} rule{p.proposed === 1 ? "" : "s"}
+            </button>
+          ))}
+        </div>
+        {open && (
+          <div className="stack">
+            <h2>{open.pack.source_title}</h2>
+            <PackView built={open} />
+          </div>
+        )}
+      </section>
 
       {live ? (
         <form className="card stack" onSubmit={build}>
+          <p className="sec-num"><span>Live</span> runs Muse Spark now with your key</p>
           <h2>Write a rule pack from any law</h2>
           <p className="muted" style={{ fontSize: "var(--step--1)" }}>Paste the full text of a substance law or tax-residence guidance (for example Guernsey's or the Isle of Man's). Live call to Muse Spark; usually under a minute and a few cents.</p>
           <div className="field"><label htmlFor="pt">Source title</label><input id="pt" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Income Tax (Substance Requirements) Regulations 2018" /></div>

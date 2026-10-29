@@ -439,6 +439,7 @@
     .tl-dir { grid-template-columns: 1fr !important; break-inside: avoid; }
     .tl-finding { grid-column: 1 !important; }
     details.msg .msg-preview, details.msg .more { display: none; }
+    details.msg > summary { display: none; }
     details.msg > pre { display: block !important; }
     details.msg::details-content { display: block; content-visibility: visible; }
     .proof-row > li, .proof-row > li::after { animation: none !important; }
@@ -463,7 +464,7 @@
   .l-src small { font: 400 .75rem/1.4 var(--font-mono); color: var(--text-muted); }
   .l-quote { font-size: clamp(1.15rem, 1rem + .7vw, 1.55rem); line-height: 1.3; letter-spacing: -0.02em; }
   .ledger li.claim .l-quote { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem); letter-spacing: -0.035em; }
-  .ledger mark { background: var(--hl); color: inherit; padding-inline: .1em; border-radius: 2px; }
+  .ledger mark { background: var(--hl); color: oklch(0.2 0.012 60); padding-inline: .1em; border-radius: 2px; }
   .l-quote.finding { font-weight: 600; }
   .l-tag { display: inline-flex; align-items: center; gap: .3rem; font: 500 .78rem var(--font-mono); padding: .25rem .6rem; border-radius: 999px; white-space: nowrap; }
   .l-tag.claim { background: var(--warn-bg); color: var(--warn); }
@@ -551,4 +552,62 @@
 
 @layer components {
   .paper.tape { border: 1px solid oklch(1 0 0 / .1); }
+}
+
+@layer components {
+  .ic.flip { rotate: 180deg; }
+
+  /* Rule packs page. */
+  .packs section.card, .packs form.card { background: none; border: 0; border-top: 1px solid var(--text); border-radius: 0; padding: 1.25rem 0 0; }
+  .packs-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(1.5rem, 5vw, 4.5rem); align-items: end; }
+  .big-stat { display: grid; gap: .5rem; padding-left: 1.5rem; border-left: 1px solid var(--text); }
+  .big-stat .n { font: 500 clamp(3.5rem, 2.5rem + 4vw, 6rem)/.9 var(--font-mono); letter-spacing: -0.06em; color: var(--ok); }
+  .flow { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem 0; font-size: .88rem; color: var(--text-muted); }
+  .flow li { display: inline-flex; align-items: center; }
+  .flow li + li::before { content: ""; width: 1.6rem; height: 1px; background: var(--border-strong); margin: 0 .6rem; }
+  .flow b { color: var(--text); font-weight: 600; margin-right: .3rem; }
+  .pairs { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border); }
+  .pairs li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+  .pairs .law, .pairs .rule { display: grid; gap: .45rem; align-content: start; }
+  .pairs .law q { font-size: clamp(1.1rem, 1rem + .5vw, 1.35rem); line-height: 1.35; letter-spacing: -0.015em; padding-left: .9rem; border-left: 3px solid var(--hl); }
+  .pairs .rule b { font-size: 1.05rem; letter-spacing: -0.02em; }
+  .pairs li.rejected .rule b { text-decoration: line-through; color: var(--text-muted); }
+  .not-checkable ul { margin: .6rem 0 0; padding-left: 1.1rem; color: var(--text-muted); font-size: .9rem; display: grid; gap: .25rem; }
+  .packs .seg button { font-size: .85rem; }
+  .packs textarea { font: inherit; }
+  @media (max-width: 48rem) {
+    .packs-head, .pairs li { grid-template-columns: 1fr; }
+    .big-stat { padding-left: 0; border-left: 0; border-top: 1px solid var(--text); padding-top: 1rem; }
+    .flow { display: grid; gap: .35rem; }
+    .flow li + li::before { width: .8rem; }
+  }
+}
+
+@layer components {
+  /* Rule tests on a phone: each test becomes a stacked row (result + basis on one line, then the test). */
+  @media (max-width: 40rem) {
+    .tests thead { display: none; }
+    .tests, .tests tbody { display: block; }
+    .tests tr { display: grid; grid-template-columns: 1fr auto; gap: .35rem .75rem; padding: .85rem .6rem; border-bottom: 1px solid var(--border); }
+    .tests td { display: block; padding: 0; border: 0; }
+    .tests td.st { grid-column: 1; grid-row: 1; }
+    .tests td:last-child { grid-column: 2; grid-row: 1; }
+    .tests td:nth-child(2) { grid-column: 1 / -1; }
+    .tests tr.row-fail-law, .tests tr.row-fail-soft { box-shadow: inset 4px 0 0 var(--bad); }
+    .tests tr.row-fail-soft { box-shadow: inset 4px 0 0 var(--warn-edge); }
+    .tests tr.row-fail-law td, .tests tr.row-fail-law td:first-child, .tests tr.row-fail-soft td:first-child { box-shadow: none; background: none; }
+    .tests tr.row-fail-law { background: color-mix(in oklab, var(--bad-bg) 70%, transparent); }
+  }
+}
+
+@layer components {
+  /* Own-pack form, inside the home page's ruled section. */
+  .home details form.card { background: none; border: 0; padding: 0; box-shadow: none; }
+  .home details form.card > h2 { display: none; }
+  input[type="checkbox"] { accent-color: var(--text); width: 1rem; height: 1rem; }
+  label:has(> input[type="checkbox"]) { display: inline-flex; align-items: center; gap: .45rem; font-size: .9rem; white-space: nowrap; }
+  .row:has(> label > input[type="checkbox"]) { align-items: center; }
+  .drop { border-width: 1.5px; border-radius: var(--radius); background: none; }
+  .drop p { margin-inline: auto; }
+  .field input, .field select, .packs textarea, .row > input { border-radius: 8px; }
 }

@@ -51,7 +51,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
   return (
     <div className="report stack" style={{ ["--gap" as any]: "1.5rem" }}>
       <div className="row no-print" style={{ justifyContent: "space-between" }}>
-        <button className="btn small" onClick={onBack}>← All meetings</button>
+        <button className="btn small" onClick={onBack}><Icon name="arrow-right" className="flip" /> All meetings</button>
         <div className="actions">
           <span className="badge">{result.mode === "replay" ? "Recorded live run" : "Live run"} · {result.model}</span>
           {result.rulePack && <span className="badge law">Rules written by Muse Spark from: {result.rulePack.source}</span>}

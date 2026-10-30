@@ -14,7 +14,7 @@ const STRAY = /<\||\|>/;
  *  The side column puts the minutes' claim next to what this source says, so the reason it matters is visible. */
 export function Viewer({ cite, result, fileBase, onClose }: Props) {
   const dlg = useRef<HTMLDialogElement>(null);
-  const audio = useRef<HTMLAudioElement>(null);
+  const audio = useRef<HTMLMediaElement>(null);
 
   useEffect(() => {
     const d = dlg.current;
@@ -28,6 +28,8 @@ export function Viewer({ cite, result, fileBase, onClose }: Props) {
   const ext = cite.docId.split(".").pop()?.toLowerCase();
   const doc = result.docs.find((d) => d.docId === cite.docId);
   const t = cite.timestampSec ?? 0;
+  const isMedia = ["wav", "mp3", "m4a", "mp4", "webm", "ogg"].includes(ext ?? "");
+  const isVideo = ext === "mp4" || ext === "webm";
 
   // Whose evidence is this, what do the minutes claim for them, and what did the engine conclude?
   const fact = result.facts.find((f) => f.cite.docId === cite.docId && (cite.quote == null || f.cite.quote === cite.quote))
@@ -62,9 +64,9 @@ export function Viewer({ cite, result, fileBase, onClose }: Props) {
           )}
           {cite.quote && (
             <div className={`said ${isMinutes ? "claim" : presence?.status === "present" ? "ok" : "against"}`}>
-              <span className="proof-src">{isMinutes ? "The minutes say" : `This ${ext === "wav" ? "recording" : "document"} says`}</span>
+              <span className="proof-src">{isMinutes ? "The minutes say" : `This ${isMedia ? "recording" : "document"} says`}</span>
               <q>{cite.quote}</q>
-              <span className="muted" style={{ fontSize: ".75rem" }}>Quoted by Muse {ext === "wav" ? "Voice Transcribe and Muse Spark" : "Spark"}</span>
+              <span className="muted" style={{ fontSize: ".75rem" }}>Quoted by Muse {isMedia ? "Voice Transcribe and Muse Spark" : "Spark"}</span>
             </div>
           )}
           {presence && <p className="muted" style={{ fontSize: "var(--step--1)" }}>The engine concluded: {presence.reason}</p>}
@@ -72,9 +74,11 @@ export function Viewer({ cite, result, fileBase, onClose }: Props) {
         <div className="viewer-doc">
           {ext === "pdf" && <Suspense fallback={<p className="small muted">Opening the page…</p>}><PdfPage url={url} page={cite.page ?? 1} quote={cite.quote} near={director ? [director.name, director.name.split(" ").pop()!] : []} title={title} /></Suspense>}
           {(ext === "png" || ext === "jpg" || ext === "jpeg" || ext === "webp") && <img src={url} alt={title} style={{ border: "1px solid var(--border)" }} />}
-          {ext === "wav" && (
+          {isMedia && (
             <div className="stack">
-              <audio ref={audio} controls src={url} onLoadedMetadata={seek} style={{ width: "100%" }} />
+              {isVideo
+                ? <video ref={audio as React.RefObject<HTMLVideoElement>} controls src={url} onLoadedMetadata={seek} style={{ width: "100%", maxHeight: "40dvh", background: "#000" }} />
+                : <audio ref={audio as React.RefObject<HTMLAudioElement>} controls src={url} onLoadedMetadata={seek} style={{ width: "100%" }} />}
               <div><button className="btn small primary" onClick={() => { seek(); audio.current?.play(); }}>Play from the cited turn · {mmss(t)}</button></div>
               <p className="muted" style={{ fontSize: "var(--step--1)" }}>Transcript by Muse Voice Transcribe (turn-level timestamps), exactly as received. The cited turn is highlighted.</p>
               <div className="stack" style={{ ["--gap" as any]: ".25rem" }}>

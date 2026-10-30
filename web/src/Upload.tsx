@@ -7,7 +7,7 @@ type Picked = { file: File; role: Role };
 const ROLES: [Role, string][] = [["minutes", "Minutes"], ["travel", "Boarding pass / e-ticket"], ["hotel", "Hotel bill"], ["recording", "Meeting recording"]];
 
 /** A first guess from the file name; the person confirms it, and the engine uses their answer, not the model's. */
-const guessRole = (n: string): Role => (/\.wav$/i.test(n) ? "recording" : /minute/i.test(n) ? "minutes" : /folio|hotel|stay|bill|invoice/i.test(n) ? "hotel" : "travel");
+const guessRole = (n: string): Role => (/\.(wav|mp3|m4a|mp4|webm|ogg)$/i.test(n) ? "recording" : /minute/i.test(n) ? "minutes" : /folio|hotel|stay|bill|invoice/i.test(n) ? "hotel" : "travel");
 
 const toBase64 = (f: File) =>
   new Promise<string>((ok, bad) => {
@@ -37,7 +37,7 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
 
   const setDir = (i: number, patch: Partial<Director>) => setDirectors((ds) => ds.map((d, k) => (k === i ? { ...d, ...patch } : d)));
   const addFiles = (list: FileList | null) =>
-    list && setFiles((fs) => [...fs, ...Array.from(list).filter((f) => /\.(pdf|png|jpe?g|webp|wav)$/i.test(f.name)).map((file) => ({ file, role: guessRole(file.name) }))]);
+    list && setFiles((fs) => [...fs, ...Array.from(list).filter((f) => /\.(pdf|png|jpe?g|webp|wav|mp3|m4a|mp4|webm|ogg)$/i.test(f.name)).map((file) => ({ file, role: guessRole(file.name) }))]);
   const setRole = (i: number, role: Role) => setFiles((fs) => fs.map((p, k) => (k === i ? { ...p, role } : p)));
 
   async function submit(e: React.FormEvent) {
@@ -138,9 +138,9 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
         onDragLeave={() => setOver(false)}
         onDrop={(e) => { e.preventDefault(); setOver(false); addFiles(e.dataTransfer.files); }}
       >
-        <p>Drop the minutes, boarding passes, e-tickets, hotel bills and the meeting recording (.wav) here.</p>
+        <p>Drop the minutes, boarding passes, e-tickets, hotel bills and the meeting recording (audio or video, any length) here.</p>
         <p style={{ marginTop: ".5rem" }}>
-          <label className="btn small">Choose files<input type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.wav" className="sr-only" onChange={(e) => addFiles(e.target.files)} /></label>
+          <label className="btn small">Choose files<input type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.wav,.mp3,.m4a,.mp4,.webm,.ogg" className="sr-only" onChange={(e) => addFiles(e.target.files)} /></label>
         </p>
       </div>
       {files.length > 0 && (

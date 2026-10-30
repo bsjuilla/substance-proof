@@ -5,7 +5,11 @@ import type { Company, Meeting, MeetingEvaluation, TestResult } from "../engine/
 import { extractDocument } from "./extractDocument";
 import type { Extraction } from "./schema";
 import { toFacts, type ExtractedItem, type ToFactsResult } from "./toFacts";
-import { extractFromTranscript, transcribeWav, type Transcript } from "./transcribe";
+import { extractFromTranscript, transcribeRecording, type Transcript } from "./transcribe";
+
+/** Audio or video recordings of the meeting (any length; converted and split as needed). */
+export const RECORDING_EXT = /\.(wav|mp3|m4a|mp4|webm|ogg)$/i;
+export const isRecording = (path: string) => RECORDING_EXT.test(path);
 
 export type AnyExtract = {
   file: string;
@@ -22,10 +26,10 @@ export type AnyExtract = {
  *  Muse Voice Transcribe + Muse Spark for recordings. */
 export async function extractAny(client: OpenAI, model: string, path: string, opts: { names?: string[] } = {}): Promise<AnyExtract> {
   const t0 = Date.now();
-  if (extname(path).toLowerCase() === ".wav") {
+  if (isRecording(path)) {
     // Vocabulary hints: the directors' names (from the company setup) and the places that matter.
     const keywords = [...(opts.names ?? []), "St Helier", "Jersey", "Singapore", "Dubai"];
-    const tr = await transcribeWav(path, { keywords });
+    const tr = await transcribeRecording(path, { keywords });
     const ex = await extractFromTranscript(client, model, tr.result);
     return {
       file: path,

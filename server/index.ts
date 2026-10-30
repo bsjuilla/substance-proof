@@ -22,7 +22,7 @@ const MAX_BODY = 60 * 1024 * 1024;
 const TYPES: Record<string, string> = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".mjs": "text/javascript", ".css": "text/css", ".json": "application/json",
   ".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp",
-  ".wav": "audio/wav", ".svg": "image/svg+xml", ".ico": "image/x-icon",
+  ".wav": "audio/wav", ".mp3": "audio/mpeg", ".m4a": "audio/mp4", ".mp4": "video/mp4", ".webm": "video/webm", ".ogg": "audio/ogg", ".svg": "image/svg+xml", ".ico": "image/x-icon",
 };
 
 // The app loads nothing from other sites. Inline style attributes are used by React components.
@@ -79,7 +79,7 @@ async function readJson(req: IncomingMessage): Promise<any> {
 
 const listFiles = (dir: string): string[] =>
   readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
-    e.isDirectory() ? listFiles(join(dir, e.name)) : /\.(pdf|png|jpe?g|webp|wav)$/i.test(e.name) ? [join(dir, e.name)] : [],
+    e.isDirectory() ? listFiles(join(dir, e.name)) : /\.(pdf|png|jpe?g|webp|wav|mp3|m4a|mp4|webm|ogg)$/i.test(e.name) ? [join(dir, e.name)] : [],
   );
 
 let live: ReturnType<typeof makeClient> | null = null;
@@ -204,7 +204,7 @@ const server = createServer(async (req, res) => {
         const sub = join(dir, ROLE_DIR[f.role ?? ""] ?? "other");
         mkdirSync(sub, { recursive: true });
         const out = join(sub, safeName(f.name));
-        if (!/\.(pdf|png|jpe?g|webp|wav)$/i.test(out)) throw new Error(`Unsupported file type: ${f.name}`);
+        if (!/\.(pdf|png|jpe?g|webp|wav|mp3|m4a|mp4|webm|ogg)$/i.test(out)) throw new Error(`Unsupported file type: ${f.name}`);
         writeFileSync(out, Buffer.from(f.base64, "base64"));
         return out;
       });

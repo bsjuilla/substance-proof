@@ -1,5 +1,8 @@
-import { readFileSync } from "node:fs";
-import { basename } from "node:path";
+import { execFileSync } from "node:child_process";
+import { mkdtempSync, readdirSync, readFileSync, rmSync, statSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { basename, join } from "node:path";
+import ffmpegPath from "ffmpeg-static";
 import type OpenAI from "openai";
 import { costUsd } from "./client";
 import { EXTRACTION_JSON_SCHEMA, ExtractionSchema, type Extraction } from "./schema";
@@ -31,7 +34,46 @@ export async function transcribeWav(path: string, opts: { keywords?: string[] } 
   return { result, costUsd: (seconds / 3600) * 0.18 };
 }
 
-const TRANSCRIPT_PROMPT = `You read the TRANSCRIPT of a company board meeting recording. Turns are numbered.
+/** Longest piece sent in one request (the file endpoint takes at most 10 minutes). */
+const CHUNK_S = 570;
+
+/** Any recording (WAV, MP3, M4A, MP4, WebM…) of any length: converted to mono 16 kHz WAV with the bundled ffmpeg,
+ *  split into pieces under 10 minutes, transcribed piece by piece, and stitched back onto one timeline. Speaker
+ *  labels restart in each piece (the service does not carry them across requests), so they are kept per piece
+ *  ("2·A") rather than guessed; the roll-call claims rely on what people say, not on the labels. */
+export async function transcribeRecording(path: string, opts: { keywords?: string[] } = {}): Promise<{ result: Transcript; costUsd: number }> {
+  const work = mkdtempSync(join(tmpdir(), "sp-audio-"));
+  try {
+    const ff = ffmpegPath as unknown as string;
+    const wav = join(work, "all.wav");
+    execFileSync(ff, ["-loglevel", "error", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", "-sample_fmt", "s16", wav]);
+    const seconds = (statSync(wav).size - 44) / (16000 * 2);
+    const parts: string[] = [];
+    if (seconds <= CHUNK_S + 15) parts.push(wav);
+    else {
+      execFileSync(ff, ["-loglevel", "error", "-y", "-i", wav, "-f", "segment", "-segment_time", String(CHUNK_S), "-c", "copy", join(work, "part%03d.wav")]);
+      parts.push(...readdirSync(work).filter((f) => f.startsWith("part")).sort().map((f) => join(work, f)));
+    }
+    const turns: Turn[] = [];
+    const texts: string[] = [];
+    let cost = 0;
+    let offsetMs = 0;
+    for (const [i, part] of parts.entries()) {
+      const r = await transcribeWav(part, opts);
+      cost += r.costUsd;
+      for (const t of r.result.turns) {
+        turns.push({ ...t, startMs: t.startMs + offsetMs, endMs: t.endMs + offsetMs, speaker: t.speaker && parts.length > 1 ? `${i + 1}·${t.speaker}` : t.speaker });
+      }
+      texts.push(r.result.transcript);
+      offsetMs += r.result.audioDurationMs || ((statSync(part).size - 44) / 32);
+    }
+    return { result: { transcript: texts.join(" "), audioDurationMs: offsetMs, turns }, costUsd: cost };
+  } finally {
+    rmSync(work, { recursive: true, force: true });
+  }
+}
+
+const TRANSCRIPT_PROMPT =`You read the TRANSCRIPT of a company board meeting recording. Turns are numbered.
 Report, for each person who says where THEY THEMSELVES are during the meeting, one claimed_location fact:
 - person_name: the name they give (as spoken). If a person speaks without giving their name, skip them.
 - place: the place they say they are in (for example "St Helier", "Dubai", "the airport in London").

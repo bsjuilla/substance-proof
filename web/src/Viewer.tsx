@@ -1,7 +1,9 @@
-import { useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import type { Citation, RunResult } from "./types";
+// pdf.js is large, so it loads only when a document is opened.
+const PdfPage = lazy(() => import("./PdfPage").then((m) => ({ default: m.PdfPage })));
 
-type Props = { cite: Citation | null; result: RunResult; fileBase: string; onClose: () => void };
+type Props = { cite: (Citation & { directorId?: string }) | null; result: RunResult; fileBase: string; onClose: () => void };
 
 const ROLE: Record<string, string> = { minutes: "Minutes", boarding_pass: "Travel document", hotel_folio: "Hotel bill", recording: "Meeting recording", other: "Document" };
 const mmss = (s: number) => `${Math.floor(s / 60)}:${(s % 60).toFixed(1).padStart(4, "0")}`;
@@ -30,7 +32,7 @@ export function Viewer({ cite, result, fileBase, onClose }: Props) {
   // Whose evidence is this, what do the minutes claim for them, and what did the engine conclude?
   const fact = result.facts.find((f) => f.cite.docId === cite.docId && (cite.quote == null || f.cite.quote === cite.quote))
     ?? result.facts.find((f) => f.cite.docId === cite.docId);
-  const dirId = fact?.directorId;
+  const dirId = cite.directorId ?? fact?.directorId;
   const director = result.company.directors.find((d) => d.id === dirId);
   const presence = result.evaluation.presence.find((p) => p.directorId === dirId);
   const claim = result.facts.find((f) => f.directorId === dirId && f.kind === "claimed_location" && f.source === "minutes");
@@ -68,7 +70,7 @@ export function Viewer({ cite, result, fileBase, onClose }: Props) {
           {presence && <p className="muted" style={{ fontSize: "var(--step--1)" }}>The engine concluded: {presence.reason}</p>}
         </aside>
         <div className="viewer-doc">
-          {ext === "pdf" && <iframe src={`${url}#page=${cite.page ?? 1}&toolbar=0&navpanes=0&view=FitH`} title={title} />}
+          {ext === "pdf" && <Suspense fallback={<p className="small muted">Opening the page…</p>}><PdfPage url={url} page={cite.page ?? 1} quote={cite.quote} near={director ? [director.name, director.name.split(" ").pop()!] : []} title={title} /></Suspense>}
           {(ext === "png" || ext === "jpg" || ext === "jpeg" || ext === "webp") && <img src={url} alt={title} style={{ border: "1px solid var(--border)" }} />}
           {ext === "wav" && (
             <div className="stack">

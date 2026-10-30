@@ -18,8 +18,9 @@ if (mode === "upload") {
   await new Promise((r) => setTimeout(r, 1200));
 }
 if (mode === "viewer" || mode === "audio") {
-  const re = mode === "audio" ? /recording.wav/ : /folio_B/;
-  await p.evaluate((src) => [...document.querySelectorAll("button.chip")].find((b) => new RegExp(src).test(b.textContent))?.click(), re.source);
+  const src = mode === "audio" ? "recording\.wav" : process.env.CHIP ?? "folio_B";
+  const nth = Number(process.env.CHIP_N ?? 0);
+  await p.evaluate((src, nth) => [...document.querySelectorAll("button.chip")].filter((b) => new RegExp(src).test(b.textContent))[nth]?.click(), src, nth);
   await new Promise((r) => setTimeout(r, 1500));
 }
 if (mode === "print") await p.emulateMediaType("print");

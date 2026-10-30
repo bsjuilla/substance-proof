@@ -43,7 +43,7 @@ function QuorumMeter({ result }: { result: Loaded["result"] }) {
 
 export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void }) {
   const { result, fileBase } = loaded;
-  const [cite, setCite] = useState<Citation | null>(null);
+  const [cite, setCite] = useState<(Citation & { directorId?: string }) | null>(null);
   const [decisions, setDecisions] = useState<Record<string, "approved" | "declined">>({});
   const ev = result.evaluation;
   const decide = (d: Draft, v: "approved" | "declined") => setDecisions((s) => ({ ...s, [d.id]: v }));
@@ -152,7 +152,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
                     const [docId, tag] = c.split(/[@#]/);
                     const ts = c.includes("@") ? parseFloat(tag) : undefined;
                     const page = c.includes("#p") ? parseInt(tag.slice(1)) : undefined;
-                    return <button key={c} className="chip" onClick={() => setCite({ docId, timestampSec: ts, page })}>{c.split("/").pop()}</button>;
+                    return <button key={c} className="chip" onClick={() => setCite({ docId, timestampSec: ts, page, directorId: d.directorId })}>{c.split("/").pop()}</button>;
                   })}
                 </div>
                 {!state && (

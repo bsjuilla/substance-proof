@@ -5,7 +5,7 @@ import { StatusIcon } from "./Icon";
 
 const ZONE: Record<string, string> = { JE: "Europe/Jersey", SG: "Asia/Singapore" };
 
-type Props = { result: RunResult; onCite: (c: Citation) => void };
+type Props = { result: RunResult; onCite: (c: Citation & { directorId?: string }) => void };
 type Claim = Extract<Fact, { kind: "claimed_location" }>;
 
 /** Each director gets rows that put what was CLAIMED (minutes, recording) above what the EVIDENCE shows.
@@ -78,7 +78,7 @@ export function Timeline({ result, onCite }: Props) {
                       <span className="tl-label">Minutes say</span>
                       <div className="tl-track">
                         <span className="tl-window" style={meetingBox} />
-                        <button className="tl-claim" style={meetingBox} onClick={() => onCite(minutes.cite)} aria-label={`Minutes claim ${where(minutes.placeCode)}: “${minutes.cite.quote}”. Open the minutes.`}>
+                        <button className="tl-claim" style={meetingBox} onClick={() => onCite({ ...minutes.cite, directorId: d.id })} aria-label={`Minutes claim ${where(minutes.placeCode)}: “${minutes.cite.quote}”. Open the minutes.`}>
                           {where(minutes.placeCode)}
                         </button>
                       </div>
@@ -89,7 +89,7 @@ export function Timeline({ result, onCite }: Props) {
                       <span className="tl-label">Recording</span>
                       <div className="tl-track">
                         <span className="tl-window" style={meetingBox} />
-                        <button className={`tl-dot${conflicts(recording) ? " bad" : ""}`} style={{ left: `${pct(S)}%` }} onClick={() => onCite(recording.cite)} aria-label={`Recording at ${recording.cite.timestampSec}s says ${where(recording.placeCode)}. Play it.`} />
+                        <button className={`tl-dot${conflicts(recording) ? " bad" : ""}`} style={{ left: `${pct(S)}%` }} onClick={() => onCite({ ...recording.cite, directorId: d.id })} aria-label={`Recording at ${recording.cite.timestampSec}s says ${where(recording.placeCode)}. Play it.`} />
                         <span className={`tl-note${conflicts(recording) ? " bad" : ""}`} style={{ left: `calc(${pct(E)}% + .5rem)` }}>
                           Recording at {Math.floor((recording.cite.timestampSec ?? 0) / 60)}:{String(Math.round((recording.cite.timestampSec ?? 0) % 60)).padStart(2, "0")} · says {where(recording.placeCode)}
                         </span>
@@ -106,7 +106,7 @@ export function Timeline({ result, onCite }: Props) {
                           const inT = jurisdictionOf(f.placeCode) === jurisdiction;
                           const a = pct(Date.parse(f.checkInUtc)), b = pct(Date.parse(f.checkOutUtc));
                           return (
-                            <button key={i} className={`tl-bar ${inT ? "ok" : "bad"}`} style={{ left: `${a}%`, width: `${Math.max(1, b - a)}%` }} onClick={() => onCite(f.cite)}
+                            <button key={i} className={`tl-bar ${inT ? "ok" : "bad"}`} style={{ left: `${a}%`, width: `${Math.max(1, b - a)}%` }} onClick={() => onCite({ ...f.cite, directorId: d.id })}
                               aria-label={`Hotel stay in ${where(f.placeCode)}. Open the hotel bill.`}>
                               <StatusIcon s={inT ? "ok" : "bad"} /> Hotel stay · {where(f.placeCode)}{!inT && status === "absent" ? " · covers the whole meeting" : ""}
                             </button>
@@ -118,7 +118,7 @@ export function Timeline({ result, onCite }: Props) {
                           const after = b < 70;
                           return (
                             <span key={i}>
-                              <button className="tl-bar flight" style={{ left: `${a}%`, width: `${Math.max(1.5, b - a)}%` }} onClick={() => onCite(f.cite)} aria-label={`${text}. Open the travel document.`} />
+                              <button className="tl-bar flight" style={{ left: `${a}%`, width: `${Math.max(1.5, b - a)}%` }} onClick={() => onCite({ ...f.cite, directorId: d.id })} aria-label={`${text}. Open the travel document.`} />
                               <span className="tl-note" style={after ? { left: `calc(${b}% + .5rem)` } : { right: `calc(${100 - a}% + .5rem)` }}>{text}</span>
                             </span>
                           );
@@ -143,7 +143,7 @@ export function Timeline({ result, onCite }: Props) {
 
                 <p className={`tl-finding${p?.contradiction || p?.claimConflict ? " bad" : ""}`}>
                   <StatusIcon s={p?.contradiction || p?.claimConflict ? "bad" : status} /> {finding}{" "}
-                  {cites.map((c, i) => <button key={i} className="chip" onClick={() => onCite(c)}>{chipText(c)}</button>)}
+                  {cites.map((c, i) => <button key={i} className="chip" onClick={() => onCite({ ...c, directorId: d.id })}>{chipText(c)}</button>)}
                 </p>
               </div>
             );

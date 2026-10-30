@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t01",
-    "name": "Ardent Ridge (Jersey) Limited",
+    "name": "Halvenmoor Capital (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -91,71 +91,19 @@
     }
   ],
   "expected": {
-    "meetingId": "t01",
-    "jurisdiction": "JE",
     "verdict": "FAIL",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t01/stay/folio_A_LONDON.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t01/stay/folio_B_PARIS.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       }
     ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "fail",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 0 present, 2 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "not_applicable",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "No strategic decisions were taken at this meeting."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "not_applicable",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "No strategic decisions were taken at this meeting."
-      }
-    ],
-    "contradictions": []
+    "contradictions": [],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

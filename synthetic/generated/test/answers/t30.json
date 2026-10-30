@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t30",
-    "name": "Thornbury Assets Pte Ltd",
+    "name": "Merrowind Capital Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -118,103 +118,31 @@
     }
   ],
   "expected": {
-    "meetingId": "t30",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t30/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t30/travel/BP_B_HKG-SIN.png",
-            "page": 1
-          },
-          {
-            "docId": "t30/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t30/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "D",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t30/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "inconclusive",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 0 present, 1 absent, 2 unproven. Chairman physically in Singapore: unproven."
+        "status": "unknown"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t30/travel/BP_B_HKG-SIN.png",
-            "page": 1
-          },
-          {
-            "docId": "t30/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "directorId": "B"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

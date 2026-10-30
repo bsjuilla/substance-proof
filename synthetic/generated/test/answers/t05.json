@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t05",
-    "name": "Corbel Capital (Jersey) Limited",
+    "name": "Velmouth Arden (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -162,130 +162,31 @@
     }
   ],
   "expected": {
-    "meetingId": "t05",
-    "jurisdiction": "JE",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t05/stay/folio_A_STHELIER.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival JER before and departure JER after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t05/travel/ETKT_B_CDG-JER.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t05/travel/ETKT_B_JER-CDG.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t05/stay/folio_C_LONDON.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "United Kingdom"
-        }
+        "status": "absent"
       },
       {
         "directorId": "D",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t05/stay/folio_D_STHELIER.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 3 present, 1 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "The minutes record the strategic decisions."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "pass",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "A majority of 4 directors is 3. Evidence: 3 present, 1 absent, 0 unproven."
+        "status": "present"
       }
     ],
     "contradictions": [
       {
-        "directorId": "C",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t05/stay/folio_C_LONDON.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "United Kingdom"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a claim in the minutes or recording is contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

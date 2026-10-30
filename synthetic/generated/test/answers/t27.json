@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t27",
-    "name": "Pelagos Group Pte Ltd",
+    "name": "Oskerby Vance Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -138,103 +138,31 @@
     }
   ],
   "expected": {
-    "meetingId": "t27",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t27/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t27/stay/folio_B_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t27/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Arab Emirates"
-        }
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t27/stay/folio_C_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "D",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t27/stay/folio_D_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "inconclusive",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 1 present, 1 absent, 1 unproven. Chairman physically in Singapore: unproven."
+        "status": "present"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t27/stay/folio_B_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t27/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Arab Emirates"
-        }
+        "directorId": "B"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

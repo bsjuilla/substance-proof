@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t06",
-    "name": "Corbel Capital Pte Ltd",
+    "name": "Velmouth Arden Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -122,62 +122,23 @@
     }
   ],
   "expected": {
-    "meetingId": "t06",
-    "jurisdiction": "SG",
     "verdict": "PASS",
     "presence": [
       {
         "directorId": "A",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t06/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t06/stay/folio_B_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival SIN before and departure SIN after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t06/travel/ETKT_C_HKG-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t06/travel/ETKT_C_SIN-HKG.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       }
     ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "pass",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 2 present, 0 absent, 1 unproven. Chairman physically in Singapore: unproven."
-      }
-    ],
-    "contradictions": []
+    "contradictions": [],
+    "why": "every test met by independent evidence and no claim contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

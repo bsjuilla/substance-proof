@@ -1,10 +1,10 @@
 {
   "set": "dev",
   "model": "muse-spark-1.3",
-  "commit": "f235eb8",
-  "runAt": "2026-10-28T18:30:18.330Z",
+  "commit": "4fa652d",
+  "runAt": "2026-10-29T18:51:37.682Z",
   "meetings": 11,
-  "costUsd": 0.434,
+  "costUsd": 0.4256,
   "factsExact": "82/82 (100.0%)",
   "spuriousFacts": 0,
   "rejectedFacts": 0,
@@ -179,7 +179,7 @@
     },
     {
       "id": "m11",
-      "trap": "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C landed mid-meeting. Quorum fails.",
+      "trap": "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C was still flying in from London. Quorum fails.",
       "style": {
         "boardingPass": "eticket",
         "folio": "table",

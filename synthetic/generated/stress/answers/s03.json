@@ -13,7 +13,7 @@
   },
   "company": {
     "id": "CO-s03",
-    "name": "Corbel Capital Pte Ltd",
+    "name": "Velmouth Arden Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -93,76 +93,23 @@
     }
   ],
   "expected": {
-    "meetingId": "s03",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s03/stay/folio_A_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight SIN-CDG) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s03/travel/BP_B_SIN-CDG.png",
-            "page": 1
-          },
-          {
-            "docId": "s03/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "pass",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 2; 1 needed for 50%. Evidence: 1 present, 1 absent, 0 unproven. Chairman physically in Singapore: yes."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight SIN-CDG) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s03/travel/BP_B_SIN-CDG.png",
-            "page": 1
-          },
-          {
-            "docId": "s03/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "directorId": "B"
       }
-    ]
+    ],
+    "why": "a claim in the minutes or recording is contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

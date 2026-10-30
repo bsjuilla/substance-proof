@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "TR-SG",
-    "name": "Tembusu Ridge Capital Pte Ltd",
+    "name": "Sennoway Capital Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -149,135 +149,34 @@
     }
   ],
   "expected": {
-    "meetingId": "m09",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m09/stay/folio_A_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m09/stay/folio_B_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m09/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Arab Emirates"
-        }
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m09/stay/folio_C_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m09/minutes.pdf",
-            "page": 1,
-            "quote": "(Chairman) present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Arab Emirates"
-        }
+        "status": "absent"
       },
       {
         "directorId": "D",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m09/stay/folio_D_DUBAI.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "fail",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 4; 2 needed for 50%. Evidence: 1 present, 3 absent, 0 unproven. Chairman physically in Singapore: no."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m09/stay/folio_B_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m09/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Arab Emirates"
-        }
+        "directorId": "B"
       },
       {
-        "directorId": "C",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m09/stay/folio_C_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m09/minutes.pdf",
-            "page": 1,
-            "quote": "(Chairman) present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Arab Emirates"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

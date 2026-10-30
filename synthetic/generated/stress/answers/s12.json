@@ -13,7 +13,7 @@
   },
   "company": {
     "id": "CO-s12",
-    "name": "Meridian Bay Pte Ltd",
+    "name": "Fenmarrow Group Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -122,90 +122,27 @@
     }
   ],
   "expected": {
-    "meetingId": "s12",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s12/stay/folio_A_LONDON.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "elsewhere": "HK",
-        "basis": "independent",
-        "reason": "hotel stay in Hong Kong covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s12/stay/folio_B_HONGKONG.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight SIN-DXB) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s12/travel/PHOTO_BP_C_SIN-DXB.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s12/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "fail",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 0 present, 3 absent, 0 unproven. Chairman physically in Singapore: no."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight SIN-DXB) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s12/travel/PHOTO_BP_C_SIN-DXB.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s12/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t21",
-    "name": "Saltmarsh Investments Pte Ltd",
+    "name": "Corrisande Holdings Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -81,77 +81,23 @@
     }
   ],
   "expected": {
-    "meetingId": "t21",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t21/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight CDG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t21/travel/ETKT_B_CDG-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t21/minutes.pdf",
-            "page": 1,
-            "quote": "by video from Paris"
-          }
-        ],
-        "contradiction": {
-          "claimed": "France",
-          "evidence": "in flight"
-        }
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "inconclusive",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 2; 1 needed for 50%. Evidence: 0 present, 1 absent, 1 unproven. Chairman physically in Singapore: unproven."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight CDG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t21/travel/ETKT_B_CDG-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t21/minutes.pdf",
-            "page": 1,
-            "quote": "by video from Paris"
-          }
-        ],
-        "contradiction": {
-          "claimed": "France",
-          "evidence": "in flight"
-        }
+        "directorId": "B"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

@@ -68,18 +68,22 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 
 | Set | What it is | Facts read exactly | Directors placed correctly | Meeting verdicts | Contradictions caught | Dangerous errors* |
 |---|---|---|---|---|---|---|
-| **Held-out test** | 30 randomised meetings, 110 files: e-tickets, tilted phone photos, scanned image-only minutes, prose minutes, letter-style hotel bills, airline-style names. Never used for tuning. | **166 / 166** | **86 / 86** | **30 / 30** | **27 / 27** | **0** |
+| **Held-out test** | 30 randomised meetings, 110 files: e-tickets, tilted phone photos, scanned image-only minutes, prose minutes, letter-style hotel bills, airline-style names. Never used for tuning. | **165 / 166** | **85 / 86** | **30 / 30** | **27 / 27** | **0** |
 | Dev | 11 hand-written trap meetings, 3 with recordings (minutes vs recording conflicts, time-zone traps, midnight crossings, Singapore chairman route) | 82 / 82 | 37 / 37 | 11 / 11 | 8 / 8 | 0 |
 | **Stress** | 12 deliberately hostile meetings: blurry, dim, rotated phone photos at JPEG quality 28; handwritten-style minutes; French hotel bills; 12-hour clocks | 55 / 64 (86%) | 28 / 35 (80%) | 9 / 12 | 8 / 15 | **0** |
+| *Baseline: always answer REVIEW* | *The held-out set again, with a "tool" that never decides anything* | – | *17 / 86 ("unproven" is right for 17)* | *16 / 30* | *0 / 27* | *0* |
 
-\* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
+\* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. The baseline row is there on purpose: a tool that never commits to anything also makes **0** dangerous errors, so that number alone proves nothing. What matters is getting the verdicts right (30 / 30 against 16 / 30) *while* making no dangerous errors.
 
-**Cost:** one meeting costs about **$0.03–0.06** of API credit and 35–70 seconds. The full 30-meeting held-out run cost **$0.92**.
+The one held-out miss: on one e-ticket Muse Spark returned no facts at all (run-to-run variation; the same file read correctly in earlier runs). The engine treated that director as unproven, the meeting verdict was still correct (REVIEW), and nothing dangerous happened. I report the run as it came out rather than re-running until it was perfect. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
+
+**Cost:** one meeting costs about **$0.03–0.06** of API credit and 30–60 seconds. The full 30-meeting held-out run cost **$0.91**.
 
 **Honest caveats**
 - All documents are synthetic, rendered from templates I wrote. Real packs are messier (real handwriting, multi-page bundles, other languages), and the stress set shows accuracy falls as documents get worse.
 - The stress set is no longer held out: after its first run I fixed two general problems it exposed (accented and French city names; flights with impossible times from AM/PM misreads). First run: 54/64 facts, 77% of directors, 9/12 verdicts, 0 dangerous errors.
 - The first held-out run scored 51.8% of facts because my answer key stored seconds while documents print minutes. I fixed the key, not the model, and re-scored the same saved outputs. Both runs are in the git history.
+- On 29 October all three sets were regenerated (independent answer key, coined company names) and re-run live; the earlier scoreboards are kept in [`eval/results/history/`](eval/results/history/).
 - Rules: the Jersey law-level tests are from the statute; the stricter points (majority of meetings, majority of directors for strategic decisions) come from practitioner summaries of the Comptroller's guidance, so they are labelled *guidance* and can be switched off. Singapore's 50%/chairman test is from IRAS; IRAS publishes no numeric test for in-person meetings, so that check is labelled as an assumption. See [`docs/SOURCES.md`](docs/SOURCES.md).
 
 **Independent cross-check by a second AI model.** The answer key was generated together with the documents, so I asked a different company's model to read the held-out documents on its own. Three **Grok** agents (xAI) each took 10 of the 30 meetings, given only the documents (renamed neutrally so file names gave no hints) and a blank answer sheet. For each of the 86 directors they answered *"was this director physically in the jurisdiction for the whole meeting?"* (yes / no / cannot tell), with a note showing their own time-zone conversions. They were instructed not to open the answer key or this repository; that was an instruction, not a technical lock.
@@ -90,7 +94,7 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 | Grok vs Substance Proof | **86 / 86** |
 | Substance Proof vs answer key | **86 / 86** |
 
-Grok's answers (35 yes, 34 no, 17 cannot tell) and notes are in [`eval/results/grok-crosscheck-test-set.csv`](eval/results/grok-crosscheck-test-set.csv); score them with `npx tsx scripts/score-labels.ts <csv>`. This is a check by another AI model, not by a person.
+These labels were made on 28 October, before the company names were changed; the meetings, directors and travel are the same. Grok's answers (35 yes, 34 no, 17 cannot tell) and notes are in [`eval/results/grok-crosscheck-test-set.csv`](eval/results/grok-crosscheck-test-set.csv); score them with `npx tsx scripts/score-labels.ts <csv>`. This is a check by another AI model, not by a person.
 
 ## Run it
 
@@ -98,7 +102,7 @@ Requirements: Node 20+ and Chrome (only for regenerating the synthetic documents
 
 ```bash
 npm install
-npm test                    # 79 tests: rules engine, presence inference, time zones, names, sanity checks, rule packs, agent guardrails
+npm test                    # 94 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks
 cp .env.example .env        # then put your own Meta Model API key in .env (never commit it)
 npm run app                 # builds the web app and serves it at http://127.0.0.1:8787
 ```

@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t09",
-    "name": "Meridian Bay Pte Ltd",
+    "name": "Fenmarrow Group Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -121,122 +121,30 @@
     }
   ],
   "expected": {
-    "meetingId": "t09",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t09/stay/folio_A_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t09/stay/folio_B_PARIS.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t09/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "France"
-        }
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "elsewhere": "HK",
-        "basis": "independent",
-        "reason": "hotel stay in Hong Kong covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t09/stay/folio_C_HONGKONG.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t09/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "Hong Kong"
-        }
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "pass",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 1 present, 2 absent, 0 unproven. Chairman physically in Singapore: yes."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t09/stay/folio_B_PARIS.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t09/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "France"
-        }
+        "directorId": "B"
       },
       {
-        "directorId": "C",
-        "status": "absent",
-        "elsewhere": "HK",
-        "basis": "independent",
-        "reason": "hotel stay in Hong Kong covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t09/stay/folio_C_HONGKONG.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t09/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "Hong Kong"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a claim in the minutes or recording is contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

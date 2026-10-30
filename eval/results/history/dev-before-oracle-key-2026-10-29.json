@@ -1,0 +1,197 @@
+{
+  "set": "dev",
+  "model": "muse-spark-1.3",
+  "commit": "f235eb8",
+  "runAt": "2026-10-28T18:30:18.330Z",
+  "meetings": 11,
+  "costUsd": 0.434,
+  "factsExact": "82/82 (100.0%)",
+  "spuriousFacts": 0,
+  "rejectedFacts": 0,
+  "meetingTimeCorrect": "100.0%",
+  "directorPresenceAgreement": "37/37 (100.0%)",
+  "meetingVerdictAgreement": "11/11 (100.0%)",
+  "contradictionsFound": "8/8",
+  "dangerousErrors": {
+    "wrongPass": 0,
+    "wronglyPresent": 0
+  },
+  "rows": [
+    {
+      "id": "m01",
+      "trap": "Clean pass: all three directors in St Helier",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "6/6",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m02",
+      "trap": "Honest video attendee: minutes say B joined from Dubai; quorum still met",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "9/9",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m03",
+      "trap": "Contradiction: minutes say B was in St Helier but his flight left at 10:30 during the meeting",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "6/6",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m04",
+      "trap": "Fail: minutes claim everyone in St Helier but only A was; B and C were in Dubai",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "6/6",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m05",
+      "trap": "Missing evidence: nothing on file for B; A in Jersey, C in Dubai",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "5/5",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m06",
+      "trap": "Timezone trap: B's Dubai departure is 14:30 local = 10:30 UTC, mid-meeting",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "9/9",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m07",
+      "trap": "Strategic meeting, 4 directors: quorum met (2) but only 2 of 4 in Jersey, so the majority guidance test fails",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "8/8",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m08",
+      "trap": "Virtual meeting: only 1 of 4 strategic directors in Singapore, but the chairman (C) is there",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "8/8",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m09",
+      "trap": "Virtual meeting fail: 1 of 4 in Singapore and the chairman is in Dubai",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "REVIEW",
+      "got": "REVIEW",
+      "facts": "8/8",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m10",
+      "trap": "Exactly 50%: A and B in Singapore (B landed at 23:50 the night before, crossing midnight), C and D in Dubai",
+      "style": {
+        "boardingPass": "card",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "normal"
+      },
+      "expected": "PASS",
+      "got": "PASS",
+      "facts": "9/9",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    },
+    {
+      "id": "m11",
+      "trap": "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C landed mid-meeting. Quorum fails.",
+      "style": {
+        "boardingPass": "eticket",
+        "folio": "table",
+        "minutes": "table",
+        "passengerName": "airline"
+      },
+      "expected": "FAIL",
+      "got": "FAIL",
+      "facts": "8/8",
+      "missed": [],
+      "spurious": [],
+      "rejected": []
+    }
+  ]
+}

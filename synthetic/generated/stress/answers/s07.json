@@ -13,7 +13,7 @@
   },
   "company": {
     "id": "CO-s07",
-    "name": "Thornbury Assets (Jersey) Limited",
+    "name": "Merrowind Capital (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -142,155 +142,34 @@
     }
   ],
   "expected": {
-    "meetingId": "s07",
-    "jurisdiction": "JE",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight DXB-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s07/travel/BP_A_DXB-JER.png",
-            "page": 1
-          },
-          {
-            "docId": "s07/minutes.pdf",
-            "page": 1,
-            "quote": "by video from Dubai"
-          }
-        ],
-        "contradiction": {
-          "claimed": "United Arab Emirates",
-          "evidence": "in flight"
-        }
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s07/stay/folio_B_STHELIER.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "s07/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "D",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s07/travel/BP_D_HKG-JER.png",
-            "page": 1
-          },
-          {
-            "docId": "s07/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "inconclusive",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 1 present, 2 absent, 1 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "The minutes record the strategic decisions."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "fail",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "A majority of 4 directors is 3. Evidence: 1 present, 2 absent, 1 unproven."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "A",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight DXB-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s07/travel/BP_A_DXB-JER.png",
-            "page": 1
-          },
-          {
-            "docId": "s07/minutes.pdf",
-            "page": 1,
-            "quote": "by video from Dubai"
-          }
-        ],
-        "contradiction": {
-          "claimed": "United Arab Emirates",
-          "evidence": "in flight"
-        }
+        "directorId": "A"
       },
       {
-        "directorId": "D",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s07/travel/BP_D_HKG-JER.png",
-            "page": 1
-          },
-          {
-            "docId": "s07/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
+        "directorId": "D"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

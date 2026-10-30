@@ -1,7 +1,7 @@
 {
   "scenario": {
     "id": "m11",
-    "trap": "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C landed mid-meeting. Quorum fails.",
+    "trap": "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C was still flying in from London. Quorum fails.",
     "jurisdiction": "JE",
     "style": {
       "boardingPass": "eticket",
@@ -79,8 +79,8 @@
       "directorId": "C",
       "originCode": "LHR",
       "destCode": "JER",
-      "departUtc": "2026-03-12T08:35:00Z",
-      "arriveUtc": "2026-03-12T09:40:00Z",
+      "departUtc": "2026-03-12T10:20:00Z",
+      "arriveUtc": "2026-03-12T11:25:00Z",
       "cite": {
         "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
         "page": 1
@@ -141,182 +141,30 @@
     }
   ],
   "expected": {
-    "meetingId": "m11",
-    "jurisdiction": "JE",
     "verdict": "FAIL",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m11/stay/folio_A_STHELIER.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m11/stay/folio_B_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m11/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          },
-          {
-            "docId": "m11/recording.wav",
-            "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "United Arab Emirates"
-        },
-        "claimConflict": {
-          "minutes": "Jersey",
-          "recording": "United Arab Emirates",
-          "cites": [
-            {
-              "docId": "m11/minutes.pdf",
-              "page": 1,
-              "quote": "present in St Helier"
-            },
-            {
-              "docId": "m11/recording.wav",
-              "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
-            }
-          ]
-        }
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m11/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "fail",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 1 present, 2 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "The minutes record the strategic decisions."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "fail",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "A majority of 3 directors is 2. Evidence: 1 present, 2 absent, 0 unproven."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m11/stay/folio_B_DUBAI.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m11/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          },
-          {
-            "docId": "m11/recording.wav",
-            "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "United Arab Emirates"
-        },
-        "claimConflict": {
-          "minutes": "Jersey",
-          "recording": "United Arab Emirates",
-          "cites": [
-            {
-              "docId": "m11/minutes.pdf",
-              "page": 1,
-              "quote": "present in St Helier"
-            },
-            {
-              "docId": "m11/recording.wav",
-              "quote": "Bruno Castell. I'm dialling in from my hotel in Dubai, the line may be a little delayed."
-            }
-          ]
-        }
+        "directorId": "B"
       },
       {
-        "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
-            "page": 1
-          },
-          {
-            "docId": "m11/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

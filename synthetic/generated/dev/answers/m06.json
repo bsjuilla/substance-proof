@@ -151,150 +151,27 @@
     }
   ],
   "expected": {
-    "meetingId": "m06",
-    "jurisdiction": "JE",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m06/stay/folio_A_STHELIER.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight DXB-LHR) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "m06/travel/BP_B_DXB-LHR.png",
-            "page": 1
-          },
-          {
-            "docId": "m06/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          },
-          {
-            "docId": "m06/recording.wav",
-            "quote": "Bruno Castell here. Apologies for the noise, I'm at the gate at Dubai airport, boarding shortly."
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        },
-        "claimConflict": {
-          "minutes": "Jersey",
-          "recording": "United Arab Emirates",
-          "cites": [
-            {
-              "docId": "m06/minutes.pdf",
-              "page": 1,
-              "quote": "present in St Helier"
-            },
-            {
-              "docId": "m06/recording.wav",
-              "quote": "Bruno Castell here. Apologies for the noise, I'm at the gate at Dubai airport, boarding shortly."
-            }
-          ]
-        }
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m06/stay/folio_C_STHELIER.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "not_applicable",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "No strategic decisions were taken at this meeting."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "not_applicable",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "No strategic decisions were taken at this meeting."
+        "status": "present"
       }
     ],
     "contradictions": [
       {
-        "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight DXB-LHR) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "m06/travel/BP_B_DXB-LHR.png",
-            "page": 1
-          },
-          {
-            "docId": "m06/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          },
-          {
-            "docId": "m06/recording.wav",
-            "quote": "Bruno Castell here. Apologies for the noise, I'm at the gate at Dubai airport, boarding shortly."
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        },
-        "claimConflict": {
-          "minutes": "Jersey",
-          "recording": "United Arab Emirates",
-          "cites": [
-            {
-              "docId": "m06/minutes.pdf",
-              "page": 1,
-              "quote": "present in St Helier"
-            },
-            {
-              "docId": "m06/recording.wav",
-              "quote": "Bruno Castell here. Apologies for the noise, I'm at the gate at Dubai airport, boarding shortly."
-            }
-          ]
-        }
+        "directorId": "B"
       }
-    ]
+    ],
+    "why": "a claim in the minutes or recording is contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

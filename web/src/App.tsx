@@ -106,7 +106,7 @@ export function App() {
                   <a className="link-arrow" href="#how">How it decides <Icon name="arrow-down" /></a>
                 </div>
                 <dl className="proofs">
-                  <div><dt>Facts read exactly</dt><dd>166/166</dd></div>
+                  <div><dt>Facts read exactly</dt><dd>165/166</dd></div>
                   <div><dt>Meeting verdicts</dt><dd>30/30</dd></div>
                   <div><dt>Dangerous errors</dt><dd>0</dd></div>
                 </dl>

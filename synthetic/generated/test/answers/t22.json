@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t22",
-    "name": "Saltmarsh Investments (Jersey) Limited",
+    "name": "Corrisande Holdings (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -152,131 +152,31 @@
     }
   ],
   "expected": {
-    "meetingId": "t22",
-    "jurisdiction": "JE",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t22/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t22/stay/folio_B_STHELIER.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t22/stay/folio_C_PARIS.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t22/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "France"
-        }
+        "status": "absent"
       },
       {
         "directorId": "D",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival JER before and departure JER after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t22/travel/ETKT_D_DXB-JER.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t22/travel/ETKT_D_JER-DXB.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 1 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "The minutes record the strategic decisions."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "inconclusive",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "A majority of 4 directors is 3. Evidence: 2 present, 1 absent, 1 unproven."
+        "status": "present"
       }
     ],
     "contradictions": [
       {
-        "directorId": "C",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t22/stay/folio_C_PARIS.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t22/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "France"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

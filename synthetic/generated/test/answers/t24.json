@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t24",
-    "name": "Corbel Capital Pte Ltd",
+    "name": "Velmouth Arden Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -176,140 +176,34 @@
     }
   ],
   "expected": {
-    "meetingId": "t24",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t24/stay/folio_A_LONDON.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t24/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Kingdom"
-        }
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival SIN before and departure SIN after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t24/travel/ETKT_B_HKG-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t24/travel/ETKT_B_SIN-HKG.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t24/travel/ETKT_C_HKG-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t24/minutes.pdf",
-            "page": 1,
-            "quote": "by video from Hong Kong"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Hong Kong",
-          "evidence": "in flight"
-        }
+        "status": "absent"
       },
       {
         "directorId": "D",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival SIN before and departure SIN after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t24/travel/ETKT_D_LHR-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t24/travel/ETKT_D_SIN-LHR.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "fail",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 1 present, 2 absent, 0 unproven. Chairman physically in Singapore: no."
+        "status": "present"
       }
     ],
     "contradictions": [
       {
-        "directorId": "A",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t24/stay/folio_A_LONDON.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t24/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "United Kingdom"
-        }
+        "directorId": "A"
       },
       {
-        "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t24/travel/ETKT_C_HKG-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t24/minutes.pdf",
-            "page": 1,
-            "quote": "by video from Hong Kong"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Hong Kong",
-          "evidence": "in flight"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

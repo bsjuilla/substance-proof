@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "TR-SG",
-    "name": "Tembusu Ridge Capital Pte Ltd",
+    "name": "Sennoway Capital Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -149,72 +149,27 @@
     }
   ],
   "expected": {
-    "meetingId": "m08",
-    "jurisdiction": "SG",
     "verdict": "PASS",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m08/stay/folio_A_DUBAI.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m08/stay/folio_B_DUBAI.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m08/stay/folio_C_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "D",
-        "status": "absent",
-        "elsewhere": "AE",
-        "basis": "independent",
-        "reason": "hotel stay in Dubai covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "m08/stay/folio_D_DUBAI.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       }
     ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "pass",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 4; 2 needed for 50%. Evidence: 1 present, 3 absent, 0 unproven. Chairman physically in Singapore: yes."
-      }
-    ],
-    "contradictions": []
+    "contradictions": [],
+    "why": "every test met by independent evidence and no claim contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

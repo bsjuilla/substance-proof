@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t18",
-    "name": "Quillon Holdings Pte Ltd",
+    "name": "Quillmere Holdings Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -147,65 +147,23 @@
     }
   ],
   "expected": {
-    "meetingId": "t18",
-    "jurisdiction": "SG",
     "verdict": "PASS",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival SIN before and departure SIN after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t18/travel/ETKT_A_HKG-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t18/travel/ETKT_A_SIN-HKG.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival SIN before and departure SIN after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t18/travel/ETKT_B_DXB-SIN.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t18/travel/ETKT_B_SIN-DXB.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t18/stay/folio_C_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       }
     ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "pass",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 3 present, 0 absent, 0 unproven. Chairman physically in Singapore: yes."
-      }
-    ],
-    "contradictions": []
+    "contradictions": [],
+    "why": "every test met by independent evidence and no claim contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

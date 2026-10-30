@@ -13,7 +13,7 @@
   },
   "company": {
     "id": "CO-s08",
-    "name": "Thornbury Assets (Jersey) Limited",
+    "name": "Merrowind Capital (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -94,132 +94,26 @@
     }
   ],
   "expected": {
-    "meetingId": "s08",
-    "jurisdiction": "JE",
     "verdict": "FAIL",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s08/stay/folio_A_LONDON.pdf",
-            "page": 1
-          },
-          {
-            "docId": "s08/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "United Kingdom"
-        }
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s08/travel/BP_B_LHR-JER.png",
-            "page": 1
-          },
-          {
-            "docId": "s08/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "fail",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 0 present, 2 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "The minutes record the strategic decisions."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "fail",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "A majority of 2 directors is 2. Evidence: 0 present, 2 absent, 0 unproven."
+        "status": "absent"
       }
     ],
     "contradictions": [
       {
-        "directorId": "A",
-        "status": "absent",
-        "elsewhere": "GB",
-        "basis": "independent",
-        "reason": "hotel stay in London covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s08/stay/folio_A_LONDON.pdf",
-            "page": 1
-          },
-          {
-            "docId": "s08/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "United Kingdom"
-        }
+        "directorId": "A"
       },
       {
-        "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight LHR-JER) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s08/travel/BP_B_LHR-JER.png",
-            "page": 1
-          },
-          {
-            "docId": "s08/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
+        "directorId": "B"
       }
-    ]
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

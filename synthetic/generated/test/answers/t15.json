@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t15",
-    "name": "Harbourline Holdings Pte Ltd",
+    "name": "Brantwick Orral Holdings Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -152,105 +152,31 @@
     }
   ],
   "expected": {
-    "meetingId": "t15",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t15/travel/PHOTO_BP_A_HKG-SIN.jpg",
-            "page": 1
-          },
-          {
-            "docId": "t15/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival SIN before and departure SIN after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t15/travel/PHOTO_BP_B_CDG-SIN.jpg",
-            "page": 1
-          },
-          {
-            "docId": "t15/travel/PHOTO_BP_B_SIN-CDG.jpg",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in Singapore covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t15/stay/folio_C_SINGAPORE.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "D",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "t15/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "pass",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 2 present, 1 absent, 0 unproven. Chairman physically in Singapore: no."
+        "status": "unknown"
       }
     ],
     "contradictions": [
       {
-        "directorId": "A",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight HKG-SIN) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "t15/travel/PHOTO_BP_A_HKG-SIN.jpg",
-            "page": 1
-          },
-          {
-            "docId": "t15/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "directorId": "A"
       }
-    ]
+    ],
+    "why": "a claim in the minutes or recording is contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

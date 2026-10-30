@@ -1,6 +1,6 @@
 {
  "id": "m03",
- "createdAt": "2026-10-29T10:49:54.678Z",
+ "createdAt": "2026-10-30T14:54:07.320Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -107,7 +107,7 @@
    "cite": {
     "docId": "m03/stay/folio_A_STHELIER.pdf",
     "page": 1,
-    "quote": "Arrival 11 Mar 2026 15:00 (GMT)"
+    "quote": "11 Mar 2026 15:00 (GMT)"
    }
   },
   {
@@ -132,7 +132,7 @@
    "cite": {
     "docId": "m03/travel/BP_B_JER-LHR.png",
     "page": 1,
-    "quote": "JER → LHR 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+    "quote": "FROM JER TO LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
    }
   }
  ],
@@ -151,7 +151,7 @@
      {
       "docId": "m03/stay/folio_A_STHELIER.pdf",
       "page": 1,
-      "quote": "Arrival 11 Mar 2026 15:00 (GMT)"
+      "quote": "11 Mar 2026 15:00 (GMT)"
      }
     ]
    },
@@ -164,7 +164,7 @@
      {
       "docId": "m03/travel/BP_B_JER-LHR.png",
       "page": 1,
-      "quote": "JER → LHR 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+      "quote": "FROM JER TO LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
      },
      {
       "docId": "m03/minutes.pdf",
@@ -223,6 +223,14 @@
     "basis": "guidance",
     "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
     "detail": "No strategic decisions were taken at this meeting."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
    }
   ],
   "contradictions": [
@@ -235,7 +243,7 @@
      {
       "docId": "m03/travel/BP_B_JER-LHR.png",
       "page": 1,
-      "quote": "JER → LHR 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+      "quote": "FROM JER TO LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
      },
      {
       "docId": "m03/minutes.pdf",
@@ -257,8 +265,8 @@
     "kind": "minutes_correction",
     "directorId": "B",
     "directorName": "Bruno Castell",
-    "subject": "Review of minutes location for Bruno Castell - 12 March 2026",
-    "message": "Please review the minutes record for Bruno Castell for the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"JER → LHR 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review Bruno Castell's recorded location.",
+    "subject": "Minutes review for 12 March 2026 - Bruno Castell",
+    "message": "Hello Bruno Castell, regarding the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\" for Bruno Castell. The evidence in m03/travel/BP_B_JER-LHR.png states \"FROM JER TO LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review the minutes record.",
     "citations": [
      "m03/travel/BP_B_JER-LHR.png#p1",
      "m03/minutes.pdf#p1"
@@ -266,7 +274,7 @@
     "status": "awaiting_approval"
    }
   ],
-  "summary": "I prepared one minutes correction draft for Bruno Castell for the meeting on 12 March 2026. The draft is awaiting approval and no evidence requests were needed.\n",
+  "summary": "I prepared one draft minutes correction for Bruno Castell regarding the meeting on 12 March 2026. The draft is awaiting approval.\n",
   "trace": [
    {
     "step": 1,
@@ -294,7 +302,7 @@
        "quotes": [
         {
          "doc": "m03/travel/BP_B_JER-LHR.png",
-         "words": "JER → LHR 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+         "words": "FROM JER TO LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
         },
         {
          "doc": "m03/minutes.pdf",
@@ -314,8 +322,8 @@
       "m03/minutes.pdf#p1"
      ],
      "director_id": "B",
-     "message": "Please review the minutes record for Bruno Castell for the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"JER → LHR 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review Bruno Castell's recorded location.",
-     "subject": "Review of minutes location for Bruno Castell - 12 March 2026"
+     "message": "Hello Bruno Castell, regarding the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\" for Bruno Castell. The evidence in m03/travel/BP_B_JER-LHR.png states \"FROM JER TO LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review the minutes record.",
+     "subject": "Minutes review for 12 March 2026 - Bruno Castell"
     },
     "result": {
      "draft_id": "D1",
@@ -325,6 +333,6 @@
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0428,
- "seconds": 40
+ "costUsd": 0.0415,
+ "seconds": 43
 }

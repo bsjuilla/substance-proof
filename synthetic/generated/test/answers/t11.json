@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t11",
-    "name": "Calloway Partners (Jersey) Limited",
+    "name": "Lissandre Holdings (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -92,69 +92,19 @@
     }
   ],
   "expected": {
-    "meetingId": "t11",
-    "jurisdiction": "JE",
     "verdict": "PASS",
     "presence": [
       {
         "directorId": "A",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t11/stay/folio_A_STHELIER.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t11/stay/folio_B_STHELIER.pdf",
-            "page": 1
-          }
-        ]
+        "status": "present"
       }
     ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 2 present, 0 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "The minutes record the strategic decisions."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "pass",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "A majority of 2 directors is 2. Evidence: 2 present, 0 absent, 0 unproven."
-      }
-    ],
-    "contradictions": []
+    "contradictions": [],
+    "why": "every test met by independent evidence and no claim contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

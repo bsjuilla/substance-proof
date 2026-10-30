@@ -13,11 +13,11 @@
    "sourceUrl": "https://www.jerseylaw.je/laws/current/l_3_2019",
    "sourceChars": 38730,
    "inputTokens": 10314,
-   "seconds": 29,
-   "costUsd": 0.03471625,
+   "seconds": 26,
+   "costUsd": 0.037687,
    "proposed": 4,
    "approved": 4,
-   "notSupported": 5
+   "notSupported": 2
   },
   {
    "code": "SG",
@@ -27,7 +27,7 @@
    "sourceChars": 34859,
    "inputTokens": 8425,
    "seconds": 17,
-   "costUsd": 0.0252745,
+   "costUsd": 0.02804975,
    "proposed": 1,
    "approved": 1,
    "notSupported": 7

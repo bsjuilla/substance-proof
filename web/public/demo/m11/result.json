@@ -1,6 +1,6 @@
 {
  "id": "m11",
- "createdAt": "2026-10-29T10:49:14.835Z",
+ "createdAt": "2026-10-30T14:53:23.891Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -56,62 +56,56 @@
    "kind": "recording",
    "transcript": [
     {
-     "startMs": 220,
-     "endMs": 5580,
+     "startMs": 140,
+     "endMs": 5820,
      "text": "Good morning, everyone.",
      "speaker": "A"
     },
     {
-     "startMs": 6060,
-     "endMs": 21660,
-     "text": "This is a strategic meeting so a roll call for the record name and where you are",
+     "startMs": 6540,
+     "endMs": 21180,
+     "text": "This is a strategic meeting. So a roll call for the record. Name and where you you are.",
      "speaker": "A"
     },
     {
-     "startMs": 22060,
-     "endMs": 23660,
-     "text": "please",
+     "startMs": 21900,
+     "endMs": 22380,
+     "text": ""
+    },
+    {
+     "startMs": 22380,
+     "endMs": 24220,
+     "text": "Please.",
      "speaker": "A"
     },
     {
-     "startMs": 27180,
-     "endMs": 38060,
-     "text": "Alice Marlowe chairing from the boardroom in Saint Helier",
+     "startMs": 26860,
+     "endMs": 38380,
+     "text": "Alice Marlowe chairing from the boardroom in Saint Helier,",
      "speaker": "A"
     },
     {
-     "startMs": 39900,
-     "endMs": 47580,
+     "startMs": 40300,
+     "endMs": 46540,
      "text": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed",
      "speaker": "B"
     },
     {
      "startMs": 47900,
-     "endMs": 51820,
+     "endMs": 51580,
      "text": "And Chandra",
      "speaker": "A"
     },
     {
-     "startMs": 52620,
-     "endMs": 57180,
-     "text": "we can't hear Chandra yet",
-     "speaker": "A"
-    },
-    {
-     "startMs": 59900,
-     "endMs": 59980,
-     "text": ""
-    },
-    {
-     "startMs": 59980,
-     "endMs": 65020,
-     "text": "We'll proceed and and note her arrival",
+     "startMs": 52460,
+     "endMs": 64940,
+     "text": "Her flight from London hasn't landed yet. So we'll proceed without her.",
      "speaker": "A"
     },
     {
      "startMs": 68300,
-     "endMs": 83740,
-     "text": "First item the proposed acquisition of a 40% interest in Meridian Logistics",
+     "endMs": 83820,
+     "text": "First item. The proposed acquisition of a a 40% interest in Van rule logistics",
      "speaker": "A"
     }
    ]
@@ -170,8 +164,8 @@
    "source": "recording",
    "cite": {
     "docId": "m11/recording.wav",
-    "timestampSec": 27.2,
-    "quote": "Alice Marlowe chairing from the boardroom in Saint Helier"
+    "timestampSec": 26.9,
+    "quote": "Alice Marlowe chairing from the boardroom in Saint Helier,"
    }
   },
   {
@@ -181,7 +175,7 @@
    "source": "recording",
    "cite": {
     "docId": "m11/recording.wav",
-    "timestampSec": 39.9,
+    "timestampSec": 40.3,
     "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
    }
   },
@@ -206,7 +200,7 @@
    "cite": {
     "docId": "m11/stay/folio_B_DUBAI.pdf",
     "page": 1,
-    "quote": "11 Mar 2026 00:00 (GST)"
+    "quote": "Arrival 11 Mar 2026 00:00 (GST)"
    }
   },
   {
@@ -214,12 +208,12 @@
    "directorId": "C",
    "originCode": "LHR",
    "destCode": "JER",
-   "departUtc": "2026-03-12T08:35:00Z",
-   "arriveUtc": "2026-03-12T09:40:00Z",
+   "departUtc": "2026-03-12T10:20:00Z",
+   "arriveUtc": "2026-03-12T11:25:00Z",
    "cite": {
     "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
     "page": 1,
-    "quote": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+    "quote": "London Heathrow (LHR) 12/03/2026 10:20 (UTC+00:00) Jersey Airport (JER) 12/03/2026 11:25 (UTC+00:00)"
    }
   }
  ],
@@ -252,7 +246,7 @@
      {
       "docId": "m11/stay/folio_B_DUBAI.pdf",
       "page": 1,
-      "quote": "11 Mar 2026 00:00 (GST)"
+      "quote": "Arrival 11 Mar 2026 00:00 (GST)"
      },
      {
       "docId": "m11/minutes.pdf",
@@ -261,7 +255,7 @@
      },
      {
       "docId": "m11/recording.wav",
-      "timestampSec": 39.9,
+      "timestampSec": 40.3,
       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
      }
     ],
@@ -280,7 +274,7 @@
       },
       {
        "docId": "m11/recording.wav",
-       "timestampSec": 39.9,
+       "timestampSec": 40.3,
        "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
       }
      ]
@@ -295,7 +289,7 @@
      {
       "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
       "page": 1,
-      "quote": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+      "quote": "London Heathrow (LHR) 12/03/2026 10:20 (UTC+00:00) Jersey Airport (JER) 12/03/2026 11:25 (UTC+00:00)"
      },
      {
       "docId": "m11/minutes.pdf",
@@ -341,6 +335,14 @@
     "basis": "guidance",
     "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
     "detail": "A majority of 3 directors is 2. Evidence: 1 present, 2 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
    }
   ],
   "contradictions": [
@@ -354,7 +356,7 @@
      {
       "docId": "m11/stay/folio_B_DUBAI.pdf",
       "page": 1,
-      "quote": "11 Mar 2026 00:00 (GST)"
+      "quote": "Arrival 11 Mar 2026 00:00 (GST)"
      },
      {
       "docId": "m11/minutes.pdf",
@@ -363,7 +365,7 @@
      },
      {
       "docId": "m11/recording.wav",
-      "timestampSec": 39.9,
+      "timestampSec": 40.3,
       "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
      }
     ],
@@ -382,7 +384,7 @@
       },
       {
        "docId": "m11/recording.wav",
-       "timestampSec": 39.9,
+       "timestampSec": 40.3,
        "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed"
       }
      ]
@@ -397,7 +399,7 @@
      {
       "docId": "m11/travel/ETKT_C_LHR-JER.pdf",
       "page": 1,
-      "quote": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+      "quote": "London Heathrow (LHR) 12/03/2026 10:20 (UTC+00:00) Jersey Airport (JER) 12/03/2026 11:25 (UTC+00:00)"
      },
      {
       "docId": "m11/minutes.pdf",
@@ -419,12 +421,12 @@
     "kind": "minutes_correction",
     "directorId": "B",
     "directorName": "Bruno Castell",
-    "subject": "Review of minutes entry - Bruno Castell - 12 March 2026",
-    "message": "Hello, Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/stay/folio_B_DUBAI.pdf which states \"11 Mar 2026 00:00 (GST)\" and m11/recording.wav which states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
+    "subject": "Minutes review - Bruno Castell - 12 March 2026",
+    "message": "Please review the record for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/stay/folio_B_DUBAI.pdf states \"Arrival 11 Mar 2026 00:00 (GST)\" and m11/recording.wav states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
     "citations": [
      "m11/stay/folio_B_DUBAI.pdf#p1",
      "m11/minutes.pdf#p1",
-     "m11/recording.wav@39.9s"
+     "m11/recording.wav@40.3s"
     ],
     "status": "awaiting_approval"
    },
@@ -433,8 +435,8 @@
     "kind": "minutes_correction",
     "directorId": "C",
     "directorName": "Chandra Velloso",
-    "subject": "Review of minutes entry - Chandra Velloso - 12 March 2026",
-    "message": "Hello, Please review the minutes entry for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/travel/ETKT_C_LHR-JER.pdf which states \"SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)\". Please review.",
+    "subject": "Minutes review - Chandra Velloso - 12 March 2026",
+    "message": "Please review the record for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/travel/ETKT_C_LHR-JER.pdf states \"London Heathrow (LHR) 12/03/2026 10:20 (UTC+00:00) Jersey Airport (JER) 12/03/2026 11:25 (UTC+00:00)\". Please review.",
     "citations": [
      "m11/travel/ETKT_C_LHR-JER.pdf#p1",
      "m11/minutes.pdf#p1"
@@ -442,7 +444,7 @@
     "status": "awaiting_approval"
    }
   ],
-  "summary": "I prepared two minutes correction drafts for the meeting on 12 March 2026. They are for Bruno Castell and Chandra Velloso and are awaiting approval.",
+  "summary": "I prepared two minutes correction drafts for the meeting on 12 March 2026. The drafts are for Bruno Castell and Chandra Velloso and are awaiting approval.",
   "trace": [
    {
     "step": 1,
@@ -469,12 +471,12 @@
        "documents": [
         "m11/stay/folio_B_DUBAI.pdf#p1",
         "m11/minutes.pdf#p1",
-        "m11/recording.wav@39.9s"
+        "m11/recording.wav@40.3s"
        ],
        "quotes": [
         {
          "doc": "m11/stay/folio_B_DUBAI.pdf",
-         "words": "11 Mar 2026 00:00 (GST)"
+         "words": "Arrival 11 Mar 2026 00:00 (GST)"
         },
         {
          "doc": "m11/minutes.pdf",
@@ -504,7 +506,7 @@
        "quotes": [
         {
          "doc": "m11/travel/ETKT_C_LHR-JER.pdf",
-         "words": "SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)"
+         "words": "London Heathrow (LHR) 12/03/2026 10:20 (UTC+00:00) Jersey Airport (JER) 12/03/2026 11:25 (UTC+00:00)"
         },
         {
          "doc": "m11/minutes.pdf",
@@ -522,11 +524,11 @@
      "citations": [
       "m11/stay/folio_B_DUBAI.pdf#p1",
       "m11/minutes.pdf#p1",
-      "m11/recording.wav@39.9s"
+      "m11/recording.wav@40.3s"
      ],
      "director_id": "B",
-     "message": "Hello, Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/stay/folio_B_DUBAI.pdf which states \"11 Mar 2026 00:00 (GST)\" and m11/recording.wav which states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
-     "subject": "Review of minutes entry - Bruno Castell - 12 March 2026"
+     "message": "Please review the record for Bruno Castell for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/stay/folio_B_DUBAI.pdf states \"Arrival 11 Mar 2026 00:00 (GST)\" and m11/recording.wav states \"Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed\". Please review.",
+     "subject": "Minutes review - Bruno Castell - 12 March 2026"
     },
     "result": {
      "draft_id": "D1",
@@ -542,8 +544,8 @@
       "m11/minutes.pdf#p1"
      ],
      "director_id": "C",
-     "message": "Hello, Please review the minutes entry for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\". This differs from m11/travel/ETKT_C_LHR-JER.pdf which states \"SA 233 London Heathrow (LHR) 12/03/2026 08:35 (UTC+00:00) Jersey Airport (JER) 12/03/2026 09:40 (UTC+00:00)\". Please review.",
-     "subject": "Review of minutes entry - Chandra Velloso - 12 March 2026"
+     "message": "Please review the record for Chandra Velloso for the meeting on 12 March 2026. The minutes in m11/minutes.pdf state \"present in St Helier\", while m11/travel/ETKT_C_LHR-JER.pdf states \"London Heathrow (LHR) 12/03/2026 10:20 (UTC+00:00) Jersey Airport (JER) 12/03/2026 11:25 (UTC+00:00)\". Please review.",
+     "subject": "Minutes review - Chandra Velloso - 12 March 2026"
     },
     "result": {
      "draft_id": "D2",
@@ -553,6 +555,6 @@
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0601,
- "seconds": 43
+ "costUsd": 0.0577,
+ "seconds": 55
 }

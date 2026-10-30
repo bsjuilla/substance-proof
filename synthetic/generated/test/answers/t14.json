@@ -12,7 +12,7 @@
   },
   "company": {
     "id": "CO-t14",
-    "name": "Harbourline Holdings (Jersey) Limited",
+    "name": "Brantwick Orral Holdings (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -163,131 +163,31 @@
     }
   ],
   "expected": {
-    "meetingId": "t14",
-    "jurisdiction": "JE",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t14/stay/folio_A_PARIS.pdf",
-            "page": 1
-          }
-        ]
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "present",
-        "basis": "independent",
-        "reason": "Bracketed by arrival JER before and departure JER after the meeting, with no flight in between.",
-        "cites": [
-          {
-            "docId": "t14/travel/BP_B_DXB-JER.png",
-            "page": 1
-          },
-          {
-            "docId": "t14/travel/BP_B_JER-DXB.png",
-            "page": 1
-          }
-        ]
+        "status": "present"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "elsewhere": "HK",
-        "basis": "independent",
-        "reason": "hotel stay in Hong Kong covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t14/stay/folio_C_HONGKONG.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t14/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "Hong Kong"
-        }
+        "status": "absent"
       },
       {
         "directorId": "D",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t14/stay/folio_D_STHELIER.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 2 present, 2 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "The minutes record the strategic decisions."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "fail",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "A majority of 4 directors is 3. Evidence: 2 present, 2 absent, 0 unproven."
+        "status": "present"
       }
     ],
     "contradictions": [
       {
-        "directorId": "C",
-        "status": "absent",
-        "elsewhere": "HK",
-        "basis": "independent",
-        "reason": "hotel stay in Hong Kong covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "t14/stay/folio_C_HONGKONG.pdf",
-            "page": 1
-          },
-          {
-            "docId": "t14/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "Hong Kong"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

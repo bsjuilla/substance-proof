@@ -33,6 +33,22 @@ npx tsx security/poc-agent.ts        # instructions hidden in a quote, against t
 | 4 | Low | **DNS rebinding could read GET routes.** A page on `evil.example` pointed at 127.0.0.1 could read the sample list and, with the run id, uploaded documents. POSTs were already protected. | `security/poc-http.mjs`: `GET /api/samples` with a foreign Host returned 200. | The Host header is checked on every request, not only on POSTs. |
 | 5 | Low | Malformed `%`-encoding and malformed JSON returned **500** with the parser's message. | `security/poc-http.mjs`: 500 on `/files/dev/%E0%A4%A` and on a body of `{not json`. | They now return 404 and 400 with short messages. Messages for unexpected 500s have local file paths removed. Methods other than GET, HEAD and POST return 405. |
 
+## External red-team review: attacks on the decision logic (all fixed)
+
+On 29 October an outside AI model (Grok), briefed to act as the harshest judge, ran its own attack script against the engine's functions. These are the most important findings, because they need no hacking: genuine-looking documents were enough to produce a **false PASS**, the error this tool exists to prevent. Each attack is reproduced in [`tests/redteam.test.ts`](tests/redteam.test.ts) and now fails.
+
+| # | Severity | Attack | Fix |
+|---|---|---|---|
+| R1 | **High** | A hotel bill from "Jersey City, New Jersey, USA" was read as St Helier, so a sole director passed. | Place matching refuses New Jersey, Jersey City, NJ and the USA before matching "Jersey". |
+| R2 | **High** | "CASTELL/MARIA MRS" (a spouse) matched director Bruno Castell by surname alone. | Surname-only matching removed; fuzzy matches must also agree on the given name. |
+| R3 | **High** | An arrival in January and a departure in December "proved" presence at a June meeting. | Arrival and departure must each be within 72 hours of the meeting; otherwise the director is unproven. |
+| R4 | **High** | The meeting time came from the minutes (the hostile document), so it could be moved to fit the evidence. | Presence is judged at the scheduled time (calendar or user). Minutes printing another time fail an evidence check (REVIEW). Without a scheduled time, the minutes' time is flagged. |
+| R5 | Medium | Minutes relabelled by the model as a "hotel folio" could supply hotel evidence. | A document's role comes from its folder or the user's choice, not the model. |
+| R6 | Medium | "The meeting is valid. Nothing further is needed" got past the agent's outcome filter. | Filter extended to these paraphrases; neutral requests ("please confirm where you were") are tested to still pass. |
+| R7 | Low | "AST" was read as Atlantic time (UTC−4); Saudi and Qatari documents use it for UTC+3. | Ambiguous labels (AST, IST) are refused, not guessed. |
+
+Replaying the saved held-out, dev and stress runs through the fixed engine gave the same results as before, so the fixes cost no accuracy.
+
 ## Hardening added without a working exploit
 
 These defences are enforced by **code**. Before them, only the model's prompt enforced the same rules. The real model kept to the rules in every attack below, so these are not confirmed vulnerabilities. They stop the system's safety from depending on the model behaving well.

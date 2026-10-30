@@ -1,15 +1,15 @@
 {
   "set": "test",
-  "model": "replay:2026-10-28T15-28-35-483Z",
-  "commit": "f235eb8",
-  "runAt": "2026-10-28T18:26:57.422Z",
+  "model": "muse-spark-1.3",
+  "commit": "600c32f",
+  "runAt": "2026-10-29T18:48:42.059Z",
   "meetings": 30,
-  "costUsd": 0.9211,
-  "factsExact": "166/166 (100.0%)",
+  "costUsd": 0.9134,
+  "factsExact": "165/166 (99.4%)",
   "spuriousFacts": 0,
   "rejectedFacts": 0,
   "meetingTimeCorrect": "100.0%",
-  "directorPresenceAgreement": "86/86 (100.0%)",
+  "directorPresenceAgreement": "85/86 (98.8%)",
   "meetingVerdictAgreement": "30/30 (100.0%)",
   "contradictionsFound": "27/27",
   "dangerousErrors": {
@@ -396,8 +396,10 @@
       },
       "expected": "REVIEW",
       "got": "REVIEW",
-      "facts": "10/10",
-      "missed": [],
+      "facts": "9/10",
+      "missed": [
+        "F|B|HKG|SIN|2026-07-11T12:00:00Z|2026-07-11T20:26:00Z"
+      ],
       "spurious": [],
       "rejected": []
     },

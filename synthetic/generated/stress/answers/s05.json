@@ -13,7 +13,7 @@
   },
   "company": {
     "id": "CO-s05",
-    "name": "Corbel Capital (Jersey) Limited",
+    "name": "Velmouth Arden (Jersey) Limited",
     "directors": [
       {
         "id": "A",
@@ -152,186 +152,37 @@
     }
   ],
   "expected": {
-    "meetingId": "s05",
-    "jurisdiction": "JE",
     "verdict": "FAIL",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s05/stay/folio_A_PARIS.pdf",
-            "page": 1
-          },
-          {
-            "docId": "s05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "France"
-        }
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight JER-DXB) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s05/travel/PHOTO_BP_B_JER-DXB.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
+        "status": "absent"
       },
       {
         "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight JER-CDG) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s05/travel/PHOTO_BP_C_JER-CDG.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
+        "status": "absent"
       },
       {
         "directorId": "D",
-        "status": "present",
-        "basis": "independent",
-        "reason": "hotel stay in St Helier covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s05/stay/folio_D_STHELIER.pdf",
-            "page": 1
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "JE-quorum",
-        "label": "Quorum of directors physically present in Jersey",
-        "status": "fail",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-        "detail": "Quorum under the articles is 2. Evidence: 1 present, 3 absent, 0 unproven."
-      },
-      {
-        "id": "JE-minutes-strategic",
-        "label": "Minutes record the strategic decisions made",
-        "status": "not_applicable",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
-        "detail": "No strategic decisions were taken at this meeting."
-      },
-      {
-        "id": "JE-records-kept",
-        "label": "Minutes and company records kept in Jersey",
-        "status": "pass",
-        "basis": "law",
-        "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
-        "detail": "Records are kept in Jersey."
-      },
-      {
-        "id": "JE-majority-strategic",
-        "label": "Majority of directors in Jersey for strategic decisions",
-        "status": "not_applicable",
-        "basis": "guidance",
-        "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
-        "detail": "No strategic decisions were taken at this meeting."
+        "status": "present"
       }
     ],
     "contradictions": [
       {
-        "directorId": "A",
-        "status": "absent",
-        "elsewhere": "FR",
-        "basis": "independent",
-        "reason": "hotel stay in Paris covers the whole meeting.",
-        "cites": [
-          {
-            "docId": "s05/stay/folio_A_PARIS.pdf",
-            "page": 1
-          },
-          {
-            "docId": "s05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "France"
-        }
+        "directorId": "A"
       },
       {
-        "directorId": "B",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight JER-DXB) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s05/travel/PHOTO_BP_B_JER-DXB.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
+        "directorId": "B"
       },
       {
-        "directorId": "C",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight JER-CDG) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s05/travel/PHOTO_BP_C_JER-CDG.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s05/minutes.pdf",
-            "page": 1,
-            "quote": "present in St Helier"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Jersey",
-          "evidence": "in flight"
-        }
+        "directorId": "C"
       }
-    ]
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

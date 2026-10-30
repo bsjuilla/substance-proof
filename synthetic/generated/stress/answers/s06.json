@@ -13,7 +13,7 @@
   },
   "company": {
     "id": "CO-s06",
-    "name": "Ardent Ridge Pte Ltd",
+    "name": "Halvenmoor Capital Pte Ltd",
     "directors": [
       {
         "id": "A",
@@ -101,90 +101,27 @@
     }
   ],
   "expected": {
-    "meetingId": "s06",
-    "jurisdiction": "SG",
     "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight SIN-DXB) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s06/travel/PHOTO_BP_A_SIN-DXB.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s06/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "status": "absent"
       },
       {
         "directorId": "B",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "s06/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
+        "status": "unknown"
       },
       {
         "directorId": "C",
-        "status": "unknown",
-        "basis": "claim_only",
-        "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
-        "cites": [
-          {
-            "docId": "s06/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ]
-      }
-    ],
-    "tests": [
-      {
-        "id": "SG-virtual-50pct-or-chair",
-        "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-        "status": "inconclusive",
-        "basis": "regulator",
-        "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-        "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 0 present, 1 absent, 2 unproven. Chairman physically in Singapore: no."
+        "status": "unknown"
       }
     ],
     "contradictions": [
       {
-        "directorId": "A",
-        "status": "absent",
-        "basis": "independent",
-        "reason": "In flight (flight SIN-DXB) during part of the meeting window.",
-        "cites": [
-          {
-            "docId": "s06/travel/PHOTO_BP_A_SIN-DXB.jpg",
-            "page": 1
-          },
-          {
-            "docId": "s06/minutes.pdf",
-            "page": 1,
-            "quote": "present in Singapore"
-          }
-        ],
-        "contradiction": {
-          "claimed": "Singapore",
-          "evidence": "in flight"
-        }
+        "directorId": "A"
       }
-    ]
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
   }
 }

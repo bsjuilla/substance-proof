@@ -5,8 +5,8 @@
   "source_title": "Taxation (Companies – Economic Substance) (Jersey) Law 2019",
   "tests": [
    {
-    "id": "JE-5-3-a",
-    "label": "Board of directors meets in Jersey",
+    "id": "JE-01",
+    "label": "Board meets in Jersey",
     "kind": "venue_in_jurisdiction",
     "applies_to": "every_meeting",
     "threshold": null,
@@ -14,10 +14,10 @@
     "count": "attending_directors",
     "basis": "law",
     "citation": "Article 5(3)(a)",
-    "quote": "the company’s board of directors meets in Jersey"
+    "quote": "the company’s board of directors meets in Jersey at an adequate frequency having regard to the amount of decision-making required at that level;"
    },
    {
-    "id": "JE-5-3-b",
+    "id": "JE-02",
     "label": "Quorum of directors physically present in Jersey",
     "kind": "quorum_physically_present",
     "applies_to": "every_meeting",
@@ -26,10 +26,10 @@
     "count": "attending_directors",
     "basis": "law",
     "citation": "Article 5(3)(b)",
-    "quote": "there is a quorum of directors physically present in Jersey"
+    "quote": "at such board meetings described in sub-paragraph (a), there is a quorum of directors physically present in Jersey;"
    },
    {
-    "id": "JE-5-3-c",
+    "id": "JE-03",
     "label": "Minutes record strategic decisions made at meeting",
     "kind": "minutes_record_strategic_decisions",
     "applies_to": "every_meeting",
@@ -38,10 +38,10 @@
     "count": "attending_directors",
     "basis": "law",
     "citation": "Article 5(3)(c)",
-    "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting"
+    "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting;"
    },
    {
-    "id": "JE-5-3-e",
+    "id": "JE-04",
     "label": "Minutes and company records kept in Jersey",
     "kind": "records_kept_in_jurisdiction",
     "applies_to": "every_meeting",
@@ -50,24 +50,44 @@
     "count": "attending_directors",
     "basis": "law",
     "citation": "Article 5(3)(e)",
-    "quote": "the minutes of all board meetings and the records of the company are kept in Jersey"
+    "quote": "the minutes of all board meetings and the records of the company are kept in Jersey."
    }
   ],
   "not_supported": [
    {
-    "requirement": "board meets at adequate frequency having regard to amount of decision-making required",
-    "quote": "the company’s board of directors meets in Jersey at an adequate frequency having regard to the amount of decision-making required at that level"
+    "requirement": "adequate frequency having regard to amount of decision-making required",
+    "quote": "the company’s board of directors meets in Jersey at an adequate frequency having regard to the amount of decision-making required at that level;"
    },
    {
-    "requirement": "directors have necessary knowledge and expertise to discharge duties of the board",
-    "quote": "the directors of the company have the necessary knowledge and expertise to discharge the duties of the board"
+    "requirement": "directors have necessary knowledge and expertise to discharge duties of board",
+    "quote": "the directors of the company have the necessary knowledge and expertise to discharge the duties of the board;"
+   },
+   {
+    "requirement": "adequate number of employees physically present in Jersey",
+    "quote": "there are an adequate number of employees in relation to that activity who are physically present in Jersey (whether or not employed by the resident company or by another entity and whether on temporary or long-term contracts),"
+   },
+   {
+    "requirement": "adequate expenditure incurred in Jersey",
+    "quote": "there is adequate expenditure incurred in Jersey,"
+   },
+   {
+    "requirement": "adequate physical assets in Jersey",
+    "quote": "there are adequate physical assets in Jersey;"
+   },
+   {
+    "requirement": "all core income-generating activities carried out in Jersey",
+    "quote": "all of the company’s core income-generating activities are carried out in Jersey;"
+   },
+   {
+    "requirement": "ability to monitor and control outsourced core income-generating activities",
+    "quote": "if any core income-generating activities are carried out in Jersey for the company by another entity, the company is able to monitor and control the carrying out of that activity by the other entity."
    }
   ]
  },
  "validated": [
   {
-   "id": "JE-5-3-a",
-   "label": "Board of directors meets in Jersey",
+   "id": "JE-01",
+   "label": "Board meets in Jersey",
    "kind": "venue_in_jurisdiction",
    "applies_to": "every_meeting",
    "threshold": null,
@@ -75,12 +95,12 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(a)",
-   "quote": "the company’s board of directors meets in Jersey",
+   "quote": "the company’s board of directors meets in Jersey at an adequate frequency having regard to the amount of decision-making required at that level;",
    "quoteFound": true,
    "problems": []
   },
   {
-   "id": "JE-5-3-b",
+   "id": "JE-02",
    "label": "Quorum of directors physically present in Jersey",
    "kind": "quorum_physically_present",
    "applies_to": "every_meeting",
@@ -89,12 +109,12 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(b)",
-   "quote": "there is a quorum of directors physically present in Jersey",
+   "quote": "at such board meetings described in sub-paragraph (a), there is a quorum of directors physically present in Jersey;",
    "quoteFound": true,
    "problems": []
   },
   {
-   "id": "JE-5-3-c",
+   "id": "JE-03",
    "label": "Minutes record strategic decisions made at meeting",
    "kind": "minutes_record_strategic_decisions",
    "applies_to": "every_meeting",
@@ -103,12 +123,12 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(c)",
-   "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting",
+   "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting;",
    "quoteFound": true,
    "problems": []
   },
   {
-   "id": "JE-5-3-e",
+   "id": "JE-04",
    "label": "Minutes and company records kept in Jersey",
    "kind": "records_kept_in_jurisdiction",
    "applies_to": "every_meeting",
@@ -117,15 +137,15 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(e)",
-   "quote": "the minutes of all board meetings and the records of the company are kept in Jersey",
+   "quote": "the minutes of all board meetings and the records of the company are kept in Jersey.",
    "quoteFound": true,
    "problems": []
   }
  ],
  "approvedTests": [
   {
-   "id": "JE-5-3-a",
-   "label": "Board of directors meets in Jersey",
+   "id": "JE-01",
+   "label": "Board meets in Jersey",
    "kind": "venue_in_jurisdiction",
    "applies_to": "every_meeting",
    "threshold": null,
@@ -133,10 +153,10 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(a)",
-   "quote": "the company’s board of directors meets in Jersey"
+   "quote": "the company’s board of directors meets in Jersey at an adequate frequency having regard to the amount of decision-making required at that level;"
   },
   {
-   "id": "JE-5-3-b",
+   "id": "JE-02",
    "label": "Quorum of directors physically present in Jersey",
    "kind": "quorum_physically_present",
    "applies_to": "every_meeting",
@@ -145,10 +165,10 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(b)",
-   "quote": "there is a quorum of directors physically present in Jersey"
+   "quote": "at such board meetings described in sub-paragraph (a), there is a quorum of directors physically present in Jersey;"
   },
   {
-   "id": "JE-5-3-c",
+   "id": "JE-03",
    "label": "Minutes record strategic decisions made at meeting",
    "kind": "minutes_record_strategic_decisions",
    "applies_to": "every_meeting",
@@ -157,10 +177,10 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(c)",
-   "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting"
+   "quote": "the minutes of such board meetings described in sub-paragraph (a) record the making of strategic decisions of the company at the meeting;"
   },
   {
-   "id": "JE-5-3-e",
+   "id": "JE-04",
    "label": "Minutes and company records kept in Jersey",
    "kind": "records_kept_in_jurisdiction",
    "applies_to": "every_meeting",
@@ -169,15 +189,15 @@
    "count": "attending_directors",
    "basis": "law",
    "citation": "Article 5(3)(e)",
-   "quote": "the minutes of all board meetings and the records of the company are kept in Jersey"
+   "quote": "the minutes of all board meetings and the records of the company are kept in Jersey."
   }
  ],
  "rejected": [],
- "costUsd": 0.037687,
- "inputTokens": 10314,
- "seconds": 26,
+ "costUsd": 0.03777,
+ "inputTokens": 10394,
+ "seconds": 25,
  "sourceUrl": "https://www.jerseylaw.je/laws/current/l_3_2019",
  "sourceChars": 38730,
  "model": "muse-spark-1.3",
- "builtAt": "2026-10-30T14:56:27.179Z"
+ "builtAt": "2026-10-30T16:23:50.714Z"
 }

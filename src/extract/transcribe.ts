@@ -43,6 +43,7 @@ Set document_type to "other" and all meeting fields to null. Report nothing else
 export async function extractFromTranscript(client: OpenAI, model: string, t: Transcript): Promise<{ extraction: Extraction; costUsd: number }> {
   const numbered = t.turns.map((x, i) => `[${i + 1}] (${(x.startMs / 1000).toFixed(1)}s${x.speaker ? `, speaker ${x.speaker}` : ""}) ${x.transcript}`).join("\n");
   const r: any = await client.responses.create({
+    store: false, // ask Meta not to keep the response (board packs hold personal data)
     model,
     max_output_tokens: 4000,
     reasoning: { effort: "low" },

@@ -12,12 +12,12 @@
    "source": "Taxation (Companies – Economic Substance) (Jersey) Law 2019",
    "sourceUrl": "https://www.jerseylaw.je/laws/current/l_3_2019",
    "sourceChars": 38730,
-   "inputTokens": 10314,
-   "seconds": 26,
-   "costUsd": 0.037687,
+   "inputTokens": 10394,
+   "seconds": 25,
+   "costUsd": 0.03777,
    "proposed": 4,
    "approved": 4,
-   "notSupported": 2
+   "notSupported": 7
   },
   {
    "code": "SG",
@@ -25,9 +25,9 @@
    "source": "IRAS: Tax Residency of a Company / Certificate of Residence",
    "sourceUrl": "https://www.iras.gov.sg/taxes/corporate-income-tax/basics-of-corporate-income-tax/tax-residency-of-a-company",
    "sourceChars": 34859,
-   "inputTokens": 8425,
-   "seconds": 17,
-   "costUsd": 0.02804975,
+   "inputTokens": 8505,
+   "seconds": 13,
+   "costUsd": 0.0267005,
    "proposed": 1,
    "approved": 1,
    "notSupported": 7

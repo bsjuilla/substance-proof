@@ -1,20 +1,20 @@
 {
   "model": "muse-spark-1.3",
-  "builtAt": "2026-10-30T14:58:15.810Z",
+  "builtAt": "2026-10-30T16:25:21.483Z",
   "runs": 3,
-  "costUsd": 0.205,
+  "costUsd": 0.2017,
   "packs": {
     "JE": {
       "proposed": 4,
       "passedValidation": 4,
-      "notSupported": 2,
-      "inputTokens": 10314
+      "notSupported": 7,
+      "inputTokens": 10394
     },
     "SG": {
       "proposed": 1,
       "passedValidation": 1,
       "notSupported": 7,
-      "inputTokens": 8425
+      "inputTokens": 8505
     }
   },
   "lawLevelVerdictAgreement": "41/41",

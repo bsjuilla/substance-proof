@@ -31,6 +31,7 @@ export async function extractDocument(
 ): Promise<ExtractResult> {
   const t0 = Date.now();
   const r: any = await client.responses.create({
+    store: false, // ask Meta not to keep the response (board packs hold personal data)
     model,
     max_output_tokens: 6000,
     reasoning: { effort: opts.reasoningEffort ?? "low" },

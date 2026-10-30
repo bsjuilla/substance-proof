@@ -187,8 +187,9 @@ export async function runEvidenceAgent(
     return { draft_id: draft.id, status: "awaiting_approval" };
   }
 
-  let previous: string | undefined;
-  let nextInput: any = [
+  // Stateless: the full conversation is sent on every step and nothing is stored at Meta between steps
+  // (store: false, no previous_response_id), so the agent also works on a Zero Data Retention account.
+  const history: any[] = [
     { role: "system", content: SYSTEM },
     { role: "user", content: `Company: ${company.name}. Meeting date: ${meetingDateText}. Prepare the drafts.` },
   ];
@@ -198,17 +199,17 @@ export async function runEvidenceAgent(
       max_output_tokens: 4000,
       reasoning: { effort: "low" },
       tools: TOOLS as any,
-      ...(previous ? { previous_response_id: previous } : {}),
-      input: nextInput,
+      store: false,
+      input: history,
     });
     cost += costUsd(r.usage);
-    previous = r.id;
     const calls = (r.output ?? []).filter((o: any) => o.type === "function_call");
     if (calls.length === 0) {
       summary = r.output_text ?? "";
       break;
     }
-    nextInput = calls.map((c: any) => {
+    history.push(...calls.map((c: any) => ({ type: "function_call", call_id: c.call_id, name: c.name, arguments: c.arguments })));
+    const outputs = calls.map((c: any) => {
       let args: unknown = {};
       try {
         args = JSON.parse(c.arguments || "{}");
@@ -219,6 +220,7 @@ export async function runEvidenceAgent(
       trace.push({ step, tool: c.name, args, result });
       return { type: "function_call_output", call_id: c.call_id, output: JSON.stringify(result) };
     });
+    history.push(...outputs);
   }
   return { drafts, summary, trace, costUsd: cost, rejectedCalls };
 }

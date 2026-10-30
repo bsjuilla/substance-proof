@@ -52,7 +52,7 @@ You may ONLY use these test kinds (the engine cannot compute anything else):
 - sole_director_physically_present: a sole director is physically present when deciding.
 
 For each test:
-- quote: copy, WORD FOR WORD, the shortest sentence or clause of the source that states this requirement. Do not paraphrase. Do not join text from different places.
+- quote: copy, WORD FOR WORD, the COMPLETE clause or sub-paragraph of the source that states this requirement, including every qualifier that limits it (for example "at an adequate frequency having regard to ..."). Stop only at the end of the clause (a semicolon, full stop, or "and"/"or" that starts the next condition). Do not paraphrase. Do not join text from different places. If a qualifier in the clause cannot be checked by the kind you chose, still quote it in full and also list that qualifier in not_supported.
 - citation: the article, paragraph or section reference as it appears in the source (or the heading it sits under).
 - applies_to: every_meeting, strategic_meetings, virtual_or_hybrid_meetings or in_person_meetings, exactly as the text limits it.
 - count: which directors are counted (attending_directors, all_directors, or directors_with_strategic_authority if the text counts only directors with authority to make strategic decisions).
@@ -86,6 +86,22 @@ export function thresholdInQuote(threshold: number, quote: string): boolean {
   return false;
 }
 
+/** A quote must not be cut short: where it ends, the source must end, hit punctuation, or start a new condition
+ *  ("and"/"or"). "the board meets in Jersey" is refused when the law continues "at an adequate frequency …". */
+export function endsAtClauseBoundary(q: string, src: string): boolean {
+  for (let i = src.indexOf(q); i >= 0; i = src.indexOf(q, i + 1)) {
+    const rest = src.slice(i + q.length);
+    if (
+      rest.trim() === "" ||
+      /[;.:]$/.test(q) || // the quote already ends with the clause's own punctuation
+      /^\s*[;.,:)\]]/.test(rest) ||
+      /^\s+(and|or|but)\b/.test(rest) ||
+      /^\s*\(\s*[a-z0-9]{1,4}\s*\)/.test(rest) // the next numbered sub-paragraph starts here
+    ) return true;
+  }
+  return false;
+}
+
 export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResult, "costUsd" | "inputTokens" | "seconds"> {
   const src = norm(sourceText);
   const validated: ValidatedTest[] = pack.tests.map((t) => {
@@ -93,6 +109,10 @@ export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResu
     const q = norm(t.quote);
     const quoteFound = q.length >= 15 && src.includes(q);
     if (!quoteFound) problems.push("quote not found word for word in the source");
+    else if (!endsAtClauseBoundary(q, src)) {
+      const at = src.indexOf(q) + q.length;
+      problems.push(`quote stops in the middle of a clause; the law goes on: "…${src.slice(at, at + 60).trim()}…"`);
+    }
     if (t.kind === "share_physically_present_or_chair" && !(t.threshold && t.threshold > 0 && t.threshold <= 1)) problems.push("share test needs a threshold between 0 and 1");
     if (t.kind !== "share_physically_present_or_chair" && t.threshold !== null) problems.push("threshold only allowed on share tests");
     // The number must come from the law, not from the model (or from instructions hidden in the pasted text).
@@ -108,6 +128,7 @@ export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResu
 export async function buildPack(client: OpenAI, model: string, sourceTitle: string, sourceText: string): Promise<BuildResult> {
   const t0 = Date.now();
   const r: any = await client.responses.create({
+    store: false, // ask Meta not to keep the response (board packs hold personal data)
     model,
     max_output_tokens: 12000,
     reasoning: { effort: "medium" },

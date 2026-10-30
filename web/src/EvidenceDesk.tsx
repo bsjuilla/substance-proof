@@ -23,7 +23,7 @@ export function EvidenceDesk() {
       </div>
 
       <div className="stamp-verdict">
-        <span className="v">FAIL</span>
+        <span className="v">NOT MET</span>
         <span>Quorum not met in Jersey · 1 of 3 present</span>
       </div>
     </figure>

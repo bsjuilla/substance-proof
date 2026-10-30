@@ -1,7 +1,7 @@
 {
   "scenario": {
     "id": "m07",
-    "trap": "Strategic meeting, 4 directors: quorum met (2) but only 2 of 4 in Jersey, so the majority guidance test fails",
+    "trap": "Strategic meeting, 4 directors: quorum met (2) but only 2 of 4 in Jersey, so the majority guidance test is not met",
     "jurisdiction": "JE",
     "style": {
       "boardingPass": "card",

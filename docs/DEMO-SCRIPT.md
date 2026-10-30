@@ -4,7 +4,7 @@ Record your screen (Windows: press **Win + Alt + R** with the Xbox Game Bar, or 
 
 ---
 
-### 0:00–0:12 · Hook (show: the home page, the evidence desk and the FAIL card)
+### 0:00–0:12 · Hook (show: the home page, the evidence desk and the NOT MET card)
 > "These minutes say all three directors met in Jersey. One of them was in Dubai, and another was still on a plane from London. Substance Proof caught both, and points to the exact page and the exact second of the recording."
 
 ### 0:12–0:35 · The problem (show: scroll to the case ledger)

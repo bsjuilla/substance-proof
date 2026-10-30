@@ -1,7 +1,7 @@
 {
   "scenario": {
     "id": "m04",
-    "trap": "Fail: minutes claim everyone in St Helier but only A was; B and C were in Dubai",
+    "trap": "Not met: minutes claim everyone in St Helier but only A was; B and C were in Dubai",
     "jurisdiction": "JE",
     "style": {
       "boardingPass": "card",

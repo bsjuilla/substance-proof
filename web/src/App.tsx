@@ -4,7 +4,7 @@ import { Upload } from "./Upload";
 import { RulePacks } from "./RulePacks";
 import { ProofStrip } from "./ProofStrip";
 import { EvidenceDesk } from "./EvidenceDesk";
-import type { Loaded } from "./types";
+import { verdictWord, type Loaded } from "./types";
 import { Icon, StatusIcon } from "./Icon";
 import { Logo } from "./Logo";
 
@@ -137,7 +137,7 @@ export function App() {
                   {demos.length === 0 && <p className="note">No recorded runs found.</p>}
                   {demos.map((d, i) => (
                     <div key={d.id} className={`sample${i === 0 ? " hero" : ""}`}>
-                      <strong><span className={`tag ${d.verdict}`}><StatusIcon s={d.verdict} /> {d.verdict}</span> {d.trap.replace(/^HERO: /, "")}</strong>
+                      <strong><span className={`tag ${d.verdict}`}><StatusIcon s={d.verdict} /> {verdictWord(d.verdict)}</span> {d.trap.replace(/^HERO: /, "")}</strong>
                       <button className="btn small primary" onClick={() => openDemo(d.id)} aria-label={`Open recorded run ${d.title}`}>{i === 0 ? "Start here" : "Open"}</button>
                       <p>{d.title} · {JN[d.jurisdiction]}</p>
                     </div>
@@ -157,7 +157,7 @@ export function App() {
                       <div key={`${s.set}:${s.id}`} className="sample">
                         <strong>{s.id} · {s.company}</strong>
                         <button className="btn small" disabled={!!busy} onClick={() => runSample(s)}>{busy === `${s.set}:${s.id}` ? "Running…" : "Analyse"}</button>
-                        <p>{JN[s.jurisdiction]} · {s.set === "test" ? "held-out test set" : s.trap}</p>
+                        <p>{JN[s.jurisdiction]} · {s.set === "test" ? "held-out test meeting" : "development meeting"}</p>
                       </div>
                     ))}
                   </div>

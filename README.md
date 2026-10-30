@@ -25,13 +25,15 @@ Today a company secretary checks this by hand, comparing the minutes with travel
 
 I am an accounting and finance student interning at a trust and corporate-services firm, where this kind of record-keeping is everyday work.
 
+**Verdicts.** Each meeting gets one of three: **PASS** (every condition evidenced), **REVIEW** (something is unproven or contradicted, so a person must look), or **NOT MET** (the evidence shows a condition in the law is not met *for this meeting*). One meeting cannot fail the law on its own; the substance test is judged for the whole year.
+
 ## What it does (three steps)
 
 1. **Read.** Drop in the meeting pack. Muse Spark reads every document and image, and Muse Voice Transcribe turns the recording into a roll-call. Each fact (who, where, when) comes back with the exact words it was read from.
 2. **Decide.** A deterministic, unit-tested rules engine (not the AI) works out where each director was during the meeting and applies the jurisdiction's test. It flags contradictions between the minutes, the recording and the evidence.
 3. **Act.** An evidence agent (Muse Spark with tools) drafts requests for missing evidence and corrections to inaccurate minutes. Every tool call is checked by code. **Nothing is sent**: each draft waits for a person to approve or decline it.
 
-![Report for the demo meeting: FAIL, quorum not evidenced in Jersey](docs/screenshot-report.png)
+![Report for the demo meeting: NOT MET, quorum not evidenced in Jersey](docs/screenshot-report.png)
 
 ## How Meta's models are used
 
@@ -130,7 +132,7 @@ docs/            rule sources, demo script
 
 ## Not modelled (yet)
 
-Corporate directors (look-through to the individual), alternate directors, and partial attendance (a director present for only some resolutions) are not modelled; presence is judged for the whole meeting. The Art. 5(3) tests apply only to Jersey tax-resident companies carrying on a relevant activity; the tool assumes they apply. A hotel stay is supporting evidence of presence, not proof. Singapore's IRAS test is guidance ("will generally be regarded"), so a miss gives REVIEW, not FAIL.
+Corporate directors (look-through to the individual), alternate directors, and partial attendance (a director present for only some resolutions) are not modelled; presence is judged for the whole meeting. The Art. 5(3) tests apply only to Jersey tax-resident companies carrying on a relevant activity; the tool assumes they apply. A hotel stay is supporting evidence of presence, not proof. Singapore's IRAS test is guidance ("will generally be regarded"), so a miss gives REVIEW rather than NOT MET.
 
 ## Red-team review
 
@@ -140,7 +142,7 @@ Before submitting, I asked an outside AI model (Grok) to act as the harshest jud
 
 Everything in this repository was written during the hackathon (26 October – 4 November 2026); the commit history starts on 28 October 2026. No earlier code was reused.
 
-**Tools used to build it.** I wrote this with an AI coding assistant (Claude Code). The images for social media and the link preview were made with an AI image generator from prompts I wrote; they show the synthetic documents. Grok (xAI) was used only outside the product: for the cross-check above and as a red-team reviewer. The product itself uses only Meta's models.
+**Tools used to build it.** I wrote this with the help of an AI coding assistant. The images for social media and the link preview were made with an AI image generator from prompts I wrote; they show the synthetic documents. Grok (xAI) was used only outside the product: for the cross-check above and as a red-team reviewer. The product itself uses only Meta's models.
 
 ## Security
 

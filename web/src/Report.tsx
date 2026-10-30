@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Timeline } from "./Timeline";
 import { Viewer } from "./Viewer";
-import type { Citation, Draft, Loaded, TestResult } from "./types";
+import { verdictWord, type Citation, type Draft, type Loaded, type TestResult } from "./types";
 import { Icon, StatusIcon } from "./Icon";
 
 const NAMES: Record<string, string> = { JE: "Jersey", SG: "Singapore" };
@@ -74,9 +74,9 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
           <a href="#agent-h"><span>03</span> {pending} draft{pending === 1 ? "" : "s"} waiting for you</a>
         </p>
         <div className={`verdict ${ev.verdict}`} role="status">
-          <span className="word"><StatusIcon s={ev.verdict} /> {ev.verdict}</span>
+          <span className="word"><StatusIcon s={ev.verdict} /> {verdictWord(ev.verdict)}</span>
           <div className="verdict-text">
-            <p><b>{ev.verdict === "FAIL" ? "The evidence does not show a test in the law being met." : ev.verdict === "REVIEW" ? "Needs a person to review before relying on these minutes." : "Presence tests met."}</b></p>
+            <p><b>{ev.verdict === "FAIL" ? "For this meeting, the evidence does not show a condition in the law being met." : ev.verdict === "REVIEW" ? "Needs a person to review before relying on these minutes." : "Presence tests met."}</b></p>
             <p>{headline(result)}</p>
           </div>
           <QuorumMeter result={result} />

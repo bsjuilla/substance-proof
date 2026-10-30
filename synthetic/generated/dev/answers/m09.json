@@ -1,7 +1,7 @@
 {
   "scenario": {
     "id": "m09",
-    "trap": "Virtual meeting fail: 1 of 4 in Singapore and the chairman is in Dubai",
+    "trap": "Virtual meeting not met: 1 of 4 in Singapore and the chairman is in Dubai",
     "jurisdiction": "SG",
     "style": {
       "boardingPass": "card",

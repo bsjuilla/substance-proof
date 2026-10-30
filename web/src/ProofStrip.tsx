@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { placeName } from "../../src/engine/gazetteer";
-import type { Loaded } from "./types";
+import { verdictWord, type Loaded } from "./types";
 import { Icon } from "./Icon";
 
 type Result = Loaded["result"];
@@ -67,7 +67,7 @@ export function ProofStrip({ id, onOpen }: { id: string; onOpen: () => void }) {
         )}
         <li className="decided">
           <span className="l-src">Rules engine<small>Code, not the model · {law?.citation}</small></span>
-          <span className="l-quote l-verdict"><b>{r.evaluation.verdict}</b> {law ? `${law.label}: not met.` : "Needs review."}</span>
+          <span className="l-quote l-verdict"><b>{verdictWord(r.evaluation.verdict)}</b> {law ? `${law.label}.` : "Needs review."}</span>
           <button className="btn primary" onClick={onOpen}>Open the case <Icon name="arrow-right" /></button>
         </li>
       </ol>

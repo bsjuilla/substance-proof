@@ -129,7 +129,7 @@ export const SCENARIOS: Scenario[] = [
   {
     id: "m04",
     jurisdiction: "JE",
-    trap: "Fail: minutes claim everyone in St Helier but only A was; B and C were in Dubai",
+    trap: "Not met: minutes claim everyone in St Helier but only A was; B and C were in Dubai",
     company: JE_CO(["A", "B", "C"]),
     meeting: jeMeeting("m04"),
     minutesClaims: { A: claimJe, B: claimJe, C: claimJe },
@@ -167,7 +167,7 @@ export const SCENARIOS: Scenario[] = [
   {
     id: "m07",
     jurisdiction: "JE",
-    trap: "Strategic meeting, 4 directors: quorum met (2) but only 2 of 4 in Jersey, so the majority guidance test fails",
+    trap: "Strategic meeting, 4 directors: quorum met (2) but only 2 of 4 in Jersey, so the majority guidance test is not met",
     company: JE_CO(["A", "B", "C", "D"]),
     meeting: jeMeeting("m07", { isStrategic: true }, ["A", "B", "C", "D"]),
     minutesClaims: { A: claimJe, B: claimJe, C: { text: "by video from Dubai", placeCode: "CITY:DUBAI" }, D: { text: "by video from Dubai", placeCode: "CITY:DUBAI" } },
@@ -200,7 +200,7 @@ export const SCENARIOS: Scenario[] = [
   {
     id: "m09",
     jurisdiction: "SG",
-    trap: "Virtual meeting fail: 1 of 4 in Singapore and the chairman is in Dubai",
+    trap: "Virtual meeting not met: 1 of 4 in Singapore and the chairman is in Dubai",
     company: SG_CO(),
     meeting: {
       id: "m09",
@@ -260,7 +260,7 @@ export const SCENARIOS: Scenario[] = [
     // C's e-ticket shows her still in the air from London until after the meeting ended.
     id: "m11",
     jurisdiction: "JE",
-    trap: "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C was still flying in from London. Quorum fails.",
+    trap: "HERO: minutes say all present in St Helier; recording and hotel put B in Dubai; C was still flying in from London. Quorum not met.",
     style: { boardingPass: "eticket", folio: "table", minutes: "table", passengerName: "airline" },
     company: JE_CO(["A", "B", "C"]),
     meeting: jeMeeting("m11", { isStrategic: true }),

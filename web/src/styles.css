@@ -630,3 +630,11 @@
     @keyframes hl-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
   }
 }
+
+@layer components {
+  /* Image with the areas SAM 3.1 masked before reading. */
+  .img-wrap { position: relative; justify-self: start; border: 1px solid var(--border); }
+  .img-wrap img { display: block; max-width: 100%; }
+  .redacted { position: absolute; background: #111; display: grid; place-items: center; outline: 2px dashed var(--bad); outline-offset: 2px; }
+  .redacted span { font: 600 .7rem var(--font-mono); color: #fff; background: var(--bad); padding: 0 .35rem; border-radius: 2px; }
+}

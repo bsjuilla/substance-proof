@@ -6,6 +6,7 @@ import type { Company, Fact, Meeting, MeetingEvaluation } from "../engine/types"
 import { decide, extractAny, pool, type AnyExtract } from "../extract/pipeline";
 import { verdictFrom } from "../engine/evaluate";
 import { runPack, type RulePack } from "../rules/pack";
+import type { Redaction } from "../extract/redact";
 
 export type DocKind = "minutes" | "boarding_pass" | "hotel_folio" | "recording" | "other";
 
@@ -19,7 +20,7 @@ export type RunResult = {
   jurisdiction: Jurisdiction;
   meeting: Meeting;
   meetingDateText: string;
-  docs: { docId: string; kind: DocKind; transcript?: { startMs: number; endMs: number; text: string; speaker?: string }[] }[];
+  docs: { docId: string; kind: DocKind; transcript?: { startMs: number; endMs: number; text: string; speaker?: string }[]; redactions?: Redaction[] }[];
   facts: Fact[];
   rejected: { file: string; reason: string }[];
   evaluation: MeetingEvaluation;
@@ -97,6 +98,7 @@ export async function analyzePack(opts: {
       docId: rel(x.file),
       kind: kindOf(x),
       transcript: x.transcript?.turns.map((t) => ({ startMs: t.startMs, endMs: t.endMs, text: t.transcript, speaker: t.speaker })),
+      redactions: x.redactions,
     })),
     facts: facts.facts,
     rejected: facts.rejected,

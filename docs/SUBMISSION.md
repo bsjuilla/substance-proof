@@ -14,7 +14,7 @@ Substance Proof reads the whole meeting pack. Muse Spark extracts who was where 
 On 30 held-out synthetic meetings, scored against an independent answer key: 30/30 verdicts, 165/166 facts, zero dangerous errors.
 
 ## Meta tooling used
-Muse Spark 1.3 (vision, PDF, strict JSON-schema output, transcript reasoning, function-calling agent, writing rules from a statute); Muse Voice Transcribe 1.0 (diarization, keyword hints).
+Muse Spark 1.3 (vision, PDF, strict JSON-schema output, transcript reasoning, a stateless function-calling agent, writing rules from a statute); Muse Voice Transcribe 1.0 (diarization, keyword hints, recordings of any length); SAM 3.1 (finds QR codes, barcodes, faces and signatures on photos so they are blacked out before reading).
 
 ## Track and theme
 Indie Developer · Build for Your World

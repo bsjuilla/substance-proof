@@ -155,7 +155,20 @@ export function cardHtml(name: string, f: Extract<TravelItem, { type: "flight" }
     <div><div style="color:#666;font-size:11px">DATE</div><b>${dep.date}</b></div>
     <div><div style="color:#666;font-size:11px">DEPARTS (local ${dep.zone})</div><b>${dep.time}</b></div>
     <div><div style="color:#666;font-size:11px">ARRIVES (local ${arr.zone})</div><b>${arr.time}${arr.date !== dep.date ? " (" + arr.date + ")" : ""}</b></div>
-   </div></div>`;
+   </div>
+   ${barcodeSvg(`${name}|${f.flightNo}|${f.departUtc}`)}</div>`;
+}
+
+/** A barcode-like block like the one on every real boarding pass (which encodes the passenger's name and booking).
+ *  Decorative only: it is a seeded pattern that encodes nothing, so it carries no personal data. */
+function barcodeSvg(seed: string): string {
+  let h = 2166136261;
+  for (const ch of seed) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0;
+  const next = () => ((h = Math.imul(h ^ (h >>> 13), 1274126177) >>> 0), h / 4294967296);
+  const rows = 12, cols = 46, cell = 4;
+  let rects = "";
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (c < 2 || c >= cols - 2 || next() < 0.5) rects += `<rect x="${c * cell}" y="${r * cell}" width="${cell}" height="${cell}"/>`;
+  return `<svg style="position:absolute;right:22px;bottom:22px" width="${cols * cell}" height="${rows * cell}" viewBox="0 0 ${cols * cell} ${rows * cell}" fill="#111">${rects}</svg>`;
 }
 
 export function eticketHtml(name: string, f: Extract<TravelItem, { type: "flight" }>, style: DocStyle): string {

@@ -40,9 +40,10 @@ I am an accounting and finance student interning at a trust and corporate-servic
 | Model | Job | What breaks without it |
 |---|---|---|
 | **Muse Spark 1.3** (vision + PDF, strict JSON-schema output) | Reads minutes, boarding passes, e-tickets, phone photos, scanned pages and hotel bills; returns each fact with a verbatim quote | Nothing gets read: no facts, no timeline |
-| **Muse Voice Transcribe** (diarization, keyword hints) | Turns the meeting recording into turns with timestamps | The recording can't be used as evidence; minutes-versus-recording conflicts are invisible |
+| **SAM 3.1** (text-prompted segmentation) | **Privacy before reading.** On every photo or scan, finds the QR code or barcode (which encodes the passenger's name and booking), faces and signatures; code blacks them out and only that copy is sent to Muse Spark. The viewer shows what was masked. | Personal data the check doesn't need goes to the reader |
+| **Muse Voice Transcribe** (diarization, keyword hints) | Turns the meeting recording into turns with timestamps. Recordings of any length and format (WAV, MP3, M4A, MP4…) are converted and split into pieces under the 10-minute limit, then stitched onto one timeline | The recording can't be used as evidence; minutes-versus-recording conflicts are invisible |
 | **Muse Spark 1.3** (transcript reasoning) | Finds who said where they were joining from, with the turn it was said in | Spoken claims can't be cited to the second |
-| **Muse Spark 1.3** (function tools, approval-gated agent) | `list_gaps`, `get_rule_result`, `draft_evidence_request`, `draft_minutes_correction` | No follow-up: gaps stay gaps |
+| **Muse Spark 1.3** (function tools, approval-gated agent) | `list_gaps`, `get_rule_result`, `draft_evidence_request`, `draft_minutes_correction`. Stateless: it sends its own history each step and nothing is stored at Meta, so it also runs on a Zero Data Retention account | No follow-up: gaps stay gaps |
 | **Muse Spark 1.3** (long context, strict schema) | **Writes the rules from the law.** Reads a full statute or official guidance (about 10,000 tokens of source) and drafts a rule pack: each rule as data, with the exact words of the law behind it | Every new jurisdiction needs a developer to hand-code it |
 
 ### Add a jurisdiction by giving it the law
@@ -50,7 +51,7 @@ I am an accounting and finance student interning at a trust and corporate-servic
 Muse Spark reads the whole official text and proposes rules, choosing only from test types the engine can compute (quorum present, share of directors present or the chair, minutes record strategic decisions, records kept, and so on). Code then checks each proposal: **its quote must appear word for word in the source**, and its parameters must be valid. Requirements the engine can't compute (for example "adequate frequency" with no number, staff or expenditure) must be listed as *not checkable* rather than dropped silently. A person approves the pack in the app before it is used.
 
 Measured on the official texts (Jersey statute from jerseylaw.je; IRAS company-residency guidance):
-- Every proposed rule's quote was found word for word in the source.
+- Every proposed rule's quote was found word for word in the source, and code refuses a quote that stops in the middle of a clause (so "meets in Jersey" cannot drop "at an adequate frequency…").
 - Muse Spark wrote the Jersey pack (quorum, meetings in Jersey, minutes, records; Art. 5(3)(a)–(e)) and the Singapore pack (at least 50% of directors with strategic authority, or the chairman, for virtual or hybrid meetings) from the raw text alone.
 - **Decided with the AI-written packs, all 41 dev and held-out meetings got the same law-level verdict as the hand-written rules, in 3 out of 3 independent runs** ([`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)).
 - Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings … determines …*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
@@ -151,7 +152,8 @@ The minutes are written by the party that wants a PASS, so the review treats eve
 ## Safety and privacy
 
 - Synthetic data only in the demo. Do not upload real client documents to a third-party API without your organisation's approval.
-- Calls use Muse Spark in **Standard** mode (`muse-spark-1.3`), never Contributor mode, which would let Meta train on the documents. Uploaded packs are deleted from `uploads/` 24 hours after they were analysed.
+- Calls use Muse Spark in **Standard** mode (`muse-spark-1.3`), never Contributor mode, which would let Meta train on the documents. Every request sets `store: false`, and the agent does not rely on server-side conversation state, so the whole pipeline is compatible with Meta's Zero Data Retention. Uploaded packs are deleted from `uploads/` 24 hours after they were analysed.
+- Photos and scans are redacted by SAM 3.1 (QR codes, barcodes, faces, signatures) before Muse Spark reads them. If redaction fails, the image is not sent at all.
 - Board packs contain personal data (names, travel, hotel stays, voices). Using this on real clients needs a lawful basis and a cross-border transfer assessment under the applicable law (for example GDPR / UK GDPR, the Data Protection (Jersey) Law 2018, Singapore's PDPA or Mauritius's Data Protection Act 2017). That assessment is not part of this hackathon project.
 - The model output is validated by a strict JSON schema and again by code; the agent can only draft, and every draft needs a human decision.
 - The app never gives a legal conclusion in its drafts: a guardrail rejects agent messages that state an outcome.

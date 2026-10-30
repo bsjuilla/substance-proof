@@ -6,6 +6,7 @@ const PdfPage = lazy(() => import("./PdfPage").then((m) => ({ default: m.PdfPage
 type Props = { cite: (Citation & { directorId?: string }) | null; result: RunResult; fileBase: string; onClose: () => void };
 
 const ROLE: Record<string, string> = { minutes: "Minutes", boarding_pass: "Travel document", hotel_folio: "Hotel bill", recording: "Meeting recording", other: "Document" };
+const LABEL: Record<string, string> = { "qr code": "a QR code", barcode: "a barcode", face: "a face", "handwritten signature": "a signature" };
 const mmss = (s: number) => `${Math.floor(s / 60)}:${(s % 60).toFixed(1).padStart(4, "0")}`;
 /** Model control tokens that leaked into the transcript, e.g. "speaker_A|>". Shown dimmed, never hidden. */
 const STRAY = /<\||\|>/;
@@ -73,7 +74,24 @@ export function Viewer({ cite, result, fileBase, onClose }: Props) {
         </aside>
         <div className="viewer-doc">
           {ext === "pdf" && <Suspense fallback={<p className="small muted">Opening the page…</p>}><PdfPage url={url} page={cite.page ?? 1} quote={cite.quote} near={director ? [director.name, director.name.split(" ").pop()!] : []} title={title} /></Suspense>}
-          {(ext === "png" || ext === "jpg" || ext === "jpeg" || ext === "webp") && <img src={url} alt={title} style={{ border: "1px solid var(--border)" }} />}
+          {(ext === "png" || ext === "jpg" || ext === "jpeg" || ext === "webp") && (
+            <div className="stack" style={{ ["--gap" as any]: ".5rem" }}>
+              {doc?.redactions?.length ? (
+                <p className="small muted" role="status">
+                  SAM 3.1 found and blacked out {doc.redactions.map((r) => LABEL[r.label] ?? r.label).join(", ")} before this image was sent to Muse Spark. The black boxes show what the reader never saw.
+                </p>
+              ) : null}
+              <div className="img-wrap">
+                <img src={url} alt={title} />
+                {doc?.redactions?.map((r, i) => (
+                  <span key={i} className="redacted" title={`Masked by SAM 3.1: ${r.label}${r.c ? ` (${Math.round(r.c * 100)}% confidence)` : ""}`}
+                    style={{ left: `${(r.x1 / r.w) * 100}%`, top: `${(r.y1 / r.h) * 100}%`, width: `${((r.x2 - r.x1) / r.w) * 100}%`, height: `${((r.y2 - r.y1) / r.h) * 100}%` }}>
+                    <span>{(LABEL[r.label] ?? r.label).replace(/^an? /, "")}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
           {isMedia && (
             <div className="stack">
               {isVideo

@@ -638,3 +638,7 @@
   .redacted { position: absolute; background: #111; display: grid; place-items: center; outline: 2px dashed var(--bad); outline-offset: 2px; }
   .redacted span { font: 600 .7rem var(--font-mono); color: #fff; background: var(--bad); padding: 0 .35rem; border-radius: 2px; }
 }
+
+@layer components {
+  .pdf-fallback { width: 100%; height: 70dvh; border: 1px solid var(--border); background: #fff; }
+}

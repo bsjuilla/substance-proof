@@ -96,9 +96,10 @@ export function PdfPage({ url, page, quote, near = [], title }: Props) {
         {state === "found" && "The quoted words are highlighted on the page."}
         {state === "not-found" && "The quote could not be located in this page's text, so nothing is highlighted."}
         {state === "no-text" && "This page is an image (a scan or photo), so the words cannot be highlighted; the quote is shown alongside."}
-        {state === "error" && "This page could not be drawn here. Use “Open file” to view it."}
+        {state === "error" && "Showing the page in the browser's own viewer (word highlighting is unavailable here)."}
       </p>
-      <div className="pdf-canvas">
+      {state === "error" && <iframe className="pdf-fallback" src={`${url}#page=${page}&toolbar=0&navpanes=0&view=FitH`} title={title} />}
+      <div className="pdf-canvas" hidden={state === "error"}>
         <canvas ref={canvas} role="img" aria-label={title} />
         {boxes.map((b, i) => <span key={i} className="pdf-hl" style={{ left: b.left - 2, top: b.top - 1, width: b.width + 4, height: b.height }} />)}
       </div>

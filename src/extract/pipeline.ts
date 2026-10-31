@@ -15,6 +15,8 @@ export const isRecording = (path: string) => RECORDING_EXT.test(path);
 
 export type AnyExtract = {
   file: string;
+  /** The file the model actually saw (the redacted copy for photos). */
+  readPath: string;
   extraction: Extraction;
   costUsd: number;
   ms: number;
@@ -37,6 +39,7 @@ export async function extractAny(client: OpenAI, model: string, path: string, op
     const ex = await extractFromTranscript(client, model, tr.result);
     return {
       file: path,
+      readPath: path,
       extraction: ex.extraction,
       costUsd: tr.costUsd + ex.costUsd,
       ms: Date.now() - t0,
@@ -60,7 +63,7 @@ export async function extractAny(client: OpenAI, model: string, path: string, op
     }
   }
   const r = await extractDocument(client, model, readPath);
-  return { file: path, extraction: r.extraction, costUsd: r.costUsd + redactionCost, ms: Date.now() - t0, usage: r.usage, redactions };
+  return { file: path, readPath, extraction: r.extraction, costUsd: r.costUsd + redactionCost, ms: Date.now() - t0, usage: r.usage, redactions };
 }
 
 export async function pool<T, R>(items: T[], n: number, fn: (x: T) => Promise<R>): Promise<R[]> {

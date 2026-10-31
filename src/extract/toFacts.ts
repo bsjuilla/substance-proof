@@ -116,6 +116,10 @@ export function matchDirector(rawName: string, roster: Director[]): Director | u
   if (sameWords.length === 1) return sameWords[0];
   const exact = roster.find((d) => norm(d.name) === n);
   if (exact) return exact;
+  // A word split by the PDF's letter spacing ("ANAND-LOWE/PR IYA"): every letter must still match, in order.
+  const joined = n.replace(/ /g, "");
+  const sameLetters = roster.filter((d) => norm(d.name).replace(/ /g, "") === joined);
+  if (sameLetters.length === 1) return sameLetters[0];
   // No surname-only matching: "CASTELL/MARIA MRS" (a spouse) must not become director Bruno Castell.
   // Fuzzy matching below also requires the given name to be close.
   return fuzzyDirector(n, roster);

@@ -24,3 +24,4 @@ docs/sources/
 
 # security proof-of-concept outputs
 security/poc-out/
+.claude/

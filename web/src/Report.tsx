@@ -116,6 +116,24 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
               </tbody>
             </table>
           </div>
+          {result.secondReader && (
+            <div className="second-reader">
+              <p className="small">
+                <b>Second reader · {result.secondReader.model.replace(/^meta\//, "")}</b> (Meta open weights) re-read {result.secondReader.read} document{result.secondReader.read === 1 ? "" : "s"} from scratch:{" "}
+                {result.secondReader.agreed}/{result.secondReader.total} facts identical
+                {result.secondReader.changesDecision.length ? ", and its reading changes the answer, so the meeting goes to review." : ", same answer for every director."}
+              </p>
+              {(result.secondReader.disagreements.length > 0 || result.secondReader.unread.length > 0) && (
+                <details>
+                  <summary className="small">Where the two readings differ ({result.secondReader.disagreements.length}{result.secondReader.unread.length ? `, ${result.secondReader.unread.length} not re-read` : ""})</summary>
+                  <ul className="small muted">
+                    {result.secondReader.disagreements.map((d, i) => <li key={i}><span className="mono">{d.docId.split("/").pop()}</span>: {d.what}</li>)}
+                    {result.secondReader.unread.map((u, i) => <li key={"u" + i}><span className="mono">{u.docId.split("/").pop()}</span>: not re-read</li>)}
+                  </ul>
+                </details>
+              )}
+            </div>
+          )}
         </section>
 
         <section className="card stack" aria-labelledby="agent-h">

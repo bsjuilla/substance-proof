@@ -346,6 +346,9 @@
   .tests td b { font-size: .95rem; }
   .guardrails { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; font-size: var(--step--1); }
   .guardrails b { margin-right: .4rem; }
+  .second-reader { border-top: 1px dashed var(--border-strong); padding-top: .75rem; }
+  .second-reader ul { margin: .4rem 0 0 1.1rem; }
+  .second-reader li { margin: .15rem 0; overflow-wrap: anywhere; }
   .chip.static { cursor: default; }
   .chip.static:hover { border-color: var(--border); }
   .draft { border-left-width: 6px; border-left-color: var(--warn-edge); }

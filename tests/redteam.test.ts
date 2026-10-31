@@ -37,6 +37,8 @@ describe("red-team regressions: no false PASS from genuine documents", () => {
     expect(matchDirector("Tom Castell", roster)).toBeUndefined();
     expect(matchDirector("CASTELL/BRUNO MR", roster)?.id).toBe("A");
     expect(matchDirector("Bruno Castel", roster)?.id).toBe("A"); // speech-recognition slip still accepted
+    expect(matchDirector("CASTELL/BRU NO MR", roster)?.id).toBe("A"); // a word split by PDF letter spacing
+    expect(matchDirector("CASTELL/MA RIA MRS", roster)).toBeUndefined(); // ...but a split name is still matched letter for letter
     const tf = toFacts([{ docId: "h.pdf", extraction: ext([folio("MARIA CASTELL", "St Helier, Jersey", "BST")]) }], roster);
     expect(tf.facts).toHaveLength(0);
   });

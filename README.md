@@ -45,6 +45,7 @@ I am an accounting and finance student interning at a trust and corporate-servic
 | **Muse Spark 1.3** (transcript reasoning) | Finds who said where they were joining from, with the turn it was said in | Spoken claims can't be cited to the second |
 | **Muse Spark 1.3** (function tools, approval-gated agent) | `list_gaps`, `get_rule_result`, `draft_evidence_request`, `draft_minutes_correction`. Stateless: it sends its own history each step and nothing is stored at Meta, so it also runs on a Zero Data Retention account | No follow-up: gaps stay gaps |
 | **Muse Spark 1.3** (long context, strict schema) | **Writes the rules from the law.** Reads a full statute or official guidance (about 10,000 tokens of source) and drafts a rule pack: each rule as data, with the exact words of the law behind it | Every new jurisdiction needs a developer to hand-code it |
+| **Muse Glimmer 30B** (Meta open weights, Apache 2.0; optional) | **A second, independent reader.** Reads every document again from scratch as images (PDF pages are rendered, photos are the SAM-redacted copy), with no access to Muse Spark's answer. Code then decides the meeting a second time from Glimmer's reading with the same engine. If any director's presence or the verdict would change, a `SECOND-READER` evidence check fails and the meeting goes to REVIEW. It can only make a result more careful, never turn REVIEW or NOT MET into PASS. Runs on NVIDIA's hosted API here; because the weights are open, a firm can run it on its own machines | One model's misread is final: nothing catches a skipped e-ticket |
 
 ### Add a jurisdiction by giving it the law
 
@@ -80,6 +81,16 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 
 The one held-out miss: on one e-ticket Muse Spark returned no facts at all (run-to-run variation; the same file read correctly in earlier runs). The engine treated that director as unproven, the meeting verdict was still correct (REVIEW), and nothing dangerous happened. I report the run as it came out rather than re-running until it was perfect. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
 
+**Second reader (Muse Glimmer 30B, open weights).** On the same 30 held-out meetings, Glimmer re-read all 110 documents on its own ([`scripts/eval-second-reader.ts`](scripts/eval-second-reader.ts), scoreboard in [`eval/results/second-reader-summary.json`](eval/results/second-reader-summary.json)):
+
+| | Facts read exactly | Meeting verdicts | Dangerous errors |
+|---|---|---|---|
+| Muse Spark alone | 165 / 166 | 30 / 30 | 0 |
+| Muse Glimmer alone | 164 / 166 | 30 / 30 | 0 |
+| **Both, with the second-reader check** | – | **30 / 30** | **0** |
+
+The check fired on 3 meetings. Once it caught a real miss: the e-ticket Muse Spark returned nothing for (t24), which Glimmer read correctly. Twice it was Glimmer that was wrong: it read a day-first date such as 08/06/2026 as August instead of 8 June (t08, t17). In all three cases the meeting went to REVIEW or stayed NOT MET, which is the point of the design: two independent readers must agree before anything is called met. A disagreement costs a person a look, never a false PASS. Glimmer's first run also showed it skipped e-tickets that say "this receipt is not a boarding pass"; one added line in its instructions fixed that, and Muse Spark's instructions were not changed.
+
 **Cost:** one meeting costs about **$0.03–0.06** of API credit and 30–60 seconds. The full 30-meeting held-out run cost **$0.91**.
 
 **Honest caveats**
@@ -105,7 +116,7 @@ Requirements: Node 20+ and Chrome (only for regenerating the synthetic documents
 
 ```bash
 npm install
-npm test                    # 94 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks
+npm test                    # 106 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
 cp .env.example .env        # then put your own Meta Model API key in .env (never commit it)
 npm run app                 # builds the web app and serves it at http://127.0.0.1:8787
 ```
@@ -153,6 +164,7 @@ The minutes are written by the party that wants a PASS, so the review treats eve
 
 - Synthetic data only in the demo. Do not upload real client documents to a third-party API without your organisation's approval.
 - Calls use Muse Spark in **Standard** mode (`muse-spark-1.3`), never Contributor mode, which would let Meta train on the documents. Every request sets `store: false`, and the agent does not rely on server-side conversation state, so the whole pipeline is compatible with Meta's Zero Data Retention. Uploaded packs are deleted from `uploads/` 24 hours after they were analysed.
+- The optional second reader (Muse Glimmer) is off unless `NVIDIA_API_KEY` is set. When it is on, documents also go to NVIDIA's hosted API; Glimmer is open-weight, so for real documents it can run on the firm's own hardware instead.
 - Photos and scans are redacted by SAM 3.1 (QR codes, barcodes, faces, signatures) before Muse Spark reads them. If redaction fails, the image is not sent at all.
 - Board packs contain personal data (names, travel, hotel stays, voices). Using this on real clients needs a lawful basis and a cross-border transfer assessment under the applicable law (for example GDPR / UK GDPR, the Data Protection (Jersey) Law 2018, Singapore's PDPA or Mauritius's Data Protection Act 2017). That assessment is not part of this hackathon project.
 - The model output is validated by a strict JSON schema and again by code; the agent can only draft, and every draft needs a human decision.

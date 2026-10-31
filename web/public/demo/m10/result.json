@@ -1,6 +1,6 @@
 {
  "id": "m10",
- "createdAt": "2026-10-30T16:49:17.791Z",
+ "createdAt": "2026-10-31T07:21:15.147Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -182,7 +182,7 @@
    "cite": {
     "docId": "m10/stay/folio_D_DUBAI.pdf",
     "page": 1,
-    "quote": "17 May 2026 00:00 (GST)"
+    "quote": "Arrival 17 May 2026 00:00 (GST)"
    }
   },
   {
@@ -195,7 +195,7 @@
    "cite": {
     "docId": "m10/travel/BP_B_DXB-SIN.png",
     "page": 1,
-    "quote": "FROM DXB Dubai International TO SIN Singapore Changi PASSENGER BRUNO CASTELL FLIGHT SA 77 DATE 18 May 2026 DEPARTS (local GST) 12:30 ARRIVES (local GMT+8) 23:50"
+    "quote": "DXB Dubai International SIN Singapore Changi 12:30 23:50"
    }
   }
  ],
@@ -255,7 +255,7 @@
      {
       "docId": "m10/stay/folio_D_DUBAI.pdf",
       "page": 1,
-      "quote": "17 May 2026 00:00 (GST)"
+      "quote": "Arrival 17 May 2026 00:00 (GST)"
      }
     ]
    }
@@ -276,13 +276,21 @@
     "citation": "Evidence check (not a legal test)",
     "status": "pass",
     "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (9/9 facts identical)."
    }
   ],
   "contradictions": []
  },
  "agent": {
   "drafts": [],
-  "summary": "I reviewed the records for the meeting on 19 May 2026. No evidence request drafts or minutes correction drafts were required.\n",
+  "summary": "I checked the gaps for the 19 May 2026 meeting for Sennoway Capital Pte Ltd. No drafts were needed as no missing evidence or conflicts were listed.",
   "trace": [
    {
     "step": 1,
@@ -297,6 +305,15 @@
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0647,
- "seconds": 329
+ "costUsd": 0.0637,
+ "seconds": 75,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 6,
+  "unread": [],
+  "agreed": 9,
+  "total": 9,
+  "disagreements": [],
+  "changesDecision": []
+ }
 }

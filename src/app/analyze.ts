@@ -7,6 +7,7 @@ import { decide, extractAny, pool, type AnyExtract } from "../extract/pipeline";
 import { verdictFrom } from "../engine/evaluate";
 import { runPack, type RulePack } from "../rules/pack";
 import type { Redaction } from "../extract/redact";
+import { readWithGlimmer, secondOpinion, secondReaderAvailable, type SecondReaderResult, type SecondReading } from "../extract/secondReader";
 
 export type DocKind = "minutes" | "boarding_pass" | "hotel_folio" | "recording" | "other";
 
@@ -29,6 +30,8 @@ export type RunResult = {
   seconds: number;
   /** Set when the verdict came from an AI-written rule pack instead of the hand-written rules. */
   rulePack?: { jurisdiction: string; source: string };
+  /** Muse Glimmer's independent reading of the same documents, when an NVIDIA key is configured. */
+  secondReader?: Omit<SecondReaderResult, "test">;
 };
 
 const ZONE: Record<Jurisdiction, string> = { JE: "Europe/Jersey", SG: "Asia/Singapore" };
@@ -56,16 +59,32 @@ export async function analyzePack(opts: {
   onProgress?: (msg: string) => void;
   /** Optional approved rule pack (e.g. written by Muse Spark from the law) to use instead of the hand-written rules. */
   pack?: RulePack;
+  /** Ask Muse Glimmer for an independent second reading (default: when NVIDIA_API_KEY is set). */
+  secondReader?: boolean;
 }): Promise<RunResult> {
   const t0 = Date.now();
   const names = opts.company.directors.map((d) => d.name);
+  const rel = (p: string) => relative(opts.packRoot, p).split(sep).join("/");
+  const useSecond = opts.secondReader ?? secondReaderAvailable();
+  // Muse Glimmer starts on each document as soon as Muse Spark has finished with it, and sees the same file
+  // (for photos, the copy SAM 3.1 redacted). Recordings are heard by Voice Transcribe only.
+  const second: Promise<SecondReading>[] = [];
   let done = 0;
+  let secondDone = 0;
   const extracts = await pool(opts.files, 3, async (f) => {
     const r = await extractAny(opts.client, opts.model, f, { names });
     opts.onProgress?.(`Read ${++done}/${opts.files.length}: ${f.split(/[\\/]/).pop()}`);
+    if (useSecond && !r.transcript) {
+      const docId = rel(f);
+      second.push(
+        readWithGlimmer(r.readPath).then(
+          (g) => (opts.onProgress?.(`Second reader ${++secondDone}: ${docId}`), { docId, extraction: g.extraction, ms: g.ms }),
+          (e) => ({ docId, error: (e as Error).message.slice(0, 200) }),
+        ),
+      );
+    }
     return r;
   });
-  const rel = (p: string) => relative(opts.packRoot, p).split(sep).join("/");
   const items = extracts.map((x) => ({ docId: rel(x.file), extraction: x.extraction, turnStartsMs: x.turnStartsMs }));
   const decided = decide(items, opts.company, opts.meeting, opts.jurisdiction);
   const { facts, meetingUsed } = decided;
@@ -74,6 +93,13 @@ export async function analyzePack(opts: {
     // Use an approved, AI-written rule pack instead of the hand-written rules (same presence inference).
     // Keep the meeting-time evidence check alongside the pack's legal tests.
     const tests = [...runPack(opts.pack, opts.company, meetingUsed, evaluation.presence), ...evaluation.tests.filter((t) => t.basis === "evidence")];
+    evaluation = { ...evaluation, tests, verdict: verdictFrom(tests, evaluation.contradictions.length) };
+  }
+  let secondReader: SecondReaderResult | undefined;
+  if (second.length) {
+    opts.onProgress?.("Waiting for the second reader (Muse Glimmer)");
+    secondReader = secondOpinion(items, await Promise.all(second), opts.company, opts.meeting, opts.jurisdiction, { facts: facts.facts, evaluation });
+    const tests = [...evaluation.tests, secondReader.test];
     evaluation = { ...evaluation, tests, verdict: verdictFrom(tests, evaluation.contradictions.length) };
   }
   if (!facts.meetingWindow) facts.rejected.push({ file: "minutes", reason: "Meeting date and time could not be read from the minutes; the setup times were used." });
@@ -106,6 +132,7 @@ export async function analyzePack(opts: {
     agent: agent ? (agentRest as Omit<AgentResult, "costUsd">) : undefined,
     costUsd: +(extracts.reduce((a, x) => a + x.costUsd, 0) + agentCost).toFixed(4),
     seconds: Math.round((Date.now() - t0) / 1000),
+    secondReader: secondReader ? (({ test: _t, ...rest }) => rest)(secondReader) : undefined,
     rulePack: opts.pack ? { jurisdiction: opts.pack.jurisdiction_code, source: opts.pack.source_title } : undefined,
   };
 }

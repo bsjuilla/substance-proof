@@ -1,6 +1,6 @@
 {
  "id": "t14",
- "createdAt": "2026-10-30T16:49:49.646Z",
+ "createdAt": "2026-10-31T07:22:02.673Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -136,7 +136,7 @@
    "cite": {
     "docId": "t14/stay/folio_A_PARIS.pdf",
     "page": 1,
-    "quote": "You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09."
+    "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09. All times on this statement are shown in local time (Europe/Paris)."
    }
   },
   {
@@ -148,7 +148,7 @@
    "cite": {
     "docId": "t14/stay/folio_C_HONGKONG.pdf",
     "page": 1,
-    "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
+    "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
    }
   },
   {
@@ -173,7 +173,7 @@
    "cite": {
     "docId": "t14/travel/BP_B_DXB-JER.png",
     "page": 1,
-    "quote": "DXB → JER SA 587 10 Sept 2026 23:00 05:20 (11 Sept 2026)"
+    "quote": "FROM DXB TO JER DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 05:20 (11 Sept 2026)"
    }
   },
   {
@@ -186,7 +186,7 @@
    "cite": {
     "docId": "t14/travel/BP_B_JER-DXB.png",
     "page": 1,
-    "quote": "JER → DXB DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)"
+    "quote": "JER → DXB 20:54 07:00 (12 Sept 2026)"
    }
   }
  ],
@@ -206,7 +206,7 @@
      {
       "docId": "t14/stay/folio_A_PARIS.pdf",
       "page": 1,
-      "quote": "You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09."
+      "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09. All times on this statement are shown in local time (Europe/Paris)."
      }
     ]
    },
@@ -219,12 +219,12 @@
      {
       "docId": "t14/travel/BP_B_DXB-JER.png",
       "page": 1,
-      "quote": "DXB → JER SA 587 10 Sept 2026 23:00 05:20 (11 Sept 2026)"
+      "quote": "FROM DXB TO JER DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 05:20 (11 Sept 2026)"
      },
      {
       "docId": "t14/travel/BP_B_JER-DXB.png",
       "page": 1,
-      "quote": "JER → DXB DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)"
+      "quote": "JER → DXB 20:54 07:00 (12 Sept 2026)"
      }
     ]
    },
@@ -238,7 +238,7 @@
      {
       "docId": "t14/stay/folio_C_HONGKONG.pdf",
       "page": 1,
-      "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
+      "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
      },
      {
       "docId": "t14/minutes.pdf",
@@ -305,6 +305,14 @@
     "citation": "Evidence check (not a legal test)",
     "status": "pass",
     "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (9/9 facts identical)."
    }
   ],
   "contradictions": [
@@ -318,7 +326,7 @@
      {
       "docId": "t14/stay/folio_C_HONGKONG.pdf",
       "page": 1,
-      "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
+      "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
      },
      {
       "docId": "t14/minutes.pdf",
@@ -340,8 +348,8 @@
     "kind": "minutes_correction",
     "directorId": "C",
     "directorName": "Helena Brookfield",
-    "subject": "Minutes review 11 September 2026 - Helena Brookfield",
-    "message": "Hello, please review the minutes for the meeting on 11 September 2026 for Helena Brookfield. The minutes in t14/minutes.pdf state \"present in St Helier\", while the evidence in t14/stay/folio_C_HONGKONG.pdf states \"You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57.\" Please review.",
+    "subject": "Minutes review for meeting on 11 September 2026 - Helena Brookfield",
+    "message": "Hello, regarding the meeting on 11 September 2026 for Helena Brookfield. The minutes in t14/minutes.pdf state \"present in St Helier\". The evidence in t14/stay/folio_C_HONGKONG.pdf states \"You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong).\" Please review.",
     "citations": [
      "t14/stay/folio_C_HONGKONG.pdf#p1",
      "t14/minutes.pdf#p1"
@@ -349,7 +357,7 @@
     "status": "awaiting_approval"
    }
   ],
-  "summary": "I prepared one minutes correction draft for Helena Brookfield for the meeting on 11 September 2026.\nThe draft is awaiting approval and notes the difference between the minutes and the hotel folio.\n",
+  "summary": "I reviewed the gaps for the meeting on 11 September 2026. I prepared one minutes correction draft for Helena Brookfield, now awaiting approval.",
   "trace": [
    {
     "step": 1,
@@ -377,7 +385,7 @@
        "quotes": [
         {
          "doc": "t14/stay/folio_C_HONGKONG.pdf",
-         "words": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
+         "words": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
         },
         {
          "doc": "t14/minutes.pdf",
@@ -397,8 +405,8 @@
       "t14/minutes.pdf#p1"
      ],
      "director_id": "C",
-     "message": "Hello, please review the minutes for the meeting on 11 September 2026 for Helena Brookfield. The minutes in t14/minutes.pdf state \"present in St Helier\", while the evidence in t14/stay/folio_C_HONGKONG.pdf states \"You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57.\" Please review.",
-     "subject": "Minutes review 11 September 2026 - Helena Brookfield"
+     "message": "Hello, regarding the meeting on 11 September 2026 for Helena Brookfield. The minutes in t14/minutes.pdf state \"present in St Helier\". The evidence in t14/stay/folio_C_HONGKONG.pdf states \"You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong).\" Please review.",
+     "subject": "Minutes review for meeting on 11 September 2026 - Helena Brookfield"
     },
     "result": {
      "draft_id": "D1",
@@ -408,6 +416,15 @@
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0807,
- "seconds": 32
+ "costUsd": 0.0814,
+ "seconds": 47,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 6,
+  "unread": [],
+  "agreed": 9,
+  "total": 9,
+  "disagreements": [],
+  "changesDecision": []
+ }
 }

@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { relative, sep } from "node:path";
 import type OpenAI from "openai";
 import { runEvidenceAgent, type AgentResult } from "../agent/evidenceAgent";
@@ -21,7 +23,8 @@ export type RunResult = {
   jurisdiction: Jurisdiction;
   meeting: Meeting;
   meetingDateText: string;
-  docs: { docId: string; kind: DocKind; transcript?: { startMs: number; endMs: number; text: string; speaker?: string }[]; redactions?: Redaction[] }[];
+  /** sha256: fingerprint of the file exactly as supplied, so a reviewer can show later which file was checked. */
+  docs: { docId: string; kind: DocKind; sha256?: string; transcript?: { startMs: number; endMs: number; text: string; speaker?: string }[]; redactions?: Redaction[] }[];
   facts: Fact[];
   rejected: { file: string; reason: string }[];
   evaluation: MeetingEvaluation;
@@ -32,7 +35,18 @@ export type RunResult = {
   rulePack?: { jurisdiction: string; source: string };
   /** Muse Glimmer's independent reading of the same documents, when an NVIDIA key is configured. */
   secondReader?: Omit<SecondReaderResult, "test">;
+  /** What produced this result, for the evidence memo: engine and rule versions, and every model that read the pack. */
+  provenance?: { engine: string; rules: string; models: string[] };
 };
+
+const ENGINE_VERSION = (() => {
+  try {
+    return `Substance Proof ${JSON.parse(readFileSync(new URL("../../package.json", import.meta.url), "utf8")).version}`;
+  } catch {
+    return "Substance Proof";
+  }
+})();
+const sha256 = (path: string) => createHash("sha256").update(readFileSync(path)).digest("hex");
 
 const ZONE: Record<Jurisdiction, string> = { JE: "Europe/Jersey", SG: "Asia/Singapore" };
 
@@ -123,6 +137,7 @@ export async function analyzePack(opts: {
     docs: extracts.map((x) => ({
       docId: rel(x.file),
       kind: kindOf(x),
+      sha256: sha256(x.file),
       transcript: x.transcript?.turns.map((t) => ({ startMs: t.startMs, endMs: t.endMs, text: t.transcript, speaker: t.speaker })),
       redactions: x.redactions,
     })),
@@ -134,5 +149,15 @@ export async function analyzePack(opts: {
     seconds: Math.round((Date.now() - t0) / 1000),
     secondReader: secondReader ? (({ test: _t, ...rest }) => rest)(secondReader) : undefined,
     rulePack: opts.pack ? { jurisdiction: opts.pack.jurisdiction_code, source: opts.pack.source_title } : undefined,
+    provenance: {
+      engine: ENGINE_VERSION,
+      rules: opts.pack ? `Rule pack written by ${opts.model} from "${opts.pack.source_title}", approved by the user` : `Hand-written rules for ${opts.jurisdiction === "JE" ? "Jersey" : "Singapore"} (src/engine/rules)`,
+      models: [
+        `${opts.model} (reads documents${opts.withAgent !== false ? ", drafts requests" : ""})`,
+        ...(extracts.some((x) => x.transcript) ? ["muse-voice-transcribe-1.0 (recordings)"] : []),
+        ...(extracts.some((x) => x.redactions !== undefined) ? ["sam-3.1 (finds personal data to black out in photos)"] : []),
+        ...(secondReader ? [`${secondReader.model} (independent second reader)`] : []),
+      ],
+    },
   };
 }

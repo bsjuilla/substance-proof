@@ -7,6 +7,13 @@
   "jurisdiction": "JE"
  },
  {
+  "id": "m12",
+  "title": "Harrowmere Holdings (Jersey) Limited",
+  "trap": "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before and stayed in St Helier. Quorum evidenced.",
+  "verdict": "PASS",
+  "jurisdiction": "JE"
+ },
+ {
   "id": "m03",
   "title": "Quenvale Holdings (Jersey) Limited",
   "trap": "Contradiction: minutes say B was in St Helier but his flight left at 10:30 during the meeting",
@@ -17,7 +24,7 @@
   "id": "m10",
   "title": "Sennoway Capital Pte Ltd",
   "trap": "Exactly 50%: A and B in Singapore (B landed at 23:50 the night before, crossing midnight), C and D in Dubai",
-  "verdict": "PASS",
+  "verdict": "REVIEW",
   "jurisdiction": "SG"
  },
  {

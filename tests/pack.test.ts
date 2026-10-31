@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { thresholdInQuote, validatePack } from "../src/rules/buildPack";
 import { runPack, type RulePack } from "../src/rules/pack";
 import { resolvePresence } from "../src/engine/presence";
-import { company, dir, meeting, stay } from "./helpers";
+import { company, dir, meeting, there } from "./helpers";
 
 const LAW = "(3) The test is satisfied if – (b) at such board meetings there is a quorum of directors physically present in Jersey; (c) the minutes record the making of strategic decisions.";
 
@@ -32,17 +32,17 @@ describe("rule pack validation (code checks what the model proposed)", () => {
 describe("rule pack execution (deterministic)", () => {
   const three = [dir("A"), dir("B"), dir("C", { isChair: true })];
   const m = meeting(["A", "B", "C"]);
-  const presence = (facts: ReturnType<typeof stay>[]) => m.attendeeIds.map((id) => resolvePresence(id, m, facts, "JE"));
+  const presence = (facts: ReturnType<typeof there>) => m.attendeeIds.map((id) => resolvePresence(id, m, facts, "JE"));
 
   it("quorum test passes with 2 of 3 in Jersey and fails with 1", () => {
-    const ok = runPack(pack([quorumTest]), company(three), m, presence([stay("A", "CITY:STHELIER"), stay("B", "CITY:STHELIER"), stay("C", "CITY:DUBAI")]));
-    const bad = runPack(pack([quorumTest]), company(three), m, presence([stay("A", "CITY:STHELIER"), stay("B", "CITY:DUBAI"), stay("C", "CITY:DUBAI")]));
+    const ok = runPack(pack([quorumTest]), company(three), m, presence([...there("A", "CITY:STHELIER"), ...there("B", "CITY:STHELIER"), ...there("C", "CITY:DUBAI")]));
+    const bad = runPack(pack([quorumTest]), company(three), m, presence([...there("A", "CITY:STHELIER"), ...there("B", "CITY:DUBAI"), ...there("C", "CITY:DUBAI")]));
     expect(ok[0].status).toBe("pass");
     expect(bad[0].status).toBe("fail");
   });
   it("share-or-chair test passes on the chair route", () => {
     const share = { ...quorumTest, id: "s", kind: "share_physically_present_or_chair" as const, threshold: 0.5, chair_alternative: true, count: "all_directors" as const };
-    const r = runPack(pack([share]), company(three), m, presence([stay("A", "CITY:DUBAI"), stay("B", "CITY:DUBAI"), stay("C", "CITY:STHELIER")]));
+    const r = runPack(pack([share]), company(three), m, presence([...there("A", "CITY:DUBAI"), ...there("B", "CITY:DUBAI"), ...there("C", "CITY:STHELIER")]));
     expect(r[0].status).toBe("pass");
   });
   it("tests limited to strategic meetings are not applied to ordinary ones", () => {

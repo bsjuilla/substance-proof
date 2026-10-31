@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Loaded } from "./types";
 
-type Director = { name: string; isChair: boolean; strategic: boolean };
+type Director = { name: string; isChair: boolean; strategic: boolean; resident: boolean };
 type Role = "minutes" | "travel" | "hotel" | "recording";
 type Picked = { file: File; role: Role };
 const ROLES: [Role, string][] = [["minutes", "Minutes"], ["travel", "Boarding pass / e-ticket"], ["hotel", "Hotel bill"], ["recording", "Meeting recording"]];
@@ -21,7 +21,7 @@ const toBase64 = (f: File) =>
 export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
   const [companyName, setCompanyName] = useState("");
   const [jurisdiction, setJurisdiction] = useState("JE");
-  const [quorum, setQuorum] = useState(2);
+  const [quorum, setQuorum] = useState(""); // from the articles; never assumed
   const [mode, setMode] = useState("in_person");
   const [isStrategic, setStrategic] = useState(false);
   const [recordsKept, setRecordsKept] = useState("unknown");
@@ -29,7 +29,7 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const [directors, setDirectors] = useState<Director[]>([{ name: "", isChair: true, strategic: true }, { name: "", isChair: false, strategic: true }]);
+  const [directors, setDirectors] = useState<Director[]>([{ name: "", isChair: true, strategic: true, resident: false }, { name: "", isChair: false, strategic: true, resident: false }]);
   const [files, setFiles] = useState<Picked[]>([]);
   const [over, setOver] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -46,7 +46,7 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
     setBusy(true);
     try {
       const payload = {
-        setup: { companyName, jurisdiction, quorum, mode, isStrategic, recordsKept, minutesRecordStrategic: isStrategic ? minutesRecord : "unknown", date, start, end, directors },
+        setup: { companyName, jurisdiction, quorum: Number(quorum), mode, isStrategic, recordsKept, minutesRecordStrategic: isStrategic ? minutesRecord : "unknown", date, start, end, directors },
         files: await Promise.all(files.map(async (p) => ({ name: p.file.name, role: p.role, base64: await toBase64(p.file) }))),
       };
       const r = await fetch("/api/analyze-upload", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
@@ -76,9 +76,9 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
             <option value="SG">Singapore (IRAS control and management)</option>
           </select>
         </div>
-        <div className="field" style={{ width: "6rem" }}>
-          <label htmlFor="q">Quorum</label>
-          <input id="q" type="number" min={1} max={12} value={quorum} onChange={(e) => setQuorum(Number(e.target.value))} />
+        <div className="field" style={{ width: "9rem" }}>
+          <label htmlFor="q">Quorum (from the articles)</label>
+          <input id="q" type="number" min={1} max={12} step={1} required value={quorum} onChange={(e) => setQuorum(e.target.value)} />
         </div>
       </div>
       <div className="row">
@@ -128,9 +128,10 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
             <input aria-label={`Director ${i + 1} name`} placeholder="Full name" value={d.name} onChange={(e) => setDir(i, { name: e.target.value })} style={{ flex: "1 1 12rem", minHeight: "2.5rem", padding: ".4rem .6rem", border: "1px solid var(--border-strong)", borderRadius: "var(--radius)", background: "var(--surface)" }} />
             <label><input type="checkbox" checked={d.isChair} onChange={(e) => setDir(i, { isChair: e.target.checked })} /> Chair</label>
             <label><input type="checkbox" checked={d.strategic} onChange={(e) => setDir(i, { strategic: e.target.checked })} /> Strategic authority</label>
+            <label title="Tick only if your firm holds a reviewed residence record. Travel or a claim elsewhere still overrides it."><input type="checkbox" checked={d.resident} onChange={(e) => setDir(i, { resident: e.target.checked })} /> Lives in {jurisdiction === "SG" ? "Singapore" : "Jersey"} (record on file)</label>
           </div>
         ))}
-        <div><button type="button" className="btn small" onClick={() => setDirectors((ds) => [...ds, { name: "", isChair: false, strategic: true }])}>Add director</button></div>
+        <div><button type="button" className="btn small" onClick={() => setDirectors((ds) => [...ds, { name: "", isChair: false, strategic: true, resident: false }])}>Add director</button></div>
       </fieldset>
       <div
         className={`drop${over ? " over" : ""}`}

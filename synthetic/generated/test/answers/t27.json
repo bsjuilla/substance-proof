@@ -150,11 +150,11 @@
       },
       {
         "directorId": "C",
-        "status": "present"
+        "status": "unknown"
       },
       {
         "directorId": "D",
-        "status": "present"
+        "status": "unknown"
       }
     ],
     "contradictions": [

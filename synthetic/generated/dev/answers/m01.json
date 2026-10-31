@@ -120,23 +120,23 @@
     }
   ],
   "expected": {
-    "verdict": "PASS",
+    "verdict": "REVIEW",
     "presence": [
       {
         "directorId": "A",
-        "status": "present"
+        "status": "unknown"
       },
       {
         "directorId": "B",
-        "status": "present"
+        "status": "unknown"
       },
       {
         "directorId": "C",
-        "status": "present"
+        "status": "unknown"
       }
     ],
     "contradictions": [],
-    "why": "every test met by independent evidence and no claim contradicted",
+    "why": "a test is not met at guidance level or cannot be proven",
     "source": "independent oracle (scripts/oracle.ts)"
   }
 }

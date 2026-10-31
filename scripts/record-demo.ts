@@ -8,7 +8,7 @@ import { makeClient } from "../src/extract/client";
 
 const ROOT = join(import.meta.dirname, "..");
 const OUT = join(ROOT, "web", "public", "demo");
-const targets = process.argv.slice(2).length ? process.argv.slice(2) : ["dev:m11", "dev:m03", "dev:m10", "test:t14"];
+const targets = process.argv.slice(2).length ? process.argv.slice(2) : ["dev:m11", "dev:m12", "dev:m03", "dev:m10", "test:t14"];
 
 function listFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) =>

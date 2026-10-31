@@ -1,8 +1,8 @@
 {
   "set": "stress",
-  "model": "muse-spark-1.3",
-  "commit": "4fa652d",
-  "runAt": "2026-10-29T18:53:48.716Z",
+  "model": "replay:2026-10-29T18-51-42-413Z",
+  "commit": "71aa6dc",
+  "runAt": "2026-10-31T09:49:55.139Z",
   "meetings": 12,
   "costUsd": 0.3227,
   "factsExact": "55/64 (85.9%)",
@@ -91,8 +91,8 @@
         "passengerName": "normal",
         "clock": "12h"
       },
-      "expected": "PASS",
-      "got": "PASS",
+      "expected": "REVIEW",
+      "got": "REVIEW",
       "facts": "6/8",
       "missed": [
         "F|A|HKG|JER|2026-05-23T19:00:00Z|2026-05-24T02:55:00Z",

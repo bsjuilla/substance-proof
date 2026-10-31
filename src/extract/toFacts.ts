@@ -78,18 +78,32 @@ export function zoneOrPlace(tz: string | null, placeText: string | null): string
   return code ? (PLACE_ZONE[code] ?? null) : null;
 }
 
+// Words that name a place, after accents are stripped and the text lower-cased. Jersey's parishes and villages that
+// are not common English words, and its postcodes (JE1 to JE5), count as Jersey. St Peter Port is Guernsey.
+const PLACE_WORDS: [RegExp, string][] = [
+  [/\bhelier\b|\bjersey\b|\bbrelade\b|\bst\.? aubin\b|\bgorey\b|\bgrouville\b|\bst\.? ouen\b|\bje[1-5] ?\d[a-z]{2}\b|\bje[1-5]\b/, "CITY:STHELIER"],
+  [/\bguernsey\b|\bst\.? peter port\b/, "CITY:STPETERPORT"],
+  [/\bisle of man\b/, "CITY:DOUGLAS"],
+  [/\bdubai\b/, "CITY:DUBAI"],
+  [/\bsingapore\b|\bsingapour\b/, "CITY:SINGAPORE"],
+  [/\blondon\b|\blondres\b|\bhounslow\b/, "CITY:LONDON"],
+  [/\bhong ?kong\b/, "CITY:HONGKONG"],
+  [/\bparis\b/, "CITY:PARIS"],
+  [/\bmauritius\b|\bile maurice\b|\bport louis\b|\bebene\b|\bgrand baie\b|\bquatre bornes\b|\bcurepipe\b/, "CITY:PORTLOUIS"],
+];
+
 export function normalizePlace(text: string | null): string | null {
   if (!text) return null;
   // Strip accents ("Dubaï", "Saint-Hélier") and accept common French names.
   const t = text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   // "Jersey" must be the Channel Island: New Jersey and Jersey City (USA) are refused, not mapped to St Helier.
   if (/\bnew jersey\b|\bjersey city\b|\bnj\b|\busa\b|\bunited states\b/.test(t)) return null;
-  if (/\bhelier\b|\bjersey\b/.test(t)) return "CITY:STHELIER";
-  if (/\bdubai\b/.test(t)) return "CITY:DUBAI";
-  if (/\bsingapore\b|\bsingapour\b/.test(t)) return "CITY:SINGAPORE";
-  if (/\blondon\b|\blondres\b/.test(t)) return "CITY:LONDON";
-  if (/\bhong ?kong\b/.test(t)) return "CITY:HONGKONG";
-  if (/\bparis\b/.test(t)) return "CITY:PARIS";
+  // Every place the text names. An address that names two different places ("Jersey Road, Hounslow, London") is
+  // refused rather than guessed: the street name is not the place.
+  const found = new Set<string>();
+  for (const [re, code] of PLACE_WORDS) if (re.test(t)) found.add(code);
+  if (found.size === 1) return [...found][0];
+  if (found.size > 1) return null;
   if (/^[a-z]{3}$/i.test(text.trim())) return text.trim().toUpperCase();
   return null; // unrecognised: the engine treats it as unknown
 }

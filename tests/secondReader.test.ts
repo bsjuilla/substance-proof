@@ -5,9 +5,11 @@ import { secondOpinion } from "../src/extract/secondReader";
 
 // The second reader (Muse Glimmer) may only make a result more careful: it can send a meeting to REVIEW when its
 // independent reading leads to a different answer, and it can never turn REVIEW or NOT MET into PASS.
+// Both directors live in Jersey (reviewed residence records), so a St Helier folio confirms them and a Dubai one
+// places them away. (A hotel stay alone would only support presence.)
 const roster: any = [
-  { id: "A", name: "Bruno Castell", isChair: true, hasStrategicAuthority: true },
-  { id: "B", name: "Chandra Velloso", hasStrategicAuthority: true },
+  { id: "A", name: "Bruno Castell", isChair: true, hasStrategicAuthority: true, residentIn: "JE" },
+  { id: "B", name: "Chandra Velloso", hasStrategicAuthority: true, residentIn: "JE" },
 ];
 const company: any = { id: "C", name: "X", directors: roster, quorumRequired: 2, options: {} };
 const meeting: any = {

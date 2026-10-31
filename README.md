@@ -25,7 +25,9 @@ Today a company secretary checks this by hand, comparing the minutes with travel
 
 I am an accounting and finance student interning at a trust and corporate-services firm, where this kind of record-keeping is everyday work.
 
-**Verdicts.** Each meeting gets one of three: **PASS** (every condition evidenced), **REVIEW** (something is unproven or contradicted, so a person must look), or **NOT MET** (the evidence shows a condition in the law is not met *for this meeting*). One meeting cannot fail the law on its own; the substance test is judged for the whole year.
+**Verdicts.** Each meeting gets one of three: **EVIDENCED** (every condition is backed by evidence; "PASS" in the code and the scoreboards), **REVIEW** (something is unproven or contradicted, so a person must look), or **NOT MET** (the evidence shows a condition in the law is not met *for this meeting*). One meeting cannot fail the law on its own; the substance test is judged for the whole year. None of them is a legal conclusion: the report says so, and the printed memo has lines for the preparer and the reviewer to sign.
+
+**What counts as evidence of presence.** Travel documents (boarding passes, e-tickets) and hotel bills, with three rules: a hotel bill alone *supports* presence but does not prove it (a room can be booked and never used), so it needs a flight that landed or left within 72 hours; a director who lives in the jurisdiction counts as present on a residence record the firm has reviewed, unless travel or a claim puts them elsewhere; and the minutes and the recording can contradict the evidence but never supply it.
 
 ## What it does (three steps)
 
@@ -54,7 +56,7 @@ Muse Spark reads the whole official text and proposes rules, choosing only from 
 Measured on the official texts (Jersey statute from jerseylaw.je; IRAS company-residency guidance):
 - Every proposed rule's quote was found word for word in the source, and code refuses a quote that stops in the middle of a clause (so "meets in Jersey" cannot drop "at an adequate frequency…").
 - Muse Spark wrote the Jersey pack (quorum, meetings in Jersey, minutes, records; Art. 5(3)(a)–(e)) and the Singapore pack (at least 50% of directors with strategic authority, or the chairman, for virtual or hybrid meetings) from the raw text alone.
-- **Decided with the AI-written packs, all 41 dev and held-out meetings got the same law-level verdict as the hand-written rules, in 3 out of 3 independent runs** ([`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)).
+- **Decided with the AI-written packs, all 41 dev and held-out meetings got the same law-level verdict as the hand-written rules, in 3 out of 3 independent runs** ([`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)). After the presence rules changed on 31 October, the published pack was measured again without calling the model (`RECHECK=1`): it still agrees on all 42 meetings, including the new m12.
 - Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings … determines …*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
 
 `npx tsx scripts/build-packs.ts` reproduces this (about $0.18 for 3 runs). In live mode, *Rules written from the law* lets you paste any substance law and see the proposed rules with their quotes; *Decide with the rules Muse Spark wrote* runs a meeting with the AI-written pack instead of the hand-written rules.
@@ -68,16 +70,18 @@ The model **never decides** a legal test. The line between AI and code is delibe
 
 Every number below comes from a script in this repo (`npm run eval`); the scoreboards are in [`eval/results/`](eval/results/).
 
-**Where the answer key comes from.** The synthetic generator knows what really happened in each meeting (who stayed where, who flew when), so the truth is exact. The expected verdict for each meeting is computed by an **independent oracle** ([`scripts/oracle.ts`](scripts/oracle.ts)): a second, deliberately simple implementation of the rules that shares no code with the engine. When the documents are generated, the engine is also run on the *true* facts, and every disagreement with the oracle is reported; there are none on all 53 meetings. The scores below therefore measure the whole system (reading, matching, time zones, rules) against a key the engine did not write.
+**Where the answer key comes from.** The synthetic generator knows what really happened in each meeting (who stayed where, who flew when), so the truth is exact. The expected verdict for each meeting is computed by an **independent oracle** ([`scripts/oracle.ts`](scripts/oracle.ts)): a second, deliberately simple implementation of the rules that shares no code with the engine. When the documents are generated, the engine is also run on the *true* facts, and every disagreement with the oracle is reported; there are none on all 54 meetings. The scores below therefore measure the whole system (reading, matching, time zones, rules) against a key the engine did not write.
 
 | Set | What it is | Facts read exactly | Directors placed correctly | Meeting verdicts | Contradictions caught | Dangerous errors* |
 |---|---|---|---|---|---|---|
 | **Held-out test** | 30 randomised meetings, 110 files: e-tickets, tilted phone photos, scanned image-only minutes, prose minutes, letter-style hotel bills, airline-style names. Never used for tuning. | **165 / 166** | **85 / 86** | **30 / 30** | **27 / 27** | **0** |
-| Dev | 11 hand-written trap meetings, 3 with recordings (minutes vs recording conflicts, time-zone traps, midnight crossings, Singapore chairman route) | 82 / 82 | 37 / 37 | 11 / 11 | 8 / 8 | 0 |
+| Dev | 12 hand-written trap meetings, 3 with recordings (minutes vs recording conflicts, time-zone traps, midnight crossings, Singapore chairman route, directors who live in Jersey) | 87 / 87 | 40 / 40 | 12 / 12 | 8 / 8 | 0 |
 | **Stress** | 12 deliberately hostile meetings: blurry, dim, rotated phone photos at JPEG quality 28; handwritten-style minutes; French hotel bills; 12-hour clocks | 55 / 64 (86%) | 28 / 35 (80%) | 9 / 12 | 8 / 15 | **0** |
-| *Baseline: always answer REVIEW* | *The held-out set again, with a "tool" that never decides anything* | – | *17 / 86 ("unproven" is right for 17)* | *16 / 30* | *0 / 27* | *0* |
+| *Baseline: always answer REVIEW* | *The held-out set again, with a "tool" that never decides anything* | – | *41 / 86 ("unproven" is right for 41)* | *19 / 30* | *0 / 27* | *0* |
 
-\* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. The baseline row is there on purpose: a tool that never commits to anything also makes **0** dangerous errors, so that number alone proves nothing. What matters is getting the verdicts right (30 / 30 against 16 / 30) *while* making no dangerous errors.
+\* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. The baseline row is there on purpose: a tool that never commits to anything also makes **0** dangerous errors, so that number alone proves nothing. What matters is getting the verdicts right (30 / 30 against 19 / 30) *while* making no dangerous errors.
+
+**31 October: stricter rules, same scores.** After a buyer's review (below), a hotel bill on its own no longer proves presence, and directors who live in the jurisdiction count on a reviewed residence record. The answer keys were recomputed by the independent oracle with the same rules ([`scripts/rekey.ts`](scripts/rekey.ts); the documents did not change), and the saved model readings were scored again for free: the held-out, dev and stress numbers above are unchanged, with 0 dangerous errors. Eight meetings that used to be PASS are now REVIEW, because in each a director was placed by a hotel bill alone; this is why the baseline that always answers REVIEW now gets 19 of 30. The new dev meeting m12 (two resident directors, one who flew in) was read live once.
 
 The one held-out miss: on one e-ticket Muse Spark returned no facts at all (run-to-run variation; the same file read correctly in earlier runs). The engine treated that director as unproven, the meeting verdict was still correct (REVIEW), and nothing dangerous happened. I report the run as it came out rather than re-running until it was perfect. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
 
@@ -108,7 +112,7 @@ The check fired on 3 meetings. Once it caught a real miss: the e-ticket Muse Spa
 | Grok vs Substance Proof | **86 / 86** |
 | Substance Proof vs answer key | **86 / 86** |
 
-These labels were made on 28 October, before the company names were changed; the meetings, directors and travel are the same. Grok's answers (35 yes, 34 no, 17 cannot tell) and notes are in [`eval/results/grok-crosscheck-test-set.csv`](eval/results/grok-crosscheck-test-set.csv); score them with `npx tsx scripts/score-labels.ts <csv>`. This is a check by another AI model, not by a person.
+These labels were made on 28 October, before the company names were changed; the meetings, directors and travel are the same. They also follow the rule of that time: a hotel stay covering the meeting meant "yes". Against today's stricter key, Grok agrees on 62 / 86; all 24 differences are directors placed by a hotel bill alone, whom Grok marked "yes" and the key now marks "cannot tell". Grok's answers (35 yes, 34 no, 17 cannot tell) and notes are in [`eval/results/grok-crosscheck-test-set.csv`](eval/results/grok-crosscheck-test-set.csv); score them with `npx tsx scripts/score-labels.ts <csv>`. This is a check by another AI model, not by a person.
 
 ## Run it
 
@@ -116,7 +120,7 @@ Requirements: Node 20+ and Chrome (only for regenerating the synthetic documents
 
 ```bash
 npm install
-npm test                    # 106 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
+npm test                    # 113 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
 cp .env.example .env        # then put your own Meta Model API key in .env (never commit it)
 npm run app                 # builds the web app and serves it at http://127.0.0.1:8787
 ```
@@ -144,11 +148,26 @@ docs/            rule sources, demo script
 
 ## Not modelled (yet)
 
-Corporate directors (look-through to the individual), alternate directors, and partial attendance (a director present for only some resolutions) are not modelled; presence is judged for the whole meeting. The Art. 5(3) tests apply only to Jersey tax-resident companies carrying on a relevant activity; the tool assumes they apply. A hotel stay is supporting evidence of presence, not proof. Singapore's IRAS test is guidance ("will generally be regarded"), so a miss gives REVIEW rather than NOT MET.
+Corporate directors (look-through to the individual), alternate directors, and partial attendance (a director present for only some resolutions) are not modelled; presence is judged for the whole meeting. The Art. 5(3) tests apply only to Jersey tax-resident companies carrying on a relevant activity; the tool assumes they apply. Mauritius, Guernsey and Isle of Man places are recognised, but there are no rule packs for them yet (Mauritius looks at whether two resident directors attend, not at a quorum on the island). Singapore's IRAS test is guidance ("will generally be regarded"), so a miss gives REVIEW rather than NOT MET.
 
 ## Red-team review
 
 Before submitting, I asked an outside AI model (Grok) to act as the harshest judge and run attacks on the engine itself. It found four ways to get a false PASS from genuine-looking documents, and the model never noticed: "Jersey City, New Jersey" was read as Jersey; a spouse's boarding pass matched the director by surname; an arrival in January and a departure in December "proved" presence at a June meeting; and the ambiguous zone label "AST" was guessed. It also showed that the minutes, the hostile document, chose the meeting time and could be relabelled as a hotel bill by planted text. All of these are fixed, each with a test that reproduces the attack ([`tests/redteam.test.ts`](tests/redteam.test.ts)): places must be the Channel Island, surname-only matches are refused, arrival/departure brackets must be within 72 hours of the meeting, ambiguous zones are refused, presence is judged at the scheduled time with the minutes checked against it, and each file's role comes from the person, not the model.
+
+## Buyer review
+
+The red team asked "can it be fooled?". The second review asked "would anyone pay for it?". I gave Grok the role of a managing director of a Jersey trust company with a Mauritius office and about 300 client companies, and told it to test everything in the key-free recorded mode and decide whether it would buy. It ran the app, took 44 screenshots, ran 11 real-life cases against the engine, and checked the demo's quotes against the PDFs. Its answer: not as a subscription today; a small paid pilot first. Its biggest finds, all fixed with tests in [`tests/redteam.test.ts`](tests/redteam.test.ts):
+
+- **A hotel bill alone gave a false PASS** (a room booked for a director who never came). It now only supports presence; a flight within 72 hours, or a residence record, is needed to prove it.
+- **Directors who live in Jersey could never be shown as present**, so a normal board of locals always went to REVIEW. A reviewed residence record now counts, unless travel or a claim puts them elsewhere (demo meeting m12).
+- **"Jersey Road, Hounslow, London" was read as Jersey.** An address that names two places is now refused; Jersey parishes and postcodes, and Mauritius, Guernsey and Isle of Man places, are known.
+- **A blank quorum on the upload form became 2.** The quorum from the articles is now required.
+- **The printed memo was not a file note.** It now has preparer and reviewer lines, a SHA-256 fingerprint of every file, the rules and models used, the limits of the check, and only the approved drafts. Approvals survive a reload.
+- **"PASS" read like a legal conclusion.** It is shown as EVIDENCED, with what exactly is evidenced.
+
+### What a regulated firm would still need
+
+From the same review. None of this is built; it is listed so nobody mistakes the demo for a product a firm can deploy today: a written data-processing agreement and a list of sub-processors (Meta, and NVIDIA when the second reader is on); a JFSC outsourcing notification pack; user accounts, roles and an audit log; saved cases that can be reproduced years later (the Comptroller can decide that a period failed the test up to six years after it ended, Art. 6(1)); a company and director register with the quorum from the articles; a year view that answers the economic substance return's questions on board meetings; bulk intake; an attendance register signed on the day; reminders and a portal for directors to send their evidence; rule packs for Mauritius, Guernsey, the Isle of Man, BVI and Cayman, reviewed by counsel; and running the models inside the firm. Above all, it needs measuring on real board packs: every number above is on synthetic documents.
 
 ## Built during the hackathon
 
@@ -165,7 +184,7 @@ The minutes are written by the party that wants a PASS, so the review treats eve
 - Synthetic data only in the demo. Do not upload real client documents to a third-party API without your organisation's approval.
 - Calls use Muse Spark in **Standard** mode (`muse-spark-1.3`), never Contributor mode, which would let Meta train on the documents. Every request sets `store: false`, and the agent does not rely on server-side conversation state, so the whole pipeline is compatible with Meta's Zero Data Retention. Uploaded packs are deleted from `uploads/` 24 hours after they were analysed.
 - The optional second reader (Muse Glimmer) is off unless `NVIDIA_API_KEY` is set. When it is on, documents also go to NVIDIA's hosted API; Glimmer is open-weight, so for real documents it can run on the firm's own hardware instead.
-- Photos and scans are redacted by SAM 3.1 (QR codes, barcodes, faces, signatures) before Muse Spark reads them. If redaction fails, the image is not sent at all.
+- Photos and scans are redacted by SAM 3.1 (QR codes, barcodes, faces, signatures) before Muse Spark reads them. If redaction fails, the image is not sent to Muse Spark at all. SAM itself runs on Meta's API, so Meta does receive the original photo in order to find what to black out; only the reader gets the blacked-out copy.
 - Board packs contain personal data (names, travel, hotel stays, voices). Using this on real clients needs a lawful basis and a cross-border transfer assessment under the applicable law (for example GDPR / UK GDPR, the Data Protection (Jersey) Law 2018, Singapore's PDPA or Mauritius's Data Protection Act 2017). That assessment is not part of this hackathon project.
 - The model output is validated by a strict JSON schema and again by code; the agent can only draft, and every draft needs a human decision.
 - The app never gives a legal conclusion in its drafts: a guardrail rejects agent messages that state an outcome.

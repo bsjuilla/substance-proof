@@ -97,7 +97,7 @@
     "presence": [
       {
         "directorId": "A",
-        "status": "present"
+        "status": "unknown"
       },
       {
         "directorId": "B",

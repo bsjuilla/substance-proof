@@ -1,4 +1,5 @@
-// Place code -> jurisdiction. Small on purpose: only places used by the demo and tests.
+// Place code -> jurisdiction. Small on purpose: the places used by the demo and tests, plus the other offshore
+// centres a Jersey or Mauritius firm deals with.
 // Unknown codes return undefined so the engine reports "unknown", never guesses.
 
 const PLACES: Record<string, string> = {
@@ -22,7 +23,9 @@ const PLACES: Record<string, string> = {
   "CITY:LONDON": "GB",
   // Guernsey / Isle of Man
   GCI: "GG",
+  "CITY:STPETERPORT": "GG",
   IOM: "IM",
+  "CITY:DOUGLAS": "IM",
   // Others used in synthetic travel
   CDG: "FR",
   "CITY:PARIS": "FR",
@@ -44,6 +47,7 @@ export function jurisdictionOf(placeCode: string): string | undefined {
 const PLACE_NAMES: Record<string, string> = {
   "CITY:STHELIER": "St Helier", "CITY:JERSEY": "Jersey", "CITY:SINGAPORE": "Singapore", "CITY:DUBAI": "Dubai",
   "CITY:LONDON": "London", "CITY:HONGKONG": "Hong Kong", "CITY:PARIS": "Paris", "CITY:PORTLOUIS": "Port Louis", "CITY:BRIDGETOWN": "Bridgetown",
+  "CITY:STPETERPORT": "St Peter Port", "CITY:DOUGLAS": "Douglas",
 };
 
 /** Human-readable place: "CITY:STHELIER" -> "St Helier"; airport codes stay as codes ("JER"). */

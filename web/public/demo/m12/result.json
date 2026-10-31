@@ -1,0 +1,282 @@
+{
+ "id": "m12",
+ "createdAt": "2026-10-31T09:56:57.750Z",
+ "model": "muse-spark-1.3",
+ "mode": "replay",
+ "company": {
+  "id": "HM-JE",
+  "name": "Harrowmere Holdings (Jersey) Limited",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Alice Marlowe",
+    "hasStrategicAuthority": true,
+    "isChair": true,
+    "residentIn": "JE",
+    "residenceRecord": "Jersey residence confirmation, reviewed 14 Jan 2026"
+   },
+   {
+    "id": "B",
+    "name": "Bruno Castell",
+    "hasStrategicAuthority": true,
+    "isChair": false
+   },
+   {
+    "id": "C",
+    "name": "Chandra Velloso",
+    "hasStrategicAuthority": true,
+    "isChair": false,
+    "residentIn": "JE",
+    "residenceRecord": "Jersey residence confirmation, reviewed 14 Jan 2026"
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "m12",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "m12/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "855a55c9a2ba9afa998e7bcd949b76e30d80c3d6f058bfa741f2826c13b9f1b6"
+  },
+  {
+   "docId": "m12/stay/folio_B_STHELIER.pdf",
+   "kind": "hotel_folio",
+   "sha256": "7952303143976addfd65dee0ac8e4e600460f8e0070f797d93db51b079d24d9e"
+  },
+  {
+   "docId": "m12/travel/BP_B_LHR-JER.png",
+   "kind": "boarding_pass",
+   "sha256": "a332b760c5b0f01aee66298106471359b0e004bcf78335ce5da642574272d5ca",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 948,
+     "y1": 460,
+     "x2": 1315,
+     "y2": 555,
+     "w": 1360,
+     "h": 600,
+     "c": 0.9452055096626282
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m12/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m12/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "m12/minutes.pdf",
+    "page": 1,
+    "quote": "present in St Helier"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "checkInUtc": "2026-03-11T15:00:00Z",
+   "checkOutUtc": "2026-03-13T09:00:00Z",
+   "cite": {
+    "docId": "m12/stay/folio_B_STHELIER.pdf",
+    "page": 1,
+    "quote": "11 Mar 2026 15:00 (GMT)"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "LHR",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T12:25:00Z",
+   "arriveUtc": "2026-03-11T13:30:00Z",
+   "cite": {
+    "docId": "m12/travel/BP_B_LHR-JER.png",
+    "page": 1,
+    "quote": "FROM LHR London Heathrow TO JER Jersey Airport DATE 11 Mar 2026 DEPARTS (local GMT) 12:25 ARRIVES (local GMT) 13:30"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "m12",
+  "jurisdiction": "JE",
+  "verdict": "PASS",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "resident",
+    "reason": "Lives in Jersey (Jersey residence confirmation, reviewed 14 Jan 2026); no travel evidence or claim places this director elsewhere.",
+    "cites": [
+     {
+      "docId": "m12/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "hotel stay in St Helier covers the whole meeting, backed by the arrival JER.",
+    "cites": [
+     {
+      "docId": "m12/stay/folio_B_STHELIER.pdf",
+      "page": 1,
+      "quote": "11 Mar 2026 15:00 (GMT)"
+     },
+     {
+      "docId": "m12/travel/BP_B_LHR-JER.png",
+      "page": 1,
+      "quote": "FROM LHR London Heathrow TO JER Jersey Airport DATE 11 Mar 2026 DEPARTS (local GMT) 12:25 ARRIVES (local GMT) 13:30"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "present",
+    "basis": "resident",
+    "reason": "Lives in Jersey (Jersey residence confirmation, reviewed 14 Jan 2026); no travel evidence or claim places this director elsewhere.",
+    "cites": [
+     {
+      "docId": "m12/minutes.pdf",
+      "page": 1,
+      "quote": "present in St Helier"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 3 present, 0 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 3 present, 0 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (5/5 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I checked the gaps for Harrowmere Holdings (Jersey) Limited for 12 March 2026. I prepared no drafts because no missing evidence or conflicts were listed.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": []
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.038,
+ "seconds": 31,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 3,
+  "unread": [],
+  "agreed": 5,
+  "total": 5,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

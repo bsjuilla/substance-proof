@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Timeline } from "./Timeline";
 import { Viewer } from "./Viewer";
 import { verdictWord, type Citation, type Draft, type Loaded, type TestResult } from "./types";
@@ -22,11 +22,42 @@ function headline(r: Loaded["result"]): string {
   if (guidanceFails.length) parts.push(`guidance-level test not met: ${guidanceFails.join("; ")}`);
   const timing = ev.tests.find((t) => t.basis === "evidence" && t.status === "fail");
   if (timing) parts.push(timing.detail);
-  if (ev.verdict === "PASS") return "Every rule test is met by independent evidence, and the minutes match it.";
+  if (ev.verdict === "PASS") return "Every rule test is met by travel evidence or a reviewed residence record, and the minutes match it.";
   return parts.join(". ") + ".";
 }
 
 /** One mark per director: a check where evidence places them in the jurisdiction, a cross elsewhere, ? unproven. */
+/** The big line next to the verdict word. For an evidenced meeting it says exactly what is evidenced, not "pass". */
+function verdictLine(r: Loaded["result"]): string {
+  const ev = r.evaluation;
+  if (ev.verdict === "FAIL") return "For this meeting, the evidence does not show a condition in the law being met.";
+  if (ev.verdict === "REVIEW") return "Needs a person to review before relying on these minutes.";
+  const present = ev.presence.filter((p) => p.status === "present").length;
+  return r.jurisdiction === "JE"
+    ? `Quorum physically present in Jersey: evidenced (${present} present, ${r.company.quorumRequired} needed).`
+    : `Physical presence in Singapore: evidenced for ${present} of ${ev.presence.length} directors.`;
+}
+
+/** Approvals are kept in this browser, per meeting, so a reload does not lose them. */
+function useDecisions(runId: string) {
+  const key = `sp-decisions-${runId}`;
+  const [decisions, setDecisions] = useState<Record<string, "approved" | "declined">>(() => {
+    try {
+      return JSON.parse(localStorage.getItem(key) ?? "{}");
+    } catch {
+      return {};
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem(key, JSON.stringify(decisions));
+    } catch {
+      /* storage blocked: decisions last for this visit only */
+    }
+  }, [key, decisions]);
+  return [decisions, setDecisions] as const;
+}
+
 function QuorumMeter({ result }: { result: Loaded["result"] }) {
   const ev = result.evaluation;
   const marks = ev.presence.map((p) => ({ id: p.directorId, s: p.status }));
@@ -44,7 +75,7 @@ function QuorumMeter({ result }: { result: Loaded["result"] }) {
 export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void }) {
   const { result, fileBase } = loaded;
   const [cite, setCite] = useState<(Citation & { directorId?: string }) | null>(null);
-  const [decisions, setDecisions] = useState<Record<string, "approved" | "declined">>({});
+  const [decisions, setDecisions] = useDecisions(result.id);
   const ev = result.evaluation;
   const decide = (d: Draft, v: "approved" | "declined") => setDecisions((s) => ({ ...s, [d.id]: v }));
   const failCount = ev.tests.filter((t) => t.status === "fail").length;
@@ -61,9 +92,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
         </div>
       </div>
 
-      <div className="print-only">
-        <p><b>Substance Proof — evidence memo.</b> Information and calculation from published rules; not legal or tax advice. Generated {new Date(result.createdAt).toUTCString()}.</p>
-      </div>
+      <FileNote result={result} approved={(result.agent?.drafts ?? []).filter((d) => decisions[d.id] === "approved").length} drafts={result.agent?.drafts.length ?? 0} />
 
       <section className="stack" aria-labelledby="co-h">
         <p className="muted" style={{ fontSize: "var(--step--1)" }}>{NAMES[result.jurisdiction]} · board meeting of {result.meetingDateText} · {result.meeting.mode.replace("_", " ")}{result.meeting.isStrategic ? " · strategic decisions taken" : ""}</p>
@@ -76,8 +105,9 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
         <div className={`verdict ${ev.verdict}`} role="status">
           <span className="word"><StatusIcon s={ev.verdict} /> {verdictWord(ev.verdict)}</span>
           <div className="verdict-text">
-            <p><b>{ev.verdict === "FAIL" ? "For this meeting, the evidence does not show a condition in the law being met." : ev.verdict === "REVIEW" ? "Needs a person to review before relying on these minutes." : "Presence tests met."}</b></p>
+            <p><b>{verdictLine(result)}</b></p>
             <p>{headline(result)}</p>
+            <p className="small muted">Decision support, not a legal conclusion: a reviewer checks the cited documents and signs before the firm relies on it.</p>
           </div>
           <QuorumMeter result={result} />
         </div>
@@ -153,7 +183,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
           {result.agent?.drafts.map((d) => {
             const state = decisions[d.id];
             return (
-              <article key={d.id} className={`draft ${state ?? ""}`} aria-label={`${d.kind === "evidence_request" ? "Evidence request" : "Minutes correction"} for ${d.directorName}`}>
+              <article key={d.id} className={`draft ${state ?? ""}${state === "approved" ? "" : " no-print"}`} aria-label={`${d.kind === "evidence_request" ? "Evidence request" : "Minutes correction"} for ${d.directorName}`}>
                 <div className="row" style={{ justifyContent: "space-between" }}>
                   <span className="badge">{d.kind === "evidence_request" ? "Evidence request" : "Minutes correction"} · {d.directorName}</span>
                   <span className={`draft-state ${state ?? "waiting"}`}>{state === "approved" ? <><Icon name="check" /> Approved (demo: not actually sent)</> : state === "declined" ? "Declined" : <><Icon name="dot" /> Awaiting your approval</>}</span>
@@ -201,6 +231,42 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
       )}
 
       <Viewer cite={cite} result={result} fileBase={fileBase} onClose={() => setCite(null)} />
+    </div>
+  );
+}
+
+/** Printed only: the memo as a file note. Who prepared and reviewed it, what was checked (with a fingerprint of every
+ *  file), what produced the result, and what it does not cover. Unapproved drafts are left out of the print. */
+function FileNote({ result, approved, drafts }: { result: Loaded["result"]; approved: number; drafts: number }) {
+  const pv = result.provenance;
+  return (
+    <div className="print-only file-note">
+      <p><b>Substance Proof · evidence memo (file note)</b></p>
+      <table>
+        <tbody>
+          <tr><th scope="row">Company</th><td>{result.company.name}</td></tr>
+          <tr><th scope="row">Meeting</th><td>{result.meetingDateText} · {NAMES[result.jurisdiction] ?? result.jurisdiction} · {result.meeting.mode.replace("_", " ")} · quorum in the articles: {result.company.quorumRequired}</td></tr>
+          <tr><th scope="row">Result</th><td>{verdictWord(result.evaluation.verdict)}: {verdictLine(result)}</td></tr>
+          <tr><th scope="row">Analysed</th><td>{new Date(result.createdAt).toUTCString()} ({result.mode === "replay" ? "recorded live run" : "live run"})</td></tr>
+          {pv && <tr><th scope="row">Rules</th><td>{pv.rules} · {pv.engine}</td></tr>}
+          {pv && <tr><th scope="row">Models</th><td>{pv.models.join("; ")}</td></tr>}
+          {result.company.directors.some((d) => d.residentIn) && (
+            <tr><th scope="row">Residence records</th><td>{result.company.directors.filter((d) => d.residentIn).map((d) => `${d.name}: ${d.residenceRecord ?? "on file"}`).join("; ")}</td></tr>
+          )}
+          <tr><th scope="row">Prepared by</th><td className="sign">Name ____________________ Date __________</td></tr>
+          <tr><th scope="row">Reviewed by</th><td className="sign">Name ____________________ Signature ____________________ Date __________</td></tr>
+        </tbody>
+      </table>
+      <p className="small"><b>Documents checked</b> (SHA-256 of each file as supplied):</p>
+      <ul className="small mono">
+        {result.docs.map((d) => <li key={d.docId}>{d.docId.split("/").slice(1).join("/") || d.docId}: {d.sha256 ?? "fingerprint not recorded"}</li>)}
+      </ul>
+      <p className="small">
+        <b>Scope and limits.</b> Presence at this one meeting only, from the documents listed. A hotel stay alone supports
+        presence but does not prove it. Not assessed: adequate frequency of meetings over the year, directors' knowledge and
+        expertise, partial attendance, alternate and corporate directors. Information and calculation from published rules;
+        not legal or tax advice. Drafted requests included below: {approved} approved of {drafts} (unapproved drafts are not printed).
+      </p>
     </div>
   );
 }

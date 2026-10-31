@@ -13,16 +13,16 @@ Record your screen (Windows: press **Win + Alt + R** with the Xbox Game Bar, or 
 ### 0:35–1:20 · The case (show: click "Open the case"; this is a recorded live run)
 > "This is a recorded run of Meta's models on the meeting pack: the minutes, the travel documents, hotel bills and the meeting recording. Muse Spark reads every document, even phone photos and scans, and Muse Voice Transcribe turns the recording into a roll-call. Every fact comes back with the words it was read from."
 (Scroll to the timeline.)
-> "Alice: a hotel in St Helier covers the whole meeting. Bruno: the minutes say St Helier, but his hotel bill and his own words on the recording say Dubai." (Click the recording chip, let it play 3 seconds.) "Chandra: her e-ticket shows she was still in the air from London when the meeting ended."
+> "Alice: a hotel in St Helier covers the meeting, but a hotel bill alone doesn't prove she was there, so she stays unproven. Bruno: the minutes say St Helier, but his hotel bill and his own words on the recording say Dubai." (Click the recording chip, let it play 3 seconds.) "Chandra: her e-ticket shows she was still in the air from London when the meeting ended."
 
 ### 1:20–1:50 · The rules (show: Rule tests)
-> "The AI doesn't decide. Tested code applies the published rule: the company's own quorum is two, and the evidence shows only one director physically in Jersey, so this meeting doesn't meet the test. Stricter points from guidance are labelled separately."
+> "The AI doesn't decide. Tested code applies the published rule: the company's own quorum is two, and the evidence puts two of the three directors outside Jersey, so this meeting can't meet the test. Stricter points from guidance are labelled separately."
 
 ### 1:50–2:15 · The agent (show: drafts, click Approve on one, open the tool calls)
 > "An agent built on Muse Spark's tool calling drafts corrections for the company secretary, quoting both sides. Code checks every tool call, and nothing is sent until a person approves."
 
 ### 2:15–2:45 · Proof it works (show: README results table, then tests/redteam.test.ts briefly)
-> "On thirty held-out synthetic meetings, scored against an answer key the engine didn't write, it got every verdict right and made zero dangerous errors. I also had another AI attack it. It found four ways to fake a pass, like reading 'Jersey City, New Jersey' as Jersey. Every one is fixed and is now a test."
+> "On thirty held-out synthetic meetings, scored against an answer key the engine didn't write, it got every verdict right and made zero dangerous errors. I also had another AI attack it. It found four ways to fake a pass, like reading 'Jersey City, New Jersey' as Jersey. Every one is fixed and is now a test. Then I had it play a trust-company director deciding whether to buy, and fixed what it found: a hotel bill alone no longer counts as proof, and directors who live in Jersey count on their residence record."
 
 ### 2:45–3:00 · Close (show: the hero verdict again)
 > "Substance Proof: the minutes say the board met in Jersey. Now you can check. Built with Muse Spark and Muse Voice Transcribe."

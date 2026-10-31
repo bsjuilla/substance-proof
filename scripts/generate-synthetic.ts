@@ -19,6 +19,7 @@ const ROOT = join(import.meta.dirname, "..", "synthetic", "generated", SET);
 const PACKS = join(ROOT, "packs");
 const ANSWERS = join(ROOT, "answers");
 const LABELLER = join(ROOT, "labeller");
+const ONLY = process.argv.slice(3); // e.g. `npm run gen -- dev m12`: add only these meetings, keep the rest of the set
 
 const PLACES: Record<string, { tz: string; city: string; airport?: string }> = {
   JER: { tz: "Europe/Jersey", city: "Jersey", airport: "Jersey Airport" },
@@ -286,9 +287,10 @@ function makeRecording(s: Scenario, outWav: string) {
 
 async function main() {
   if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME}`);
-  rmSync(ROOT, { recursive: true, force: true });
+  if (!ONLY.length) rmSync(ROOT, { recursive: true, force: true });
   for (const d of [PACKS, ANSWERS, LABELLER]) mkdirSync(d, { recursive: true });
-  const scenarios = SET === "test" ? buildTestScenarios() : SET === "stress" ? buildTestScenarios(424242, 12, true) : SCENARIOS;
+  const all = SET === "test" ? buildTestScenarios() : SET === "stress" ? buildTestScenarios(424242, 12, true) : SCENARIOS;
+  const scenarios = ONLY.length ? all.filter((s) => ONLY.includes(s.id)) : all;
   const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ["--no-sandbox"] });
   const p = await browser.newPage();
   const labelRows = ["meeting,director,place_to_check,physically_there_during_whole_meeting (yes/no/cannot_tell),note"];
@@ -356,6 +358,10 @@ async function main() {
     console.log(`${s.id}  ${s.jurisdiction}  ${expected.verdict.padEnd(6)}  [${style.minutes}/${style.boardingPass}/${style.folio}/${style.passengerName}]  ${s.trap}`);
   }
   await browser.close();
+  if (ONLY.length) {
+    console.log(`\nAdded ${scenarios.map((s) => s.id).join(", ")} to ${SET}. Engine-on-truth vs independent oracle: ${rulesDisagree} disagreement(s).`);
+    return;
+  }
 
   writeFileSync(join(LABELLER, "labels_template.csv"), labelRows.join("\n") + "\n");
   writeFileSync(join(LABELLER, "INSTRUCTIONS.md"), `# Labeller instructions (about 1 hour)

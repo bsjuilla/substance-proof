@@ -278,6 +278,29 @@ export const SCENARIOS: Scenario[] = [
       { speaker: "A", text: "First item: the proposed acquisition of a forty per cent interest in Vantrell Logistics." },
     ],
   },
+  {
+    // The usual Jersey board: two directors live on the island (no travel, so no boarding pass or hotel bill), and
+    // one flies in. The firm holds reviewed residence records for the two locals. The visitor's hotel bill counts
+    // because his boarding pass shows him landing in Jersey the day before.
+    id: "m12",
+    jurisdiction: "JE",
+    trap: "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before and stayed in St Helier. Quorum evidenced.",
+    company: JE_CO(["A", "B", "C"], {
+      id: "HM-JE",
+      name: "Harrowmere Holdings (Jersey) Limited",
+      directors: dirs(["A", "B", "C"], true, "A").map((d) =>
+        d.id === "B" ? d : { ...d, residentIn: "JE", residenceRecord: "Jersey residence confirmation, reviewed 14 Jan 2026" },
+      ),
+    }),
+    meeting: jeMeeting("m12", { isStrategic: true }),
+    minutesClaims: { A: claimJe, B: claimJe, C: claimJe },
+    travel: {
+      B: [
+        { type: "flight", origin: "LHR", dest: "JER", departUtc: "2026-03-11T12:25:00Z", arriveUtc: "2026-03-11T13:30:00Z", flightNo: "SA 219" },
+        inJersey(),
+      ],
+    },
+  },
 ];
 
 export { NAMES };

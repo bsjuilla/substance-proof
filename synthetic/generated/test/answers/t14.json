@@ -179,7 +179,7 @@
       },
       {
         "directorId": "D",
-        "status": "present"
+        "status": "unknown"
       }
     ],
     "contradictions": [

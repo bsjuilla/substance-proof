@@ -53,6 +53,18 @@ function lawLevelVerdict(tests: ReturnType<typeof runPack>, contradictions: numb
 }
 
 async function main() {
+  // RECHECK=1: no model call. Re-measure the published packs (run 1) against the hand-written rules after an engine
+  // change, and record the result next to the original runs.
+  if (process.env.RECHECK) {
+    const published = Object.fromEntries(SOURCES.map((s) => [s.code, JSON.parse(readFileSync(join(OUT, `${s.code}.json`), "utf8")) as BuildResult]));
+    const { agreement, disagreements } = agreementFor(published);
+    const file = join(ROOT, "eval", "results", "rulepack-agreement.json");
+    const summary = JSON.parse(readFileSync(file, "utf8"));
+    summary.recheck = { at: new Date().toISOString(), what: "published packs (run 1) re-measured after the presence rules changed", agreement, disagreements };
+    writeFileSync(file, JSON.stringify(summary, null, 2));
+    console.log({ recheck: agreement, disagreements });
+    return;
+  }
   const { client, model } = makeClient();
   mkdirSync(OUT, { recursive: true });
   const RUNS = Number(process.env.RUNS ?? 3);
@@ -114,7 +126,7 @@ function agreementFor(built: Record<string, BuildResult>) {
       const hand = evaluateMeeting(company, meeting, facts, j);
       const handLaw = verdictFrom(hand.tests.filter((t) => t.basis !== "guidance"), hand.contradictions.length);
       const pack: RulePack = { ...built[j].pack, tests: built[j].approvedTests };
-      const presence = meeting.attendeeIds.map((id) => resolvePresence(id, meeting, facts, j));
+      const presence = meeting.attendeeIds.map((id) => resolvePresence(id, meeting, facts, j, company.directors.find((d) => d.id === id)));
       const packTests = runPack(pack, company, meeting, presence);
       const packLaw = lawLevelVerdict(packTests, presence.filter((p) => p.contradiction || p.claimConflict).length);
       rows.push({ set, id: ans.scenario.id, j, hand: handLaw, pack: packLaw, agree: handLaw === packLaw });

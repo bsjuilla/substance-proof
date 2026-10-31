@@ -1,0 +1,136 @@
+{
+  "scenario": {
+    "id": "m12",
+    "trap": "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before and stayed in St Helier. Quorum evidenced.",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "HM-JE",
+    "name": "Harrowmere Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Alice Marlowe",
+        "hasStrategicAuthority": true,
+        "isChair": true,
+        "residentIn": "JE",
+        "residenceRecord": "Jersey residence confirmation, reviewed 14 Jan 2026"
+      },
+      {
+        "id": "B",
+        "name": "Bruno Castell",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Chandra Velloso",
+        "hasStrategicAuthority": true,
+        "isChair": false,
+        "residentIn": "JE",
+        "residenceRecord": "Jersey residence confirmation, reviewed 14 Jan 2026"
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "m12",
+    "startUtc": "2026-03-12T09:00:00Z",
+    "endUtc": "2026-03-12T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "LHR",
+      "destCode": "JER",
+      "departUtc": "2026-03-11T12:25:00Z",
+      "arriveUtc": "2026-03-11T13:30:00Z",
+      "cite": {
+        "docId": "m12/travel/BP_B_LHR-JER.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-11T15:00:00Z",
+      "checkOutUtc": "2026-03-13T09:00:00Z",
+      "cite": {
+        "docId": "m12/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m12/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m12/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "m12/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "PASS",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present"
+      },
+      {
+        "directorId": "B",
+        "status": "present"
+      },
+      {
+        "directorId": "C",
+        "status": "present"
+      }
+    ],
+    "contradictions": [],
+    "why": "every test met by independent evidence and no claim contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

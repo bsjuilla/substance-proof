@@ -99,7 +99,7 @@
       },
       {
         "directorId": "B",
-        "status": "present"
+        "status": "unknown"
       }
     ],
     "contradictions": [],

@@ -125,7 +125,7 @@
     "presence": [
       {
         "directorId": "A",
-        "status": "present"
+        "status": "unknown"
       },
       {
         "directorId": "B",
@@ -133,7 +133,7 @@
       },
       {
         "directorId": "C",
-        "status": "present"
+        "status": "unknown"
       }
     ],
     "contradictions": [
@@ -141,7 +141,7 @@
         "directorId": "B"
       }
     ],
-    "why": "a claim in the minutes or recording is contradicted",
+    "why": "a test is not met at guidance level or cannot be proven",
     "source": "independent oracle (scripts/oracle.ts)"
   }
 }

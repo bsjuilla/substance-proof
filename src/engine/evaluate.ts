@@ -21,7 +21,9 @@ export function evaluateMeeting(
   facts: Fact[],
   jurisdiction: Jurisdiction,
 ): MeetingEvaluation {
-  const presence = meeting.attendeeIds.map((id) => resolvePresence(id, meeting, facts, jurisdiction));
+  const presence = meeting.attendeeIds.map((id) =>
+    resolvePresence(id, meeting, facts, jurisdiction, company.directors.find((d) => d.id === id)),
+  );
   const tests =
     jurisdiction === "JE"
       ? jerseyMeetingTests(company, meeting, presence)

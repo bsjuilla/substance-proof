@@ -190,8 +190,17 @@ const server = createServer(async (req, res) => {
       const s = body.setup ?? {};
       const j = s.jurisdiction === "SG" ? "SG" : "JE";
       const directors = (s.directors ?? []).filter((d: any) => d?.name?.trim()).slice(0, 12)
-        .map((d: any, i: number) => ({ id: String.fromCharCode(65 + i), name: String(d.name).trim().slice(0, 80), isChair: !!d.isChair, hasStrategicAuthority: d.strategic !== false }));
+        .map((d: any, i: number) => ({
+          id: String.fromCharCode(65 + i), name: String(d.name).trim().slice(0, 80), isChair: !!d.isChair, hasStrategicAuthority: d.strategic !== false,
+          // "Lives in the jurisdiction, proof on file": the person confirms they hold a reviewed residence record.
+          ...(d.resident ? { residentIn: j, residenceRecord: String(d.residenceRecord || "Residence record on file (confirmed by the user)").trim().slice(0, 120) } : {}),
+        }));
       if (directors.length === 0) return send(res, 400, { error: "Add at least one director." });
+      // The quorum comes from the company's articles. It is never assumed: a wrong default could pass a meeting.
+      const quorum = Number(s.quorum);
+      if (!Number.isInteger(quorum) || quorum < 1 || quorum > directors.length) {
+        return send(res, 400, { error: `Enter the quorum from the company's articles (a whole number from 1 to ${directors.length}).` });
+      }
       const files: { name: string; base64: string; role?: string }[] = (body.files ?? []).slice(0, 40);
       if (files.length === 0) return send(res, 400, { error: "Add the meeting documents." });
       const runId = randomUUID();
@@ -210,7 +219,7 @@ const server = createServer(async (req, res) => {
       });
       const company: Company = {
         id: "UPLOAD", name: String(s.companyName || "Uploaded company").slice(0, 120), directors,
-        quorumRequired: Math.max(1, Math.min(12, Number(s.quorum) || 2)), options: {},
+        quorumRequired: quorum, options: {},
       };
       // Scheduled time as entered by the user (local time where the board meets). If it is missing, the minutes'
       // own time is used and the report flags that it was not independently checked.

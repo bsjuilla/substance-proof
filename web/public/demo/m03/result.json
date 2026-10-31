@@ -1,6 +1,6 @@
 {
  "id": "m03",
- "createdAt": "2026-10-31T07:20:00.155Z",
+ "createdAt": "2026-10-31T09:57:36.006Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -49,19 +49,23 @@
  "docs": [
   {
    "docId": "m03/minutes.pdf",
-   "kind": "minutes"
+   "kind": "minutes",
+   "sha256": "d99f6976a9437691a85203bb64f2c6252499cfd9d5d435141b27dfd145252bbf"
   },
   {
    "docId": "m03/stay/folio_A_STHELIER.pdf",
-   "kind": "hotel_folio"
+   "kind": "hotel_folio",
+   "sha256": "45443f2dfd9d04cb82703b4519fc178501d45868d37be95dcda42beeac25745a"
   },
   {
    "docId": "m03/stay/folio_C_STHELIER.pdf",
-   "kind": "hotel_folio"
+   "kind": "hotel_folio",
+   "sha256": "9a8263d60b290d74f2fe9a023a6d213b8df025eca5fcdd6d4218a3942479cc54"
   },
   {
    "docId": "m03/travel/BP_B_JER-LHR.png",
    "kind": "boarding_pass",
+   "sha256": "1ea8778a611710eb0c682446324317f3c1c12c8072c5252b4b1efffabaee0aec",
    "redactions": [
     {
      "label": "qr code",
@@ -119,7 +123,7 @@
    "cite": {
     "docId": "m03/stay/folio_A_STHELIER.pdf",
     "page": 1,
-    "quote": "Arrival 11 Mar 2026 15:00 (GMT)"
+    "quote": "11 Mar 2026 15:00 (GMT)"
    }
   },
   {
@@ -144,7 +148,7 @@
    "cite": {
     "docId": "m03/travel/BP_B_JER-LHR.png",
     "page": 1,
-    "quote": "FROM JER → TO LHR Jersey Airport London Heathrow PASSENGER BRUNO CASTELL FLIGHT SA 411 DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+    "quote": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
    }
   }
  ],
@@ -156,14 +160,14 @@
   "presence": [
    {
     "directorId": "A",
-    "status": "present",
-    "basis": "independent",
-    "reason": "hotel stay in St Helier covers the whole meeting.",
+    "status": "unknown",
+    "basis": "hotel_only",
+    "reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
     "cites": [
      {
       "docId": "m03/stay/folio_A_STHELIER.pdf",
       "page": 1,
-      "quote": "Arrival 11 Mar 2026 15:00 (GMT)"
+      "quote": "11 Mar 2026 15:00 (GMT)"
      }
     ]
    },
@@ -176,7 +180,7 @@
      {
       "docId": "m03/travel/BP_B_JER-LHR.png",
       "page": 1,
-      "quote": "FROM JER → TO LHR Jersey Airport London Heathrow PASSENGER BRUNO CASTELL FLIGHT SA 411 DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+      "quote": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
      },
      {
       "docId": "m03/minutes.pdf",
@@ -191,9 +195,9 @@
    },
    {
     "directorId": "C",
-    "status": "present",
-    "basis": "independent",
-    "reason": "hotel stay in St Helier covers the whole meeting.",
+    "status": "unknown",
+    "basis": "hotel_only",
+    "reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
     "cites": [
      {
       "docId": "m03/stay/folio_C_STHELIER.pdf",
@@ -207,10 +211,10 @@
    {
     "id": "JE-quorum",
     "label": "Quorum of directors physically present in Jersey",
-    "status": "pass",
+    "status": "inconclusive",
     "basis": "law",
     "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
-    "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+    "detail": "Quorum under the articles is 2. Evidence: 0 present, 1 absent, 2 unproven."
    },
    {
     "id": "JE-minutes-strategic",
@@ -263,7 +267,7 @@
      {
       "docId": "m03/travel/BP_B_JER-LHR.png",
       "page": 1,
-      "quote": "FROM JER → TO LHR Jersey Airport London Heathrow PASSENGER BRUNO CASTELL FLIGHT SA 411 DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+      "quote": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
      },
      {
       "docId": "m03/minutes.pdf",
@@ -282,11 +286,45 @@
   "drafts": [
    {
     "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "A",
+    "directorName": "Alice Marlowe",
+    "subject": "Request for documents for 12 March 2026 meeting",
+    "message": "Dear Alice Marlowe, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill covering the meeting date"
+    ],
+    "citations": [
+     "m03/stay/folio_A_STHELIER.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   },
+   {
+    "id": "D2",
+    "kind": "evidence_request",
+    "directorId": "C",
+    "directorName": "Chandra Velloso",
+    "subject": "Request for documents for 12 March 2026 meeting",
+    "message": "Dear Chandra Velloso, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill covering the meeting date"
+    ],
+    "citations": [
+     "m03/stay/folio_C_STHELIER.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   },
+   {
+    "id": "D3",
     "kind": "minutes_correction",
     "directorId": "B",
     "directorName": "Bruno Castell",
-    "subject": "Minutes review for 12 March 2026 - Bruno Castell",
-    "message": "Please review the minutes record for Bruno Castell for the meeting on 12 March 2026. The minutes from m03/minutes.pdf state \"present in St Helier\". The evidence from m03/travel/BP_B_JER-LHR.png states \"FROM JER → TO LHR Jersey Airport London Heathrow PASSENGER BRUNO CASTELL FLIGHT SA 411 DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review and advise.",
+    "subject": "Review of minutes entry for 12 March 2026 meeting",
+    "message": "Dear Company Secretary, For Bruno Castell, the minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review the minutes record for the meeting on 12 March 2026.",
     "citations": [
      "m03/travel/BP_B_JER-LHR.png#p1",
      "m03/minutes.pdf#p1"
@@ -294,7 +332,7 @@
     "status": "awaiting_approval"
    }
   ],
-  "summary": "I prepared one minutes correction draft for Bruno Castell for the meeting on 12 March 2026. No evidence request drafts were needed.\n",
+  "summary": "I prepared draft evidence requests for Alice Marlowe and Chandra Velloso for the meeting on 12 March 2026. I also prepared a draft minutes correction note for Bruno Castell regarding the conflicting location record.\n",
   "trace": [
    {
     "step": 1,
@@ -304,6 +342,24 @@
      "meeting_date": "12 March 2026",
      "jurisdiction": "JE",
      "gaps": [
+      {
+       "director_id": "A",
+       "name": "Alice Marlowe",
+       "status": "unknown",
+       "basis": "hotel_only",
+       "engine_reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "m03/stay/folio_A_STHELIER.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "m03/stay/folio_A_STHELIER.pdf",
+         "words": "11 Mar 2026 15:00 (GMT)"
+        }
+       ]
+      },
       {
        "director_id": "B",
        "name": "Bruno Castell",
@@ -322,15 +378,75 @@
        "quotes": [
         {
          "doc": "m03/travel/BP_B_JER-LHR.png",
-         "words": "FROM JER → TO LHR Jersey Airport London Heathrow PASSENGER BRUNO CASTELL FLIGHT SA 411 DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+         "words": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
         },
         {
          "doc": "m03/minutes.pdf",
          "words": "present in St Helier"
         }
        ]
+      },
+      {
+       "director_id": "C",
+       "name": "Chandra Velloso",
+       "status": "unknown",
+       "basis": "hotel_only",
+       "engine_reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "m03/stay/folio_C_STHELIER.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "m03/stay/folio_C_STHELIER.pdf",
+         "words": "Arrival 11 Mar 2026 15:00 (GMT)"
+        }
+       ]
       }
      ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "m03/stay/folio_A_STHELIER.pdf#p1"
+     ],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill covering the meeting date"
+     ],
+     "message": "Dear Alice Marlowe, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
+     "subject": "Request for documents for 12 March 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "m03/stay/folio_C_STHELIER.pdf#p1"
+     ],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill covering the meeting date"
+     ],
+     "message": "Dear Chandra Velloso, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
+     "subject": "Request for documents for 12 March 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D2",
+     "status": "awaiting_approval"
     }
    },
    {
@@ -342,19 +458,19 @@
       "m03/minutes.pdf#p1"
      ],
      "director_id": "B",
-     "message": "Please review the minutes record for Bruno Castell for the meeting on 12 March 2026. The minutes from m03/minutes.pdf state \"present in St Helier\". The evidence from m03/travel/BP_B_JER-LHR.png states \"FROM JER → TO LHR Jersey Airport London Heathrow PASSENGER BRUNO CASTELL FLIGHT SA 411 DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review and advise.",
-     "subject": "Minutes review for 12 March 2026 - Bruno Castell"
+     "message": "Dear Company Secretary, For Bruno Castell, the minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review the minutes record for the meeting on 12 March 2026.",
+     "subject": "Review of minutes entry for 12 March 2026 meeting"
     },
     "result": {
-     "draft_id": "D1",
+     "draft_id": "D3",
      "status": "awaiting_approval"
     }
    }
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0568,
- "seconds": 74,
+ "costUsd": 0.0586,
+ "seconds": 38,
  "secondReader": {
   "model": "meta/muse-glimmer-30b",
   "read": 4,
@@ -363,5 +479,14 @@
   "total": 6,
   "disagreements": [],
   "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
  }
 }

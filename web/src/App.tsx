@@ -110,7 +110,7 @@ export function App() {
                   <div><dt>Meeting verdicts</dt><dd>30/30</dd></div>
                   <div><dt>Dangerous errors</dt><dd>0</dd></div>
                 </dl>
-                <p className="proofs-note">Held-out test set: 30 synthetic meetings, 110 files, never used for tuning.</p>
+                <p className="proofs-note"><b>On synthetic documents:</b> a held-out set of 30 meetings, 110 files, never used for tuning. Not yet measured on real board packs.</p>
               </div>
               <EvidenceDesk />
             </section>

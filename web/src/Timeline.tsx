@@ -53,7 +53,10 @@ export function Timeline({ result, onCite }: Props) {
             const p = evaluation.presence.find((q) => q.directorId === d.id);
             const mine = facts.filter((f) => f.directorId === d.id);
             const status = p?.status ?? "unknown";
-            const label = status === "present" ? `Evidence places in ${target}` : status === "absent" ? `Evidence: not in ${target}` : "Unproven";
+            const label =
+              status === "present" ? (p?.basis === "resident" ? `Lives in ${target} · record on file` : `Evidence places in ${target}`)
+              : status === "absent" ? `Evidence: not in ${target}`
+              : p?.basis === "hotel_only" ? "Hotel bill only · unproven" : "Unproven";
             const claims = mine.filter((f): f is Claim => f.kind === "claimed_location");
             const minutes = claims.find((f) => f.source === "minutes");
             const recording = claims.find((f) => f.source === "recording");
@@ -100,7 +103,7 @@ export function Timeline({ result, onCite }: Props) {
                     <span className="tl-label">Evidence</span>
                     <div className="tl-track">
                       <span className="tl-window" style={meetingBox} />
-                      {evidence.length === 0 && <span className="tl-note" style={{ left: 0 }}>No travel or hotel evidence in the pack</span>}
+                      {evidence.length === 0 && <span className="tl-note" style={{ left: 0 }}>{d.residentIn === jurisdiction ? `No travel: lives in ${target} (${d.residenceRecord ?? "residence record on file"})` : "No travel or hotel evidence in the pack"}</span>}
                       {evidence.map((f, i) => {
                         if (f.kind === "hotel_stay") {
                           const inT = jurisdictionOf(f.placeCode) === jurisdiction;

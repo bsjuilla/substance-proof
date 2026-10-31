@@ -40,3 +40,13 @@ export function flight(directorId: string, origin: string, dest: string, departU
 export function claim(directorId: string, placeCode: string, source: "minutes" | "recording" | "email" = "minutes"): Fact {
   return { kind: "claimed_location", directorId, placeCode, source, cite: cite(`minutes_2026-03-12.pdf`) };
 }
+
+const AIRPORT: Record<string, string> = { "CITY:STHELIER": "JER", "CITY:SINGAPORE": "SIN", "CITY:DUBAI": "DXB", "CITY:LONDON": "LHR" };
+
+/** Evidence that places a director somewhere: the hotel stay plus the flight that landed there the day before.
+ *  (A hotel stay on its own only supports presence; see the presence tests.) */
+export function there(directorId: string, placeCode: string): Fact[] {
+  const dest = AIRPORT[placeCode] ?? placeCode;
+  const origin = dest === "LHR" ? "CDG" : "LHR";
+  return [stay(directorId, placeCode), flight(directorId, origin, dest, "2026-03-11T08:00:00Z", "2026-03-11T14:00:00Z")];
+}

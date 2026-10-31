@@ -112,7 +112,7 @@
       },
       {
         "directorId": "C",
-        "status": "present"
+        "status": "unknown"
       }
     ],
     "contradictions": [],

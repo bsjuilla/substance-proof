@@ -1,6 +1,6 @@
 {
  "id": "m10",
- "createdAt": "2026-10-31T07:21:15.147Z",
+ "createdAt": "2026-10-31T09:58:30.434Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -57,27 +57,33 @@
  "docs": [
   {
    "docId": "m10/minutes.pdf",
-   "kind": "minutes"
+   "kind": "minutes",
+   "sha256": "3e4d6a9d66ae872e5ad6aa1f799532311bfbe537b355db3c84dc08d54123af4e"
   },
   {
    "docId": "m10/stay/folio_A_SINGAPORE.pdf",
-   "kind": "hotel_folio"
+   "kind": "hotel_folio",
+   "sha256": "01d0c8512bdd4a28104f8df3e8b8272a6608b4a318903b7931521801575a09db"
   },
   {
    "docId": "m10/stay/folio_B_SINGAPORE.pdf",
-   "kind": "hotel_folio"
+   "kind": "hotel_folio",
+   "sha256": "9c188e62c2dd3964efca0556f923ff553a08cd17fa007dfcda7f098e9af2f8c4"
   },
   {
    "docId": "m10/stay/folio_C_DUBAI.pdf",
-   "kind": "hotel_folio"
+   "kind": "hotel_folio",
+   "sha256": "ee1ef8943182d435b82234c349324c8c624c3f3dcc5feffc7793fed915c8ea1c"
   },
   {
    "docId": "m10/stay/folio_D_DUBAI.pdf",
-   "kind": "hotel_folio"
+   "kind": "hotel_folio",
+   "sha256": "fd4335d5b55d6329428806c98361fbe9a069beb4819baa9e88cdddb4bb0ec1ff"
   },
   {
    "docId": "m10/travel/BP_B_DXB-SIN.png",
    "kind": "boarding_pass",
+   "sha256": "df0ec3c00baa573afcbf0a7763b4100840eeda4105bf3a46cc78d1c5867982ea",
    "redactions": [
     {
      "label": "qr code",
@@ -182,7 +188,7 @@
    "cite": {
     "docId": "m10/stay/folio_D_DUBAI.pdf",
     "page": 1,
-    "quote": "Arrival 17 May 2026 00:00 (GST)"
+    "quote": "17 May 2026 00:00 (GST)"
    }
   },
   {
@@ -195,7 +201,7 @@
    "cite": {
     "docId": "m10/travel/BP_B_DXB-SIN.png",
     "page": 1,
-    "quote": "DXB Dubai International SIN Singapore Changi 12:30 23:50"
+    "quote": "FROM DXB TO SIN DEPARTS (local GST) 12:30 ARRIVES (local GMT+8) 23:50"
    }
   }
  ],
@@ -203,13 +209,13 @@
  "evaluation": {
   "meetingId": "m10",
   "jurisdiction": "SG",
-  "verdict": "PASS",
+  "verdict": "REVIEW",
   "presence": [
    {
     "directorId": "A",
-    "status": "present",
-    "basis": "independent",
-    "reason": "hotel stay in Singapore covers the whole meeting.",
+    "status": "unknown",
+    "basis": "hotel_only",
+    "reason": "Only a hotel bill places this director in Singapore: hotel stay in Singapore covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
     "cites": [
      {
       "docId": "m10/stay/folio_A_SINGAPORE.pdf",
@@ -222,12 +228,17 @@
     "directorId": "B",
     "status": "present",
     "basis": "independent",
-    "reason": "hotel stay in Singapore covers the whole meeting.",
+    "reason": "hotel stay in Singapore covers the whole meeting, backed by the arrival SIN.",
     "cites": [
      {
       "docId": "m10/stay/folio_B_SINGAPORE.pdf",
       "page": 1,
       "quote": "19 May 2026 00:30 (GMT+8)"
+     },
+     {
+      "docId": "m10/travel/BP_B_DXB-SIN.png",
+      "page": 1,
+      "quote": "FROM DXB TO SIN DEPARTS (local GST) 12:30 ARRIVES (local GMT+8) 23:50"
      }
     ]
    },
@@ -235,8 +246,8 @@
     "directorId": "C",
     "status": "absent",
     "elsewhere": "AE",
-    "basis": "independent",
-    "reason": "hotel stay in Dubai covers the whole meeting.",
+    "basis": "hotel_only",
+    "reason": "hotel stay in Dubai covers the whole meeting, but no travel backs it up.",
     "cites": [
      {
       "docId": "m10/stay/folio_C_DUBAI.pdf",
@@ -249,13 +260,13 @@
     "directorId": "D",
     "status": "absent",
     "elsewhere": "AE",
-    "basis": "independent",
-    "reason": "hotel stay in Dubai covers the whole meeting.",
+    "basis": "hotel_only",
+    "reason": "hotel stay in Dubai covers the whole meeting, but no travel backs it up.",
     "cites": [
      {
       "docId": "m10/stay/folio_D_DUBAI.pdf",
       "page": 1,
-      "quote": "Arrival 17 May 2026 00:00 (GST)"
+      "quote": "17 May 2026 00:00 (GST)"
      }
     ]
    }
@@ -264,10 +275,10 @@
    {
     "id": "SG-virtual-50pct-or-chair",
     "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
-    "status": "pass",
+    "status": "inconclusive",
     "basis": "regulator",
     "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
-    "detail": "Directors with strategic authority: 4; 2 needed for 50%. Evidence: 2 present, 2 absent, 0 unproven. Chairman physically in Singapore: no."
+    "detail": "Directors with strategic authority: 4; 2 needed for 50%. Evidence: 1 present, 2 absent, 1 unproven. Chairman physically in Singapore: no."
    },
    {
     "id": "MEETING-TIME",
@@ -289,8 +300,26 @@
   "contradictions": []
  },
  "agent": {
-  "drafts": [],
-  "summary": "I checked the gaps for the 19 May 2026 meeting for Sennoway Capital Pte Ltd. No drafts were needed as no missing evidence or conflicts were listed.",
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "A",
+    "directorName": "Alice Marlowe",
+    "subject": "Sennoway Capital Pte Ltd meeting on 19 May 2026 - request for documents",
+    "message": "Hello Alice Marlowe, Regarding the board meeting on 19 May 2026, our file currently holds \"18 May 2026 13:00 (GMT+8)\" from m10/stay/folio_A_SINGAPORE.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering the meeting date. Thank you.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "m10/stay/folio_A_SINGAPORE.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one evidence request draft for Alice Marlowe regarding the meeting on 19 May 2026. No minutes correction draft was needed as no conflict was listed.",
   "trace": [
    {
     "step": 1,
@@ -299,14 +328,54 @@
     "result": {
      "meeting_date": "19 May 2026",
      "jurisdiction": "SG",
-     "gaps": []
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Alice Marlowe",
+       "status": "unknown",
+       "basis": "hotel_only",
+       "engine_reason": "Only a hotel bill places this director in Singapore: hotel stay in Singapore covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "m10/stay/folio_A_SINGAPORE.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "m10/stay/folio_A_SINGAPORE.pdf",
+         "words": "18 May 2026 13:00 (GMT+8)"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "m10/stay/folio_A_SINGAPORE.pdf#p1"
+     ],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Hello Alice Marlowe, Regarding the board meeting on 19 May 2026, our file currently holds \"18 May 2026 13:00 (GMT+8)\" from m10/stay/folio_A_SINGAPORE.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering the meeting date. Thank you.",
+     "subject": "Sennoway Capital Pte Ltd meeting on 19 May 2026 - request for documents"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
     }
    }
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0637,
- "seconds": 75,
+ "costUsd": 0.0708,
+ "seconds": 54,
  "secondReader": {
   "model": "meta/muse-glimmer-30b",
   "read": 6,
@@ -315,5 +384,14 @@
   "total": 9,
   "disagreements": [],
   "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Singapore (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
  }
 }

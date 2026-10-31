@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { evaluateMeeting } from "../src/engine/evaluate";
+import type { Fact } from "../src/engine/types";
 import { localToUtc, matchDirector, normalizePlace, toFacts, tzOffsetMinutes } from "../src/extract/toFacts";
 
 // Regression tests for the false PASSes an external red-team review (Grok, 29 Oct 2026) produced by running
@@ -99,5 +100,74 @@ describe("red-team regressions: the minutes cannot steer the decision", () => {
     const tf = toFacts([{ docId: "m1/minutes.pdf", extraction: planted }], roster);
     expect(tf.facts.filter((f) => f.kind === "hotel_stay")).toHaveLength(0);
     expect(tf.rejected.some((x) => /file is a minutes/.test(x.reason))).toBe(true);
+  });
+});
+
+// Second review (a buyer's review by Grok, 31 Oct 2026): a hotel bill alone gave a false PASS (a room booked for a
+// director who never came), a street called "Jersey Road" in London was read as Jersey, and directors who live in
+// Jersey (no travel at all) could never be shown as present.
+describe("buyer review regressions", () => {
+  const S = "2026-06-15T10:00:00Z";
+  const E = "2026-06-15T11:00:00Z";
+  const cite = (docId: string) => ({ docId, page: 1 });
+  const hotel = (id: string, place: string): Fact => ({ kind: "hotel_stay", directorId: id, placeCode: place, checkInUtc: "2026-06-14T14:00:00Z", checkOutUtc: "2026-06-16T10:00:00Z", cite: cite(`folio_${id}.pdf`) });
+  const fly = (id: string, o: string, d: string, dep: string, arr: string): Fact => ({ kind: "flight_leg", directorId: id, originCode: o, destCode: d, departUtc: dep, arriveUtc: arr, cite: cite(`BP_${id}.png`) });
+  const said = (id: string, place: string, source: "minutes" | "recording"): Fact => ({ kind: "claimed_location", directorId: id, placeCode: place, source, cite: cite("minutes.pdf") });
+  const resident = [
+    { id: "A", name: "Bruno Castell", isChair: true, hasStrategicAuthority: true, residentIn: "JE", residenceRecord: "Residence confirmation, reviewed 15 Jan 2026" },
+    { id: "B", name: "Chandra Velloso", hasStrategicAuthority: true, residentIn: "JE" },
+  ];
+  const co = (directors: any) => ({ ...company, directors });
+
+  it("B1: a hotel bill alone (a booked room nobody used) cannot pass the quorum", () => {
+    const ev = evaluateMeeting(company, meeting, [hotel("A", "CITY:STHELIER"), hotel("B", "CITY:STHELIER")], "JE");
+    expect(ev.presence.map((p) => [p.status, p.basis])).toEqual([["unknown", "hotel_only"], ["unknown", "hotel_only"]]);
+    expect(ev.verdict).toBe("REVIEW");
+  });
+
+  it("B2: a hotel bill backed by the flight that landed in Jersey proves presence", () => {
+    const facts = [hotel("A", "CITY:STHELIER"), fly("A", "LHR", "JER", "2026-06-14T08:00:00Z", "2026-06-14T09:10:00Z"), hotel("B", "CITY:STHELIER"), fly("B", "JER", "LGW", "2026-06-16T12:00:00Z", "2026-06-16T13:00:00Z")];
+    const ev = evaluateMeeting(company, meeting, facts, "JE");
+    expect(ev.presence.map((p) => p.status)).toEqual(["present", "present"]);
+    expect(ev.verdict).toBe("PASS");
+  });
+
+  it("B3: a hotel bill elsewhere still shows the director was away", () => {
+    const ev = evaluateMeeting(co(resident), meeting, [hotel("B", "CITY:DUBAI")], "JE");
+    expect(ev.presence.find((p) => p.directorId === "B")?.status).toBe("absent");
+  });
+
+  it("B4: directors who live in Jersey, with no travel, are present on their residence record", () => {
+    const ev = evaluateMeeting(co(resident), meeting, [said("A", "CITY:STHELIER", "minutes"), said("B", "CITY:STHELIER", "minutes")], "JE");
+    expect(ev.presence.map((p) => [p.status, p.basis])).toEqual([["present", "resident"], ["present", "resident"]]);
+    expect(ev.presence[0].reason).toMatch(/Residence confirmation, reviewed 15 Jan 2026/);
+    expect(ev.verdict).toBe("PASS");
+  });
+
+  it("B5: a residence record never beats a claim or travel that puts the director elsewhere", () => {
+    const dialIn = evaluateMeeting(co(resident), meeting, [said("A", "CITY:STHELIER", "minutes"), said("A", "CITY:DUBAI", "recording")], "JE");
+    expect(dialIn.presence[0].status).toBe("unknown");
+    const away = [fly("B", "JER", "LHR", "2026-06-13T08:00:00Z", "2026-06-13T09:00:00Z"), fly("B", "LHR", "JER", "2026-06-17T08:00:00Z", "2026-06-17T09:00:00Z")];
+    expect(evaluateMeeting(co(resident), meeting, away, "JE").presence[1].status).toBe("absent"); // in London on both sides
+    const flying = [fly("B", "JER", "LHR", "2026-06-15T10:20:00Z", "2026-06-15T11:25:00Z")];
+    expect(evaluateMeeting(co(resident), meeting, flying, "JE").presence[1].status).toBe("absent");
+  });
+
+  it("B6: a residence record for another jurisdiction does not count in Jersey", () => {
+    const sg = resident.map((d) => ({ ...d, residentIn: "SG" }));
+    expect(evaluateMeeting(co(sg), meeting, [], "JE").presence.map((p) => p.status)).toEqual(["unknown", "unknown"]);
+  });
+
+  it("B7: an address that names two places is refused; Jersey parishes, postcodes and other islands are known", () => {
+    expect(normalizePlace("12 Jersey Road, Hounslow, London TW5")).toBeNull();
+    expect(normalizePlace("Jersey Road, London")).toBeNull();
+    expect(normalizePlace("St Brelade's Bay, Jersey")).toBe("CITY:STHELIER");
+    expect(normalizePlace("Gorey Pier")).toBe("CITY:STHELIER");
+    expect(normalizePlace("Weighbridge Place, JE2 3NF")).toBe("CITY:STHELIER");
+    expect(normalizePlace("St Peter Port, Guernsey")).toBe("CITY:STPETERPORT");
+    expect(normalizePlace("Douglas, Isle of Man")).toBe("CITY:DOUGLAS");
+    expect(normalizePlace("Port Louis, Mauritius")).toBe("CITY:PORTLOUIS");
+    expect(normalizePlace("Cybercity, Ebène")).toBe("CITY:PORTLOUIS");
+    expect(normalizePlace("Douglas, Wyoming")).toBeNull();
   });
 });

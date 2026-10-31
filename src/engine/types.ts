@@ -16,6 +16,11 @@ export type Director = {
   isChair?: boolean;
   /** Has authority to make strategic decisions (Singapore 50% test counts only these). */
   hasStrategicAuthority: boolean;
+  /** Lives in this jurisdiction, with proof the firm has reviewed (for example a residence document checked each
+   *  year). A resident is taken to be there unless travel evidence or a claim puts them elsewhere. */
+  residentIn?: JurisdictionCode;
+  /** What the residence record is, shown in the report (e.g. "Residence confirmation, reviewed 15 Jan 2026"). */
+  residenceRecord?: string;
 };
 
 /** A raw fact read out of a document (by the AI or, in tests, by hand). */
@@ -84,8 +89,10 @@ export type PresenceResult = {
   status: PresenceStatus;
   /** Where the evidence puts them if absent (jurisdiction code), or undefined. */
   elsewhere?: JurisdictionCode;
-  /** "independent" = travel or hotel evidence; "claim_only" = only minutes/recording say so. */
-  basis: "independent" | "claim_only" | "none";
+  /** "independent" = travel evidence, or a hotel stay backed by travel; "hotel_only" = only a hotel stay places them
+   *  there (supporting, not proof: a room can be booked and not used); "resident" = a reviewed residence record and
+   *  nothing places them elsewhere; "claim_only" = only minutes/recording say so. */
+  basis: "independent" | "hotel_only" | "resident" | "claim_only" | "none";
   reason: string;
   cites: Citation[];
   /** The minutes or recording claimed this jurisdiction but independent evidence disagrees. */

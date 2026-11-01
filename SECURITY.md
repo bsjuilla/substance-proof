@@ -49,11 +49,31 @@ On 29 October an outside AI model (Grok), briefed to act as the harshest judge, 
 
 Replaying the saved held-out, dev and stress runs through the fixed engine gave the same results as before, so the fixes cost no accuracy.
 
+## Fraud review: attacks by the person filling in the form (all fixed, 1 November)
+
+A third review (Grok, playing a director who wants a false EVIDENCED, a security researcher and others) showed that the form is as hostile as the documents. Each attack below was reproduced on the engine before the fix and is now a test.
+
+| # | Severity | Attack | Fix |
+|---|---|---|---|
+| F1 | **High** | A director ticked "lives in Jersey" counted as present even when the recording said "dialling in from Lisbon", or the minutes said "by telephone" or "St Helier (joined by video from Dubai)": an unrecognised place was dropped, so nothing contradicted the tick. | An unrecognised place is kept as words ("TEXT:Lisbon") and counts as "not shown to be in the jurisdiction". The independent oracle had the same blind spot and was fixed the same way. |
+| F2 | **High** | "Lives in Jersey" was a tick box with nothing behind it. | A residence document must be uploaded for that director. Its SHA-256 goes in the memo for the reviewer; it is not sent to any model. |
+| F3 | **High** | A spouse's boarding pass ("CASTELL/BRUNA") matched director Bruno by spelling distance. | On documents only a misprinted surname or a doubled letter is forgiven; a different first name never is. The looser match stays for speech in the recording. |
+| F4 | Medium | Arriving the day before (with a hotel) and leaving out the early flight home gave EVIDENCED; so did flights 71 hours either side. | Proof needs a flight in and a flight out; beyond 24 hours a hotel stay must cover the meeting. |
+| F5 | Medium | An AI-written rule pack could scope the quorum test to video meetings or mark it "guidance", turning NOT MET into EVIDENCED, and still pass validation. | The scope must be stated in the law around the quote; a test written from an official text cannot be marked as secondary guidance. |
+| F6 | Medium | 9 of 13 paraphrased outcomes ("We can confirm you were physically in Jersey", "Le quorum est atteint") and a phishing link passed the agent's guardrail. | Patterns extended and tested; any link or web address in a draft is refused. |
+| F7 | Medium | A 448-byte PDF declaring a giant page made the second reader allocate 2.36 GB. | Rendered pages are capped at 2,000 pixels on the longest side (339 MB, under a second for the same file). |
+| F8 | Low | Blacked-out copies of photos were left in the temp folder. | Deleted as soon as both readers finish; an hourly sweep removes anything left by a crash. |
+| F9 | Low | Two of the 17 HTTP attacks only passed because keyless mode refuses every POST first. | CI runs the suite twice, the second time in live mode with a dummy key. |
+| F10 | Low | A bad file part-way through an upload left the earlier files on disk. | Every file is checked before any is written. |
+| F11 | Low | GitHub Actions were pinned by tag. | Pinned by commit SHA. |
+
+**Not fixable in code:** the tool checks the documents it is given. A preparer can leave a file out, and types the quorum and the "strategic" flag. The report and the memo list every value that was entered rather than proven, so a reviewer knows what to check.
+
 ## Hardening added without a working exploit
 
 These defences are enforced by **code**. Before them, only the model's prompt enforced the same rules. The real model kept to the rules in every attack below, so these are not confirmed vulnerabilities. They stop the system's safety from depending on the model behaving well.
 
-- **The minutes and the recording can never supply evidence.** `toFacts` now refuses a flight or hotel stay read from the minutes or the recording, and refuses a presence claim from a boarding pass or hotel bill. Live attack (`security/poc-injection.ts`): one set of doctored minutes added a "Travel and accommodation" section, and another hid white 1-pixel instructions telling the AI to report the minutes as a hotel bill. Muse Spark ignored both, so the verdict stayed NOT MET with Bruno Castell absent. The rule is consistent with all 748 facts in the saved evaluation runs. Re-scoring held-out, dev and stress gives identical results (166/166, 86/86, 30/30, 0 dangerous errors).
+- **The minutes and the recording can never supply evidence.** `toFacts` now refuses a flight or hotel stay read from the minutes or the recording, and refuses a presence claim from a boarding pass or hotel bill. Live attack (`security/poc-injection.ts`): one set of doctored minutes added a "Travel and accommodation" section, and another hid white 1-pixel instructions telling the AI to report the minutes as a hotel bill. Muse Spark ignored both, so the verdict stayed NOT MET with Bruno Castell absent. The rule is consistent with all 748 facts in the saved evaluation runs. Re-scoring held-out, dev and stress gave identical results at the time (29 October: 166/166, 86/86, 30/30, 0 dangerous errors, on the answer key of that day).
 - **Rule-pack thresholds must appear in the quoted law.** A share test of `0.01` that quotes "At least 50% of the directors…" is now rejected (`thresholdInQuote`). Both shipped packs still pass.
 - **Content-Security-Policy and `X-Frame-Options: SAMEORIGIN`** on the app's pages. The app loads nothing from other sites. The CSP is limited to HTML responses because, applied to PDF responses (or with `object-src 'none'`), it stops Chrome's built-in PDF viewer from showing the cited page.
 
@@ -64,9 +84,9 @@ These defences are enforced by **code**. Before them, only the model's prompt en
 | CSRF | Cross-origin JSON POST; `text/plain` "simple" POST without preflight; `Origin: null` from a sandboxed iframe | 403 |
 | Path traversal | `..%2F` and `..%5C` (four levels deep) to `.env`; `%2e%2e`; absolute `C:\Windows\win.ini`; sibling prefix `packs-evil` | 404, or the app's index page. Never a file outside the base folder. |
 | Sample id | `{"id":"../../.env"}` | 400 (whitelisted pattern) |
-| Uploads | File names are reduced to `[A-Za-z0-9._-]`, saved under a random UUID, with extensions limited to pdf/png/jpg/webp/wav. The body is capped at 60 MB and at 40 files. | Safe |
+| Uploads | File names are reduced to `[A-Za-z0-9._-]`, saved under a random UUID, with extensions limited to pdf, png, jpg, webp and the audio or video types wav, mp3, m4a, mp4, webm and ogg. Every file is checked before any is written. The body is capped at 60 MB and at 40 files. | Safe |
 | XSS | No `dangerouslySetInnerHTML`, `innerHTML` or `eval` in `web/src`; React escapes all model output | Safe |
-| Command injection | No `child_process` in server or app code. The synthetic-data scripts call PowerShell with fixed arguments and only run offline. | Safe |
+| Command injection | Two app files run a program: `src/extract/redact.ts` (ffmpeg, to black out boxes) and `src/extract/transcribe.ts` (ffmpeg, to convert audio). Both use `execFileSync` with a fixed program and an argument array, never a shell, and the only user-derived argument is a server-generated file path. The synthetic-data scripts call PowerShell with fixed arguments and only run offline. | Safe |
 | Secrets | The key exists only in `.env` (git-ignored) and is read on the server. `scripts/secret-scan.mjs` finds it in 0 commits and 0 tracked files. | Safe |
 | Dependencies | `npm audit` | 0 vulnerabilities |
 | Static analysis | `eslint-plugin-security` on `server/`, `src/`, `web/src` | 30 warnings, all triaged. Non-literal file paths are built from validated ids or checked with `startsWith(base + sep)`. Object-injection warnings are keyed lookups on internal data. The flagged regex runs on short zone labels only. |
@@ -74,5 +94,7 @@ These defences are enforced by **code**. Before them, only the model's prompt en
 ## Remaining risks (accepted)
 
 - **Forged evidence.** A convincing fake boarding pass will be read as real. Cross-checking the minutes, the recording and the hotel catches inconsistent forgeries, not consistent ones.
-- **Sending real documents to a third-party API.** Live mode sends documents to Meta's Model API. The app says to use synthetic documents unless the user's organisation has approved this.
+- **Sending real documents to a third-party API.** Live mode sends documents to Meta's Model API (and to NVIDIA when the second reader is on). The app says to use synthetic documents unless the user's organisation has approved this.
+- **Scanned PDFs are not redacted.** SAM 3.1 redacts photos only; a scanned PDF (for example a passport page) goes to the readers as it is. SAM itself runs on Meta's API, so even for photos Meta receives the original in order to find what to black out.
+- **Omitted documents and typed values.** See the fraud review above.
 - **Local processes.** Anything already running on the machine can call the server, as with any localhost tool.

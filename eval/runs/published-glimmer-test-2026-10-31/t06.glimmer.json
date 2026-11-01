@@ -1,0 +1,164 @@
+[
+ {
+  "docId": "t06/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-15T10:00",
+    "end_local": "2026-05-15T12:00",
+    "tz": "GMT+8",
+    "place_text": "by video conference."
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 6809
+ },
+ {
+  "docId": "t06/stay/folio_B_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": "2026-05-14T13:07",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-05-16T06:27",
+     "check_out_tz": "GMT+8",
+     "quote": "14 May 2026 13:07 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 17979
+ },
+ {
+  "docId": "t06/travel/ETKT_C_HKG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "STRAND/OLIVER",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-05-14T20:00",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-05-15T04:28",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 674 Hong Kong International (HKG) 14/05/2026 20:00 (UTC+08:00) Singapore Changi (SIN) 15/05/2026 04:28 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 5201
+ },
+ {
+  "docId": "t06/travel/ETKT_C_SIN-HKG.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "STRAND/OLIVER",
+     "origin_code": "SIN",
+     "dest_code": "HKG",
+     "depart_local": "2026-05-15T14:15",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-05-16T04:00",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 710 Singapore Changi (SIN) 15/05/2026 14:15 (UTC+08:00) Hong Kong International (HKG) 16/05/2026 04:00 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 4481
+ }
+]

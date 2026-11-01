@@ -1,4 +1,5 @@
 import type { Citation, Director, Fact } from "../engine/types";
+import { AIRPORTS } from "../engine/gazetteer";
 import type { Extraction } from "./schema";
 
 // Deterministic conversion of what the model READ into engine inputs. Nothing here uses AI.
@@ -54,20 +55,19 @@ export function localToUtc(local: string | null, tz: string | null): string | nu
   return new Date(naive - off * 60_000).toISOString().replace(".000Z", "Z");
 }
 
-/** The time zone of a known place, used ONLY when a document prints "local time" without naming a zone. */
+/** The time zone of a known place, used ONLY when a document prints "local time" or no zone at all. Boarding passes
+ *  print local airport time, so an airport's own zone is the right one. */
 export const PLACE_ZONE: Record<string, string> = {
+  ...Object.fromEntries(Object.entries(AIRPORTS).map(([code, [, zone]]) => [code, zone])),
   "CITY:STHELIER": "Europe/Jersey",
-  JER: "Europe/Jersey",
   "CITY:SINGAPORE": "Asia/Singapore",
-  SIN: "Asia/Singapore",
   "CITY:DUBAI": "Asia/Dubai",
-  DXB: "Asia/Dubai",
   "CITY:LONDON": "Europe/London",
-  LHR: "Europe/London",
   "CITY:HONGKONG": "Asia/Hong_Kong",
-  HKG: "Asia/Hong_Kong",
   "CITY:PARIS": "Europe/Paris",
-  CDG: "Europe/Paris",
+  "CITY:STPETERPORT": "Europe/Guernsey",
+  "CITY:DOUGLAS": "Europe/Isle_of_Man",
+  "CITY:PORTLOUIS": "Indian/Mauritius",
 };
 
 /** A printed zone label, or the place's own zone when the document only says "local time". */
@@ -118,7 +118,11 @@ function unAirline(name: string): string {
   return m ? `${m[2]} ${m[1]}` : name;
 }
 
-export function matchDirector(rawName: string, roster: Director[]): Director | undefined {
+/** `fuzzy`: also accept a close spelling slip. "speech" (the recording): a letter or two anywhere, as speech
+ *  recognition misspells names. "document" (a boarding pass, hotel bill or minutes): a slip in the surname, or a
+ *  doubled letter, only; the first name must otherwise be the same, because "BRUNA CASTELL" or "Paula Ferrand" on a
+ *  boarding pass is a different person (often the director's spouse), not a misprint. */
+export function matchDirector(rawName: string, roster: Director[], opts: { fuzzy?: "speech" | "document" } = {}): Director | undefined {
   const name = unAirline(rawName);
   const n = norm(name);
   const tokens = n.split(" ").filter(Boolean);
@@ -136,7 +140,7 @@ export function matchDirector(rawName: string, roster: Director[]): Director | u
   if (sameLetters.length === 1) return sameLetters[0];
   // No surname-only matching: "CASTELL/MARIA MRS" (a spouse) must not become director Bruno Castell.
   // Fuzzy matching below also requires the given name to be close.
-  return fuzzyDirector(n, roster);
+  return opts.fuzzy ? fuzzyDirector(n, roster, opts.fuzzy) : undefined;
 }
 
 /** Edit distance between two strings. */
@@ -156,7 +160,7 @@ export function editDistance(a: string, b: string): number {
 
 /** Spelling slips from speech recognition ("Bruno Castel", "Chandra Velaso"): accept only a clear,
  *  unique closest match within a small edit distance; otherwise refuse. */
-function fuzzyDirector(n: string, roster: Director[]): Director | undefined {
+function fuzzyDirector(n: string, roster: Director[], mode: "speech" | "document"): Director | undefined {
   const scored = roster
     .map((d) => ({ d, dist: editDistance(n, norm(d.name)) }))
     .sort((x, y) => x.dist - y.dist);
@@ -168,6 +172,10 @@ function fuzzyDirector(n: string, roster: Director[]): Director | undefined {
   // The given name must be close too: a speech slip changes a letter or two, not the whole first name.
   const given = n.split(" ")[0];
   const dGiven = norm(best.d.name).split(" ")[0];
+  if (mode === "document") {
+    const undoubled = (w: string) => w.replace(/(.)\1+/g, "$1"); // "PRIIYA" is a misprint of Priya
+    return undoubled(given) === undoubled(dGiven) ? best.d : undefined;
+  }
   return editDistance(given, dGiven) <= Math.max(1, Math.floor(dGiven.length * 0.34)) ? best.d : undefined;
 }
 
@@ -223,7 +231,7 @@ export function toFacts(items: ExtractedItem[], roster: Director[]): ToFactsResu
         rejected.push({ file: docId, reason: `a ${f.kind.replace("_", " ")} cannot come from ${isRecording ? "the recording" : `a ${extraction.document_type.replace("_", " ")} document`}; ignored` });
         continue;
       }
-      const dir = matchDirector(f.person_name, roster);
+      const dir = matchDirector(f.person_name, roster, { fuzzy: isRecording ? "speech" : "document" });
       if (!dir) {
         rejected.push({ file: docId, reason: `name "${f.person_name}" matches no director` });
         continue;
@@ -260,11 +268,10 @@ export function toFacts(items: ExtractedItem[], roster: Director[]): ToFactsResu
         }
         facts.push({ kind: "hotel_stay", directorId: dir.id, placeCode: place, checkInUtc: cin, checkOutUtc: cout, cite });
       } else {
-        const place = normalizePlace(f.place);
-        if (!place) {
-          rejected.push({ file: docId, reason: `claimed place "${f.place}" not recognised` });
-          continue;
-        }
+        if (!f.place?.trim()) continue; // the document says nothing about where this director was
+        // A place the code cannot map ("Lisbon", "by telephone") is kept as words, not dropped: it still says the
+        // director was somewhere, and the engine treats it as "not shown to be in the jurisdiction".
+        const place = normalizePlace(f.place) ?? `TEXT:${f.place.trim().slice(0, 80)}`;
         facts.push({ kind: "claimed_location", directorId: dir.id, placeCode: place, source: isRecording ? "recording" : "minutes", cite });
       }
     }

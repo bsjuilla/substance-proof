@@ -1,8 +1,8 @@
 {
   "set": "test",
   "model": "replay:2026-10-29T18-42-39-917Z",
-  "commit": "71aa6dc",
-  "runAt": "2026-10-31T09:49:50.955Z",
+  "commit": "7e71ff4",
+  "runAt": "2026-11-01T11:15:47.239Z",
   "meetings": 30,
   "costUsd": 0.9134,
   "factsExact": "165/166 (99.4%)",

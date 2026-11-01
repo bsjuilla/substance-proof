@@ -1,6 +1,6 @@
 {
  "id": "m03",
- "createdAt": "2026-10-31T09:57:36.006Z",
+ "createdAt": "2026-11-01T11:51:57.912Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -148,7 +148,7 @@
    "cite": {
     "docId": "m03/travel/BP_B_JER-LHR.png",
     "page": 1,
-    "quote": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+    "quote": "JER → LHR 12 Mar 2026 10:30 11:45"
    }
   }
  ],
@@ -161,8 +161,8 @@
    {
     "directorId": "A",
     "status": "unknown",
-    "basis": "hotel_only",
-    "reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+    "basis": "partial",
+    "reason": "Not proven: hotel stay in St Helier covers the meeting, but no travel on either side. Proof needs a flight in and a flight out around the meeting, or a residence record.",
     "cites": [
      {
       "docId": "m03/stay/folio_A_STHELIER.pdf",
@@ -180,7 +180,7 @@
      {
       "docId": "m03/travel/BP_B_JER-LHR.png",
       "page": 1,
-      "quote": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+      "quote": "JER → LHR 12 Mar 2026 10:30 11:45"
      },
      {
       "docId": "m03/minutes.pdf",
@@ -196,8 +196,8 @@
    {
     "directorId": "C",
     "status": "unknown",
-    "basis": "hotel_only",
-    "reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+    "basis": "partial",
+    "reason": "Not proven: hotel stay in St Helier covers the meeting, but no travel on either side. Proof needs a flight in and a flight out around the meeting, or a residence record.",
     "cites": [
      {
       "docId": "m03/stay/folio_C_STHELIER.pdf",
@@ -267,7 +267,7 @@
      {
       "docId": "m03/travel/BP_B_JER-LHR.png",
       "page": 1,
-      "quote": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+      "quote": "JER → LHR 12 Mar 2026 10:30 11:45"
      },
      {
       "docId": "m03/minutes.pdf",
@@ -289,11 +289,11 @@
     "kind": "evidence_request",
     "directorId": "A",
     "directorName": "Alice Marlowe",
-    "subject": "Request for documents for 12 March 2026 meeting",
-    "message": "Dear Alice Marlowe, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
+    "subject": "Request for travel documents - 12 March 2026 meeting",
+    "message": "Dear Alice Marlowe, In connection with the board meeting on 12 March 2026, our file currently contains m03/stay/folio_A_STHELIER.pdf which states \"11 Mar 2026 15:00 (GMT)\". Please provide a boarding pass, travel itinerary or hotel bill covering the meeting date. Thank you.",
     "documents": [
-     "boarding pass",
-     "travel itinerary",
+     "boarding pass covering the meeting date",
+     "travel itinerary covering the meeting date",
      "hotel bill covering the meeting date"
     ],
     "citations": [
@@ -306,11 +306,11 @@
     "kind": "evidence_request",
     "directorId": "C",
     "directorName": "Chandra Velloso",
-    "subject": "Request for documents for 12 March 2026 meeting",
-    "message": "Dear Chandra Velloso, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
+    "subject": "Request for travel documents - 12 March 2026 meeting",
+    "message": "Dear Chandra Velloso, In connection with the board meeting on 12 March 2026, our file currently contains m03/stay/folio_C_STHELIER.pdf which states \"Arrival 11 Mar 2026 15:00 (GMT)\". Please provide a boarding pass, travel itinerary or hotel bill covering the meeting date. Thank you.",
     "documents": [
-     "boarding pass",
-     "travel itinerary",
+     "boarding pass covering the meeting date",
+     "travel itinerary covering the meeting date",
      "hotel bill covering the meeting date"
     ],
     "citations": [
@@ -323,8 +323,8 @@
     "kind": "minutes_correction",
     "directorId": "B",
     "directorName": "Bruno Castell",
-    "subject": "Review of minutes entry for 12 March 2026 meeting",
-    "message": "Dear Company Secretary, For Bruno Castell, the minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review the minutes record for the meeting on 12 March 2026.",
+    "subject": "Minutes review - Bruno Castell - 12 March 2026 meeting",
+    "message": "Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\", while m03/travel/BP_B_JER-LHR.png states \"JER → LHR 12 Mar 2026 10:30 11:45\". Please review.",
     "citations": [
      "m03/travel/BP_B_JER-LHR.png#p1",
      "m03/minutes.pdf#p1"
@@ -332,7 +332,7 @@
     "status": "awaiting_approval"
    }
   ],
-  "summary": "I prepared draft evidence requests for Alice Marlowe and Chandra Velloso for the meeting on 12 March 2026. I also prepared a draft minutes correction note for Bruno Castell regarding the conflicting location record.\n",
+  "summary": "I prepared evidence requests to Alice Marlowe and Chandra Velloso for documents covering the meeting on 12 March 2026. I also prepared a minutes correction note for Bruno Castell asking the secretary to review the conflicting records.\n",
   "trace": [
    {
     "step": 1,
@@ -346,8 +346,8 @@
        "director_id": "A",
        "name": "Alice Marlowe",
        "status": "unknown",
-       "basis": "hotel_only",
-       "engine_reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+       "basis": "partial",
+       "engine_reason": "Not proven: hotel stay in St Helier covers the meeting, but no travel on either side. Proof needs a flight in and a flight out around the meeting, or a residence record.",
        "contradiction": null,
        "minutes_vs_recording": null,
        "documents": [
@@ -378,7 +378,7 @@
        "quotes": [
         {
          "doc": "m03/travel/BP_B_JER-LHR.png",
-         "words": "JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45"
+         "words": "JER → LHR 12 Mar 2026 10:30 11:45"
         },
         {
          "doc": "m03/minutes.pdf",
@@ -390,8 +390,8 @@
        "director_id": "C",
        "name": "Chandra Velloso",
        "status": "unknown",
-       "basis": "hotel_only",
-       "engine_reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+       "basis": "partial",
+       "engine_reason": "Not proven: hotel stay in St Helier covers the meeting, but no travel on either side. Proof needs a flight in and a flight out around the meeting, or a residence record.",
        "contradiction": null,
        "minutes_vs_recording": null,
        "documents": [
@@ -416,12 +416,12 @@
      ],
      "director_id": "A",
      "documents_requested": [
-      "boarding pass",
-      "travel itinerary",
+      "boarding pass covering the meeting date",
+      "travel itinerary covering the meeting date",
       "hotel bill covering the meeting date"
      ],
-     "message": "Dear Alice Marlowe, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
-     "subject": "Request for documents for 12 March 2026 meeting"
+     "message": "Dear Alice Marlowe, In connection with the board meeting on 12 March 2026, our file currently contains m03/stay/folio_A_STHELIER.pdf which states \"11 Mar 2026 15:00 (GMT)\". Please provide a boarding pass, travel itinerary or hotel bill covering the meeting date. Thank you.",
+     "subject": "Request for travel documents - 12 March 2026 meeting"
     },
     "result": {
      "draft_id": "D1",
@@ -437,12 +437,12 @@
      ],
      "director_id": "C",
      "documents_requested": [
-      "boarding pass",
-      "travel itinerary",
+      "boarding pass covering the meeting date",
+      "travel itinerary covering the meeting date",
       "hotel bill covering the meeting date"
      ],
-     "message": "Dear Chandra Velloso, Regarding the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were? Thank you for your help.",
-     "subject": "Request for documents for 12 March 2026 meeting"
+     "message": "Dear Chandra Velloso, In connection with the board meeting on 12 March 2026, our file currently contains m03/stay/folio_C_STHELIER.pdf which states \"Arrival 11 Mar 2026 15:00 (GMT)\". Please provide a boarding pass, travel itinerary or hotel bill covering the meeting date. Thank you.",
+     "subject": "Request for travel documents - 12 March 2026 meeting"
     },
     "result": {
      "draft_id": "D2",
@@ -458,8 +458,8 @@
       "m03/minutes.pdf#p1"
      ],
      "director_id": "B",
-     "message": "Dear Company Secretary, For Bruno Castell, the minutes in m03/minutes.pdf state \"present in St Helier\", while the evidence in m03/travel/BP_B_JER-LHR.png states \"JER → LHR DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45\". Please review the minutes record for the meeting on 12 March 2026.",
-     "subject": "Review of minutes entry for 12 March 2026 meeting"
+     "message": "Please review the minutes entry for Bruno Castell for the meeting on 12 March 2026. The minutes in m03/minutes.pdf state \"present in St Helier\", while m03/travel/BP_B_JER-LHR.png states \"JER → LHR 12 Mar 2026 10:30 11:45\". Please review.",
+     "subject": "Minutes review - Bruno Castell - 12 March 2026 meeting"
     },
     "result": {
      "draft_id": "D3",
@@ -469,8 +469,8 @@
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0586,
- "seconds": 38,
+ "costUsd": 0.0541,
+ "seconds": 441,
  "secondReader": {
   "model": "meta/muse-glimmer-30b",
   "read": 4,

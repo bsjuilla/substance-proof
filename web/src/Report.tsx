@@ -28,6 +28,25 @@ function headline(r: Loaded["result"]): string {
 
 /** One mark per director: a check where evidence places them in the jurisdiction, a cross elsewhere, ? unproven. */
 /** The big line next to the verdict word. For an evidenced meeting it says exactly what is evidenced, not "pass". */
+/** What the person running the check entered, rather than what a document proves. The tool cannot check these, and
+ *  it cannot know about documents left out of the pack: the reviewer has to. */
+function enteredByUser(r: Loaded["result"]): string[] {
+  const m = r.meeting;
+  const yn = (v: boolean | undefined) => (v === undefined ? "not stated" : v ? "yes" : "no");
+  const residents = r.company.directors.filter((d) => d.residentIn);
+  return [
+    `directors: ${r.company.directors.map((d) => d.name).join(", ")}`,
+    `quorum: ${r.company.quorumRequired}`,
+    `strategic decisions taken: ${m.isStrategic ? "yes" : "no"}`,
+    `records kept in ${NAMES[r.jurisdiction] ?? r.jurisdiction}: ${yn(m.minutesAndRecordsKeptInJurisdiction)}`,
+    `scheduled time: ${m.scheduleUnknown ? "not given (the minutes' own time was used)" : "entered"}`,
+    ...(residents.length ? [`lives in ${NAMES[r.jurisdiction] ?? r.jurisdiction}: ${residents.map((d) => d.name).join(", ")}`] : []),
+  ];
+}
+
+/** Engine words ("FAIL", "PASS") in a detail line, shown as the words people see elsewhere. */
+const shown = (s: string) => s.replace(/\bFAIL\b/g, "NOT MET").replace(/\bPASS\b/g, "EVIDENCED");
+
 function verdictLine(r: Loaded["result"]): string {
   const ev = r.evaluation;
   if (ev.verdict === "FAIL") return "For this meeting, the evidence does not show a condition in the law being met.";
@@ -108,6 +127,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
             <p><b>{verdictLine(result)}</b></p>
             <p>{headline(result)}</p>
             <p className="small muted">Decision support, not a legal conclusion: a reviewer checks the cited documents and signs before the firm relies on it.</p>
+            <p className="small muted">Entered by the person running the check, not proven by any document: {enteredByUser(result).join("; ")}. The check only sees the files it is given.</p>
           </div>
           <QuorumMeter result={result} />
         </div>
@@ -139,7 +159,7 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
                 {ev.tests.map((t) => (
                   <tr key={t.id} className={t.status === "fail" ? (t.basis === "law" ? "row-fail-law" : "row-fail-soft") : undefined}>
                     <td className={`st ${t.status}`}><StatusIcon s={t.status} /> {STATUS_TEXT[t.status]}</td>
-                    <td><b>{t.label}</b><br /><span className="muted">{t.detail}</span><br /><span className="mono muted" style={{ fontSize: ".75rem" }}>{t.citation}</span></td>
+                    <td><b>{t.label}</b><br /><span className="muted">{shown(t.detail)}</span><br /><span className="mono muted" style={{ fontSize: ".75rem" }}>{t.citation}</span></td>
                     <td><span className={`badge ${t.basis === "law" || t.basis === "regulator" ? "law" : "guidance"}`}>{BASIS_TEXT[t.basis]}</span></td>
                   </tr>
                 ))}
@@ -151,7 +171,9 @@ export function Report({ loaded, onBack }: { loaded: Loaded; onBack: () => void 
               <p className="small">
                 <b>Second reader · {result.secondReader.model.replace(/^meta\//, "")}</b> (Meta open weights) re-read {result.secondReader.read} document{result.secondReader.read === 1 ? "" : "s"} from scratch:{" "}
                 {result.secondReader.agreed}/{result.secondReader.total} facts identical
-                {result.secondReader.changesDecision.length ? ", and its reading changes the answer, so the meeting goes to review." : ", same answer for every director."}
+                {result.secondReader.changesDecision.length
+                  ? `, and its reading changes the answer (${result.secondReader.changesDecision.map((c) => shown(c.what)).join("; ")}), so a person should look${ev.verdict === "FAIL" ? "; the result stays NOT MET because a law test already fails" : ""}.`
+                  : ", same answer for every director."}
               </p>
               {(result.secondReader.disagreements.length > 0 || result.secondReader.unread.length > 0) && (
                 <details>
@@ -250,6 +272,7 @@ function FileNote({ result, approved, drafts }: { result: Loaded["result"]; appr
           <tr><th scope="row">Analysed</th><td>{new Date(result.createdAt).toUTCString()} ({result.mode === "replay" ? "recorded live run" : "live run"})</td></tr>
           {pv && <tr><th scope="row">Rules</th><td>{pv.rules} · {pv.engine}</td></tr>}
           {pv && <tr><th scope="row">Models</th><td>{pv.models.join("; ")}</td></tr>}
+          <tr><th scope="row">Entered, not proven</th><td>{enteredByUser(result).join("; ")}. A reviewer should check these against the articles and the register, and ask whether any document was left out of the pack.</td></tr>
           {result.company.directors.some((d) => d.residentIn) && (
             <tr><th scope="row">Residence records</th><td>{result.company.directors.filter((d) => d.residentIn).map((d) => `${d.name}: ${d.residenceRecord ?? "on file"}`).join("; ")}</td></tr>
           )}

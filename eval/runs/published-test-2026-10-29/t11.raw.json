@@ -1,0 +1,133 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t11/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-08-19T10:00",
+    "end_local": "2026-08-19T12:00",
+    "tz": "local",
+    "place_text": "at the registered office, St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.009041,
+  "ms": 8296,
+  "usage": {
+   "input_tokens": 3690,
+   "output_tokens": 1042,
+   "reasoning_tokens": 740
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t11/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-08-18T16:58",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-08-20T20:31",
+     "check_out_tz": "GMT+1",
+     "quote": "18 Aug 2026 16:58 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0090635,
+  "ms": 7646,
+  "usage": {
+   "input_tokens": 3572,
+   "output_tokens": 1082,
+   "reasoning_tokens": 881
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t11/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-08-18T11:35",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-08-20T07:43",
+     "check_out_tz": "GMT+1",
+     "quote": "18 Aug 2026 11:35 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0090635,
+  "ms": 8674,
+  "usage": {
+   "input_tokens": 3572,
+   "output_tokens": 1082,
+   "reasoning_tokens": 881
+  }
+ }
+]

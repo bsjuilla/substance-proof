@@ -1,0 +1,245 @@
+[
+ {
+  "docId": "t05/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-10T10:00",
+    "end_local": "2026-05-10T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 20370
+ },
+ {
+  "docId": "t05/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier, Jersey",
+     "check_in_local": "2026-05-09T15:47",
+     "check_in_tz": "local",
+     "check_out_local": "2026-05-11T07:42",
+     "check_out_tz": "local",
+     "quote": "You checked in on Saturday 9 May 2026 at 15:47 and checked out on Monday 11 May 2026 at 07:42. All times on this statement are shown in local time (Europe/Jersey).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 58408
+ },
+ {
+  "docId": "t05/stay/folio_C_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "London, United Kingdom",
+     "check_in_local": "2026-05-09T07:19",
+     "check_in_tz": "Europe/London",
+     "check_out_local": "2026-05-11T00:14",
+     "check_out_tz": "Europe/London",
+     "quote": "You checked in on Saturday 9 May 2026 at 07:19 and checked out on Monday 11 May 2026 at 00:14. All times on this statement are shown in local time (Europe/London).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 48777
+ },
+ {
+  "docId": "t05/stay/folio_D_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier, Jersey",
+     "check_in_local": "2026-05-09T19:13",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-05-11T17:41",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Saturday 9 May 2026 at 19:13 and checked out on Monday 11 May 2026 at 17:41. All times on this statement are shown in local time (Europe/Jersey).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 20234
+ },
+ {
+  "docId": "t05/travel/ETKT_B_CDG-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "OYELARAN/MARCUS",
+     "origin_code": "CDG",
+     "dest_code": "JER",
+     "depart_local": "2026-05-09T21:00",
+     "depart_tz": "UTC+02:00",
+     "arrive_local": "2026-05-10T03:12",
+     "arrive_tz": "UTC+01:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 501 Paris Charles de Gaulle (CDG) 09/05/2026 21:00 (UTC+02:00) Jersey Airport (JER) 10/05/2026 03:12 (UTC+01:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 19356
+ },
+ {
+  "docId": "t05/travel/ETKT_B_JER-CDG.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "OYELARAN/MARCUS",
+     "origin_code": "JER",
+     "dest_code": "CDG",
+     "depart_local": "2026-05-10T17:55",
+     "depart_tz": "UTC+01:00",
+     "arrive_local": "2026-05-11T05:00",
+     "arrive_tz": "UTC+02:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 363 Jersey Airport (JER) 10/05/2026 17:55 (UTC+01:00) Paris Charles de Gaulle (CDG) 11/05/2026 05:00 (UTC+02:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 27645
+ }
+]

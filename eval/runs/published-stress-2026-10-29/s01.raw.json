@@ -1,0 +1,95 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s01/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-04-06T10:00",
+    "end_local": "2026-04-06T12:00",
+    "tz": "local",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Rafael Quintero",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0069585,
+  "ms": 6147,
+  "usage": {
+   "input_tokens": 3605,
+   "output_tokens": 577,
+   "reasoning_tokens": 284
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s01/travel/PHOTO_BP_A_HKG-JER.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "QUINTON/RAFAEL",
+     "origin_code": "HKG",
+     "dest_code": "JER",
+     "depart_local": "2026-04-06T11:55",
+     "depart_tz": "local",
+     "arrive_local": "2026-04-06T01:10",
+     "arrive_tz": "local",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "HKG JER 06 Apr 2026 11:55 AM 01:10 AM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007862,
+  "ms": 6906,
+  "usage": {
+   "input_tokens": 1125,
+   "output_tokens": 1519,
+   "reasoning_tokens": 1321
+  }
+ }
+]

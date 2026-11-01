@@ -85,3 +85,20 @@ describe("complete clauses are accepted", () => {
     expect(endsAtClauseBoundary("the board meets in jersey", law)).toBe(false);
   });
 });
+
+describe("rule pack validation: scope and basis must come from the law", () => {
+  const LAW2 = "(3) The test is satisfied if – (b) at such board meetings there is a quorum of directors physically present in Jersey; (c) the minutes record the making of strategic decisions.";
+  it("refuses a test scoped to video meetings when the law says no such thing", () => {
+    const r = validatePack(pack([{ ...quorumTest, applies_to: "virtual_or_hybrid_meetings" }]), LAW2);
+    expect(r.approvedTests).toHaveLength(0);
+    expect(r.rejected[0].problems.join()).toMatch(/does not limit this test/);
+  });
+  it("accepts the scope when the law states it just before the quote", () => {
+    const law = "A meeting which involves the use of virtual meeting technology will generally be regarded as in Singapore if at least 50% of the directors are physically in Singapore during the meetings.";
+    const share = { ...quorumTest, kind: "share_physically_present_or_chair" as const, applies_to: "virtual_or_hybrid_meetings" as const, threshold: 0.5, quote: "at least 50% of the directors are physically in Singapore during the meetings" };
+    expect(validatePack(pack([share]), law).approvedTests).toHaveLength(1);
+  });
+  it("refuses to mark a statutory test as switchable guidance", () => {
+    expect(validatePack(pack([{ ...quorumTest, basis: "guidance" as const }]), LAW2).approvedTests).toHaveLength(0);
+  });
+});

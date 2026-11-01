@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync } from "node:fs";
+import { mkdtempSync, readdirSync, readFileSync, rmSync, statSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { basename, extname, join } from "node:path";
+import { basename, extname, join, dirname } from "node:path";
 import ffmpegPath from "ffmpeg-static";
 
 // Privacy before reading: SAM 3.1 finds the parts of a photographed document that hold personal data the check
@@ -59,4 +59,24 @@ export async function redactImage(path: string): Promise<{ path: string; redacti
   const out = join(mkdtempSync(join(tmpdir(), "sp-redact-")), basename(path, ext) + ".redacted" + (ext === ".webp" ? ".png" : ext));
   execFileSync(ffmpegPath as unknown as string, ["-loglevel", "error", "-y", "-i", path, "-vf", boxes.join(","), "-frames:v", "1", out]);
   return { path: out, redactions: found, costUsd };
+}
+
+const TEMP_PREFIX = "sp-redact-";
+
+/** Deletes a redacted copy made by redactImage, once every reader has finished with it. Leaves originals alone. */
+export function discardRedacted(path: string): void {
+  const dir = dirname(path);
+  if (dirname(dir) === tmpdir() && basename(dir).startsWith(TEMP_PREFIX)) rmSync(dir, { recursive: true, force: true });
+}
+
+/** Safety net for runs that crashed before cleaning up: removes redacted copies older than an hour. */
+export function sweepRedacted(maxAgeMs = 3_600_000): void {
+  for (const name of readdirSync(tmpdir()).filter((n) => n.startsWith(TEMP_PREFIX))) {
+    const p = join(tmpdir(), name);
+    try {
+      if (Date.now() - statSync(p).mtimeMs > maxAgeMs) rmSync(p, { recursive: true, force: true });
+    } catch {
+      /* in use or already gone */
+    }
+  }
 }

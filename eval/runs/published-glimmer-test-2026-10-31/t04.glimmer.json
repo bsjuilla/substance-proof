@@ -1,0 +1,83 @@
+[
+ {
+  "docId": "t04/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-02-16T09:00",
+    "end_local": "2026-02-16T11:00",
+    "tz": "local",
+    "place_text": "at the registered office, St Helier, Jersey."
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyeleran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 8473
+ },
+ {
+  "docId": "t04/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Marcus Oyeleran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier, Jersey",
+     "check_in_local": "2026-02-14T23:06",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-02-17T07:07",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Saturday 14 February 2026 at 23:06 and checked out on Tuesday 17 February 2026 at 07:07. All times on this statement are shown in local time (Europe/Jersey).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 17365
+ }
+]

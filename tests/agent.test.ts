@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { runEvidenceAgent } from "../src/agent/evidenceAgent";
+import { OUTCOME, runEvidenceAgent } from "../src/agent/evidenceAgent";
 
 // The guardrails must hold even if the model is fully hijacked (for example by instructions hidden in a
 // document). These tests replace the model with a script that makes exactly the calls an attacker wants.
@@ -88,5 +88,26 @@ describe("agent guardrails against a hijacked model", () => {
   it("rejects an oversized message", async () => {
     const r = await runEvidenceAgent(scriptedModel([correction({ message: `${date} ` + "x".repeat(5000) })]), "m", input);
     expect(r.drafts).toHaveLength(0);
+  });
+});
+
+describe("guardrail: paraphrased outcomes found by the fraud review", () => {
+  it("blocks every outcome sentence that got through before", () => {
+    for (const s of [
+      "We can confirm you were physically in Jersey for the whole meeting.",
+      "Your attendance is now fully evidenced, so no need to send anything else.",
+      "The meeting counts toward the company's Jersey substance for the year.",
+      "The board met the economic substance conditions at this meeting.",
+      "There is enough evidence; you do not need to do anything.",
+      "This meeting did not meet the quorum.",
+      "The company is not managed and controlled in Jersey.",
+      "Le quorum est atteint.",
+    ]) expect(OUTCOME.test(s), s).toBe(true);
+  });
+  it("still allows an ordinary evidence request", () => {
+    for (const s of [
+      "Please send a copy of your boarding pass for your flight to Jersey before the 12 March meeting.",
+      "The minutes say you were present in St Helier; could you send the hotel bill or travel documents for that day?",
+    ]) expect(OUTCOME.test(s), s).toBe(false);
   });
 });

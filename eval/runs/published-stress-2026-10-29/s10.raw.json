@@ -1,0 +1,112 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s10/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-15T10:00",
+    "end_local": "2026-05-15T12:00",
+    "tz": "local",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0075115,
+  "ms": 5515,
+  "usage": {
+   "input_tokens": 3619,
+   "output_tokens": 703,
+   "reasoning_tokens": 297
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s10/stay/folio_C_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SAINT-HÉLIER, JERSEY",
+     "check_in_local": "2026-05-14T01:53",
+     "check_in_tz": "local",
+     "check_out_local": "2026-05-16T23:09",
+     "check_out_tz": "local",
+     "quote": "Arrivée 14/05/2026 à 01h53",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00921775,
+  "ms": 8629,
+  "usage": {
+   "input_tokens": 3539,
+   "output_tokens": 1128,
+   "reasoning_tokens": 950
+  }
+ }
+]

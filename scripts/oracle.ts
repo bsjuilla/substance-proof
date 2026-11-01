@@ -26,29 +26,24 @@ function whereWas(items: TravelItem[], S: number, E: number, home: string, resid
   const trusted = resident && !saysAway;
   // In the air at any moment of the meeting: not there.
   if (flights.some((f) => t(f.departUtc) < E && t(f.arriveUtc) > S)) return { status: "absent", place: "air" };
-  // A hotel stay covering the whole meeting. Away from home it shows they were away. At home it only counts if
-  // travel backs it up (the last flight before landed at home, or the first flight after left from home, within
-  // 72 hours) or the director lives there: a room can be booked and never used.
+  // The flights nearest the meeting on each side. Proof of being somewhere: the last one before landed there and the
+  // first one after left from there, both within 72 hours; and, unless both are within 24 hours, a hotel stay there
+  // covers the meeting. Less than that (a hotel alone, one flight) only supports presence, though it can show the
+  // director was away.
+  const events = flights.flatMap((f) => [{ at: t(f.departUtc), arrive: false, c: COUNTRY[f.origin] }, { at: t(f.arriveUtc), arrive: true, c: COUNTRY[f.dest] }]).sort((a, b) => a.at - b.at);
+  const lastIn = [...events].reverse().find((e) => e.at <= S);
+  const firstOut = events.find((e) => e.at >= E);
   const stay = stays.find((s) => t(s.fromUtc) <= S && t(s.toUtc) >= E);
+  if (lastIn?.arrive && firstOut && !firstOut.arrive && lastIn.c && lastIn.c === firstOut.c && S - lastIn.at <= 72 * H && firstOut.at - E <= 72 * H) {
+    if (lastIn.c !== home) return { status: "absent", place: lastIn.c };
+    const close = S - lastIn.at <= 24 * H && firstOut.at - E <= 24 * H;
+    const stayHere = stay !== undefined && COUNTRY[stay.placeCode] === home;
+    return { status: close || stayHere || trusted ? "present" : "unknown", place: home };
+  }
   if (stay) {
     const c = COUNTRY[stay.placeCode];
     if (c !== home) return { status: c ? "absent" : "unknown", place: c };
-    const events = flights.flatMap((f) => [{ at: t(f.departUtc), arrive: false, airport: f.origin }, { at: t(f.arriveUtc), arrive: true, airport: f.dest }]).sort((a, b) => a.at - b.at);
-    const lastIn = [...events].reverse().find((e) => e.at <= S);
-    const firstOut = events.find((e) => e.at >= E);
-    const backed =
-      (lastIn && lastIn.arrive && lastIn.airport === HOME_AIRPORT[home] && S - lastIn.at <= 72 * H) ||
-      (firstOut && !firstOut.arrive && firstOut.airport === HOME_AIRPORT[home] && firstOut.at - E <= 72 * H);
-    return { status: backed || trusted ? "present" : "unknown", place: c };
-  }
-  // Flew in shortly before and out shortly after (within 72 hours each side), with no flight in between.
-  const inbound = flights.filter((f) => f.dest === HOME_AIRPORT[home] && t(f.arriveUtc) <= S && S - t(f.arriveUtc) <= 72 * H);
-  const outbound = flights.filter((f) => f.origin === HOME_AIRPORT[home] && t(f.departUtc) >= E && t(f.departUtc) - E <= 72 * H);
-  if (inbound.length && outbound.length) {
-    const lastIn = Math.max(...inbound.map((f) => t(f.arriveUtc)));
-    const firstOut = Math.min(...outbound.map((f) => t(f.departUtc)));
-    const between = flights.some((f) => t(f.departUtc) > lastIn && t(f.departUtc) < firstOut);
-    if (!between) return { status: "present", place: home };
+    return { status: trusted ? "present" : "unknown", place: c };
   }
   // Nothing places them during the meeting. A resident counts as there if the nearest evidence on each side (at any
   // distance) is at home or there is none.
@@ -76,13 +71,15 @@ export function oracle(s: Scenario): OracleAnswer {
   const E = t(s.meeting.endUtc);
   const home = s.jurisdiction;
   // What the minutes or the recording say about where each director was.
+  const claimedCodes = (id: string) => [s.minutesClaims[id]?.placeCode ?? (s.minutesClaims[id] ? "?" : undefined), ...(s.recording ?? []).filter((l) => l.speaker === id && l.claim).map((l) => l.claim)].filter((p): p is string => !!p);
   const claimedPlaces = (id: string) => [
     s.minutesClaims[id]?.placeCode,
     ...(s.recording ?? []).filter((l) => l.speaker === id && l.claim).map((l) => l.claim),
   ].filter(Boolean).map((p) => COUNTRY[p!]).filter(Boolean);
   const presence = s.company.directors.map((d) => ({
     directorId: d.id,
-    ...whereWas(s.travel[d.id] ?? [], S, E, home, d.residentIn === home, claimedPlaces(d.id).some((c) => c !== home)),
+    // Any claim that does not name the home jurisdiction (another place, or one we cannot place) counts as "away".
+    ...whereWas(s.travel[d.id] ?? [], S, E, home, d.residentIn === home, claimedCodes(d.id).some((p) => COUNTRY[p] !== home)),
   }));
   const statusOf = (id: string) => presence.find((p) => p.directorId === id)!.status;
 

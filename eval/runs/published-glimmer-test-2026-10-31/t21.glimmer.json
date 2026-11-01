@@ -1,0 +1,83 @@
+[
+ {
+  "docId": "t21/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-10-10T10:00",
+    "end_local": "2026-10-10T12:00",
+    "tz": "GMT+8",
+    "place_text": "by video conference"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Paris",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Paris",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 36010
+ },
+ {
+  "docId": "t21/travel/ETKT_B_CDG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "WIERZBA/TOMASZ",
+     "origin_code": "CDG",
+     "dest_code": "SIN",
+     "depart_local": "2026-10-09T21:33",
+     "depart_tz": "UTC+02:00",
+     "arrive_local": "2026-10-10T10:33",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 562 Paris Charles de Gaulle (CDG) 09/10/2026 21:33 (UTC+02:00) Singapore Changi (SIN) 10/10/2026 10:33 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 25985
+ }
+]

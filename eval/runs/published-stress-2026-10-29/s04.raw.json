@@ -1,0 +1,243 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s04/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-24T10:00",
+    "end_local": "2026-05-24T12:00",
+    "tz": "local",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Rafael Quintero",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Samuel Achterberg",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008613,
+  "ms": 8270,
+  "usage": {
+   "input_tokens": 3657,
+   "output_tokens": 951,
+   "reasoning_tokens": 432
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s04/stay/folio_C_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Samuel Achterberg",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-05-23T16:47",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-05-25T11:18",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Saturday 23 May 2026 at 16:47 and checked out on Monday 25 May 2026 at 11:18. All times on this statement are shown in local time (Europe/Jersey).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007692,
+  "ms": 6891,
+  "usage": {
+   "input_tokens": 3573,
+   "output_tokens": 759,
+   "reasoning_tokens": 539
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s04/stay/folio_D_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-05-23T11:56",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-05-25T13:17",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Saturday 23 May 2026 at 11:56 and checked out on Monday 25 May 2026 at 13:17.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0084625,
+  "ms": 6698,
+  "usage": {
+   "input_tokens": 3574,
+   "output_tokens": 940,
+   "reasoning_tokens": 751
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s04/travel/PHOTO_BP_A_HKG-JER.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "RAFAEL QUINTERO",
+     "origin_code": "HKG",
+     "dest_code": "JER",
+     "depart_local": "2026-05-24T03:00",
+     "depart_tz": "local",
+     "arrive_local": "2026-05-24T02:10",
+     "arrive_tz": "local",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "HKG Hong Kong International -> JER Jersey Airport SA 532 24 May 2026 3:00 AM 2:10 AM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00634475,
+  "ms": 5464,
+  "usage": {
+   "input_tokens": 1125,
+   "output_tokens": 1162,
+   "reasoning_tokens": 988
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s04/travel/PHOTO_BP_A_JER-HKG.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "RAFAEL QUINTERO",
+     "origin_code": "JER",
+     "dest_code": "HKG",
+     "depart_local": "2026-05-24T17:05",
+     "depart_tz": "local",
+     "arrive_local": "2026-05-25T11:55",
+     "arrive_tz": "local",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "JER -> HKG 24 May 2026 5:05 PM 11:55 AM (25 May 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00528225,
+  "ms": 3964,
+  "usage": {
+   "input_tokens": 1125,
+   "output_tokens": 912,
+   "reasoning_tokens": 707
+  }
+ }
+]

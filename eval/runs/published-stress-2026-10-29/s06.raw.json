@@ -1,0 +1,112 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s06/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-02-03T10:00",
+    "end_local": "2026-02-03T12:00",
+    "tz": "local",
+    "place_text": "Singapore"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Isabel Carrow",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008497,
+  "ms": 7798,
+  "usage": {
+   "input_tokens": 3622,
+   "output_tokens": 934,
+   "reasoning_tokens": 547
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s06/travel/PHOTO_BP_A_SIN-DXB.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "HERNANTEZ/LUCAS",
+     "origin_code": "SIN",
+     "dest_code": "DXB",
+     "depart_local": "2026-02-03T11:20",
+     "depart_tz": "local",
+     "arrive_local": "2026-02-03T14:20",
+     "arrive_tz": "local",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SIN -> DXB 03 Feb 2026 11:20 AM 2:20 PM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00680375,
+  "ms": 4997,
+  "usage": {
+   "input_tokens": 1125,
+   "output_tokens": 1270,
+   "reasoning_tokens": 1073
+  }
+ }
+]

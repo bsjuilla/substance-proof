@@ -1,0 +1,243 @@
+[
+ {
+  "file": "synthetic/generated/dev/packs/m09/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-19T10:00",
+    "end_local": "2026-05-19T12:00",
+    "tz": "GMT+8",
+    "place_text": "By video conference (no physical venue)"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "(Chairman) present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Dmitri Ashby",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Dubai",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00832475,
+  "ms": 5876,
+  "usage": {
+   "input_tokens": 3661,
+   "output_tokens": 882,
+   "reasoning_tokens": 374
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m09/stay/folio_A_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SINGAPORE",
+     "check_in_local": "2026-05-18T13:00",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-05-21T10:00",
+     "check_out_tz": "GMT+8",
+     "quote": "18 May 2026 13:00 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008178,
+  "ms": 6644,
+  "usage": {
+   "input_tokens": 3564,
+   "output_tokens": 876,
+   "reasoning_tokens": 682
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m09/stay/folio_B_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-05-17T00:00",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-05-22T12:00",
+     "check_out_tz": "GST",
+     "quote": "17 May 2026 00:00 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007507,
+  "ms": 6273,
+  "usage": {
+   "input_tokens": 3561,
+   "output_tokens": 719,
+   "reasoning_tokens": 530
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m09/stay/folio_C_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-05-17T00:00",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-05-22T12:00",
+     "check_out_tz": "GST",
+     "quote": "17 May 2026 00:00 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008861,
+  "ms": 7605,
+  "usage": {
+   "input_tokens": 3563,
+   "output_tokens": 1037,
+   "reasoning_tokens": 846
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m09/stay/folio_D_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Dmitri Ashby",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-05-17T00:00",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-05-22T12:00",
+     "check_out_tz": "GST",
+     "quote": "17 May 2026 00:00 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00768375,
+  "ms": 5780,
+  "usage": {
+   "input_tokens": 3563,
+   "output_tokens": 760,
+   "reasoning_tokens": 569
+  }
+ }
+]

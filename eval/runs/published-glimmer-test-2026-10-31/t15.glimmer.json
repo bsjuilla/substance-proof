@@ -1,0 +1,213 @@
+[
+ {
+  "docId": "t15/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-09-13T10:00",
+    "end_local": "2026-09-13T12:00",
+    "tz": "GMT+8",
+    "place_text": "by video conference"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Kenji Halloran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 29291
+ },
+ {
+  "docId": "t15/stay/folio_C_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": "2026-09-12T09:03",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-09-14T08:24",
+     "check_out_tz": "GMT+8",
+     "quote": "12 Sept 2026 09:03 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 13874
+ },
+ {
+  "docId": "t15/travel/PHOTO_BP_A_HKG-SIN.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MARCUS OYELARAN",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-09-13T04:02",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-09-13T11:02",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM HKG Hong Kong International → TO SIN Singapore Changi PASSENGER MARCUS OYELARAN FLIGHT SA 414 DATE 13 Sept 2026 DEPARTS (local GMT+8) 04:02 ARRIVES (local GMT+8) 11:02",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 14827
+ },
+ {
+  "docId": "t15/travel/PHOTO_BP_B_CDG-SIN.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANA SOKOLOVA",
+     "origin_code": "CDG",
+     "dest_code": "SIN",
+     "depart_local": "2026-09-12T14:00",
+     "depart_tz": "CEST",
+     "arrive_local": "2026-09-13T07:25",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM CDG Paris Charles de Gaulle → TO SIN Singapore Changi PASSENGER ANA SOKOLOVA FLIGHT SA 131 DATE 12 Sept 2026 DEPARTS (local CEST) 14:00 ARRIVES (local GMT+8) 07:25 (13 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 29125
+ },
+ {
+  "docId": "t15/travel/PHOTO_BP_B_SIN-CDG.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANA SOKOLOVA",
+     "origin_code": "SIN",
+     "dest_code": "CDG",
+     "depart_local": "2026-09-13T18:06",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-09-13T22:00",
+     "arrive_tz": "CEST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM SIN Singapore Changi TO CDG Paris Charles de Gaulle PASSENGER ANA SOKOLOVA FLIGHT SA 690 DATE 13 Sept 2026 DEPARTS (local GMT+8) 18:06 ARRIVES (local CEST) 22:00",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 14749
+ }
+]

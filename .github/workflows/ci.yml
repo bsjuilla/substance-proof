@@ -10,8 +10,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
@@ -24,4 +24,12 @@ jobs:
         run: |
           npx tsx server/index.ts &
           for i in $(seq 1 30); do curl -sf http://127.0.0.1:8787/api/health && break; sleep 1; done
+          node security/poc-http.mjs
+      - name: HTTP attack suite again in live mode (a dummy key; no request in the suite is valid enough to reach a model)
+        env:
+          PORT: "8788"
+          META_API_KEY: ci-dummy-key-not-a-real-key
+        run: |
+          npx tsx server/index.ts &
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8788/api/health && break; sleep 1; done
           node security/poc-http.mjs

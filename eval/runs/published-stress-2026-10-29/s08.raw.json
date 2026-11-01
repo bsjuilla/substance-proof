@@ -1,0 +1,133 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s08/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-06-19T10:00",
+    "end_local": "2026-06-19T12:00",
+    "tz": "local",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007801,
+  "ms": 7238,
+  "usage": {
+   "input_tokens": 3633,
+   "output_tokens": 767,
+   "reasoning_tokens": 470
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s08/stay/folio_A_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-06-18T08:00",
+     "check_in_tz": "Europe/London",
+     "check_out_local": "2026-06-20T03:04",
+     "check_out_tz": "Europe/London",
+     "quote": "You checked in on Thursday 18 June 2026 at 08:00 and checked out on Saturday 20 June 2026 at 03:04.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00782975,
+  "ms": 6432,
+  "usage": {
+   "input_tokens": 3571,
+   "output_tokens": 792,
+   "reasoning_tokens": 573
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s08/travel/BP_B_LHR-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "FATIMA ZAHRA BENNIS",
+     "origin_code": "LHR",
+     "dest_code": "JER",
+     "depart_local": "2026-06-19T03:21",
+     "depart_tz": "BST",
+     "arrive_local": "2026-06-19T10:21",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM LHR London Heathrow TO JER Jersey Airport PASSENGER FATIMA ZAHRA BENNIS FLIGHT SA 584 DATE 19 Jun 2026 DEPARTS (local BST) 3:21 AM ARRIVES (local GMT+1) 10:21 AM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00682025,
+  "ms": 5223,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 1068,
+   "reasoning_tokens": 832
+  }
+ }
+]

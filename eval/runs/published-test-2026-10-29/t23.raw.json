@@ -1,0 +1,133 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t23/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-10-06T10:00",
+    "end_local": "2026-10-06T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Rafael Quintero",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "London",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from London",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00689875,
+  "ms": 7128,
+  "usage": {
+   "input_tokens": 3445,
+   "output_tokens": 610,
+   "reasoning_tokens": 317
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t23/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-10-05T13:06",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-10-08T10:14",
+     "check_out_tz": "GMT+1",
+     "quote": "05 Oct 2026 13:06 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00922125,
+  "ms": 7321,
+  "usage": {
+   "input_tokens": 3569,
+   "output_tokens": 1120,
+   "reasoning_tokens": 921
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t23/stay/folio_B_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Rafael Quintero",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-10-04T22:25",
+     "check_in_tz": "BST",
+     "check_out_local": "2026-10-07T12:05",
+     "check_out_tz": "BST",
+     "quote": "Arrival 04 Oct 2026 22:25 (BST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008464,
+  "ms": 6120,
+  "usage": {
+   "input_tokens": 3565,
+   "output_tokens": 943,
+   "reasoning_tokens": 748
+  }
+ }
+]

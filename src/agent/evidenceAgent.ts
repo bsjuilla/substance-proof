@@ -98,6 +98,16 @@ export const OUTCOME = new RegExp(
     /\b(substance|residence|residency|tax) (position|status|test) (is|was) (fine|ok|okay|sound|good|safe|secure|met)\b/,
     /\b(records|evidence|documents) (show|shows|confirm|confirms|prove|proves) (that )?you were present\b/,
     /\battendance (in \w+ )?(is|was|has been) (confirmed|verified|established)\b/,
+    // More paraphrases, found by a third review (Grok as a fraudster, 1 Nov 2026).
+    /\b(we|i|this|the evidence|our records) (can |hereby |have |do )?(confirm|verif|certif)\w*\b[^.]{0,40}\byou were (physically )?(present|in|there)\b/,
+    /\b(fully|sufficiently|properly) evidenced\b|\benough evidence\b/,
+    /\b(no need|(do not|don't|need not) need) to (send|provide|do) anything\b|\bdo not need to (send|provide|do) anything\b/,
+    /\bcounts? (toward|towards|for)\b[^.]{0,40}\bsubstance\b/,
+    /\b(met|meets|satisf\w+|fulfil\w*)\s+(the\s+)?(\w+\s+){0,3}(conditions?|criteria)\b/,
+    /\b(did not|didn't|does not|doesn't|failed to) (meet|reach|achieve|satisfy)\b/,
+    /\bquorum (was|is|has been|were) (not )?(met|reached|achieved|present)\b/,
+    /\b(is|was|are|were|be) (not )?(managed and controlled|centrally managed|tax resident|resident for tax)\b/,
+    /\bquorum (est|a été|n'est pas|n'a pas été) (atteint|réuni)/,
   ].map((r) => r.source).join("|"),
   "i",
 );
@@ -161,6 +171,9 @@ export async function runEvidenceAgent(
     const subject = String(args?.subject ?? "");
     const message = String(args?.message ?? "");
     if (OUTCOME.test(`${subject}\n${message}`)) problems.push("subject and message must not state any legal outcome, either way");
+    // A drafted message never carries a link: a hijacked or injected agent could otherwise send directors to a
+    // look-alike "upload portal". The firm adds its own secure link when it sends the message.
+    if (/https?:\/\/|\bwww\.|\b[a-z0-9-]+\.(com|net|org|io|je|gg|sg|co|uk|example)\b\/?/i.test(`${subject}\n${message}`)) problems.push("subject and message must not contain links or web addresses");
     if (subject.length > 200 || message.length > 3000) problems.push("subject or message too long");
     const docs = args?.documents_requested;
     if (docs !== undefined && !(Array.isArray(docs) && docs.length <= 10 && docs.every((d: unknown) => typeof d === "string" && d.length < 200)))

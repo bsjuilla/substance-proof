@@ -1,0 +1,205 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s07/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-06-25T10:00",
+    "end_local": "2026-06-25T12:00",
+    "tz": "local",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Dubai",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0078125,
+  "ms": 5273,
+  "usage": {
+   "input_tokens": 3649,
+   "output_tokens": 765,
+   "reasoning_tokens": 344
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s07/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-06-24T06:43",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-06-27T06:16",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Wednesday 24 June 2026 at 06:43 and checked out on Saturday 27 June 2026 at 06:16.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007834,
+  "ms": 8126,
+  "usage": {
+   "input_tokens": 3571,
+   "output_tokens": 793,
+   "reasoning_tokens": 575
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s07/travel/BP_A_DXB-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "HUGO LINDQVIST",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-06-25T07:19",
+     "depart_tz": "GST",
+     "arrive_local": "2026-06-25T11:19",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM DXB TO JER DATE 25 Jun 2026 DEPARTS (local GST) 7:19 AM ARRIVES (local GMT+1) 11:19 AM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007037,
+  "ms": 5648,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 1119,
+   "reasoning_tokens": 902
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s07/travel/BP_D_HKG-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MARCUS OYELARAN",
+     "origin_code": "HKG",
+     "dest_code": "JER",
+     "depart_local": "2026-06-25T11:20",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-06-25T11:20",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM HKG TO JER DEPARTS (local GMT+8) 11:20 AM ARRIVES (local GMT+1) 11:20 AM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.005473,
+  "ms": 4315,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 751,
+   "reasoning_tokens": 569
+  }
+ }
+]

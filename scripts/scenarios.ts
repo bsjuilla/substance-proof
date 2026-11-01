@@ -280,11 +280,11 @@ export const SCENARIOS: Scenario[] = [
   },
   {
     // The usual Jersey board: two directors live on the island (no travel, so no boarding pass or hotel bill), and
-    // one flies in. The firm holds reviewed residence records for the two locals. The visitor's hotel bill counts
-    // because his boarding pass shows him landing in Jersey the day before.
+    // one flies in. The firm holds reviewed residence records for the two locals. The visitor is proven by his
+    // boarding passes in (the day before) and out (the day after), with his St Helier hotel covering the meeting.
     id: "m12",
     jurisdiction: "JE",
-    trap: "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before and stayed in St Helier. Quorum evidenced.",
+    trap: "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before, stayed in St Helier and flew out the day after. Quorum evidenced.",
     company: JE_CO(["A", "B", "C"], {
       id: "HM-JE",
       name: "Harrowmere Holdings (Jersey) Limited",
@@ -298,6 +298,7 @@ export const SCENARIOS: Scenario[] = [
       B: [
         { type: "flight", origin: "LHR", dest: "JER", departUtc: "2026-03-11T12:25:00Z", arriveUtc: "2026-03-11T13:30:00Z", flightNo: "SA 219" },
         inJersey(),
+        { type: "flight", origin: "JER", dest: "LHR", departUtc: "2026-03-13T10:40:00Z", arriveUtc: "2026-03-13T11:45:00Z", flightNo: "SA 224" },
       ],
     },
   },

@@ -9,7 +9,8 @@ dist/
 .next/
 out/
 
-eval/runs/
+eval/runs/*
+!eval/runs/published-*/
 
 # user uploads in live mode (may contain real documents): never commit
 uploads/

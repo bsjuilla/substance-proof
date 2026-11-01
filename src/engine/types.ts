@@ -89,10 +89,10 @@ export type PresenceResult = {
   status: PresenceStatus;
   /** Where the evidence puts them if absent (jurisdiction code), or undefined. */
   elsewhere?: JurisdictionCode;
-  /** "independent" = travel evidence, or a hotel stay backed by travel; "hotel_only" = only a hotel stay places them
-   *  there (supporting, not proof: a room can be booked and not used); "resident" = a reviewed residence record and
-   *  nothing places them elsewhere; "claim_only" = only minutes/recording say so. */
-  basis: "independent" | "hotel_only" | "resident" | "claim_only" | "none";
+  /** "independent" = a flight in and a flight out around the meeting (see presence.ts); "partial" = evidence that
+   *  points there but does not prove it (a hotel bill alone, one flight); "resident" = a reviewed residence record
+   *  and nothing places them elsewhere; "claim_only" = only minutes/recording say so. */
+  basis: "independent" | "partial" | "resident" | "claim_only" | "none";
   reason: string;
   cites: Citation[];
   /** The minutes or recording claimed this jurisdiction but independent evidence disagrees. */

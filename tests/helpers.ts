@@ -43,10 +43,14 @@ export function claim(directorId: string, placeCode: string, source: "minutes" |
 
 const AIRPORT: Record<string, string> = { "CITY:STHELIER": "JER", "CITY:SINGAPORE": "SIN", "CITY:DUBAI": "DXB", "CITY:LONDON": "LHR" };
 
-/** Evidence that places a director somewhere: the hotel stay plus the flight that landed there the day before.
- *  (A hotel stay on its own only supports presence; see the presence tests.) */
+/** Evidence that proves a director was somewhere: the hotel stay, the flight in the day before and the flight out
+ *  the day after. (A hotel stay, or one flight, only supports presence; see the presence and red-team tests.) */
 export function there(directorId: string, placeCode: string): Fact[] {
   const dest = AIRPORT[placeCode] ?? placeCode;
-  const origin = dest === "LHR" ? "CDG" : "LHR";
-  return [stay(directorId, placeCode), flight(directorId, origin, dest, "2026-03-11T08:00:00Z", "2026-03-11T14:00:00Z")];
+  const other = dest === "LHR" ? "CDG" : "LHR";
+  return [
+    stay(directorId, placeCode),
+    flight(directorId, other, dest, "2026-03-11T08:00:00Z", "2026-03-11T14:00:00Z"),
+    flight(directorId, dest, other, "2026-03-13T10:00:00Z", "2026-03-13T12:00:00Z"),
+  ];
 }

@@ -1,0 +1,133 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s03/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-06-03T10:00",
+    "end_local": "2026-06-03T12:00",
+    "tz": "GMT+8",
+    "place_text": "By video conference (no physical venue)"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00666075,
+  "ms": 7459,
+  "usage": {
+   "input_tokens": 3445,
+   "output_tokens": 554,
+   "reasoning_tokens": 266
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s03/stay/folio_A_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SINGAPOUR",
+     "check_in_local": "2026-06-02T10:22",
+     "check_in_tz": "local",
+     "check_out_local": "2026-06-04T16:50",
+     "check_out_tz": "local",
+     "quote": "02/06/2026 à 10h22",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007645,
+  "ms": 8296,
+  "usage": {
+   "input_tokens": 3532,
+   "output_tokens": 760,
+   "reasoning_tokens": 604
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s03/travel/BP_B_SIN-CDG.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "FERRANTE/LUCIA",
+     "origin_code": "SIN",
+     "dest_code": "CDG",
+     "depart_local": "2026-06-03T10:50",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-06-03T11:50",
+     "arrive_tz": "CEST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SIN → CDG DEPARTS (local GMT+8) 10:50 AM ARRIVES (local CEST) 11:50 AM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0086605,
+  "ms": 6646,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 1501,
+   "reasoning_tokens": 1291
+  }
+ }
+]

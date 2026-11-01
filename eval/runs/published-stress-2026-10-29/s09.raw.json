@@ -1,0 +1,171 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s09/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-07T10:00",
+    "end_local": "2026-05-07T12:00",
+    "tz": "GMT+8",
+    "place_text": "video call"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Hong Kong",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Hong Kong",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Kenji Halloran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008769,
+  "ms": 7894,
+  "usage": {
+   "input_tokens": 3622,
+   "output_tokens": 998,
+   "reasoning_tokens": 711
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s09/travel/BP_A_SIN-HKG.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "OYELARAN/MARCUS",
+     "origin_code": "SIN",
+     "dest_code": "HKG",
+     "depart_local": "2026-05-07T11:18",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-05-07T18:18",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SIN → HKG\nOYELARAN/MARCUS SA 639 07 May 2026 11:18 AM 6:18 PM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01116375,
+  "ms": 8421,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 2090,
+   "reasoning_tokens": 1877
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s09/travel/BP_B_CDG-SIN.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "HALLORAN/KENJI",
+     "origin_code": "CDG",
+     "dest_code": "SIN",
+     "depart_local": "2026-05-06T14:00",
+     "depart_tz": "CEST",
+     "arrive_local": "2026-05-07T06:44",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM CDG TO SIN DATE 06 May 2026 DEPARTS (local CEST) 2:00 PM ARRIVES (local GMT+8) 6:44 AM (07 May 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00708375,
+  "ms": 5335,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 1130,
+   "reasoning_tokens": 907
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s09/travel/BP_B_SIN-CDG.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "HALLORAN/KENJI",
+     "origin_code": "SIN",
+     "dest_code": "CDG",
+     "depart_local": "2026-05-07T19:14",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-05-07T22:00",
+     "arrive_tz": "CEST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM SIN TO CDG DEPARTS (local GMT+8) 7:14 PM ARRIVES (local CEST) 10:00 PM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00751725,
+  "ms": 5607,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 1232,
+   "reasoning_tokens": 1055
+  }
+ }
+]

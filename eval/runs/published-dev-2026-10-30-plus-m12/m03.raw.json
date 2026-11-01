@@ -1,0 +1,200 @@
+[
+ {
+  "file": "synthetic/generated/dev/packs/m03/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-03-12T09:00",
+    "end_local": "2026-03-12T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007348,
+  "ms": 11396,
+  "usage": {
+   "input_tokens": 3631,
+   "output_tokens": 661,
+   "reasoning_tokens": 258
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m03/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 11 Mar 2026 15:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0093905,
+  "ms": 29105,
+  "usage": {
+   "input_tokens": 3565,
+   "output_tokens": 1161,
+   "reasoning_tokens": 967
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m03/stay/folio_C_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 11 Mar 2026 15:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01035225,
+  "ms": 30084,
+  "usage": {
+   "input_tokens": 3566,
+   "output_tokens": 1387,
+   "reasoning_tokens": 1191
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m03/travel/BP_B_JER-LHR.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "BRUNO CASTELL",
+     "origin_code": "JER",
+     "dest_code": "LHR",
+     "depart_local": "2026-03-12T10:30",
+     "depart_tz": "GMT",
+     "arrive_local": "2026-03-12T11:45",
+     "arrive_tz": "GMT",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "JER → LHR 10:30 11:45",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01749175,
+  "ms": 10429,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 1226,
+   "reasoning_tokens": 1035
+  },
+  "redactions": [
+   {
+    "label": "qr code",
+    "x1": 948,
+    "y1": 460,
+    "x2": 1315,
+    "y2": 555,
+    "w": 1360,
+    "h": 600,
+    "c": 0.9569892287254333
+   }
+  ]
+ }
+]

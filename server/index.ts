@@ -4,8 +4,9 @@
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { extname, join, normalize, resolve, sep } from "node:path";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { analyzePack } from "../src/app/analyze";
+import { sweepRedacted } from "../src/extract/redact";
 import { makeClient } from "../src/extract/client";
 import { localToUtc } from "../src/extract/toFacts";
 import { buildPack } from "../src/rules/buildPack";
@@ -119,6 +120,8 @@ function sweepUploads() {
 }
 sweepUploads();
 setInterval(sweepUploads, 3_600_000).unref();
+sweepRedacted();
+setInterval(() => sweepRedacted(), 3_600_000).unref();
 
 /** The validated, AI-written rule pack for a jurisdiction (built by scripts/build-packs.ts from the official text). */
 function loadApprovedPack(j: string): RulePack | undefined {
@@ -189,34 +192,46 @@ const server = createServer(async (req, res) => {
       const body = await readJson(req);
       const s = body.setup ?? {};
       const j = s.jurisdiction === "SG" ? "SG" : "JE";
-      const directors = (s.directors ?? []).filter((d: any) => d?.name?.trim()).slice(0, 12)
-        .map((d: any, i: number) => ({
-          id: String.fromCharCode(65 + i), name: String(d.name).trim().slice(0, 80), isChair: !!d.isChair, hasStrategicAuthority: d.strategic !== false,
-          // "Lives in the jurisdiction, proof on file": the person confirms they hold a reviewed residence record.
-          ...(d.resident ? { residentIn: j, residenceRecord: String(d.residenceRecord || "Residence record on file (confirmed by the user)").trim().slice(0, 120) } : {}),
-        }));
+      const files: { name: string; base64: string; role?: string; director?: number }[] = (body.files ?? []).slice(0, 40);
+      // Validate every file before writing any, so a bad file does not leave the earlier ones on disk.
+      for (const f of files) {
+        if (!/\.(pdf|png|jpe?g|webp|wav|mp3|m4a|mp4|webm|ogg)$/i.test(safeName(String(f.name ?? "")))) return send(res, 400, { error: `Unsupported file type: ${String(f.name).slice(0, 80)}` });
+      }
+      const named = (s.directors ?? []).map((d: any, i: number) => ({ d, i })).filter(({ d }: any) => d?.name?.trim()).slice(0, 12);
+      // "Lives in the jurisdiction" needs a residence document for that director. It is kept with the run and its
+      // fingerprint goes in the memo for the reviewer; it is not sent to any model.
+      const residenceFile = (formIndex: number) => files.find((f) => f.role === "residence" && f.director === formIndex);
+      const missing = named.filter(({ d, i }: any) => d.resident && !residenceFile(i)).map(({ d }: any) => String(d.name).trim());
+      if (missing.length) return send(res, 400, { error: `Attach a residence document for: ${missing.join(", ")} (or untick "lives in").` });
+      const directors = named.map(({ d, i }: any, k: number) => {
+        const proof = d.resident ? residenceFile(i)! : undefined;
+        const fp = proof ? createHash("sha256").update(Buffer.from(proof.base64, "base64")).digest("hex") : "";
+        return {
+          id: String.fromCharCode(65 + k), name: String(d.name).trim().slice(0, 80), isChair: !!d.isChair, hasStrategicAuthority: d.strategic !== false,
+          ...(proof ? { residentIn: j, residenceRecord: `residence document ${safeName(proof.name)}, SHA-256 ${fp.slice(0, 16)}…, supplied by the user; a reviewer must check it` } : {}),
+        };
+      });
       if (directors.length === 0) return send(res, 400, { error: "Add at least one director." });
       // The quorum comes from the company's articles. It is never assumed: a wrong default could pass a meeting.
       const quorum = Number(s.quorum);
       if (!Number.isInteger(quorum) || quorum < 1 || quorum > directors.length) {
         return send(res, 400, { error: `Enter the quorum from the company's articles (a whole number from 1 to ${directors.length}).` });
       }
-      const files: { name: string; base64: string; role?: string }[] = (body.files ?? []).slice(0, 40);
-      if (files.length === 0) return send(res, 400, { error: "Add the meeting documents." });
+      if (!files.some((f) => f.role !== "residence")) return send(res, 400, { error: "Add the meeting documents." });
       const runId = randomUUID();
       const dir = join(UPLOADS, runId, "pack");
       mkdirSync(dir, { recursive: true });
       // Each file is saved in a folder named after the role the user gave it; the engine takes the role from
       // there, not from the model (so planted text cannot turn the minutes into "hotel evidence").
-      const ROLE_DIR: Record<string, string> = { minutes: "minutes", travel: "travel", hotel: "stay", recording: "recording" };
-      const paths = files.map((f) => {
+      const ROLE_DIR: Record<string, string> = { minutes: "minutes", travel: "travel", hotel: "stay", recording: "recording", residence: "residence" };
+      const saved = files.map((f) => {
         const sub = join(dir, ROLE_DIR[f.role ?? ""] ?? "other");
         mkdirSync(sub, { recursive: true });
         const out = join(sub, safeName(f.name));
-        if (!/\.(pdf|png|jpe?g|webp|wav|mp3|m4a|mp4|webm|ogg)$/i.test(out)) throw new Error(`Unsupported file type: ${f.name}`);
         writeFileSync(out, Buffer.from(f.base64, "base64"));
-        return out;
+        return { out, role: f.role };
       });
+      const paths = saved.filter((x) => x.role !== "residence").map((x) => x.out);
       const company: Company = {
         id: "UPLOAD", name: String(s.companyName || "Uploaded company").slice(0, 120), directors,
         quorumRequired: quorum, options: {},

@@ -3,15 +3,16 @@
 //  1) Glimmer alone against the answer key (facts and verdicts), the same way Muse Spark is scored
 //  2) the combined result: Muse Spark's verdict plus the SECOND-READER check, against the answer key
 // Usage: SET=test REPLAY=<run> [GLIMMER_REPLAY=<glimmer run>] npx tsx scripts/eval-second-reader.ts [meetingId ...]
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { verdictFrom } from "../src/engine/evaluate";
 import type { Fact } from "../src/engine/types";
 import { decide, IMAGE_EXT, isRecording, pool, type AnyExtract } from "../src/extract/pipeline";
-import { redactImage } from "../src/extract/redact";
+import { discardRedacted, redactImage } from "../src/extract/redact";
 import { readWithGlimmer, secondOpinion, secondReaderModel, type SecondReading } from "../src/extract/secondReader";
 
-process.loadEnvFile(join(import.meta.dirname, "..", ".env"));
+const envFile = join(import.meta.dirname, "..", ".env");
+if (existsSync(envFile)) process.loadEnvFile(envFile); // not needed to re-score saved readings
 const ROOT = join(import.meta.dirname, "..");
 const SET = process.env.SET ?? "test";
 const REPLAY = process.env.REPLAY;
@@ -49,7 +50,7 @@ async function main() {
       const docId = docIdOf(r.file);
       try {
         const path = IMAGE_EXT.test(r.file) ? (await redactImage(r.file)).path : r.file;
-        const g = await readWithGlimmer(path);
+        const g = await readWithGlimmer(path).finally(() => path !== r.file && discardRedacted(path));
         return { docId, extraction: g.extraction, ms: g.ms };
       } catch (e) {
         return { docId, error: (e as Error).message.slice(0, 200) };

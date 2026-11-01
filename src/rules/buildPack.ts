@@ -102,6 +102,13 @@ export function endsAtClauseBoundary(q: string, src: string): boolean {
   return false;
 }
 
+/** Words that must appear in or just before a quote for a test to be limited to some meetings. */
+const SCOPE_WORDS: Record<Exclude<RulePack["tests"][number]["applies_to"], "every_meeting">, RegExp> = {
+  strategic_meetings: /strategic|core income/i,
+  virtual_or_hybrid_meetings: /virtual|video|telephone|teleconferenc|remote|electronic|technology/i,
+  in_person_meetings: /in person|in-person|physically|face to face/i,
+};
+
 export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResult, "costUsd" | "inputTokens" | "seconds"> {
   const src = norm(sourceText);
   const validated: ValidatedTest[] = pack.tests.map((t) => {
@@ -118,6 +125,16 @@ export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResu
     // The number must come from the law, not from the model (or from instructions hidden in the pasted text).
     if (t.threshold && !thresholdInQuote(t.threshold, t.quote)) problems.push(`threshold ${t.threshold} is not stated in the quoted words`);
     if (!t.citation.trim()) problems.push("missing citation");
+    // A test limited to some meetings must have that limit in the law: in the quote, or just before it. Otherwise
+    // "quorum present" could be scoped to video meetings only and silently stop applying (found by a fraud review).
+    if (quoteFound && t.applies_to !== "every_meeting") {
+      const at = src.indexOf(q);
+      const context = src.slice(Math.max(0, at - 400), at + q.length);
+      if (!SCOPE_WORDS[t.applies_to].test(context)) problems.push(`the law around the quote does not limit this test to ${t.applies_to.replace(/_/g, " ")}`);
+    }
+    // Packs are written from an official text, so a test is the law or the regulator's guidance. "guidance" is kept
+    // for the hand-labelled secondary summaries; a model must not use it to make a statutory test switchable.
+    if (t.basis === "guidance") problems.push("a test written from an official text cannot be marked as secondary guidance");
     return { ...t, quoteFound, problems };
   });
   if (!/^[A-Z]{2}$/.test(pack.jurisdiction_code)) validated.forEach((v) => v.problems.push("jurisdiction code must be two capital letters"));

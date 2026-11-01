@@ -37,7 +37,7 @@ describe("red-team regressions: no false PASS from genuine documents", () => {
     expect(matchDirector("CASTELL/MARIA MRS", roster)).toBeUndefined();
     expect(matchDirector("Tom Castell", roster)).toBeUndefined();
     expect(matchDirector("CASTELL/BRUNO MR", roster)?.id).toBe("A");
-    expect(matchDirector("Bruno Castel", roster)?.id).toBe("A"); // speech-recognition slip still accepted
+    expect(matchDirector("Bruno Castel", roster, { fuzzy: "speech" })?.id).toBe("A"); // speech-recognition slip accepted (recordings only)
     expect(matchDirector("CASTELL/BRU NO MR", roster)?.id).toBe("A"); // a word split by PDF letter spacing
     expect(matchDirector("CASTELL/MA RIA MRS", roster)).toBeUndefined(); // ...but a split name is still matched letter for letter
     const tf = toFacts([{ docId: "h.pdf", extraction: ext([folio("MARIA CASTELL", "St Helier, Jersey", "BST")]) }], roster);
@@ -121,15 +121,18 @@ describe("buyer review regressions", () => {
 
   it("B1: a hotel bill alone (a booked room nobody used) cannot pass the quorum", () => {
     const ev = evaluateMeeting(company, meeting, [hotel("A", "CITY:STHELIER"), hotel("B", "CITY:STHELIER")], "JE");
-    expect(ev.presence.map((p) => [p.status, p.basis])).toEqual([["unknown", "hotel_only"], ["unknown", "hotel_only"]]);
+    expect(ev.presence.map((p) => [p.status, p.basis])).toEqual([["unknown", "partial"], ["unknown", "partial"]]);
     expect(ev.verdict).toBe("REVIEW");
   });
 
-  it("B2: a hotel bill backed by the flight that landed in Jersey proves presence", () => {
-    const facts = [hotel("A", "CITY:STHELIER"), fly("A", "LHR", "JER", "2026-06-14T08:00:00Z", "2026-06-14T09:10:00Z"), hotel("B", "CITY:STHELIER"), fly("B", "JER", "LGW", "2026-06-16T12:00:00Z", "2026-06-16T13:00:00Z")];
-    const ev = evaluateMeeting(company, meeting, facts, "JE");
-    expect(ev.presence.map((p) => p.status)).toEqual(["present", "present"]);
-    expect(ev.verdict).toBe("PASS");
+  it("B2: a hotel bill plus only one flight is not proof; a flight in and a flight out around it is", () => {
+    const inbound = (id: string) => fly(id, "LHR", "JER", "2026-06-14T08:00:00Z", "2026-06-14T09:10:00Z");
+    const outbound = (id: string) => fly(id, "JER", "LGW", "2026-06-16T12:00:00Z", "2026-06-16T13:00:00Z");
+    const oneLeg = evaluateMeeting(company, meeting, [hotel("A", "CITY:STHELIER"), inbound("A"), hotel("B", "CITY:STHELIER"), outbound("B")], "JE");
+    expect(oneLeg.presence.map((p) => [p.status, p.basis])).toEqual([["unknown", "partial"], ["unknown", "partial"]]);
+    const both = evaluateMeeting(company, meeting, [hotel("A", "CITY:STHELIER"), inbound("A"), outbound("A"), hotel("B", "CITY:STHELIER"), inbound("B"), outbound("B")], "JE");
+    expect(both.presence.map((p) => p.status)).toEqual(["present", "present"]);
+    expect(both.verdict).toBe("PASS");
   });
 
   it("B3: a hotel bill elsewhere still shows the director was away", () => {
@@ -169,5 +172,90 @@ describe("buyer review regressions", () => {
     expect(normalizePlace("Port Louis, Mauritius")).toBe("CITY:PORTLOUIS");
     expect(normalizePlace("Cybercity, Ebène")).toBe("CITY:PORTLOUIS");
     expect(normalizePlace("Douglas, Wyoming")).toBeNull();
+  });
+});
+
+// Third review (Grok as a fraudster, 1 Nov 2026). The person filling in the form is the one who wants EVIDENCED, so
+// silence, unrecognised places and missing documents must never count in their favour.
+describe("fraud review regressions", () => {
+  const residents = roster.map((d: any) => ({ ...d, residentIn: "JE", residenceRecord: "Residence record" }));
+  const co = { ...company, directors: residents };
+  const minutesSay = (place: string | null) => ({
+    document_type: "minutes",
+    meeting: { start_local: null, end_local: null, tz: null, place_text: null },
+    facts: roster.map((d: any) => ({ ...nul, kind: "claimed_location", person_name: d.name, place, quote: "q", page: 1 })),
+  }) as any;
+  const recordingSays = (place: string) => ({
+    document_type: "other",
+    meeting: { start_local: null, end_local: null, tz: null, place_text: null },
+    facts: [{ ...nul, kind: "claimed_location", person_name: "Bruno Castell", place, quote: `dialling in from ${place}`, page: 1 }],
+  }) as any;
+  const run = (items: any[]) => evaluateMeeting(co, meeting, toFacts(items, residents).facts, "JE");
+
+  it("D1: a resident who says on the recording they are in an unrecognised place (Lisbon) is not taken as present", () => {
+    const ev = run([{ docId: "m/minutes.pdf", extraction: minutesSay("St Helier, Jersey") }, { docId: "m/recording.wav", extraction: recordingSays("Lisbon"), turnStartsMs: [0] }]);
+    expect(ev.presence[0].status).toBe("unknown");
+    expect(ev.presence[0].reason).toMatch(/Lisbon/);
+    expect(ev.presence[0].claimConflict).toBeDefined(); // the minutes say St Helier, the recording says Lisbon
+    expect(ev.verdict).not.toBe("PASS");
+  });
+
+  it("D2: 'by telephone' or 'St Helier (joined by video from Dubai)' in the minutes defeats a residence record", () => {
+    for (const place of ["by telephone", "St Helier (joined by video from Dubai)", "Lisboa"]) {
+      const ev = run([{ docId: "m/minutes.pdf", extraction: minutesSay(place) }]);
+      expect(ev.presence.map((p) => p.status), place).toEqual(["unknown", "unknown"]);
+      expect(ev.verdict, place).toBe("REVIEW");
+    }
+  });
+
+  it("D3: minutes that say nothing about place leave the residence record standing", () => {
+    expect(run([{ docId: "m/minutes.pdf", extraction: minutesSay(null) }]).presence.map((p) => p.status)).toEqual(["present", "present"]);
+  });
+
+  it("D4: a spouse's boarding pass ('CASTELL/BRUNA MS') is not the director's", () => {
+    const pass = { document_type: "boarding_pass", meeting: { start_local: null, end_local: null, tz: null, place_text: null }, facts: [{ ...nul, kind: "flight_leg", person_name: "CASTELL/BRUNA MS", origin_code: "LGW", dest_code: "JER", depart_local: "2026-06-14T08:00", depart_tz: "BST", arrive_local: "2026-06-14T09:00", arrive_tz: "BST", quote: "q", page: 1 }] } as any;
+    const tf = toFacts([{ docId: "m/travel/bp.png", extraction: pass }], roster);
+    expect(tf.facts).toHaveLength(0);
+    expect(matchDirector("CASTELL/BRUNA MS", roster)).toBeUndefined();
+    expect(matchDirector("Paula Ferrand", [{ id: "P", name: "Paul Ferrand", hasStrategicAuthority: true }])).toBeUndefined();
+  });
+
+  it("D5: arriving the day before with a hotel, but no flight out in the pack, is not proof", () => {
+    const facts: any[] = [
+      { kind: "flight_leg", directorId: "A", originCode: "LGW", destCode: "JER", departUtc: "2026-06-14T08:00:00Z", arriveUtc: "2026-06-14T09:00:00Z", cite: { docId: "bp" } },
+      { kind: "hotel_stay", directorId: "A", placeCode: "CITY:STHELIER", checkInUtc: "2026-06-14T14:00:00Z", checkOutUtc: "2026-06-16T10:00:00Z", cite: { docId: "f" } },
+    ];
+    expect(evaluateMeeting(company, meeting, facts, "JE").presence[0]).toMatchObject({ status: "unknown", basis: "partial" });
+  });
+
+  it("D6: flights 71 hours before and after, with nowhere to stay, are not proof; within 24 hours they are", () => {
+    const pair = (inAt: string, outAt: string): any[] => [
+      { kind: "flight_leg", directorId: "A", originCode: "LGW", destCode: "JER", departUtc: inAt.replace(/T\d\d/, (h) => `T${String(+h.slice(1) - 1).padStart(2, "0")}`), arriveUtc: inAt, cite: { docId: "in" } },
+      { kind: "flight_leg", directorId: "A", originCode: "JER", destCode: "LGW", departUtc: outAt, arriveUtc: outAt.replace(/T\d\d/, (h) => `T${String(+h.slice(1) + 1).padStart(2, "0")}`), cite: { docId: "out" } },
+    ];
+    expect(evaluateMeeting(company, meeting, pair("2026-06-12T11:00:00Z", "2026-06-18T10:00:00Z"), "JE").presence[0].status).toBe("unknown");
+    expect(evaluateMeeting(company, meeting, pair("2026-06-15T07:00:00Z", "2026-06-15T15:00:00Z"), "JE").presence[0].status).toBe("present");
+  });
+});
+
+describe("name matching on documents", () => {
+  const people: any = [{ id: "M", name: "Marcus Oyelaran", hasStrategicAuthority: true }, { id: "P", name: "Priya Anand-Lowe", hasStrategicAuthority: true }, { id: "B", name: "Bruno Castell", hasStrategicAuthority: true }];
+  it("accepts a misprinted surname or a doubled letter, never a different first name", () => {
+    expect(matchDirector("Marcus Oyeleran", people, { fuzzy: "document" })?.id).toBe("M");
+    expect(matchDirector("ANAND-LOWE/PRIIYA", people, { fuzzy: "document" })?.id).toBe("P");
+    expect(matchDirector("CASTELL/BRUNA MS", people, { fuzzy: "document" })).toBeUndefined();
+    expect(matchDirector("Bruna Castell", people, { fuzzy: "document" })).toBeUndefined();
+  });
+});
+
+describe("real boarding passes", () => {
+  it("a boarding pass that prints local time without a zone is read in the airports' own zones", () => {
+    const pass = { document_type: "boarding_pass", meeting: { start_local: null, end_local: null, tz: null, place_text: null }, facts: [{ ...nul, kind: "flight_leg", person_name: "CASTELL/BRUNO MR", origin_code: "LGW", dest_code: "JER", depart_local: "2026-06-14T08:05", depart_tz: null, arrive_local: "2026-06-14T09:00", arrive_tz: null, quote: "LGW 08:05 JER 09:00", page: 1 }, { ...nul, kind: "flight_leg", person_name: "CASTELL/BRUNO MR", origin_code: "DXB", dest_code: "GVA", depart_local: "2026-06-17T02:40", depart_tz: "local", arrive_local: "2026-06-17T07:10", arrive_tz: "local", quote: "q", page: 1 }] } as any;
+    const tf = toFacts([{ docId: "m/travel/bp.png", extraction: pass }], roster);
+    expect(tf.rejected).toEqual([]);
+    expect(tf.facts.map((f: any) => [f.departUtc, f.arriveUtc])).toEqual([
+      ["2026-06-14T07:05:00Z", "2026-06-14T08:00:00Z"], // both airports on BST (UTC+1)
+      ["2026-06-16T22:40:00Z", "2026-06-17T05:10:00Z"], // Dubai UTC+4, Geneva UTC+2
+    ]);
   });
 });

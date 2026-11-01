@@ -1,0 +1,181 @@
+[
+ {
+  "docId": "t02/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-02-26T09:00",
+    "end_local": "2026-02-26T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Kenji Halloran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 10363
+ },
+ {
+  "docId": "t02/travel/ETKT_A_LHR-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MEI LIN TAVERNIER",
+     "origin_code": "LHR",
+     "dest_code": "JER",
+     "depart_local": "2026-02-26T02:53",
+     "depart_tz": "UTC+00:00",
+     "arrive_local": "2026-02-26T09:53",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 489 London Heathrow (LHR) 26/02/2026 02:53 (UTC+00:00) Jersey Airport (JER) 26/02/2026 09:53 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 8342
+ },
+ {
+  "docId": "t02/travel/ETKT_B_HKG-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "KENJI HALLORAN",
+     "origin_code": "HKG",
+     "dest_code": "JER",
+     "depart_local": "2026-02-26T10:51",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-02-26T09:51",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 231 Hong Kong International (HKG) 26/02/2026 10:51 (UTC+08:00) Jersey Airport (JER) 26/02/2026 09:51 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 35466
+ },
+ {
+  "docId": "t02/travel/ETKT_C_DXB-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MARCUS OYELARAN",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-02-26T06:20",
+     "depart_tz": "UTC+04:00",
+     "arrive_local": "2026-02-26T09:20",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 278 Dubai International (DXB) 26/02/2026 06:20 (UTC+04:00) Jersey Airport (JER) 26/02/2026 09:20 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 25599
+ }
+]

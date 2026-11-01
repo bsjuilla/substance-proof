@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Loaded } from "./types";
 
-type Director = { name: string; isChair: boolean; strategic: boolean; resident: boolean };
+type Director = { name: string; isChair: boolean; strategic: boolean; resident: boolean; proof?: File };
 type Role = "minutes" | "travel" | "hotel" | "recording";
 type Picked = { file: File; role: Role };
 const ROLES: [Role, string][] = [["minutes", "Minutes"], ["travel", "Boarding pass / e-ticket"], ["hotel", "Hotel bill"], ["recording", "Meeting recording"]];
@@ -47,7 +47,11 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
     try {
       const payload = {
         setup: { companyName, jurisdiction, quorum: Number(quorum), mode, isStrategic, recordsKept, minutesRecordStrategic: isStrategic ? minutesRecord : "unknown", date, start, end, directors },
-        files: await Promise.all(files.map(async (p) => ({ name: p.file.name, role: p.role, base64: await toBase64(p.file) }))),
+        files: [
+          ...(await Promise.all(files.map(async (p) => ({ name: p.file.name, role: p.role, base64: await toBase64(p.file) })))),
+          // One residence document per director who "lives in" the jurisdiction. Kept for the reviewer; never sent to a model.
+          ...(await Promise.all(directors.map(async (d, i) => (d.resident && d.proof ? { name: d.proof.name, role: "residence", director: i, base64: await toBase64(d.proof) } : null)))).filter(Boolean),
+        ],
       };
       const r = await fetch("/api/analyze-upload", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
       const j = await r.json();
@@ -128,7 +132,12 @@ export function Upload({ onLoaded }: { onLoaded: (l: Loaded) => void }) {
             <input aria-label={`Director ${i + 1} name`} placeholder="Full name" value={d.name} onChange={(e) => setDir(i, { name: e.target.value })} style={{ flex: "1 1 12rem", minHeight: "2.5rem", padding: ".4rem .6rem", border: "1px solid var(--border-strong)", borderRadius: "var(--radius)", background: "var(--surface)" }} />
             <label><input type="checkbox" checked={d.isChair} onChange={(e) => setDir(i, { isChair: e.target.checked })} /> Chair</label>
             <label><input type="checkbox" checked={d.strategic} onChange={(e) => setDir(i, { strategic: e.target.checked })} /> Strategic authority</label>
-            <label title="Tick only if your firm holds a reviewed residence record. Travel or a claim elsewhere still overrides it."><input type="checkbox" checked={d.resident} onChange={(e) => setDir(i, { resident: e.target.checked })} /> Lives in {jurisdiction === "SG" ? "Singapore" : "Jersey"} (record on file)</label>
+            <label title="Travel, or any claim of another place in the minutes or the recording, still overrides it."><input type="checkbox" checked={d.resident} onChange={(e) => setDir(i, { resident: e.target.checked })} /> Lives in {jurisdiction === "SG" ? "Singapore" : "Jersey"}</label>
+            {d.resident && (
+              <label className="small">Residence document{" "}
+                <input type="file" required accept=".pdf,.png,.jpg,.jpeg,.webp" aria-label={`Residence document for director ${i + 1}`} onChange={(e) => setDir(i, { proof: e.target.files?.[0] })} />
+              </label>
+            )}
           </div>
         ))}
         <div><button type="button" className="btn small" onClick={() => setDirectors((ds) => [...ds, { name: "", isChair: false, strategic: true, resident: false }])}>Add director</button></div>

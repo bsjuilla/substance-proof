@@ -1,0 +1,164 @@
+[
+ {
+  "docId": "t09/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-07-11T10:00",
+    "end_local": "2026-07-11T12:00",
+    "tz": "GMT+8",
+    "place_text": "Singapore"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Samuel Achterberg",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 27828
+ },
+ {
+  "docId": "t09/stay/folio_A_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": "2026-07-10T06:58",
+     "check_in_tz": "Asia/Singapore",
+     "check_out_local": "2026-07-13T00:50",
+     "check_out_tz": "Asia/Singapore",
+     "quote": "You checked in on Friday 10 July 2026 at 06:58 and checked out on Monday 13 July 2026 at 00:50. All times on this statement are shown in local time (Asia/Singapore).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 9484
+ },
+ {
+  "docId": "t09/stay/folio_B_PARIS.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Paris, France",
+     "check_in_local": "2026-07-09T23:47",
+     "check_in_tz": "Europe/Paris",
+     "check_out_local": "2026-07-12T04:43",
+     "check_out_tz": "Europe/Paris",
+     "quote": "You checked in on Thursday 9 July 2026 at 23:47 and checked out on Sunday 12 July 2026 at 04:43. All times on this statement are shown in local time (Europe/Paris).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 28078
+ },
+ {
+  "docId": "t09/stay/folio_C_HONGKONG.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Samuel Achterberg",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Hong Kong",
+     "check_in_local": "2026-07-09T13:20",
+     "check_in_tz": "Asia/Hong_Kong",
+     "check_out_local": "2026-07-12T15:53",
+     "check_out_tz": "Asia/Hong_Kong",
+     "quote": "You checked in on Thursday 9 July 2026 at 13:20 and checked out on Sunday 12 July 2026 at 15:53. All times on this statement are shown in local time (Asia/Hong_Kong).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 36151
+ }
+]

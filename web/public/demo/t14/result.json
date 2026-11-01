@@ -1,6 +1,6 @@
 {
  "id": "t14",
- "createdAt": "2026-10-31T09:59:15.988Z",
+ "createdAt": "2026-11-01T11:56:01.847Z",
  "model": "muse-spark-1.3",
  "mode": "replay",
  "company": {
@@ -142,7 +142,7 @@
    "cite": {
     "docId": "t14/stay/folio_A_PARIS.pdf",
     "page": 1,
-    "quote": "You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09. All times on this statement are shown in local time (Europe/Paris)."
+    "quote": "You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09."
    }
   },
   {
@@ -154,7 +154,7 @@
    "cite": {
     "docId": "t14/stay/folio_C_HONGKONG.pdf",
     "page": 1,
-    "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
+    "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
    }
   },
   {
@@ -166,7 +166,7 @@
    "cite": {
     "docId": "t14/stay/folio_D_STHELIER.pdf",
     "page": 1,
-    "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Thursday 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49. All times on this statement are shown in local time (Europe/Jersey)."
+    "quote": "You checked in on Thursday 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49."
    }
   },
   {
@@ -179,7 +179,7 @@
    "cite": {
     "docId": "t14/travel/BP_B_DXB-JER.png",
     "page": 1,
-    "quote": "FROM DXB TO JER DATE 10 Sept 2026 DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 05:20 (11 Sept 2026)"
+    "quote": "DXB → JER 23:00 05:20 (11 Sept 2026)"
    }
   },
   {
@@ -192,7 +192,7 @@
    "cite": {
     "docId": "t14/travel/BP_B_JER-DXB.png",
     "page": 1,
-    "quote": "FROM JER Jersey Airport TO DXB Dubai International PASSENGER TAVERNIER/MEI LIN FLIGHT SA 784 DATE 11 Sept 2026 DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)"
+    "quote": "FROM JER → TO DXB DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)"
    }
   }
  ],
@@ -206,13 +206,13 @@
     "directorId": "A",
     "status": "absent",
     "elsewhere": "FR",
-    "basis": "hotel_only",
-    "reason": "hotel stay in Paris covers the whole meeting, but no travel backs it up.",
+    "basis": "partial",
+    "reason": "Hotel stay in Paris covers the meeting, but no travel on either side.",
     "cites": [
      {
       "docId": "t14/stay/folio_A_PARIS.pdf",
       "page": 1,
-      "quote": "You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09. All times on this statement are shown in local time (Europe/Paris)."
+      "quote": "You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09."
      }
     ]
    },
@@ -220,17 +220,17 @@
     "directorId": "B",
     "status": "present",
     "basis": "independent",
-    "reason": "Bracketed by arrival JER before and departure JER after the meeting, with no flight in between.",
+    "reason": "Flight into JER 5 h before the meeting and flight out of JER 9 h after it.",
     "cites": [
      {
       "docId": "t14/travel/BP_B_DXB-JER.png",
       "page": 1,
-      "quote": "FROM DXB TO JER DATE 10 Sept 2026 DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 05:20 (11 Sept 2026)"
+      "quote": "DXB → JER 23:00 05:20 (11 Sept 2026)"
      },
      {
       "docId": "t14/travel/BP_B_JER-DXB.png",
       "page": 1,
-      "quote": "FROM JER Jersey Airport TO DXB Dubai International PASSENGER TAVERNIER/MEI LIN FLIGHT SA 784 DATE 11 Sept 2026 DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)"
+      "quote": "FROM JER → TO DXB DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)"
      }
     ]
    },
@@ -238,13 +238,13 @@
     "directorId": "C",
     "status": "absent",
     "elsewhere": "HK",
-    "basis": "hotel_only",
-    "reason": "hotel stay in Hong Kong covers the whole meeting, but no travel backs it up.",
+    "basis": "partial",
+    "reason": "Hotel stay in Hong Kong covers the meeting, but no travel on either side.",
     "cites": [
      {
       "docId": "t14/stay/folio_C_HONGKONG.pdf",
       "page": 1,
-      "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
+      "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
      },
      {
       "docId": "t14/minutes.pdf",
@@ -260,13 +260,13 @@
    {
     "directorId": "D",
     "status": "unknown",
-    "basis": "hotel_only",
-    "reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+    "basis": "partial",
+    "reason": "Not proven: hotel stay in St Helier covers the meeting, but no travel on either side. Proof needs a flight in and a flight out around the meeting, or a residence record.",
     "cites": [
      {
       "docId": "t14/stay/folio_D_STHELIER.pdf",
       "page": 1,
-      "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Thursday 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49. All times on this statement are shown in local time (Europe/Jersey)."
+      "quote": "You checked in on Thursday 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49."
      }
     ]
    }
@@ -326,13 +326,13 @@
     "directorId": "C",
     "status": "absent",
     "elsewhere": "HK",
-    "basis": "hotel_only",
-    "reason": "hotel stay in Hong Kong covers the whole meeting, but no travel backs it up.",
+    "basis": "partial",
+    "reason": "Hotel stay in Hong Kong covers the meeting, but no travel on either side.",
     "cites": [
      {
       "docId": "t14/stay/folio_C_HONGKONG.pdf",
       "page": 1,
-      "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
+      "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
      },
      {
       "docId": "t14/minutes.pdf",
@@ -354,8 +354,8 @@
     "kind": "evidence_request",
     "directorId": "D",
     "directorName": "Priya Anand-Lowe",
-    "subject": "Request for documents relating to 11 September 2026 meeting",
-    "message": "Dear Priya Anand-Lowe, Please provide a boarding pass, travel itinerary or hotel bill covering 11 September 2026 to help confirm where you were during the meeting. Thank you for your help.",
+    "subject": "Request for documents for 11 September 2026 meeting",
+    "message": "Dear Priya Anand-Lowe, Regarding the board meeting on 11 September 2026, please provide a boarding pass, travel itinerary or hotel bill covering the meeting date to help confirm your location.",
     "documents": [
      "boarding pass",
      "travel itinerary",
@@ -371,8 +371,8 @@
     "kind": "minutes_correction",
     "directorId": "C",
     "directorName": "Helena Brookfield",
-    "subject": "Minutes review for 11 September 2026 meeting",
-    "message": "Dear Helena Brookfield, Please review the minutes record for 11 September 2026. The minutes in t14/minutes.pdf state \"present in St Helier\", while the evidence in t14/stay/folio_C_HONGKONG.pdf states \"Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong).\" Please review.",
+    "subject": "Review of minutes for 11 September 2026 meeting",
+    "message": "Dear Company Secretary, Regarding Helena Brookfield and the board meeting on 11 September 2026, please review the minutes record. The minutes in t14/minutes.pdf state \"present in St Helier\", while the evidence in t14/stay/folio_C_HONGKONG.pdf states \"You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57.\"",
     "citations": [
      "t14/stay/folio_C_HONGKONG.pdf#p1",
      "t14/minutes.pdf#p1"
@@ -380,7 +380,7 @@
     "status": "awaiting_approval"
    }
   ],
-  "summary": "I prepared an evidence request draft for Priya Anand-Lowe regarding the 11 September 2026 meeting. I also prepared a minutes correction draft for Helena Brookfield regarding the 11 September 2026 meeting.",
+  "summary": "I prepared an evidence request draft for Priya Anand-Lowe regarding the meeting on 11 September 2026. I also prepared a minutes correction draft for Helena Brookfield regarding the meeting on 11 September 2026.\n",
   "trace": [
    {
     "step": 1,
@@ -394,8 +394,8 @@
        "director_id": "C",
        "name": "Helena Brookfield",
        "status": "absent",
-       "basis": "hotel_only",
-       "engine_reason": "hotel stay in Hong Kong covers the whole meeting, but no travel backs it up.",
+       "basis": "partial",
+       "engine_reason": "Hotel stay in Hong Kong covers the meeting, but no travel on either side.",
        "contradiction": {
         "claimed": "Jersey",
         "evidence": "Hong Kong"
@@ -408,7 +408,7 @@
        "quotes": [
         {
          "doc": "t14/stay/folio_C_HONGKONG.pdf",
-         "words": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong)."
+         "words": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57."
         },
         {
          "doc": "t14/minutes.pdf",
@@ -420,8 +420,8 @@
        "director_id": "D",
        "name": "Priya Anand-Lowe",
        "status": "unknown",
-       "basis": "hotel_only",
-       "engine_reason": "Only a hotel bill places this director in Jersey: hotel stay in St Helier covers the whole meeting, but no travel backs it up. A hotel stay supports presence but does not prove it (a room can be booked and not used). Travel evidence, an attendance register or a residence record would.",
+       "basis": "partial",
+       "engine_reason": "Not proven: hotel stay in St Helier covers the meeting, but no travel on either side. Proof needs a flight in and a flight out around the meeting, or a residence record.",
        "contradiction": null,
        "minutes_vs_recording": null,
        "documents": [
@@ -430,7 +430,7 @@
        "quotes": [
         {
          "doc": "t14/stay/folio_D_STHELIER.pdf",
-         "words": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Thursday 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49. All times on this statement are shown in local time (Europe/Jersey)."
+         "words": "You checked in on Thursday 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49."
         }
        ]
       }
@@ -450,8 +450,8 @@
       "travel itinerary",
       "hotel bill"
      ],
-     "message": "Dear Priya Anand-Lowe, Please provide a boarding pass, travel itinerary or hotel bill covering 11 September 2026 to help confirm where you were during the meeting. Thank you for your help.",
-     "subject": "Request for documents relating to 11 September 2026 meeting"
+     "message": "Dear Priya Anand-Lowe, Regarding the board meeting on 11 September 2026, please provide a boarding pass, travel itinerary or hotel bill covering the meeting date to help confirm your location.",
+     "subject": "Request for documents for 11 September 2026 meeting"
     },
     "result": {
      "draft_id": "D1",
@@ -459,7 +459,7 @@
     }
    },
    {
-    "step": 2,
+    "step": 3,
     "tool": "draft_minutes_correction",
     "args": {
      "citations": [
@@ -467,8 +467,8 @@
       "t14/minutes.pdf#p1"
      ],
      "director_id": "C",
-     "message": "Dear Helena Brookfield, Please review the minutes record for 11 September 2026. The minutes in t14/minutes.pdf state \"present in St Helier\", while the evidence in t14/stay/folio_C_HONGKONG.pdf states \"Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57. All times on this statement are shown in local time (Asia/Hong_Kong).\" Please review.",
-     "subject": "Minutes review for 11 September 2026 meeting"
+     "message": "Dear Company Secretary, Regarding Helena Brookfield and the board meeting on 11 September 2026, please review the minutes record. The minutes in t14/minutes.pdf state \"present in St Helier\", while the evidence in t14/stay/folio_C_HONGKONG.pdf states \"You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57.\"",
+     "subject": "Review of minutes for 11 September 2026 meeting"
     },
     "result": {
      "draft_id": "D2",
@@ -478,8 +478,8 @@
   ],
   "rejectedCalls": 0
  },
- "costUsd": 0.0835,
- "seconds": 46,
+ "costUsd": 0.0879,
+ "seconds": 94,
  "secondReader": {
   "model": "meta/muse-glimmer-30b",
   "read": 6,

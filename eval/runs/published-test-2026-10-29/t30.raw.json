@@ -1,0 +1,129 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t30/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-04T10:00",
+    "end_local": "2026-05-04T12:00",
+    "tz": "local",
+    "place_text": "the registered office, Singapore"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Kenji Halloran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.009657,
+  "ms": 7992,
+  "usage": {
+   "input_tokens": 3666,
+   "output_tokens": 1194,
+   "reasoning_tokens": 692
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t30/travel/BP_B_HKG-SIN.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "KENJI HALLORAN",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-05-04T03:57",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-05-04T10:57",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "HKG Hong Kong International SIN Singapore Changi DATE 04 May 2026 DEPARTS (local GMT+8) 03:57 ARRIVES (local GMT+8) 10:57",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0068075,
+  "ms": 5760,
+  "usage": {
+   "input_tokens": 1825,
+   "output_tokens": 1065,
+   "reasoning_tokens": 877
+  }
+ }
+]

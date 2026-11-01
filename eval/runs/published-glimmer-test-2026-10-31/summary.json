@@ -1,0 +1,486 @@
+{
+ "set": "test",
+ "secondReader": "meta/muse-glimmer-30b",
+ "primaryRun": "2026-10-29T18-42-39-917Z",
+ "runAt": "2026-10-31T07:38:45.411Z",
+ "meetings": 30,
+ "documentsReRead": 110,
+ "documentsUnread": 0,
+ "glimmerAlone": {
+  "factsExact": "164/166 (98.8%)",
+  "spuriousFacts": 2,
+  "meetingVerdictAgreement": "30/30 (100.0%)",
+  "wrongPass": 0
+ },
+ "museSparkAlone": {
+  "meetingVerdictAgreement": "30/30"
+ },
+ "combined": {
+  "meetingVerdictAgreement": "30/30 (100.0%)",
+  "wrongPass": 0,
+  "meetingsSentToReviewBySecondReader": 3,
+  "ofWhichMuseSparkHadAFactWrong": 1
+ },
+ "avgSecondsPerDocument": 24.2,
+ "rows": [
+  {
+   "id": "t01",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t02",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "7/7",
+   "spurious": [],
+   "agreed": "7/7",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t03",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t04",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t05",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "9/9",
+   "spurious": [],
+   "agreed": "9/9",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t06",
+   "expected": "PASS",
+   "spark": "PASS",
+   "glimmer": "PASS",
+   "combined": "PASS",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t07",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t08",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "fail",
+   "glimmerFacts": "3/4",
+   "spurious": [
+    "F|A|DXB|JER|2026-06-08T03:00:00Z|2026-06-08T10:00:00Z"
+   ],
+   "agreed": "3/5",
+   "disagreements": [
+    {
+     "docId": "t08/travel/ETKT_A_DXB-JER.pdf",
+     "what": "only Muse Spark read: flight A DXB JER 2026-08-06T03:00 2026-08-06T10:00"
+    },
+    {
+     "docId": "t08/travel/ETKT_A_DXB-JER.pdf",
+     "what": "only Muse Glimmer read: flight A DXB JER 2026-06-08T03:00 2026-06-08T10:00"
+    }
+   ],
+   "changesDecision": [
+    {
+     "what": "Daniel Mbeki-Shaw: absent from Muse Spark's reading, unknown from Muse Glimmer's"
+    }
+   ],
+   "unread": []
+  },
+  {
+   "id": "t09",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t10",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t11",
+   "expected": "PASS",
+   "spark": "PASS",
+   "glimmer": "PASS",
+   "combined": "PASS",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t12",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t13",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t14",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "9/9",
+   "spurious": [],
+   "agreed": "9/9",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t15",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "8/8",
+   "spurious": [],
+   "agreed": "8/8",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t16",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t17",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "fail",
+   "glimmerFacts": "5/6",
+   "spurious": [
+    "F|D|DXB|JER|2026-08-03T02:48:00Z|2026-08-03T09:48:00Z"
+   ],
+   "agreed": "5/7",
+   "disagreements": [
+    {
+     "docId": "t17/travel/ETKT_D_DXB-JER.pdf",
+     "what": "only Muse Spark read: flight D DXB JER 2026-03-08T02:48 2026-03-08T09:48"
+    },
+    {
+     "docId": "t17/travel/ETKT_D_DXB-JER.pdf",
+     "what": "only Muse Glimmer read: flight D DXB JER 2026-08-03T02:48 2026-08-03T09:48"
+    }
+   ],
+   "changesDecision": [
+    {
+     "what": "Lucia Ferrante: absent from Muse Spark's reading, unknown from Muse Glimmer's"
+    }
+   ],
+   "unread": []
+  },
+  {
+   "id": "t18",
+   "expected": "PASS",
+   "spark": "PASS",
+   "glimmer": "PASS",
+   "combined": "PASS",
+   "check": "pass",
+   "glimmerFacts": "8/8",
+   "spurious": [],
+   "agreed": "8/8",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t19",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "9/9",
+   "spurious": [],
+   "agreed": "9/9",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t20",
+   "expected": "PASS",
+   "spark": "PASS",
+   "glimmer": "PASS",
+   "combined": "PASS",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t21",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t22",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "8/8",
+   "spurious": [],
+   "agreed": "8/8",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t23",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t24",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "fail",
+   "glimmerFacts": "10/10",
+   "spurious": [],
+   "agreed": "9/10",
+   "disagreements": [
+    {
+     "docId": "t24/travel/ETKT_B_HKG-SIN.pdf",
+     "what": "only Muse Glimmer read: flight B HKG SIN 2026-07-11T12:00 2026-07-11T20:26"
+    }
+   ],
+   "changesDecision": [
+    {
+     "what": "Priya Anand-Lowe: unknown from Muse Spark's reading, present from Muse Glimmer's"
+    }
+   ],
+   "unread": []
+  },
+  {
+   "id": "t25",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "5/5",
+   "spurious": [],
+   "agreed": "5/5",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t26",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t27",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "7/7",
+   "spurious": [],
+   "agreed": "7/7",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t28",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t29",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t30",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "5/5",
+   "spurious": [],
+   "agreed": "5/5",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  }
+ ]
+}

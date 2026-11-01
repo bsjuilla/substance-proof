@@ -56,7 +56,7 @@ export function Timeline({ result, onCite }: Props) {
             const label =
               status === "present" ? (p?.basis === "resident" ? `Lives in ${target} · record on file` : `Evidence places in ${target}`)
               : status === "absent" ? `Evidence: not in ${target}`
-              : p?.basis === "hotel_only" ? "Hotel bill only · unproven" : "Unproven";
+              : p?.basis === "partial" ? "Partial evidence · unproven" : "Unproven";
             const claims = mine.filter((f): f is Claim => f.kind === "claimed_location");
             const minutes = claims.find((f) => f.source === "minutes");
             const recording = claims.find((f) => f.source === "recording");

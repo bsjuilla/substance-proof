@@ -1,11 +1,11 @@
 {
   "set": "dev",
   "model": "replay:dev-2026-10-30-plus-m12",
-  "commit": "71aa6dc",
-  "runAt": "2026-10-31T09:49:46.225Z",
+  "commit": "7e71ff4",
+  "runAt": "2026-11-01T11:15:40.802Z",
   "meetings": 12,
-  "costUsd": 0.4886,
-  "factsExact": "87/87 (100.0%)",
+  "costUsd": 0.506,
+  "factsExact": "88/88 (100.0%)",
   "spuriousFacts": 0,
   "rejectedFacts": 0,
   "meetingTimeCorrect": "100.0%",
@@ -195,7 +195,7 @@
     },
     {
       "id": "m12",
-      "trap": "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before and stayed in St Helier. Quorum evidenced.",
+      "trap": "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before, stayed in St Helier and flew out the day after. Quorum evidenced.",
       "style": {
         "boardingPass": "card",
         "folio": "table",
@@ -204,7 +204,7 @@
       },
       "expected": "PASS",
       "got": "PASS",
-      "facts": "5/5",
+      "facts": "6/6",
       "missed": [],
       "spurious": [],
       "rejected": []

@@ -1,0 +1,133 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t16/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-10-05T10:00",
+    "end_local": "2026-10-05T12:00",
+    "tz": "local",
+    "place_text": "at the registered office, St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Ana Sokolova, by video from Dubai",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Priya Anand-Lowe, present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008484,
+  "ms": 7979,
+  "usage": {
+   "input_tokens": 3683,
+   "output_tokens": 913,
+   "reasoning_tokens": 658
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t16/stay/folio_A_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-10-04T07:36",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-10-07T06:43",
+     "check_out_tz": "GST",
+     "quote": "Arrival 04 Oct 2026 07:36 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0085155,
+  "ms": 7522,
+  "usage": {
+   "input_tokens": 3562,
+   "output_tokens": 956,
+   "reasoning_tokens": 765
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t16/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-10-04T12:32",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-10-07T02:25",
+     "check_out_tz": "GMT+1",
+     "quote": "04 Oct 2026 12:32 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007205,
+  "ms": 6705,
+  "usage": {
+   "input_tokens": 3571,
+   "output_tokens": 645,
+   "reasoning_tokens": 475
+  }
+ }
+]

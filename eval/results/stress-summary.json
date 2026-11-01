@@ -1,8 +1,8 @@
 {
   "set": "stress",
   "model": "replay:2026-10-29T18-51-42-413Z",
-  "commit": "71aa6dc",
-  "runAt": "2026-10-31T09:49:55.139Z",
+  "commit": "7e71ff4",
+  "runAt": "2026-11-01T11:15:53.067Z",
   "meetings": 12,
   "costUsd": 0.3227,
   "factsExact": "55/64 (85.9%)",

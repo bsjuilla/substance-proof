@@ -8,7 +8,7 @@ import type { Company, Fact, Meeting, MeetingEvaluation } from "../engine/types"
 import { decide, extractAny, pool, type AnyExtract } from "../extract/pipeline";
 import { verdictFrom } from "../engine/evaluate";
 import { runPack, type RulePack } from "../rules/pack";
-import type { Redaction } from "../extract/redact";
+import { discardRedacted, type Redaction } from "../extract/redact";
 import { readWithGlimmer, secondOpinion, secondReaderAvailable, type SecondReaderResult, type SecondReading } from "../extract/secondReader";
 
 export type DocKind = "minutes" | "boarding_pass" | "hotel_folio" | "recording" | "other";
@@ -116,6 +116,8 @@ export async function analyzePack(opts: {
     const tests = [...evaluation.tests, secondReader.test];
     evaluation = { ...evaluation, tests, verdict: verdictFrom(tests, evaluation.contradictions.length) };
   }
+  // Both readers are done with the blacked-out copies of the photos: delete them now rather than leave them in temp.
+  for (const x of extracts) if (x.readPath !== x.file) discardRedacted(x.readPath);
   if (!facts.meetingWindow) facts.rejected.push({ file: "minutes", reason: "Meeting date and time could not be read from the minutes; the setup times were used." });
   const dateText = meetingDateText(meetingUsed, opts.jurisdiction);
 

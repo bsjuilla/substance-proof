@@ -1,7 +1,7 @@
 {
   "scenario": {
     "id": "m12",
-    "trap": "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before and stayed in St Helier. Quorum evidenced.",
+    "trap": "Two directors live in Jersey (residence records on file, no travel); the third flew in the day before, stayed in St Helier and flew out the day after. Quorum evidenced.",
     "jurisdiction": "JE",
     "style": {
       "boardingPass": "card",
@@ -76,6 +76,18 @@
       "checkOutUtc": "2026-03-13T09:00:00Z",
       "cite": {
         "docId": "m12/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "JER",
+      "destCode": "LHR",
+      "departUtc": "2026-03-13T10:40:00Z",
+      "arriveUtc": "2026-03-13T11:45:00Z",
+      "cite": {
+        "docId": "m12/travel/BP_B_JER-LHR.png",
         "page": 1
       }
     },

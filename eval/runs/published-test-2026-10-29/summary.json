@@ -1,0 +1,503 @@
+{
+ "set": "test",
+ "model": "muse-spark-1.3",
+ "commit": "600c32f",
+ "runAt": "2026-10-29T18:48:42.059Z",
+ "meetings": 30,
+ "costUsd": 0.9134,
+ "factsExact": "165/166 (99.4%)",
+ "spuriousFacts": 0,
+ "rejectedFacts": 0,
+ "meetingTimeCorrect": "100.0%",
+ "directorPresenceAgreement": "85/86 (98.8%)",
+ "meetingVerdictAgreement": "30/30 (100.0%)",
+ "contradictionsFound": "27/27",
+ "dangerousErrors": {
+  "wrongPass": 0,
+  "wronglyPresent": 0
+ },
+ "rows": [
+  {
+   "id": "t01",
+   "trap": "no traps",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "table",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t02",
+   "trap": "minutes say Mei Lin Tavernier was there, but evidence shows a flight landing after it started; minutes say Kenji Halloran was there, but evidence shows a flight landing after it started; minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Tomasz Wierzba",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "letter",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "7/7",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t03",
+   "trap": "minutes say Helena Brookfield was there, but evidence shows a flight landing after it started",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "table",
+    "minutes": "scan",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t04",
+   "trap": "no travel or hotel evidence for Helena Brookfield",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "letter",
+    "minutes": "prose",
+    "passengerName": "normal"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "3/3",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t05",
+   "trap": "minutes say Daniel Mbeki-Shaw was there, but evidence shows a hotel elsewhere",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "letter",
+    "minutes": "table",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "9/9",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t06",
+   "trap": "no travel or hotel evidence for Ana Sokolova",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "prose",
+    "passengerName": "airline"
+   },
+   "expected": "PASS",
+   "got": "PASS",
+   "facts": "6/6",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t07",
+   "trap": "no travel or hotel evidence for Lucia Ferrante",
+   "style": {
+    "boardingPass": "card",
+    "folio": "letter",
+    "minutes": "table",
+    "passengerName": "airline"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "3/3",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t08",
+   "trap": "minutes say Daniel Mbeki-Shaw was there, but evidence shows a flight landing after it started; minutes say Lucia Ferrante was there, but evidence shows a flight leaving during the meeting",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t09",
+   "trap": "minutes say Helena Brookfield was there, but evidence shows a hotel elsewhere; minutes say Samuel Achterberg was there, but evidence shows a hotel elsewhere",
+   "style": {
+    "boardingPass": "card",
+    "folio": "letter",
+    "minutes": "scan",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "6/6",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t10",
+   "trap": "no travel or hotel evidence for Helena Brookfield",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "3/3",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t11",
+   "trap": "no traps",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "prose",
+    "passengerName": "airline"
+   },
+   "expected": "PASS",
+   "got": "PASS",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t12",
+   "trap": "minutes say Oliver Strand was there, but evidence shows a hotel elsewhere",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "table",
+    "minutes": "table",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "6/6",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t13",
+   "trap": "no travel or hotel evidence for Fatima Zahra Bennis",
+   "style": {
+    "boardingPass": "card",
+    "folio": "letter",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "3/3",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t14",
+   "trap": "minutes say Helena Brookfield was there, but evidence shows a hotel elsewhere",
+   "style": {
+    "boardingPass": "card",
+    "folio": "letter",
+    "minutes": "scan",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "9/9",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t15",
+   "trap": "minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Kenji Halloran",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "table",
+    "minutes": "prose",
+    "passengerName": "normal"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "8/8",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t16",
+   "trap": "no traps",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "prose",
+    "passengerName": "airline"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t17",
+   "trap": "no travel or hotel evidence for Tomasz Wierzba; no travel or hotel evidence for Helena Brookfield; minutes say Lucia Ferrante was there, but evidence shows a flight landing after it started",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "scan",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "6/6",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t18",
+   "trap": "no traps",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "PASS",
+   "got": "PASS",
+   "facts": "8/8",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t19",
+   "trap": "minutes say Hugo Lindqvist was there, but evidence shows a hotel elsewhere; minutes say Helena Brookfield was there, but evidence shows a flight leaving during the meeting",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "table",
+    "minutes": "prose",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "9/9",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t20",
+   "trap": "no travel or hotel evidence for Lucia Ferrante",
+   "style": {
+    "boardingPass": "card",
+    "folio": "table",
+    "minutes": "scan",
+    "passengerName": "normal"
+   },
+   "expected": "PASS",
+   "got": "PASS",
+   "facts": "6/6",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t21",
+   "trap": "no travel or hotel evidence for Daniel Mbeki-Shaw",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "letter",
+    "minutes": "prose",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "3/3",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t22",
+   "trap": "no travel or hotel evidence for Lucia Ferrante; minutes say Ana Sokolova was there, but evidence shows a hotel elsewhere",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "table",
+    "minutes": "table",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "8/8",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t23",
+   "trap": "no traps",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "table",
+    "minutes": "scan",
+    "passengerName": "airline"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t24",
+   "trap": "minutes say Tomasz Wierzba was there, but evidence shows a hotel elsewhere",
+   "style": {
+    "boardingPass": "eticket",
+    "folio": "letter",
+    "minutes": "prose",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "9/10",
+   "missed": [
+    "F|B|HKG|SIN|2026-07-11T12:00:00Z|2026-07-11T20:26:00Z"
+   ],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t25",
+   "trap": "minutes say Grace Whitlock was there, but evidence shows a hotel elsewhere; no travel or hotel evidence for Helena Brookfield",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "letter",
+    "minutes": "table",
+    "passengerName": "airline"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "5/5",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t26",
+   "trap": "minutes say Lucia Ferrante was there, but evidence shows a flight landing after it started",
+   "style": {
+    "boardingPass": "card",
+    "folio": "letter",
+    "minutes": "scan",
+    "passengerName": "normal"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t27",
+   "trap": "no travel or hotel evidence for Tomasz Wierzba; minutes say Kenji Halloran was there, but evidence shows a hotel elsewhere",
+   "style": {
+    "boardingPass": "card",
+    "folio": "letter",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "7/7",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t28",
+   "trap": "minutes say Hugo Lindqvist was there, but evidence shows a flight leaving during the meeting",
+   "style": {
+    "boardingPass": "card",
+    "folio": "table",
+    "minutes": "table",
+    "passengerName": "normal"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t29",
+   "trap": "no traps",
+   "style": {
+    "boardingPass": "photo",
+    "folio": "letter",
+    "minutes": "table",
+    "passengerName": "airline"
+   },
+   "expected": "FAIL",
+   "got": "FAIL",
+   "facts": "4/4",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  },
+  {
+   "id": "t30",
+   "trap": "no travel or hotel evidence for Priya Anand-Lowe; minutes say Kenji Halloran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Marcus Oyelaran; no travel or hotel evidence for Daniel Mbeki-Shaw",
+   "style": {
+    "boardingPass": "card",
+    "folio": "letter",
+    "minutes": "prose",
+    "passengerName": "normal"
+   },
+   "expected": "REVIEW",
+   "got": "REVIEW",
+   "facts": "5/5",
+   "missed": [],
+   "spurious": [],
+   "rejected": []
+  }
+ ]
+}

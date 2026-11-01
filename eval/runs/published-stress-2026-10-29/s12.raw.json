@@ -1,0 +1,188 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s12/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-04-14T10:00",
+    "end_local": "2026-04-14T12:00",
+    "tz": "GMT+8",
+    "place_text": "video call"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "London",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from London",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Hong Kong",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Hong Kong",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00830275,
+  "ms": 6731,
+  "usage": {
+   "input_tokens": 3606,
+   "output_tokens": 893,
+   "reasoning_tokens": 498
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s12/stay/folio_A_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-04-12T23:44",
+     "check_in_tz": "Europe/London",
+     "check_out_local": "2026-04-15T05:15",
+     "check_out_tz": "Europe/London",
+     "quote": "You checked in on Sunday 12 April 2026 at 23:44 and checked out on Wednesday 15 April 2026 at 05:15.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008092,
+  "ms": 6644,
+  "usage": {
+   "input_tokens": 3570,
+   "output_tokens": 854,
+   "reasoning_tokens": 638
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s12/stay/folio_B_HONGKONG.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "HONG KONG",
+     "check_in_local": "2026-04-13T13:09",
+     "check_in_tz": "Asia/Hong_Kong",
+     "check_out_local": "2026-04-15T15:15",
+     "check_out_tz": "Asia/Hong_Kong",
+     "quote": "You checked in on Monday 13 April 2026 at 13:09 and checked out on Wednesday 15 April 2026 at 15:15. All times on this statement are shown in local time (Asia/Hong_Kong).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00846725,
+  "ms": 6214,
+  "usage": {
+   "input_tokens": 3571,
+   "output_tokens": 942,
+   "reasoning_tokens": 705
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s12/travel/PHOTO_BP_C_SIN-DXB.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "BRISTS,OCXGRACE",
+     "origin_code": "SIN",
+     "dest_code": "DXB",
+     "depart_local": "2026-04-14T10:30",
+     "depart_tz": "local",
+     "arrive_local": "2026-04-14T14:35",
+     "arrive_tz": "local",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SIN -> DXB 14 Apr 2026 10:30 AM 2:35 PM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00841025,
+  "ms": 7799,
+  "usage": {
+   "input_tokens": 1125,
+   "output_tokens": 1648,
+   "reasoning_tokens": 1483
+  }
+ }
+]

@@ -1,0 +1,150 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t25/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-08-14T10:00",
+    "end_local": "2026-08-14T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007553,
+  "ms": 7292,
+  "usage": {
+   "input_tokens": 3659,
+   "output_tokens": 701,
+   "reasoning_tokens": 365
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t25/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-08-13T05:57",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-08-15T20:49",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Thursday 13 August 2026 at 05:57 and checked out on Saturday 15 August 2026 at 20:49.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00863375,
+  "ms": 13037,
+  "usage": {
+   "input_tokens": 3575,
+   "output_tokens": 980,
+   "reasoning_tokens": 790
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t25/stay/folio_B_PARIS.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "PARIS, FRANCE",
+     "check_in_local": "2026-08-12T10:20",
+     "check_in_tz": "Europe/Paris",
+     "check_out_local": "2026-08-16T03:30",
+     "check_out_tz": "Europe/Paris",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 12 August 2026 at 10:20 and checked out on Sunday 16 August 2026 at 03:30. All times on this statement are shown in local time (Europe/Paris).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00771425,
+  "ms": 6004,
+  "usage": {
+   "input_tokens": 3567,
+   "output_tokens": 766,
+   "reasoning_tokens": 520
+  }
+ }
+]

@@ -1,0 +1,243 @@
+[
+ {
+  "file": "synthetic/generated/stress/packs/s05/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "meeting": {
+    "start_local": "2026-05-25T10:00",
+    "end_local": "2026-05-25T12:00",
+    "tz": "local",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008524,
+  "ms": 9773,
+  "usage": {
+   "input_tokens": 3630,
+   "output_tokens": 938,
+   "reasoning_tokens": 512
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s05/stay/folio_A_PARIS.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "PARIS, FRANCE",
+     "check_in_local": "2026-05-23T21:59",
+     "check_in_tz": "Europe/Paris",
+     "check_out_local": "2026-05-27T04:15",
+     "check_out_tz": "Europe/Paris",
+     "quote": "You checked in on Saturday 23 May 2026 at 21:59 and checked out on Wednesday 27 May 2026 at 04:15.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00905125,
+  "ms": 7443,
+  "usage": {
+   "input_tokens": 3569,
+   "output_tokens": 1080,
+   "reasoning_tokens": 895
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s05/stay/folio_D_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-05-24T01:55",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-05-27T01:16",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Sunday 24 May 2026 at 01:55 and checked out on Wednesday 27 May 2026 at 01:16.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007151,
+  "ms": 5537,
+  "usage": {
+   "input_tokens": 3572,
+   "output_tokens": 632,
+   "reasoning_tokens": 415
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s05/travel/PHOTO_BP_B_JER-DXB.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "DEMBE FATIMA ZAHRA",
+     "origin_code": "JER",
+     "dest_code": "DXB",
+     "depart_local": "2026-05-21T10:30",
+     "depart_tz": "local",
+     "arrive_local": "2026-05-21T18:20",
+     "arrive_tz": "local",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "JER -> DXB 21 May 2026 10:30 AM 6:20 PM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.006961,
+  "ms": 6173,
+  "usage": {
+   "input_tokens": 1125,
+   "output_tokens": 1307,
+   "reasoning_tokens": 1107
+  }
+ },
+ {
+  "file": "synthetic/generated/stress/packs/s05/travel/PHOTO_BP_C_JER-CDG.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "OTELLAHAN/MARCUS",
+     "origin_code": "JER",
+     "dest_code": "CDG",
+     "depart_local": "2026-05-25T10:15",
+     "depart_tz": "local",
+     "arrive_local": "2026-05-25T16:38",
+     "arrive_tz": "local",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "JER → CDG SA 456 25 May 2026 10:15 AM 4:38 PM",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00787475,
+  "ms": 7206,
+  "usage": {
+   "input_tokens": 1125,
+   "output_tokens": 1522,
+   "reasoning_tokens": 1317
+  }
+ }
+]

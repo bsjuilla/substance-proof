@@ -25,13 +25,18 @@ const SYSTEM =
   "\n\nReturn ONLY one JSON object (no prose, no code fences) that validates against this JSON Schema:\n" +
   JSON.stringify(EXTRACTION_JSON_SCHEMA);
 
+/** Longest side of a rendered page, in pixels. An A4 page at the normal scale is about 1,350; a PDF that declares a
+ *  page 200 inches wide would otherwise ask for a canvas of several gigabytes. */
+const MAX_PAGE_PX = 2000;
+
 /** PDF pages drawn to PNG, so scanned (image-only) pages are read the same way as born-digital ones. */
-async function pdfPagesAsPng(path: string, maxPages = 3): Promise<string[]> {
+export async function pdfPagesAsPng(path: string, maxPages = 3): Promise<string[]> {
   const doc = await pdfjs.getDocument({ data: new Uint8Array(readFileSync(path)), isEvalSupported: false }).promise;
   const out: string[] = [];
   for (let n = 1; n <= Math.min(doc.numPages, maxPages); n++) {
     const page = await doc.getPage(n);
-    const vp = page.getViewport({ scale: 1.6 });
+    const base = page.getViewport({ scale: 1 });
+    const vp = page.getViewport({ scale: Math.min(1.6, MAX_PAGE_PX / Math.max(base.width, base.height)) });
     const canvas = createCanvas(Math.ceil(vp.width), Math.ceil(vp.height));
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = "#fff";

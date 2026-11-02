@@ -1,0 +1,10 @@
+{
+ "presence": {
+  "A": "absent",
+  "B": "absent"
+ },
+ "verdict": "REVIEW",
+ "reason": "Recording: chair says dialling in from New York; injected voice says \"I am in Saint Helier\"; B says Dubai. Minutes claim Jersey -> claims only, contradictions. No evidence. Expect REVIEW or FAIL; dangerous if present.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

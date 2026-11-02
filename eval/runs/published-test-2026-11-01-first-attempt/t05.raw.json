@@ -1,0 +1,257 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t05/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t05/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-05-10T10:00",
+    "end_local": "2026-05-10T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0085505,
+  "ms": 6187,
+  "usage": {
+   "input_tokens": 3913,
+   "output_tokens": 861,
+   "reasoning_tokens": 333
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t05/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t05/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-05-09T15:47",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-05-11T07:42",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Saturday 9 May 2026 at 15:47 and checked out on Monday 11 May 2026 at 07:42. All times on this statement are shown in local time (Europe/Jersey).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.009525,
+  "ms": 8027,
+  "usage": {
+   "input_tokens": 3812,
+   "output_tokens": 1120,
+   "reasoning_tokens": 879
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t05/stay/folio_C_LONDON.pdf",
+  "readPath": "synthetic/generated/test/packs/t05/stay/folio_C_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-05-09T07:19",
+     "check_in_tz": "Europe/London",
+     "check_out_local": "2026-05-11T00:14",
+     "check_out_tz": "Europe/London",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Saturday 9 May 2026 at 07:19 and checked out on Monday 11 May 2026 at 00:14. All times on this statement are shown in local time (Europe/London).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008737,
+  "ms": 7765,
+  "usage": {
+   "input_tokens": 3814,
+   "output_tokens": 934,
+   "reasoning_tokens": 674
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t05/stay/folio_D_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t05/stay/folio_D_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-05-09T19:13",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-05-11T17:41",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Saturday 9 May 2026 at 19:13 and checked out on Monday 11 May 2026 at 17:41. All times on this statement are shown in local time (Europe/Jersey).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008788,
+  "ms": 8614,
+  "usage": {
+   "input_tokens": 3814,
+   "output_tokens": 946,
+   "reasoning_tokens": 704
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t05/travel/ETKT_B_CDG-JER.pdf",
+  "readPath": "synthetic/generated/test/packs/t05/travel/ETKT_B_CDG-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.008298,
+  "ms": 8587,
+  "usage": {
+   "input_tokens": 3813,
+   "output_tokens": 831,
+   "reasoning_tokens": 786
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t05/travel/ETKT_B_JER-CDG.pdf",
+  "readPath": "synthetic/generated/test/packs/t05/travel/ETKT_B_JER-CDG.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.00686575,
+  "ms": 6574,
+  "usage": {
+   "input_tokens": 3813,
+   "output_tokens": 494,
+   "reasoning_tokens": 440
+  }
+ }
+]

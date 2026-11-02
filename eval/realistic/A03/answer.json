@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "present",
+  "C": "absent"
+ },
+ "verdict": "REVIEW",
+ "reason": "Clocks go back 02:00 on 25 Oct (GMT). B lands 08:40 local before 09:00 start; C lands 09:20 after start but minutes say present -> contradiction -> REVIEW. Quorum met (A,B).",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

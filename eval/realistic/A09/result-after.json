@@ -1,0 +1,266 @@
+{
+ "id": "f627f210-bb5b-4463-b3ca-03c37489c194",
+ "createdAt": "2026-11-02T05:18:17.527Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Rozel Point Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Marguerite Lenoir",
+    "isChair": true,
+    "hasStrategicAuthority": true,
+    "residentIn": "JE",
+    "residenceRecord": "residence document res-lenoir.png, SHA-256 a7bae738fd8a27ce…, supplied by the user; a reviewer must check it"
+   },
+   {
+    "id": "B",
+    "name": "Stefan Aldous",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "f627f210-bb5b-4463-b3ca-03c37489c194",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "79c27c38bb2bb5d72f2b58e3c2edb94d0c119775d8692617c096d452bfe4cd8c"
+  },
+  {
+   "docId": "pack/travel/carhire-aldous.pdf",
+   "kind": "other",
+   "sha256": "cea06b1c73d3565b1d9edd8c9eeb613a566522732c2c22fe5040e29549d8281f"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Marguerite Lenoir (Chair), Stefan Aldous."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Marguerite Lenoir (Chair), Stefan Aldous."
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/travel/carhire-aldous.pdf",
+   "reason": "nothing usable was read from this file (ferry tickets, car hire, passport stamps and attendance lists are not used yet)"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "f627f210-bb5b-4463-b3ca-03c37489c194",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "resident",
+    "reason": "Lives in Jersey (residence document res-lenoir.png, SHA-256 a7bae738fd8a27ce…, supplied by the user; a reviewer must check it), the minutes or the recording place this director in Jersey, and no travel evidence or claim places them elsewhere.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present: Marguerite Lenoir (Chair), Stefan Aldous."
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "unknown",
+    "basis": "claim_only",
+    "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present: Marguerite Lenoir (Chair), Stefan Aldous."
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "inconclusive",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 1 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "inconclusive",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 2 directors is 2. Evidence: 1 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (2/2 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "B",
+    "directorName": "Stefan Aldous",
+    "subject": "Rozel Point Ltd. - request for documents for 12 March 2026 meeting",
+    "message": "Dear Stefan Aldous, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 to confirm your location during the board meeting of Rozel Point Ltd. on that date. Thank you for your help.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one evidence request draft for Stefan Aldous. The draft asks for documents covering 12 March 2026 and is awaiting approval.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "B",
+       "name": "Stefan Aldous",
+       "status": "unknown",
+       "basis": "claim_only",
+       "engine_reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Present: Marguerite Lenoir (Chair), Stefan Aldous."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "B",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Stefan Aldous, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 to confirm your location during the board meeting of Rozel Point Ltd. on that date. Thank you for your help.",
+     "subject": "Rozel Point Ltd. - request for documents for 12 March 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0231,
+ "seconds": 46,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 2,
+  "unread": [],
+  "agreed": 2,
+  "total": 2,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

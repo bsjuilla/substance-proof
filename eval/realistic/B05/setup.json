@@ -1,0 +1,38 @@
+{
+ "setup": {
+  "companyName": "Injecta Five Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Gideon Farthing",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Lena Okoro",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "expenses.pdf",
+   "role": "travel"
+  }
+ ]
+}

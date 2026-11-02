@@ -1,0 +1,459 @@
+{
+ "id": "70173d7a-58f4-4628-b2bc-e54f7c067646",
+ "createdAt": "2026-11-01T13:54:36.366Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Pellucid Capital Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Beatrix Holloway",
+    "isChair": true,
+    "hasStrategicAuthority": true,
+    "residentIn": "JE",
+    "residenceRecord": "residence document res-holloway.png, SHA-256 9640eb68d15a44e8…, supplied by the user; a reviewer must check it"
+   },
+   {
+    "id": "B",
+    "name": "Dmitri Ashcombe",
+    "isChair": false,
+    "hasStrategicAuthority": true,
+    "residentIn": "JE",
+    "residenceRecord": "residence document res-ashcombe.png, SHA-256 312bfdebd0e3c55d…, supplied by the user; a reviewer must check it"
+   },
+   {
+    "id": "C",
+    "name": "Joao Ferreira-Lund",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "D",
+    "name": "Nadia Kerrigan (alternate for Joao Ferreira-Lund)",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "70173d7a-58f4-4628-b2bc-e54f7c067646",
+  "startUtc": "2026-05-20T09:00:00Z",
+  "endUtc": "2026-05-20T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "20 May 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "3e61b54b398660617153c6fde05994ecada09abed92d8a5e4239d1dd5e735a14"
+  },
+  {
+   "docId": "pack/travel/ferry-kerrigan.png",
+   "kind": "other",
+   "sha256": "e68942b6fbae832e5603a46b39d6df92d4ecc882414c4ec441db707b113aa9c5",
+   "redactions": []
+  },
+  {
+   "docId": "pack/stay/fatura-kerrigan.pdf",
+   "kind": "hotel_folio",
+   "sha256": "f3eae69543d28758cd44ca51d5507e6c85fbe7ecd19667e6c5afc8a8270fb1de"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Dmitri Ashcombe and Nadia Kerrigan, the latter acting as alternate for Joao Ferreira-Lund, gathered in the first-floor room of the office."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "TEXT:Lisbon",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Beatrix Holloway took the chair, joining the discussion by telephone from her home in Lisbon."
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/minutes/minutes.pdf",
+   "reason": "meeting time or zone not readable"
+  },
+  {
+   "file": "pack/minutes/minutes.pdf",
+   "reason": "name \"Nadia Kerrigan\" matches no director"
+  },
+  {
+   "file": "pack/travel/ferry-kerrigan.png",
+   "reason": "nothing usable was read from this file (ferry tickets, car hire, passport stamps and attendance lists are not used yet)"
+  },
+  {
+   "file": "pack/stay/fatura-kerrigan.pdf",
+   "reason": "name \"Sra. Nadia Kerrigan\" matches no director"
+  },
+  {
+   "file": "minutes",
+   "reason": "Meeting date and time could not be read from the minutes; the setup times were used."
+  }
+ ],
+ "evaluation": {
+  "meetingId": "70173d7a-58f4-4628-b2bc-e54f7c067646",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "unknown",
+    "basis": "claim_only",
+    "reason": "Lives in Jersey (residence document res-holloway.png, SHA-256 9640eb68d15a44e8…, supplied by the user; a reviewer must check it), but the minutes place this director in \"Lisbon\" for this meeting.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Beatrix Holloway took the chair, joining the discussion by telephone from her home in Lisbon."
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "resident",
+    "reason": "Lives in Jersey (residence document res-ashcombe.png, SHA-256 312bfdebd0e3c55d…, supplied by the user; a reviewer must check it), the minutes or the recording place this director in Jersey, and no travel evidence or claim places them elsewhere.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Dmitri Ashcombe and Nadia Kerrigan, the latter acting as alternate for Joao Ferreira-Lund, gathered in the first-floor room of the office."
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "D",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "inconclusive",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 1 present, 0 absent, 3 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "inconclusive",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 4 directors is 3. Evidence: 1 present, 0 absent, 3 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "inconclusive",
+    "detail": "The meeting time could not be read from the minutes."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (2/2 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "A",
+    "directorName": "Beatrix Holloway",
+    "subject": "Board meeting 20 May 2026 - request for documents",
+    "message": "Dear Beatrix Holloway, Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   },
+   {
+    "id": "D2",
+    "kind": "evidence_request",
+    "directorId": "C",
+    "directorName": "Joao Ferreira-Lund",
+    "subject": "Board meeting 20 May 2026 - request for documents",
+    "message": "Dear Joao Ferreira-Lund, Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   },
+   {
+    "id": "D3",
+    "kind": "evidence_request",
+    "directorId": "D",
+    "directorName": "Nadia Kerrigan (alternate for Joao Ferreira-Lund)",
+    "subject": "Board meeting 20 May 2026 - request for documents",
+    "message": "Dear Nadia Kerrigan (alternate for Joao Ferreira-Lund), Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared draft evidence requests for Beatrix Holloway, Joao Ferreira-Lund and Nadia Kerrigan (alternate for Joao Ferreira-Lund) for the meeting on 20 May 2026. No minutes correction drafts were required based on the gaps listed.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "20 May 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Beatrix Holloway",
+       "status": "unknown",
+       "basis": "claim_only",
+       "engine_reason": "Lives in Jersey (residence document res-holloway.png, SHA-256 9640eb68d15a44e8…, supplied by the user; a reviewer must check it), but the minutes place this director in \"Lisbon\" for this meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Beatrix Holloway took the chair, joining the discussion by telephone from her home in Lisbon."
+        }
+       ]
+      },
+      {
+       "director_id": "C",
+       "name": "Joao Ferreira-Lund",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      },
+      {
+       "director_id": "D",
+       "name": "Nadia Kerrigan (alternate for Joao Ferreira-Lund)",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Beatrix Holloway, Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+     "subject": "Board meeting 20 May 2026 - request for documents"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Joao Ferreira-Lund, Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+     "subject": "Board meeting 20 May 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "D",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Nadia Kerrigan (alternate for Joao Ferreira-Lund), Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+     "subject": "Board meeting 20 May 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 3,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Joao Ferreira-Lund, Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+     "subject": "Board meeting 20 May 2026 - request for documents"
+    },
+    "result": {
+     "draft_id": "D2",
+     "status": "awaiting_approval"
+    }
+   },
+   {
+    "step": 4,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "D",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Nadia Kerrigan (alternate for Joao Ferreira-Lund), Regarding the board meeting on 20 May 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were during the meeting. Thank you.",
+     "subject": "Board meeting 20 May 2026 - request for documents"
+    },
+    "result": {
+     "draft_id": "D3",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 2
+ },
+ "costUsd": 0.0613,
+ "seconds": 62,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 3,
+  "unread": [],
+  "agreed": 2,
+  "total": 2,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

@@ -1,0 +1,361 @@
+{
+ "id": "d28d4271-5c46-4468-9c97-b49fd0214f6f",
+ "createdAt": "2026-11-01T12:44:20.244Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Grouville Assets Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Leopold Varga",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Henrietta Moss",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "d28d4271-5c46-4468-9c97-b49fd0214f6f",
+  "startUtc": "2026-06-08T08:00:00Z",
+  "endUtc": "2026-06-08T10:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "8 June 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "1aec36b431e50b64efcf71d5c4f32461a8b58ac2644811258d02233cbc305c30"
+  },
+  {
+   "docId": "pack/travel/bp-varga-in.png",
+   "kind": "boarding_pass",
+   "sha256": "ed0742277d6533048461744d6cf9756ed6bcd767a33db10f240378f961882510",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-varga-out.png",
+   "kind": "boarding_pass",
+   "sha256": "081e1f6356db91122756a43a14f87040c5b4b596315d434c1102a3f6e1978b6b",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-moss-in.png",
+   "kind": "boarding_pass",
+   "sha256": "7730ccab61554580158de5515601c9b4900f4762c430d2645ae35ed4136696a0",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-moss-out.png",
+   "kind": "boarding_pass",
+   "sha256": "afd9d24cb7142261412196a6082f58f849b6521e0f2dd306457fb768dbc1f507",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-06-09T05:15:00Z",
+   "arriveUtc": "2026-06-09T06:10:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-varga-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: LONDON GATWICK LGW\nFlight: AU 300   Seat: 14C   Seq: 042\nDeparts: 09/06 06:15\nArrives: 09/06 07:10"
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/travel/bp-varga-in.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/travel/bp-moss-in.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/travel/bp-moss-out.png",
+   "reason": "flight leg incomplete or zone unknown"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "d28d4271-5c46-4468-9c97-b49fd0214f6f",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "B",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "inconclusive",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 0 present, 0 absent, 2 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "inconclusive",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 2 directors is 2. Evidence: 0 present, 0 absent, 2 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (0/5 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I prepared no evidence request drafts for Leopold Varga and Henrietta Moss for the 8 June 2026 meeting. The drafts could not be created because no supporting document IDs were available to cite.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "8 June 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Leopold Varga",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      },
+      {
+       "director_id": "B",
+       "name": "Henrietta Moss",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Leopold Varga, Please provide a boarding pass, travel itinerary or hotel bill covering 8 June 2026 to confirm where you were during the meeting. Thank you for your help.",
+     "subject": "Request for documents relating to 8 June 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "B",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Henrietta Moss, Please provide a boarding pass, travel itinerary or hotel bill covering 8 June 2026 to confirm where you were during the meeting. Thank you for your help.",
+     "subject": "Request for documents relating to 8 June 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 3,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass"
+     ],
+     "message": "Dear Leopold Varga, Please provide a boarding pass covering 8 June 2026 to confirm where you were during the meeting. Thank you.",
+     "subject": "Request for documents relating to 8 June 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   }
+  ],
+  "rejectedCalls": 3
+ },
+ "costUsd": 0.1022,
+ "seconds": 74,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 0,
+  "total": 5,
+  "disagreements": [
+   {
+    "docId": "pack/travel/bp-varga-out.png",
+    "what": "only Muse Spark read: flight A JER LGW 2026-06-09T05:15 2026-06-09T06:10"
+   },
+   {
+    "docId": "pack/travel/bp-varga-out.png",
+    "what": "only Muse Glimmer read: flight A JER LGW 2026-09-06T05:15 2026-09-06T06:10"
+   },
+   {
+    "docId": "pack/travel/bp-varga-in.png",
+    "what": "only Muse Glimmer read: flight A LGW JER 2025-07-06T19:45 2025-07-06T20:40"
+   },
+   {
+    "docId": "pack/travel/bp-moss-in.png",
+    "what": "only Muse Glimmer read: flight B LGW JER 2025-06-07T19:45 2025-06-07T20:40"
+   },
+   {
+    "docId": "pack/travel/bp-moss-out.png",
+    "what": "only Muse Glimmer read: flight B JER LGW 2025-06-09T05:15 2025-06-09T06:10"
+   }
+  ],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

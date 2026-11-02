@@ -1,0 +1,337 @@
+{
+ "id": "54f78b48-04b5-4715-8ae0-e7901093db64",
+ "createdAt": "2026-11-01T12:36:25.017Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Marrowgate Trust Co Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Felix Okonkwo-Hart",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Greta Saelens",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Colm Ruadhan",
+    "isChair": false,
+    "hasStrategicAuthority": true,
+    "residentIn": "JE",
+    "residenceRecord": "residence document residence-ruadhan.png, SHA-256 4a6dc7c561907b83…, supplied by the user; a reviewer must check it"
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "54f78b48-04b5-4715-8ae0-e7901093db64",
+  "startUtc": "2026-03-12T22:30:00Z",
+  "endUtc": "2026-03-13T00:30:00Z",
+  "scheduleUnknown": true,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "5e55d3c20a589dd172befc2b2404be1ff3ecec32c423899c6f0ea327ac0aa51d"
+  },
+  {
+   "docId": "pack/travel/bp-felix-in.png",
+   "kind": "boarding_pass",
+   "sha256": "d2b1cbd84d29f3a04be696d473b833b58266ba37d57fcbe855c5734d3a706652",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-felix-out.png",
+   "kind": "boarding_pass",
+   "sha256": "fc757065de0d8ce31e9c27338edc81745d41eae96a99ce49040b2812b94dc32d",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-greta-in.png",
+   "kind": "boarding_pass",
+   "sha256": "45c311662b219daf0e876f01ee5e4162dc09f76c7cf449b0fdeef47169a8dd27",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.9804878830909729
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-greta-out.png",
+   "kind": "boarding_pass",
+   "sha256": "b16a9ba72e6e8e04097a9de282e3b2c4d5f69f32be7c78bbae7492c3d6e7116c",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.9804878830909729
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-12T12:00:00Z",
+   "arriveUtc": "2026-03-12T12:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-felix-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nFlight: AU 301  Seat: 14C  Seq: 042\nDeparts: 12MAR 12:00\nArrives: 12MAR 12:55"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-13T00:15:00Z",
+   "arriveUtc": "2026-03-13T01:10:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-felix-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: LONDON GATWICK LGW\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "BRU",
+   "destCode": "JER",
+   "departUtc": "2026-03-12T12:05:00Z",
+   "arriveUtc": "2026-03-12T14:00:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-greta-in.png",
+    "page": 1,
+    "quote": "From: BRUSSELS BRU  To: JERSEY JER\nDeparts: 12MAR 13:05\nArrives: 12MAR 14:00"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "BRU",
+   "departUtc": "2026-03-13T18:00:00Z",
+   "arriveUtc": "2026-03-13T18:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-greta-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: BRUSSELS BRU\nDeparts: 13MAR 18:00\nArrives: 13MAR 19:55\nTimes shown are local."
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "54f78b48-04b5-4715-8ae0-e7901093db64",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight JER-LGW) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-felix-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER   To: LONDON GATWICK LGW\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 9 h before the meeting and flight out of JER 18 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-greta-in.png",
+      "page": 1,
+      "quote": "From: BRUSSELS BRU  To: JERSEY JER\nDeparts: 12MAR 13:05\nArrives: 12MAR 14:00"
+     },
+     {
+      "docId": "pack/travel/bp-greta-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER   To: BRUSSELS BRU\nDeparts: 13MAR 18:00\nArrives: 13MAR 19:55\nTimes shown are local."
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "present",
+    "basis": "resident",
+    "reason": "Lives in Jersey (residence document residence-ruadhan.png, SHA-256 4a6dc7c561907b83…, supplied by the user; a reviewer must check it); no travel evidence or claim places this director elsewhere.",
+    "cites": []
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "inconclusive",
+    "detail": "No scheduled time was given, so the time printed in the minutes was used without an independent check."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "not_applicable",
+    "detail": "The second reader (meta/muse-glimmer-30b) could not read any document (Muse Glimmer did not return a valid reading for minutes.pdf: HTTP 404: {}), so there is no second opinion."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I reviewed the gaps list for the meeting on 12 March 2026. No drafts were required as no gaps were identified.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": []
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0981,
+ "seconds": 30,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 0,
+  "unread": [
+   {
+    "docId": "pack/minutes/minutes.pdf",
+    "reason": "Muse Glimmer did not return a valid reading for minutes.pdf: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/bp-felix-in.png",
+    "reason": "Muse Glimmer did not return a valid reading for bp-felix-in.redacted.png: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/bp-felix-out.png",
+    "reason": "Muse Glimmer did not return a valid reading for bp-felix-out.redacted.png: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/bp-greta-in.png",
+    "reason": "Muse Glimmer did not return a valid reading for bp-greta-in.redacted.png: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/bp-greta-out.png",
+    "reason": "Muse Glimmer did not return a valid reading for bp-greta-out.redacted.png: HTTP 404: {}"
+   }
+  ],
+  "agreed": 0,
+  "total": 0,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

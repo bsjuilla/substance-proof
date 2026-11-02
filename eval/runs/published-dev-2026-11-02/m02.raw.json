@@ -1,0 +1,345 @@
+[
+ {
+  "file": "synthetic/generated/dev/packs/m02/minutes.pdf",
+  "readPath": "synthetic/generated/dev/packs/m02/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-03-12T09:00",
+    "end_local": "2026-03-12T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Dubai",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00818175,
+  "ms": 8302,
+  "usage": {
+   "input_tokens": 3924,
+   "output_tokens": 771,
+   "reasoning_tokens": 362
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m02/recording.wav",
+  "readPath": "synthetic/generated/dev/packs/m02/recording.wav",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "the boardroom in St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Alice Marlowe here in the boardroom in St Helier.",
+     "page": 4
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Bruno Castell I'm joining by video from Dubai today.",
+     "page": 5
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "the room in St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Chandra Velloso also in the room in St Helier",
+     "page": 6
+    }
+   ]
+  },
+  "costUsd": 0.00941375,
+  "ms": 15189,
+  "transcript": {
+   "transcript": "Good morning. morning. Let's take the roll call. Please give your name and say where you are. Alice Marlowe here in the boardroom in St Helier. Bruno Castell I'm joining by video from Dubai today. Chandra Velloso also in the room in St Helier Thank you. We are quiet first item the quarterly accounts",
+   "audioDurationMs": 63120,
+   "turns": [
+    {
+     "turnId": 0,
+     "startMs": 380,
+     "endMs": 4220,
+     "transcript": "Good morning. morning.",
+     "speaker": "A"
+    },
+    {
+     "turnId": 1,
+     "startMs": 4780,
+     "endMs": 10780,
+     "transcript": "Let's take the roll call.",
+     "speaker": "A"
+    },
+    {
+     "turnId": 2,
+     "startMs": 11180,
+     "endMs": 18780,
+     "transcript": "Please give your name and say where you are.",
+     "speaker": "A"
+    },
+    {
+     "turnId": 3,
+     "startMs": 20540,
+     "endMs": 31420,
+     "transcript": "Alice Marlowe here in the boardroom in St Helier.",
+     "speaker": "A"
+    },
+    {
+     "turnId": 4,
+     "startMs": 33260,
+     "endMs": 37740,
+     "transcript": "Bruno Castell I'm joining by video from Dubai today.",
+     "speaker": "B"
+    },
+    {
+     "turnId": 5,
+     "startMs": 38540,
+     "endMs": 42380,
+     "transcript": "Chandra Velloso also in the room in St Helier",
+     "speaker": "C"
+    },
+    {
+     "turnId": 6,
+     "startMs": 43660,
+     "endMs": 47180,
+     "transcript": "Thank you.",
+     "speaker": "A"
+    },
+    {
+     "turnId": 7,
+     "startMs": 47980,
+     "endMs": 52380,
+     "transcript": "We are quiet",
+     "speaker": "A"
+    },
+    {
+     "turnId": 8,
+     "startMs": 53020,
+     "endMs": 62140,
+     "transcript": "first item the quarterly accounts",
+     "speaker": "A"
+    }
+   ]
+  },
+  "turnStartsMs": [
+   380,
+   4780,
+   11180,
+   20540,
+   33260,
+   38540,
+   43660,
+   47980,
+   53020
+  ]
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m02/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m02/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 11 Mar 2026 15:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0084745,
+  "ms": 10563,
+  "usage": {
+   "input_tokens": 3859,
+   "output_tokens": 859,
+   "reasoning_tokens": 657
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m02/stay/folio_B_DUBAI.pdf",
+  "readPath": "synthetic/generated/dev/packs/m02/stay/folio_B_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-03-11T00:00",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-03-14T12:00",
+     "check_out_tz": "GST",
+     "quote": "Arrival 11 Mar 2026 00:00 (GST)\nDeparture 14 Mar 2026 12:00 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00949375,
+  "ms": 12233,
+  "usage": {
+   "input_tokens": 3855,
+   "output_tokens": 1100,
+   "reasoning_tokens": 886
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m02/stay/folio_C_STHELIER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m02/stay/folio_C_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 11 Mar 2026 15:00 (GMT)\nDeparture 13 Mar 2026 09:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0095935,
+  "ms": 12839,
+  "usage": {
+   "input_tokens": 3860,
+   "output_tokens": 1122,
+   "reasoning_tokens": 903
+  }
+ }
+]

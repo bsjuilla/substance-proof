@@ -1,0 +1,416 @@
+{
+ "id": "50f9f577-1a2e-4b49-afbd-7e05c0fb78c2",
+ "createdAt": "2026-11-01T13:01:44.818Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Merlion Fictive Pte Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Tan Wei Ling",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Arjun Mehrotra",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Claire Fontaine",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "SG",
+ "meeting": {
+  "id": "50f9f577-1a2e-4b49-afbd-7e05c0fb78c2",
+  "startUtc": "2026-04-15T02:00:00Z",
+  "endUtc": "2026-04-15T03:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "virtual",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "15 April 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "ae2bf968e26a315cb6fc31256d7f56caf61a6ca10145eb42ddb7731771afecb4"
+  },
+  {
+   "docId": "pack/travel/eticket-tan.pdf",
+   "kind": "boarding_pass",
+   "sha256": "1e0c6ee01384a008b5d25c9aea72f94fe0240c8ed4d3e2ab4623bf3d8b3ea5f8"
+  },
+  {
+   "docId": "pack/stay/folio-tan.pdf",
+   "kind": "hotel_folio",
+   "sha256": "388e526f87ef99a24dcce5b2fbce7e6a43c212f214ae90ce54694737059b4d9d"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:SINGAPORE",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Tan Wei Ling (Chairman) from the office at 1 Fictive Quay, Singapore"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "TEXT:Sydney",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Arjun Mehrotra from Sydney"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:SINGAPORE",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Claire Fontaine from Singapore"
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/minutes/minutes.pdf",
+   "reason": "meeting time or zone not readable"
+  },
+  {
+   "file": "pack/travel/eticket-tan.pdf",
+   "reason": "name \"TAN/WEILING MS\" matches no director"
+  },
+  {
+   "file": "pack/travel/eticket-tan.pdf",
+   "reason": "name \"TAN/WEILING MS\" matches no director"
+  },
+  {
+   "file": "pack/stay/folio-tan.pdf",
+   "reason": "hotel stay incomplete, place \"Orchard, Singapore\" or zone unknown"
+  },
+  {
+   "file": "minutes",
+   "reason": "Meeting date and time could not be read from the minutes; the setup times were used."
+  }
+ ],
+ "evaluation": {
+  "meetingId": "50f9f577-1a2e-4b49-afbd-7e05c0fb78c2",
+  "jurisdiction": "SG",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "unknown",
+    "basis": "claim_only",
+    "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Tan Wei Ling (Chairman) from the office at 1 Fictive Quay, Singapore"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Arjun Mehrotra from Sydney"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "unknown",
+    "basis": "claim_only",
+    "reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Claire Fontaine from Singapore"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "SG-virtual-50pct-or-chair",
+    "label": "IRAS indicator (virtual or hybrid meeting): at least 50% of strategic directors in Singapore, or the chairman",
+    "status": "inconclusive",
+    "basis": "regulator",
+    "citation": "IRAS, Tax Residency of a Company (control and management): virtual meeting technology conditions",
+    "detail": "Directors with strategic authority: 3; 2 needed for 50%. Evidence: 0 present, 0 absent, 3 unproven. Chairman physically in Singapore: unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "inconclusive",
+    "detail": "The meeting time could not be read from the minutes."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (0/3 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "A",
+    "directorName": "Tan Wei Ling",
+    "subject": "Request for documents for 15 April 2026 meeting",
+    "message": "Dear Tan Wei Ling, Regarding the meeting on 15 April 2026, the minutes record \"Tan Wei Ling (Chairman) from the office at 1 Fictive Quay, Singapore\" from pack/minutes/minutes.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering 15 April 2026.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   },
+   {
+    "id": "D2",
+    "kind": "evidence_request",
+    "directorId": "B",
+    "directorName": "Arjun Mehrotra",
+    "subject": "Request for documents for 15 April 2026 meeting",
+    "message": "Dear Arjun Mehrotra, Regarding the meeting on 15 April 2026, the minutes record \"Arjun Mehrotra from Sydney\" from pack/minutes/minutes.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering 15 April 2026.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   },
+   {
+    "id": "D3",
+    "kind": "evidence_request",
+    "directorId": "C",
+    "directorName": "Claire Fontaine",
+    "subject": "Request for documents for 15 April 2026 meeting",
+    "message": "Dear Claire Fontaine, Regarding the meeting on 15 April 2026, the minutes record \"Claire Fontaine from Singapore\" from pack/minutes/minutes.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering 15 April 2026.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared evidence requests for Tan Wei Ling, Arjun Mehrotra and Claire Fontaine for the meeting on 15 April 2026. No minutes corrections were needed as no contradictions were listed.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "15 April 2026",
+     "jurisdiction": "SG",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Tan Wei Ling",
+       "status": "unknown",
+       "basis": "claim_only",
+       "engine_reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Tan Wei Ling (Chairman) from the office at 1 Fictive Quay, Singapore"
+        }
+       ]
+      },
+      {
+       "director_id": "B",
+       "name": "Arjun Mehrotra",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Arjun Mehrotra from Sydney"
+        }
+       ]
+      },
+      {
+       "director_id": "C",
+       "name": "Claire Fontaine",
+       "status": "unknown",
+       "basis": "claim_only",
+       "engine_reason": "Only a claim (Singapore) supports this; no independent travel or hotel evidence.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Claire Fontaine from Singapore"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Tan Wei Ling, Regarding the meeting on 15 April 2026, the minutes record \"Tan Wei Ling (Chairman) from the office at 1 Fictive Quay, Singapore\" from pack/minutes/minutes.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering 15 April 2026.",
+     "subject": "Request for documents for 15 April 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "B",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Arjun Mehrotra, Regarding the meeting on 15 April 2026, the minutes record \"Arjun Mehrotra from Sydney\" from pack/minutes/minutes.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering 15 April 2026.",
+     "subject": "Request for documents for 15 April 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D2",
+     "status": "awaiting_approval"
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Claire Fontaine, Regarding the meeting on 15 April 2026, the minutes record \"Claire Fontaine from Singapore\" from pack/minutes/minutes.pdf. Please provide a boarding pass, travel itinerary or hotel bill covering 15 April 2026.",
+     "subject": "Request for documents for 15 April 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D3",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0407,
+ "seconds": 67,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 3,
+  "unread": [],
+  "agreed": 0,
+  "total": 3,
+  "disagreements": [
+   {
+    "docId": "pack/minutes/minutes.pdf",
+    "what": "only Muse Spark read: claim A CITY:SINGAPORE minutes"
+   },
+   {
+    "docId": "pack/minutes/minutes.pdf",
+    "what": "only Muse Spark read: claim B TEXT:Sydney minutes"
+   },
+   {
+    "docId": "pack/minutes/minutes.pdf",
+    "what": "only Muse Spark read: claim C CITY:SINGAPORE minutes"
+   }
+  ],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Singapore (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

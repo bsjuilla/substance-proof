@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "present",
+  "C": "absent"
+ },
+ "verdict": "REVIEW",
+ "reason": "A,B flights within 24h. Recording: nobody says their name; a voice says in French he is in Paris; minutes list Lucien present -> C absent claim contradicts minutes -> REVIEW. Overlapping speech at ~item 1.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

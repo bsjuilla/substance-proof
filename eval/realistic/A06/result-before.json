@@ -1,0 +1,485 @@
+{
+ "id": "28123399-12fa-4e48-a00d-3934d0777988",
+ "createdAt": "2026-11-01T12:37:52.078Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Tamsin Bay Investments Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Pieter Valcourt",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Yasmin Okafor",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Rhys Abernant",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "28123399-12fa-4e48-a00d-3934d0777988",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "d2953c7ce88476575e6e56a72dd14858be591a0d5f054484188b34d95e014309"
+  },
+  {
+   "docId": "pack/travel/bp-valcourt-in.png",
+   "kind": "boarding_pass",
+   "sha256": "93c685afadb59504895d082d57b7607eeade6e9122a99deeef06b46773aa60d5",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-valcourt-out.png",
+   "kind": "boarding_pass",
+   "sha256": "b8e7ef6c6f08d575dd65afa85ce4449b08c9d73d78d7683616ff757d0615cf60",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/stay/folio-valcourt.pdf",
+   "kind": "hotel_folio",
+   "sha256": "b1e5eddbdd73d869f799ab564aaf8b1a458fe1b18d1881554ff7a37ef98d0212"
+  },
+  {
+   "docId": "pack/stay/folio-okafor.pdf",
+   "kind": "hotel_folio",
+   "sha256": "7f96d05cde89c3639b030a40f751cb9c2b7bc43be68447894cd28cd0d4c4b959"
+  },
+  {
+   "docId": "pack/travel/bp-okafor-out.png",
+   "kind": "boarding_pass",
+   "sha256": "f0e8ce783e83b3100746ab881ec0e0cd0240b58614ebbd846d486a547261cd93",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/stay/folio-abernant.pdf",
+   "kind": "hotel_folio",
+   "sha256": "633ac408311c48f77c8b2bd1cb8694a43599926511f2bed08527827e2c7abbcf"
+  }
+ ],
+ "facts": [],
+ "rejected": [
+  {
+   "file": "pack/travel/bp-valcourt-in.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/travel/bp-valcourt-out.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/stay/folio-valcourt.pdf",
+   "reason": "name \"Mrs Ingrid Valcourt\" matches no director"
+  },
+  {
+   "file": "pack/stay/folio-okafor.pdf",
+   "reason": "hotel stay incomplete, place \"St Helier, Jersey\" or zone unknown"
+  },
+  {
+   "file": "pack/travel/bp-okafor-out.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/stay/folio-abernant.pdf",
+   "reason": "hotel stay incomplete, place \"St Helier, Jersey\" or zone unknown"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "28123399-12fa-4e48-a00d-3934d0777988",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "B",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "C",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "inconclusive",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 0 present, 0 absent, 3 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "inconclusive",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 0 present, 0 absent, 3 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "not_applicable",
+    "detail": "The second reader (meta/muse-glimmer-30b) could not read any document (Muse Glimmer did not return a valid reading for minutes.pdf: HTTP 404: {}), so there is no second opinion."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I reviewed the gaps for the meeting on 12 March 2026 for Pieter Valcourt, Yasmin Okafor and Rhys Abernant. I was unable to prepare evidence request drafts as no citable documents were returned, and no minutes corrections were needed.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Pieter Valcourt",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      },
+      {
+       "director_id": "B",
+       "name": "Yasmin Okafor",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      },
+      {
+       "director_id": "C",
+       "name": "Rhys Abernant",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass covering 12 March 2026",
+      "travel itinerary covering 12 March 2026",
+      "hotel bill covering 12 March 2026"
+     ],
+     "message": "Dear Pieter Valcourt, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 to confirm where you were during the board meeting of Tamsin Bay Investments Ltd on that date. Thank you for your assistance.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "B",
+     "documents_requested": [
+      "boarding pass covering 12 March 2026",
+      "travel itinerary covering 12 March 2026",
+      "hotel bill covering 12 March 2026"
+     ],
+     "message": "Dear Yasmin Okafor, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 to confirm where you were during the board meeting of Tamsin Bay Investments Ltd on that date. Thank you for your assistance.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass covering 12 March 2026",
+      "travel itinerary covering 12 March 2026",
+      "hotel bill covering 12 March 2026"
+     ],
+     "message": "Dear Rhys Abernant, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 to confirm where you were during the board meeting of Tamsin Bay Investments Ltd on that date. Thank you for your assistance.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 3,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass covering 12 March 2026",
+      "travel itinerary covering 12 March 2026",
+      "hotel bill covering 12 March 2026"
+     ],
+     "message": "Dear Pieter Valcourt, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 to confirm where you were during the board meeting of Tamsin Bay Investments Ltd on that date. Thank you for your assistance.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 4,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass covering 12 March 2026"
+     ],
+     "message": "Dear Pieter Valcourt, Please provide a boarding pass, travel itinerary or hotel bill covering 12 March 2026 to confirm where you were during the board meeting of Tamsin Bay Investments Ltd on 12 March 2026. Thank you.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 5,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass"
+     ],
+     "message": "Dear Pieter Valcourt, Please provide a boarding pass covering 12 March 2026 for the meeting on 12 March 2026. Thank you.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 6,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass"
+     ],
+     "message": "Dear Pieter Valcourt, Please provide a boarding pass covering 12 March 2026 for the meeting on 12 March 2026. Thank you.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 7,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass"
+     ],
+     "message": "Dear Pieter Valcourt, Please provide a boarding pass covering 12 March 2026 for the meeting on 12 March 2026. Thank you.",
+     "subject": "Request for documents relating to 12 March 2026 meeting"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   }
+  ],
+  "rejectedCalls": 8
+ },
+ "costUsd": 0.1444,
+ "seconds": 61,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 0,
+  "unread": [
+   {
+    "docId": "pack/minutes/minutes.pdf",
+    "reason": "Muse Glimmer did not return a valid reading for minutes.pdf: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/bp-valcourt-out.png",
+    "reason": "Muse Glimmer did not return a valid reading for bp-valcourt-out.redacted.png: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/bp-valcourt-in.png",
+    "reason": "Muse Glimmer did not return a valid reading for bp-valcourt-in.redacted.png: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/stay/folio-valcourt.pdf",
+    "reason": "Muse Glimmer did not return a valid reading for folio-valcourt.pdf: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/bp-okafor-out.png",
+    "reason": "Muse Glimmer did not return a valid reading for bp-okafor-out.redacted.png: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/stay/folio-abernant.pdf",
+    "reason": "Muse Glimmer did not return a valid reading for folio-abernant.pdf: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/stay/folio-okafor.pdf",
+    "reason": "Muse Glimmer did not return a valid reading for folio-okafor.pdf: HTTP 404: {}"
+   }
+  ],
+  "agreed": 0,
+  "total": 0,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

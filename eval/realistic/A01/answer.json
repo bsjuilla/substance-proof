@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "present",
+  "C": "unknown"
+ },
+ "verdict": "PASS",
+ "reason": "A and B have in+out flights within 24h; C hotel only (support). Quorum 2 of 3 met, majority 2 met.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

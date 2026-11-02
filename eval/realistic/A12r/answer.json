@@ -1,0 +1,12 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "present",
+  "C": "unknown"
+ },
+ "verdict": "PASS",
+ "reason": "A in 20 Apr 7:45 AM out 20 Apr 11:50 PM (within 24h); B mobile pass in 19 Apr 9:05 PM out 21 Apr 8:15 AM (within 24h). 2/3 >=50% -> PASS.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true,
+ "note": "Re-run of A12: setup names fixed (removed \"(fictional)\" suffix that was my error). Same pre-registered answer."
+}

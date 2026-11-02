@@ -1,0 +1,253 @@
+[
+ {
+  "file": "synthetic/generated/dev/packs/m07/minutes.pdf",
+  "readPath": "synthetic/generated/dev/packs/m07/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-03-12T09:00",
+    "end_local": "2026-03-12T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Dubai",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Dmitri Ashby",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Dubai",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00893225,
+  "ms": 9740,
+  "usage": {
+   "input_tokens": 3960,
+   "output_tokens": 937,
+   "reasoning_tokens": 418
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m07/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m07/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 11 Mar 2026 15:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0092055,
+  "ms": 9536,
+  "usage": {
+   "input_tokens": 3859,
+   "output_tokens": 1031,
+   "reasoning_tokens": 829
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m07/stay/folio_B_STHELIER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m07/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "11 Mar 2026 15:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0085625,
+  "ms": 10188,
+  "usage": {
+   "input_tokens": 3858,
+   "output_tokens": 880,
+   "reasoning_tokens": 680
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m07/stay/folio_C_DUBAI.pdf",
+  "readPath": "synthetic/generated/dev/packs/m07/stay/folio_C_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-03-11T00:00",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-03-14T12:00",
+     "check_out_tz": "GST",
+     "quote": "11 Mar 2026 00:00 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00865475,
+  "ms": 9772,
+  "usage": {
+   "input_tokens": 3857,
+   "output_tokens": 902,
+   "reasoning_tokens": 703
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m07/stay/folio_D_DUBAI.pdf",
+  "readPath": "synthetic/generated/dev/packs/m07/stay/folio_D_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Dmitri Ashby",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-03-11T00:00",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-03-14T12:00",
+     "check_out_tz": "GST",
+     "quote": "Arrival 11 Mar 2026 00:00 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0085825,
+  "ms": 8640,
+  "usage": {
+   "input_tokens": 3857,
+   "output_tokens": 885,
+   "reasoning_tokens": 684
+  }
+ }
+]

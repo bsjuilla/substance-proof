@@ -1,0 +1,56 @@
+{
+ "setup": {
+  "companyName": "Corvane Holdings Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Annika Vosberg",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Rafael Duquesne",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Lionel Pettigrew",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "board-pack.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-vosberg-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-vosberg-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "eticket-duquesne.pdf",
+   "role": "travel"
+  },
+  {
+   "name": "folio-pettigrew.pdf",
+   "role": "hotel"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "setup": {
+  "companyName": "Societe Brionne SA",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-08-06",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Mathilde Arnoux",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Owen Trelawney",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Sofia Castelnau",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "proces-verbal.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-trelawney-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-trelawney-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "eticket-castelnau.pdf",
+   "role": "travel"
+  },
+  {
+   "name": "note-hotel-castelnau.pdf",
+   "role": "hotel"
+  }
+ ]
+}

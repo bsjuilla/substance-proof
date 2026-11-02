@@ -1,0 +1,50 @@
+{
+ "setup": {
+  "companyName": "Quillon Partners Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "14:00",
+  "end": "16:00",
+  "directors": [
+   {
+    "name": "Aurelio Kastanis",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Rowena Delacroix-Hume",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-kastanis-in.jpg",
+   "role": "travel"
+  },
+  {
+   "name": "mobile-kastanis-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "folio-kastanis-photo.jpg",
+   "role": "hotel"
+  },
+  {
+   "name": "eticket-delacroix.pdf",
+   "role": "travel"
+  }
+ ]
+}

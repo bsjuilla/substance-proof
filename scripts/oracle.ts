@@ -78,8 +78,8 @@ export function oracle(s: Scenario): OracleAnswer {
   ].filter(Boolean).map((p) => COUNTRY[p!]).filter(Boolean);
   const presence = s.company.directors.map((d) => ({
     directorId: d.id,
-    // Any claim that does not name the home jurisdiction (another place, or one we cannot place) counts as "away".
-    ...whereWas(s.travel[d.id] ?? [], S, E, home, d.residentIn === home, claimedCodes(d.id).some((p) => COUNTRY[p] !== home)),
+    // A resident counts only if the minutes or the recording put them at home, and nothing puts them anywhere else.
+    ...whereWas(s.travel[d.id] ?? [], S, E, home, d.residentIn === home, claimedCodes(d.id).some((p) => COUNTRY[p] !== home) || !claimedCodes(d.id).some((p) => COUNTRY[p] === home)),
   }));
   const statusOf = (id: string) => presence.find((p) => p.directorId === id)!.status;
 

@@ -15,7 +15,7 @@ const SET = process.env.SET ?? "dev";
 const ans = JSON.parse(readFileSync(join(ROOT, "synthetic", "generated", SET, "answers", `${id}.json`), "utf8"));
 const toDocId = (p: string) => p.split(/packs[\\/]/).pop()!.split("\\").join("/");
 const items = raw.map((r: any) => ({ docId: toDocId(r.file), extraction: r.extraction }));
-const { facts, meetingWindow, rejected } = toFacts(items, ans.company.directors);
+const { facts, meetingWindow, rejected } = toFacts(items, ans.company.directors, { refUtc: ans.meeting.startUtc });
 console.log("run", run);
 console.log("window", meetingWindow, "| truth", ans.meeting.startUtc, ans.meeting.endUtc);
 console.log("rejected", rejected);

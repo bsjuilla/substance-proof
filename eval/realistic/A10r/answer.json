@@ -1,0 +1,12 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "absent",
+  "C": "unknown"
+ },
+ "verdict": "PASS",
+ "reason": "Chair Tan: flights into SIN 14 Apr 06:10 and out 16 Apr 23:00 (>24h) with folio -> present; chair present satisfies IRAS indicator -> PASS. B joined from Sydney (claim, absent per README claims defeat? claim only) -> absent? claim never supplies evidence; mark unknown/away. C no docs.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true,
+ "note": "Re-run of A10: setup names fixed (removed \"(fictional)\" suffix that was my error). Same pre-registered answer."
+}

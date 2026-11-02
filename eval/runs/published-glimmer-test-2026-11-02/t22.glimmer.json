@@ -1,0 +1,218 @@
+[
+ {
+  "docId": "t22/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-08-19T10:00",
+    "end_local": "2026-08-19T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 24654
+ },
+ {
+  "docId": "t22/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier, Jersey",
+     "check_in_local": "2026-08-18T00:32",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-08-20T20:56",
+     "check_out_tz": "GMT+1",
+     "quote": "Arrival 18 Aug 2026 00:32 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 27462
+ },
+ {
+  "docId": "t22/stay/folio_C_PARIS.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Paris, France",
+     "check_in_local": "2026-08-18T05:57",
+     "check_in_tz": "CEST",
+     "check_out_local": "2026-08-20T14:53",
+     "check_out_tz": "CEST",
+     "quote": "Arrival 18 Aug 2026 05:57 (CEST)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 35623
+ },
+ {
+  "docId": "t22/travel/ETKT_D_DXB-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "WHITLOCK/GRACE",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-08-18T23:00",
+     "depart_tz": "UTC+04:00",
+     "arrive_local": "2026-08-19T04:33",
+     "arrive_tz": "UTC+01:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 109 Dubai International (DXB) 18/08/2026 23:00 (UTC+04:00) Jersey Airport (JER) 19/08/2026 04:33 (UTC+01:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 29896
+ },
+ {
+  "docId": "t22/travel/ETKT_D_JER-DXB.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "WHITLOCK/GRACE",
+     "origin_code": "JER",
+     "dest_code": "DXB",
+     "depart_local": "2026-08-19T17:39",
+     "depart_tz": "UTC+01:00",
+     "arrive_local": "2026-08-20T07:00",
+     "arrive_tz": "UTC+04:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 399 Jersey Airport (JER) 19/08/2026 17:39 (UTC+01:00) Dubai International (DXB) 20/08/2026 07:00 (UTC+04:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 48176
+ }
+]

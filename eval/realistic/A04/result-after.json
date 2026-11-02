@@ -1,0 +1,445 @@
+{
+ "id": "9e425f73-06fe-4a0a-8aaa-3cff15365b77",
+ "createdAt": "2026-11-01T13:53:34.134Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Marrowgate Trust Co Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Felix Okonkwo-Hart",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Greta Saelens",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Colm Ruadhan",
+    "isChair": false,
+    "hasStrategicAuthority": true,
+    "residentIn": "JE",
+    "residenceRecord": "residence document residence-ruadhan.png, SHA-256 4a6dc7c561907b83…, supplied by the user; a reviewer must check it"
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "9e425f73-06fe-4a0a-8aaa-3cff15365b77",
+  "startUtc": "2026-03-12T22:30:00Z",
+  "endUtc": "2026-03-13T00:30:00Z",
+  "scheduleUnknown": true,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "f6ac4e1947ddaf39ed89b2d2c109b666eb8a368366ebb2da2e23b4bd09af593d"
+  },
+  {
+   "docId": "pack/travel/bp-felix-in.png",
+   "kind": "boarding_pass",
+   "sha256": "d2b1cbd84d29f3a04be696d473b833b58266ba37d57fcbe855c5734d3a706652",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-felix-out.png",
+   "kind": "boarding_pass",
+   "sha256": "fc757065de0d8ce31e9c27338edc81745d41eae96a99ce49040b2812b94dc32d",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-greta-in.png",
+   "kind": "boarding_pass",
+   "sha256": "45c311662b219daf0e876f01ee5e4162dc09f76c7cf449b0fdeef47169a8dd27",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.9804878830909729
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-greta-out.png",
+   "kind": "boarding_pass",
+   "sha256": "b16a9ba72e6e8e04097a9de282e3b2c4d5f69f32be7c78bbae7492c3d6e7116c",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.9804878830909729
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-12T12:00:00Z",
+   "arriveUtc": "2026-03-12T12:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-felix-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nDeparts: 12MAR 12:00\nArrives: 12MAR 12:55"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-13T00:15:00Z",
+   "arriveUtc": "2026-03-13T01:10:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-felix-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nFlight: AU 399  Seat: 14C  Seq: 042\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "BRU",
+   "destCode": "JER",
+   "departUtc": "2026-03-12T12:05:00Z",
+   "arriveUtc": "2026-03-12T14:00:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-greta-in.png",
+    "page": 1,
+    "quote": "From: BRUSSELS BRU  To: JERSEY JER\nDeparts: 12MAR 13:05\nArrives: 12MAR 14:00"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "BRU",
+   "departUtc": "2026-03-13T18:00:00Z",
+   "arriveUtc": "2026-03-13T18:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-greta-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: BRUSSELS BRU\nDeparts: 13MAR 18:00\nArrives: 13MAR 19:55"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "9e425f73-06fe-4a0a-8aaa-3cff15365b77",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight JER-LGW) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-felix-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nFlight: AU 399  Seat: 14C  Seq: 042\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10"
+     },
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan."
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 9 h before the meeting and flight out of JER 18 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-greta-in.png",
+      "page": 1,
+      "quote": "From: BRUSSELS BRU  To: JERSEY JER\nDeparts: 12MAR 13:05\nArrives: 12MAR 14:00"
+     },
+     {
+      "docId": "pack/travel/bp-greta-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER   To: BRUSSELS BRU\nDeparts: 13MAR 18:00\nArrives: 13MAR 19:55"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "present",
+    "basis": "resident",
+    "reason": "Lives in Jersey (residence document residence-ruadhan.png, SHA-256 4a6dc7c561907b83…, supplied by the user; a reviewer must check it), the minutes or the recording place this director in Jersey, and no travel evidence or claim places them elsewhere.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan."
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "inconclusive",
+    "detail": "No scheduled time was given, so the time printed in the minutes was used without an independent check."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (7/7 facts identical)."
+   }
+  ],
+  "contradictions": [
+   {
+    "directorId": "A",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight JER-LGW) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-felix-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nFlight: AU 399  Seat: 14C  Seq: 042\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10"
+     },
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan."
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ]
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "minutes_correction",
+    "directorId": "A",
+    "directorName": "Felix Okonkwo-Hart",
+    "subject": "Review minutes record for 12 March 2026",
+    "message": "Dear Company Secretary,\n\nPlease review the record for Felix Okonkwo-Hart for the meeting on 12 March 2026.\n\nThe minutes in pack/minutes/minutes.pdf state \"Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan.\"\n\nThe evidence in pack/travel/bp-felix-out.png states \"From: JERSEY JER  To: LONDON GATWICK LGW\nFlight: AU 399  Seat: 14C  Seq: 042\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10\".\n\nPlease review this difference.",
+    "citations": [
+     "pack/travel/bp-felix-out.png#p1",
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one draft minutes correction for Felix Okonkwo-Hart for the meeting on 12 March 2026. The draft is awaiting approval and no evidence requests were required.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Felix Okonkwo-Hart",
+       "status": "absent",
+       "basis": "independent",
+       "engine_reason": "In flight (flight JER-LGW) during part of the meeting window.",
+       "contradiction": {
+        "claimed": "Jersey",
+        "evidence": "in flight"
+       },
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/travel/bp-felix-out.png#p1",
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/travel/bp-felix-out.png",
+         "words": "From: JERSEY JER  To: LONDON GATWICK LGW\nFlight: AU 399  Seat: 14C  Seq: 042\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10"
+        },
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_minutes_correction",
+    "args": {
+     "citations": [
+      "pack/travel/bp-felix-out.png#p1",
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "A",
+     "message": "Dear Company Secretary,\n\nPlease review the record for Felix Okonkwo-Hart for the meeting on 12 March 2026.\n\nThe minutes in pack/minutes/minutes.pdf state \"Present throughout: Felix Okonkwo-Hart (Chair), Greta Saelens, Colm Ruadhan.\"\n\nThe evidence in pack/travel/bp-felix-out.png states \"From: JERSEY JER  To: LONDON GATWICK LGW\nFlight: AU 399  Seat: 14C  Seq: 042\nDeparts: 13MAR 00:15\nArrives: 13MAR 01:10\".\n\nPlease review this difference.",
+     "subject": "Review minutes record for 12 March 2026"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0907,
+ "seconds": 65,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 7,
+  "total": 7,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

@@ -1,0 +1,409 @@
+{
+ "id": "0ccfb36a-3487-4c72-aa33-af2b972c9d42",
+ "createdAt": "2026-11-01T13:51:28.783Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Societe Brionne SA",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Mathilde Arnoux",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Owen Trelawney",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Sofia Castelnau",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "0ccfb36a-3487-4c72-aa33-af2b972c9d42",
+  "startUtc": "2026-08-06T08:00:00Z",
+  "endUtc": "2026-08-06T10:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "6 August 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/proces-verbal.pdf",
+   "kind": "minutes",
+   "sha256": "f4b1597056621865b366eea5a7f45ce17bd6d75beadea42c19dbee09a236311c"
+  },
+  {
+   "docId": "pack/travel/bp-trelawney-in.png",
+   "kind": "boarding_pass",
+   "sha256": "ae3952ba73e7367f4b42241e11247c4187cdc7e5ac829370c271e519fcefcf00",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-trelawney-out.png",
+   "kind": "boarding_pass",
+   "sha256": "d4ca0aa593612e55a623c94ee9b11dc4220dbbb1690f2db0a9b6241d6c855622",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/eticket-castelnau.pdf",
+   "kind": "other",
+   "sha256": "5ecd60a00f55ac23708a5349f577fe385f255385f1fb0d400c09ebe5a8b525d8"
+  },
+  {
+   "docId": "pack/stay/note-hotel-castelnau.pdf",
+   "kind": "hotel_folio",
+   "sha256": "b9cd44bd93a492f2e37f9da42e978d8ed3cc657cf64067a42ca8e0a0fa9a52cd"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/proces-verbal.pdf",
+    "page": 1,
+    "quote": "Etaient presents a St Helier : M. Owen Trelawney, Mme Sofia Castelnau."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/proces-verbal.pdf",
+    "page": 1,
+    "quote": "Etaient presents a St Helier : M. Owen Trelawney, Mme Sofia Castelnau."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "TEXT:Lisbonne",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/proces-verbal.pdf",
+    "page": 1,
+    "quote": "Participait par telephone depuis Lisbonne : Mme Mathilde Arnoux (presidente)."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "BRS",
+   "destCode": "JER",
+   "departUtc": "2026-08-05T17:10:00Z",
+   "arriveUtc": "2026-08-05T18:15:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-trelawney-in.png",
+    "page": 1,
+    "quote": "From: BRISTOL BRS  To: JERSEY JER\nFlight: AU 207  Seat: 14C  Seq: 042\nDeparts: 05/08 6:10 PM\nArrives: 05/08 7:15 PM"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "BRS",
+   "departUtc": "2026-08-07T09:20:00Z",
+   "arriveUtc": "2026-08-07T10:25:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-trelawney-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: BRISTOL BRS\nDeparts: 07/08 10:20 AM\nArrives: 07/08 11:25 AM"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "ORY",
+   "destCode": "JER",
+   "departUtc": "2026-08-04T12:05:00Z",
+   "arriveUtc": "2026-08-04T14:30:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-castelnau.pdf",
+    "page": 1,
+    "quote": "Vol AU 811 PARIS ORLY ORY -> JERSEY JER 04/08/2026 depart 14:05 arrivee 15:30"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "JER",
+   "destCode": "ORY",
+   "departUtc": "2026-08-07T17:00:00Z",
+   "arriveUtc": "2026-08-07T18:15:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-castelnau.pdf",
+    "page": 1,
+    "quote": "Vol AU 816 JERSEY JER -> PARIS ORLY ORY 07/08/2026 depart 18:00 arrivee 20:15"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "checkInUtc": "2026-08-04T22:59:00Z",
+   "checkOutUtc": "2026-08-06T23:00:00Z",
+   "cite": {
+    "docId": "pack/stay/note-hotel-castelnau.pdf",
+    "page": 1,
+    "quote": "Arrivee : 04/08/2026   Depart : 07/08/2026"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "0ccfb36a-3487-4c72-aa33-af2b972c9d42",
+  "jurisdiction": "JE",
+  "verdict": "PASS",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": [
+     {
+      "docId": "pack/minutes/proces-verbal.pdf",
+      "page": 1,
+      "quote": "Participait par telephone depuis Lisbonne : Mme Mathilde Arnoux (presidente)."
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 14 h before the meeting and flight out of JER 23 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-trelawney-in.png",
+      "page": 1,
+      "quote": "From: BRISTOL BRS  To: JERSEY JER\nFlight: AU 207  Seat: 14C  Seq: 042\nDeparts: 05/08 6:10 PM\nArrives: 05/08 7:15 PM"
+     },
+     {
+      "docId": "pack/travel/bp-trelawney-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER   To: BRISTOL BRS\nDeparts: 07/08 10:20 AM\nArrives: 07/08 11:25 AM"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 42 h before the meeting and flight out of JER 31 h after it, with a hotel stay in St Helier covering the meeting.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-castelnau.pdf",
+      "page": 1,
+      "quote": "Vol AU 811 PARIS ORLY ORY -> JERSEY JER 04/08/2026 depart 14:05 arrivee 15:30"
+     },
+     {
+      "docId": "pack/travel/eticket-castelnau.pdf",
+      "page": 1,
+      "quote": "Vol AU 816 JERSEY JER -> PARIS ORLY ORY 07/08/2026 depart 18:00 arrivee 20:15"
+     },
+     {
+      "docId": "pack/stay/note-hotel-castelnau.pdf",
+      "page": 1,
+      "quote": "Arrivee : 04/08/2026   Depart : 07/08/2026"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (8/8 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "A",
+    "directorName": "Mathilde Arnoux",
+    "subject": "Request for documents relating to 6 August 2026 meeting",
+    "message": "Dear Mathilde Arnoux, In connection with the board meeting on 6 August 2026, please provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm your location. The minutes in pack/minutes/proces-verbal.pdf state \"Participait par telephone depuis Lisbonne : Mme Mathilde Arnoux (presidente).\" Thank you for your assistance.",
+    "documents": [
+     "boarding pass covering 6 August 2026",
+     "travel itinerary covering 6 August 2026",
+     "hotel bill covering 6 August 2026"
+    ],
+    "citations": [
+     "pack/minutes/proces-verbal.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one evidence request draft for Mathilde Arnoux regarding the meeting on 6 August 2026. It is awaiting approval and no minutes correction draft was required.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "6 August 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Mathilde Arnoux",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/proces-verbal.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/proces-verbal.pdf",
+         "words": "Participait par telephone depuis Lisbonne : Mme Mathilde Arnoux (presidente)."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/proces-verbal.pdf#p1"
+     ],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass covering 6 August 2026",
+      "travel itinerary covering 6 August 2026",
+      "hotel bill covering 6 August 2026"
+     ],
+     "message": "Dear Mathilde Arnoux, In connection with the board meeting on 6 August 2026, please provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm your location. The minutes in pack/minutes/proces-verbal.pdf state \"Participait par telephone depuis Lisbonne : Mme Mathilde Arnoux (presidente).\" Thank you for your assistance.",
+     "subject": "Request for documents relating to 6 August 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0764,
+ "seconds": 54,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 8,
+  "total": 8,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

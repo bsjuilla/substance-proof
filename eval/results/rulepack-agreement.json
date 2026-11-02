@@ -69,7 +69,7 @@
     }
   ],
   "recheck": {
-    "at": "2026-11-01T11:37:14.245Z",
+    "at": "2026-11-02T05:01:52.572Z",
     "what": "published packs (run 1) re-measured after the presence rules changed",
     "agreement": "42/42",
     "disagreements": []

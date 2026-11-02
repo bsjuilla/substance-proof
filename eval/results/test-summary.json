@@ -1,15 +1,15 @@
 {
   "set": "test",
-  "model": "replay:2026-10-29T18-42-39-917Z",
-  "commit": "7e71ff4",
-  "runAt": "2026-11-01T11:15:47.239Z",
+  "model": "replay:test-2026-11-01-final",
+  "commit": "41fd2c9",
+  "runAt": "2026-11-02T04:56:59.019Z",
   "meetings": 30,
-  "costUsd": 0.9134,
-  "factsExact": "165/166 (99.4%)",
+  "costUsd": 1.1434,
+  "factsExact": "166/166 (100.0%)",
   "spuriousFacts": 0,
   "rejectedFacts": 0,
   "meetingTimeCorrect": "100.0%",
-  "directorPresenceAgreement": "85/86 (98.8%)",
+  "directorPresenceAgreement": "86/86 (100.0%)",
   "meetingVerdictAgreement": "30/30 (100.0%)",
   "contradictionsFound": "27/27",
   "dangerousErrors": {
@@ -396,10 +396,8 @@
       },
       "expected": "REVIEW",
       "got": "REVIEW",
-      "facts": "9/10",
-      "missed": [
-        "F|B|HKG|SIN|2026-07-11T12:00:00Z|2026-07-11T20:26:00Z"
-      ],
+      "facts": "10/10",
+      "missed": [],
       "spurious": [],
       "rejected": []
     },

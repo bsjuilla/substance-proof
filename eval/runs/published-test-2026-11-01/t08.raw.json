@@ -1,0 +1,139 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t08/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t08/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-08-06T10:00",
+    "end_local": "2026-08-06T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00805675,
+  "ms": 6262,
+  "usage": {
+   "input_tokens": 3943,
+   "output_tokens": 736,
+   "reasoning_tokens": 431
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t08/travel/ETKT_A_DXB-JER.pdf",
+  "readPath": "synthetic/generated/test/packs/t08/travel/ETKT_A_DXB-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "DANIEL MBEKI-SHAW",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-08-06T07:00",
+     "depart_tz": "UTC+04:00",
+     "arrive_local": "2026-08-06T11:00",
+     "arrive_tz": "UTC+01:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Dubai International (DXB) 06/08/2026 07:00 (UTC+04:00) Jersey Airport (JER) 06/08/2026 11:00 (UTC+01:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00919,
+  "ms": 7741,
+  "usage": {
+   "input_tokens": 3867,
+   "output_tokens": 1025,
+   "reasoning_tokens": 781
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t08/travel/ETKT_B_JER-HKG.pdf",
+  "readPath": "synthetic/generated/test/packs/t08/travel/ETKT_B_JER-HKG.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "LUCIA FERRANTE",
+     "origin_code": "JER",
+     "dest_code": "HKG",
+     "depart_local": "2026-08-06T11:06",
+     "depart_tz": "UTC+01:00",
+     "arrive_local": "2026-08-07T01:06",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 838 Jersey Airport (JER) 06/08/2026 11:06 (UTC+01:00) Hong Kong International (HKG) 07/08/2026 01:06 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.009383,
+  "ms": 9973,
+  "usage": {
+   "input_tokens": 3865,
+   "output_tokens": 1071,
+   "reasoning_tokens": 827
+  }
+ }
+]

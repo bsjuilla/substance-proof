@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "absent",
+  "B": "absent"
+ },
+ "verdict": "REVIEW",
+ "reason": "Chair boarding pass SIN->LHR 15 Apr 23:30 (in flight/away); B in Tokyo per folio. Neither in SG -> IRAS indicator fails -> REVIEW (guidance basis) or FAIL. Register REVIEW.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true,
+ "note": "Re-run of A11: setup names fixed (removed \"(fictional)\" suffix that was my error). Same pre-registered answer."
+}

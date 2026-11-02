@@ -1,0 +1,472 @@
+{
+ "id": "7554b0fb-bf50-4cd9-bb30-675683e471fc",
+ "createdAt": "2026-11-02T05:28:58.007Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Havre des Pas Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Odile Marchetti",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Barnaby Quist",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Lucien Ferrand",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "7554b0fb-bf50-4cd9-bb30-675683e471fc",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "6c621031a77ff86eb8e503ad7d04700857bdeeb951bf881fa5f3f29dae36f784"
+  },
+  {
+   "docId": "pack/travel/bp-marchetti-in.png",
+   "kind": "boarding_pass",
+   "sha256": "5c29ef04a5494a99f719e672ded29b6d02f6450ad7a514054cbffe7df52eaf53",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-marchetti-out.png",
+   "kind": "boarding_pass",
+   "sha256": "564893616bba98a134fc5989440bb72a83a37f5a42c7c93f6b4cbae2db1b9562",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-quist-in.png",
+   "kind": "boarding_pass",
+   "sha256": "1b0efee9f2b5719d987e35053bf4f75c9a1f90436db3b2968c3d2cadee477e3b",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-quist-out.png",
+   "kind": "boarding_pass",
+   "sha256": "ffe31053f3b7690d3872e544f77b61510b3b6ee280b860a320c54c00fc9f20bd",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/recording/recording.wav",
+   "kind": "recording",
+   "sha256": "845bba8ac7f0becf3602f3c56f3b4c4c43d26f29819618cf9623532b86700c45",
+   "transcript": [
+    {
+     "startMs": 60,
+     "endMs": 7260,
+     "text": "Good morning everyone. It is nine o'clock and I am opening the meeting here in the boardroom in St Helier",
+     "speaker": "A"
+    },
+    {
+     "startMs": 8460,
+     "endMs": 15900,
+     "text": "Morning. I flew in last night I am sitting right across the table from you.",
+     "speaker": "B"
+    },
+    {
+     "startMs": 16140,
+     "endMs": 20940,
+     "text": "Bonjour. Video.",
+     "speaker": "B"
+    },
+    {
+     "startMs": 21660,
+     "endMs": 22540,
+     "text": "Can everyone everyone hear me?",
+     "speaker": "A"
+    },
+    {
+     "startMs": 22540,
+     "endMs": 23260,
+     "text": "Yes we can hear you.",
+     "speaker": "B"
+    },
+    {
+     "startMs": 23420,
+     "endMs": 24300,
+     "text": "The line is bad.",
+     "speaker": "A"
+    },
+    {
+     "startMs": 24300,
+     "endMs": 28380,
+     "text": "Let us move to item one the investment strategy.",
+     "speaker": "B"
+    },
+    {
+     "startMs": 28620,
+     "endMs": 36540,
+     "text": "Item one is approved. Item two the dividend dividend policy. is approved. the meeting is closed.",
+     "speaker": "A"
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Odile Marchetti (Chair), Barnaby Quist, Lucien Ferrand."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Odile Marchetti (Chair), Barnaby Quist, Lucien Ferrand."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Odile Marchetti (Chair), Barnaby Quist, Lucien Ferrand."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T19:00:00Z",
+   "arriveUtc": "2026-03-11T19:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-marchetti-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nDeparts: 11MAR 19:00\nArrives: 11MAR 19:55"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T15:00:00Z",
+   "arriveUtc": "2026-03-12T15:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-marchetti-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: LONDON GATWICK LGW\nDeparts: 12MAR 15:00\nArrives: 12MAR 15:55"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T19:00:00Z",
+   "arriveUtc": "2026-03-11T19:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-quist-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nFlight: AU 309  Seat: 14C  Seq: 042\nDeparts: 11MAR 19:00\nArrives: 11MAR 19:55"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T15:00:00Z",
+   "arriveUtc": "2026-03-12T15:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-quist-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER To: LONDON GATWICK LGW\nDeparts: 12MAR 15:00\nArrives: 12MAR 15:55"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "7554b0fb-bf50-4cd9-bb30-675683e471fc",
+  "jurisdiction": "JE",
+  "verdict": "PASS",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 13 h before the meeting and flight out of JER 4 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-marchetti-in.png",
+      "page": 1,
+      "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nDeparts: 11MAR 19:00\nArrives: 11MAR 19:55"
+     },
+     {
+      "docId": "pack/travel/bp-marchetti-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER   To: LONDON GATWICK LGW\nDeparts: 12MAR 15:00\nArrives: 12MAR 15:55"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 13 h before the meeting and flight out of JER 4 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-quist-in.png",
+      "page": 1,
+      "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nFlight: AU 309  Seat: 14C  Seq: 042\nDeparts: 11MAR 19:00\nArrives: 11MAR 19:55"
+     },
+     {
+      "docId": "pack/travel/bp-quist-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER To: LONDON GATWICK LGW\nDeparts: 12MAR 15:00\nArrives: 12MAR 15:55"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "unknown",
+    "basis": "claim_only",
+    "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+    "cites": [
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present: Odile Marchetti (Chair), Barnaby Quist, Lucien Ferrand."
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (7/7 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "C",
+    "directorName": "Lucien Ferrand",
+    "subject": "Havre des Pas Ltd meeting on 12 March 2026 - request for documents",
+    "message": "Dear Lucien Ferrand, Regarding the board meeting on 12 March 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were. Thank you for your help.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one evidence request draft for Lucien Ferrand asking for travel documents covering 12 March 2026. No minutes correction drafts were needed.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "C",
+       "name": "Lucien Ferrand",
+       "status": "unknown",
+       "basis": "claim_only",
+       "engine_reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Present: Odile Marchetti (Chair), Barnaby Quist, Lucien Ferrand."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Lucien Ferrand, Regarding the board meeting on 12 March 2026, please could you provide a boarding pass, travel itinerary or hotel bill covering the meeting date to confirm where you were. Thank you for your help.",
+     "subject": "Havre des Pas Ltd meeting on 12 March 2026 - request for documents"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0955,
+ "seconds": 66,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 7,
+  "total": 7,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "muse-voice-transcribe-1.0 (recordings)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

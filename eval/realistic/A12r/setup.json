@@ -1,0 +1,56 @@
+{
+ "setup": {
+  "companyName": "Keppel Fictive Pte Ltd",
+  "jurisdiction": "SG",
+  "quorum": 2,
+  "mode": "hybrid",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-04-20",
+  "start": "15:00",
+  "end": "17:00",
+  "directors": [
+   {
+    "name": "Lim Kah Seng",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Ruth Abernethy",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Viktor Stahl",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-lim-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-lim-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "mobile-abernethy-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "mobile-abernethy-out.png",
+   "role": "travel"
+  }
+ ]
+}

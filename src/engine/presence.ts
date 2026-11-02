@@ -192,7 +192,11 @@ export function resolvePresence(
   // Any claim that does not name the jurisdiction (another place, an unrecognised place, "by telephone") defeats the
   // residence record: the record says where the director lives, not where they were that day.
   const away = claims.find((c) => jOf(c) !== target);
-  const trusted = resident && !away;
+  // And silence is not enough: the minutes or the recording must place the director in the jurisdiction. In a live
+  // test, prose minutes ("took the chair by telephone from her home in Lisbon") gave no claim at all, and the
+  // residence record alone made her present.
+  const saidHere = claims.some((c) => jOf(c) === target);
+  const trusted = resident && !away && saidHere;
 
   return withConflict(fromIndependent());
 
@@ -242,8 +246,17 @@ export function resolvePresence(
       directorId,
       status: "present",
       basis: "resident",
-      reason: `Lives in ${name(target)}${record}; no travel evidence or claim places this director elsewhere.`,
+      reason: `Lives in ${name(target)}${record}, the minutes or the recording place this director in ${name(target)}, and no travel evidence or claim places them elsewhere.`,
       cites: claims.map((c) => c.cite),
+    };
+  }
+  if (resident && !away && !saidHere) {
+    return {
+      directorId,
+      status: "unknown",
+      basis: "none",
+      reason: `Lives in ${name(target)}${record}, but neither the minutes nor the recording say where this director was for this meeting.`,
+      cites: [],
     };
   }
   if (resident && away) {

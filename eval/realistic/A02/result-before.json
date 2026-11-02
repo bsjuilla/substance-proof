@@ -1,0 +1,445 @@
+{
+ "id": "7f6ca48b-6824-486e-8c15-31dd4702a42c",
+ "createdAt": "2026-11-01T12:30:32.055Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Societe Brionne SA",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Mathilde Arnoux",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Owen Trelawney",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Sofia Castelnau",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "7f6ca48b-6824-486e-8c15-31dd4702a42c",
+  "startUtc": "2026-08-06T08:00:00Z",
+  "endUtc": "2026-08-06T10:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "6 August 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/proces-verbal.pdf",
+   "kind": "minutes",
+   "sha256": "d7fb8fc9e90b16fce528426fc501801d98b7ca4c28d7df39101c601e4ced18e5"
+  },
+  {
+   "docId": "pack/travel/bp-trelawney-in.png",
+   "kind": "boarding_pass",
+   "sha256": "ae3952ba73e7367f4b42241e11247c4187cdc7e5ac829370c271e519fcefcf00",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-trelawney-out.png",
+   "kind": "boarding_pass",
+   "sha256": "d4ca0aa593612e55a623c94ee9b11dc4220dbbb1690f2db0a9b6241d6c855622",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/eticket-castelnau.pdf",
+   "kind": "boarding_pass",
+   "sha256": "51dea3352b1f4fa1ebce97bc0cae36e8e914e2b7f8f759b587197cd61e86de8d"
+  },
+  {
+   "docId": "pack/stay/note-hotel-castelnau.pdf",
+   "kind": "hotel_folio",
+   "sha256": "70391c9dc4ec942376e7b298cbc8ad9dfa765c7c35c7ab0b79a674805d9507a6"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "BRS",
+   "destCode": "JER",
+   "departUtc": "2026-08-05T17:10:00Z",
+   "arriveUtc": "2026-08-05T18:15:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-trelawney-in.png",
+    "page": 1,
+    "quote": "From: BRISTOL BRS  To: JERSEY JER\nDeparts: 05/08 6:10 PM\nArrives: 05/08 7:15 PM"
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/minutes/proces-verbal.pdf",
+   "reason": "name \"M. Owen Trelawney\" matches no director"
+  },
+  {
+   "file": "pack/minutes/proces-verbal.pdf",
+   "reason": "name \"Mme Sofia Castelnau\" matches no director"
+  },
+  {
+   "file": "pack/minutes/proces-verbal.pdf",
+   "reason": "name \"Mme Mathilde Arnoux\" matches no director"
+  },
+  {
+   "file": "pack/travel/bp-trelawney-out.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/travel/eticket-castelnau.pdf",
+   "reason": "name \"CASTELNAU/SOFIA MME\" matches no director"
+  },
+  {
+   "file": "pack/travel/eticket-castelnau.pdf",
+   "reason": "name \"CASTELNAU/SOFIA MME\" matches no director"
+  },
+  {
+   "file": "pack/stay/note-hotel-castelnau.pdf",
+   "reason": "name \"Mme Sofia Castelnau\" matches no director"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "7f6ca48b-6824-486e-8c15-31dd4702a42c",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "B",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "C",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "inconclusive",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 0 present, 0 absent, 3 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "inconclusive",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 0 present, 0 absent, 3 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (0/2 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I reviewed the gaps for the Societe Brionne SA meeting on 6 August 2026. I was unable to prepare evidence request drafts because no supporting document IDs were available for citation.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "6 August 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Mathilde Arnoux",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      },
+      {
+       "director_id": "B",
+       "name": "Owen Trelawney",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      },
+      {
+       "director_id": "C",
+       "name": "Sofia Castelnau",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Mathilde Arnoux, Please provide a boarding pass, travel itinerary or hotel bill covering 6 August 2026 to help confirm your location during the meeting. Thank you.",
+     "subject": "Societe Brionne SA meeting on 6 August 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "B",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Owen Trelawney, Please provide a boarding pass, travel itinerary or hotel bill covering 6 August 2026 to help confirm your location during the meeting. Thank you.",
+     "subject": "Societe Brionne SA meeting on 6 August 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Sofia Castelnau, Please provide a boarding pass, travel itinerary or hotel bill covering 6 August 2026 to help confirm your location during the meeting. Thank you.",
+     "subject": "Societe Brionne SA meeting on 6 August 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 3,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass"
+     ],
+     "message": "Dear Mathilde Arnoux, Please provide a boarding pass covering 6 August 2026 to help confirm your location during the meeting. Thank you.",
+     "subject": "Societe Brionne SA meeting on 6 August 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 4,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Mathilde Arnoux, Please provide a boarding pass, travel itinerary or hotel bill covering 6 August 2026 to help confirm your location during the meeting. Thank you.",
+     "subject": "Societe Brionne SA meeting on 6 August 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 5,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass"
+     ],
+     "message": "Dear Mathilde Arnoux, Please provide a boarding pass covering 6 August 2026 to help confirm your location during the meeting. Thank you.",
+     "subject": "Societe Brionne SA meeting on 6 August 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 6,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Mathilde Arnoux, Please provide a boarding pass, travel itinerary or hotel bill covering 6 August 2026 to help confirm your location during the meeting. Thank you.",
+     "subject": "Societe Brionne SA meeting on 6 August 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   }
+  ],
+  "rejectedCalls": 7
+ },
+ "costUsd": 0.1028,
+ "seconds": 67,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 0,
+  "total": 2,
+  "disagreements": [
+   {
+    "docId": "pack/travel/bp-trelawney-in.png",
+    "what": "only Muse Spark read: flight B BRS JER 2026-08-05T17:10 2026-08-05T18:15"
+   },
+   {
+    "docId": "pack/travel/bp-trelawney-in.png",
+    "what": "only Muse Glimmer read: flight B BRS JER 2025-08-05T17:10 2025-08-05T18:15"
+   }
+  ],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

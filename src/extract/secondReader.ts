@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
-import { basename, extname } from "node:path";
+import { createRequire } from "node:module";
+import { basename, dirname, extname, join, sep } from "node:path";
 import { createCanvas } from "@napi-rs/canvas";
 import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 import type { Jurisdiction } from "../engine/evaluate";
@@ -17,11 +18,10 @@ const BASE = "https://integrate.api.nvidia.com/v1";
 export const secondReaderModel = () => process.env.GLIMMER_MODEL || "meta/muse-glimmer-30b";
 export const secondReaderAvailable = () => !!process.env.NVIDIA_API_KEY;
 
-// One added line: read literally, "Boarding pass" made Glimmer skip e-ticket receipts (which say "not a boarding
-// pass"); Muse Spark already treats them as travel evidence. Muse Spark's prompt is left as it was evaluated.
+// The same instructions as Muse Spark (including the e-ticket line, which Glimmer needed first), plus the schema,
+// because this endpoint takes the schema in the prompt.
 const SYSTEM =
   SYSTEM_PROMPT +
-  "\n- E-ticket receipt or itinerary: travel evidence too. One flight_leg fact per flight row, exactly as for a boarding pass, even if it says it is not a boarding pass." +
   "\n\nReturn ONLY one JSON object (no prose, no code fences) that validates against this JSON Schema:\n" +
   JSON.stringify(EXTRACTION_JSON_SCHEMA);
 
@@ -29,9 +29,15 @@ const SYSTEM =
  *  page 200 inches wide would otherwise ask for a canvas of several gigabytes. */
 const MAX_PAGE_PX = 2000;
 
-/** PDF pages drawn to PNG, so scanned (image-only) pages are read the same way as born-digital ones. */
-export async function pdfPagesAsPng(path: string, maxPages = 3): Promise<string[]> {
-  const doc = await pdfjs.getDocument({ data: new Uint8Array(readFileSync(path)), isEvalSupported: false }).promise;
+/** The 14 standard PDF fonts shipped with pdf.js (the trailing slash matters). */
+const STANDARD_FONTS = join(dirname(createRequire(import.meta.url).resolve("pdfjs-dist/package.json")), "standard_fonts") + sep;
+
+/** PDF pages drawn to PNG, so scanned (image-only) pages are read the same way as born-digital ones. Up to 8 pages: a
+ *  board pack often has the attendance list several pages in (page 6 of 20 in a live test). */
+export async function pdfPagesAsPng(path: string, maxPages = 8): Promise<string[]> {
+  // standardFontDataUrl: a PDF that uses Helvetica or Times without embedding them (most PDFs from office and
+  // reporting tools) otherwise renders as a BLANK page, so Glimmer read nothing (found in the live review's packs).
+  const doc = await pdfjs.getDocument({ data: new Uint8Array(readFileSync(path)), isEvalSupported: false, standardFontDataUrl: STANDARD_FONTS }).promise;
   const out: string[] = [];
   for (let n = 1; n <= Math.min(doc.numPages, maxPages); n++) {
     const page = await doc.getPage(n);
@@ -134,7 +140,7 @@ export function secondOpinion(
   let total = 0;
   for (const [docId, extraction] of byDoc) {
     const a = new Set(primary.facts.filter((f) => f.cite.docId === docId).map(keyOf));
-    const b = new Set(toFacts([{ docId, extraction }], company.directors).facts.map(keyOf));
+    const b = new Set(toFacts([{ docId, extraction }], company.directors, { refUtc: meeting.startUtc }).facts.map(keyOf)); // same year rule as for Muse Spark
     for (const k of new Set([...a, ...b])) {
       total += 1;
       if (a.has(k) && b.has(k)) agreed += 1;
@@ -158,10 +164,15 @@ export function secondOpinion(
   if (changesDecision.length) {
     test = { ...base, status: "fail", detail: `Read independently by ${m}, the evidence leads to a different answer (${changesDecision.map((c) => c.what).join("; ")}). A person should look at the documents.` };
   } else if (!byDoc.size) {
-    test = { ...base, status: "not_applicable", detail: `The second reader (${m}) could not read any document${unread.length ? ` (${unread[0].reason})` : ""}, so there is no second opinion.` };
+    // A second reader that was asked and failed (in a live test NVIDIA answered 404 to every document) is not the
+    // same as no second reader: the second opinion is missing, so a person should look.
+    test = unread.length
+      ? { ...base, status: "inconclusive", detail: `The second reader (${m}) could not read any document (${unread[0].reason}), so the second opinion is missing.` }
+      : { ...base, status: "not_applicable", detail: `There was no document for the second reader (${m}) to read.` };
   } else {
     const partial = unread.length ? ` ${unread.length} document${unread.length === 1 ? " was" : "s were"} not re-read.` : "";
-    test = { ...base, status: "pass", detail: `Read independently by ${m}, the evidence leads to the same answer for every director (${agreed}/${total} facts identical).${partial}` };
+    const facts = agreed === total ? `${agreed}/${total} facts identical` : `only ${agreed}/${total} facts read the same way; see the differences`;
+    test = { ...base, status: "pass", detail: `Read independently by ${m}, the evidence leads to the same answer for every director (${facts}).${partial}` };
   }
   return { model: m, read: byDoc.size, unread, agreed, total, disagreements, changesDecision, test };
 }

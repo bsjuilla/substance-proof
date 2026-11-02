@@ -1,0 +1,492 @@
+{
+ "id": "72aaaf4f-d72a-4171-9228-1b8d04e0f034",
+ "createdAt": "2026-11-02T05:27:51.740Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Sarnia Bridge Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Morwenna Clyde",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Bastian Roque",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Elif Durmaz",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "72aaaf4f-d72a-4171-9228-1b8d04e0f034",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "ff89d368fd74f8a976be6d3cf56cb0bc5684b00b9cb4977dc2b903b44d03e8c8"
+  },
+  {
+   "docId": "pack/travel/eticket-roque.pdf",
+   "kind": "other",
+   "sha256": "7034820a6f3991e372b6a53f0fb2aebcc92d458ea88842e701e644609f84b399"
+  },
+  {
+   "docId": "pack/travel/bp-clyde-in.png",
+   "kind": "boarding_pass",
+   "sha256": "17751ad187a95c0f2d89c6912a22101dd5b9c9882136b88af154cf11f1c95402",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-clyde-out.png",
+   "kind": "boarding_pass",
+   "sha256": "c6763bfa67fd545f6419f636df11975a5991eb41f97345b5cf8ca19eb0292d76",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-durmaz-in.png",
+   "kind": "boarding_pass",
+   "sha256": "5137a7a441b5ea9f4912ee18f19e3975d797b965aa7818a1491c5e7e2082cb1a",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-durmaz-out.png",
+   "kind": "boarding_pass",
+   "sha256": "a82c69f2c80b21dca915eff6847425ed0d15074db9826c76ec5b5b922a8636a9",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "LGW",
+   "destCode": "GCI",
+   "departUtc": "2026-03-11T18:00:00Z",
+   "arriveUtc": "2026-03-11T18:55:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-roque.pdf",
+    "page": 1,
+    "quote": "LGW London Gatwick -> GCI Guernsey 11 Mar 2026 18:00 18:55 AU 640"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "GCI",
+   "destCode": "JER",
+   "departUtc": "2026-03-12T09:20:00Z",
+   "arriveUtc": "2026-03-12T09:40:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-roque.pdf",
+    "page": 1,
+    "quote": "GCI Guernsey -> JER Jersey       12 Mar 2026 09:20 09:40 AU 644"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T17:00:00Z",
+   "arriveUtc": "2026-03-12T17:55:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-roque.pdf",
+    "page": 1,
+    "quote": "JER Jersey -> LGW London Gatwick    12 Mar 2026 17:00 17:55 AU 319"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T19:00:00Z",
+   "arriveUtc": "2026-03-11T20:00:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-clyde-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nDeparts: 11MAR 19:00\nArrives: 11MAR 20:00"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T15:00:00Z",
+   "arriveUtc": "2026-03-12T16:00:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-clyde-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nDeparts: 12MAR 15:00\nArrives: 12MAR 16:00"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T21:00:00Z",
+   "arriveUtc": "2026-03-11T22:00:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-durmaz-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW   To: JERSEY JER\nFlight: AU 305   Seat: 14C   Seq: 042\nDeparts: 11MAR 21:00\nArrives: 11MAR 22:00"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T19:30:00Z",
+   "arriveUtc": "2026-03-12T20:30:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-durmaz-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: LONDON GATWICK LGW\nDeparts: 12MAR 19:30\nArrives: 12MAR 20:30"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "72aaaf4f-d72a-4171-9228-1b8d04e0f034",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 13 h before the meeting and flight out of JER 4 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-clyde-in.png",
+      "page": 1,
+      "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nDeparts: 11MAR 19:00\nArrives: 11MAR 20:00"
+     },
+     {
+      "docId": "pack/travel/bp-clyde-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nDeparts: 12MAR 15:00\nArrives: 12MAR 16:00"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight GCI-JER) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-roque.pdf",
+      "page": 1,
+      "quote": "GCI Guernsey -> JER Jersey       12 Mar 2026 09:20 09:40 AU 644"
+     },
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz."
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   },
+   {
+    "directorId": "C",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 11 h before the meeting and flight out of JER 9 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-durmaz-in.png",
+      "page": 1,
+      "quote": "From: LONDON GATWICK LGW   To: JERSEY JER\nFlight: AU 305   Seat: 14C   Seq: 042\nDeparts: 11MAR 21:00\nArrives: 11MAR 22:00"
+     },
+     {
+      "docId": "pack/travel/bp-durmaz-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER   To: LONDON GATWICK LGW\nDeparts: 12MAR 19:30\nArrives: 12MAR 20:30"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (10/10 facts identical)."
+   }
+  ],
+  "contradictions": [
+   {
+    "directorId": "B",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight GCI-JER) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-roque.pdf",
+      "page": 1,
+      "quote": "GCI Guernsey -> JER Jersey       12 Mar 2026 09:20 09:40 AU 644"
+     },
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz."
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ]
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "minutes_correction",
+    "directorId": "B",
+    "directorName": "Bastian Roque",
+    "subject": "Minutes review - 12 March 2026 - Bastian Roque",
+    "message": "Hello, Please review the record for Bastian Roque for the meeting on 12 March 2026. The minutes in pack/minutes/minutes.pdf state \"Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz.\" The travel evidence in pack/travel/eticket-roque.pdf states \"GCI Guernsey -> JER Jersey       12 Mar 2026 09:20 09:40 AU 644\". Please review and advise.",
+    "citations": [
+     "pack/travel/eticket-roque.pdf#p1",
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one draft minutes correction for Bastian Roque for the meeting on 12 March 2026. It is awaiting approval and no evidence requests were needed.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "B",
+       "name": "Bastian Roque",
+       "status": "absent",
+       "basis": "independent",
+       "engine_reason": "In flight (flight GCI-JER) during part of the meeting window.",
+       "contradiction": {
+        "claimed": "Jersey",
+        "evidence": "in flight"
+       },
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/travel/eticket-roque.pdf#p1",
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/travel/eticket-roque.pdf",
+         "words": "GCI Guernsey -> JER Jersey       12 Mar 2026 09:20 09:40 AU 644"
+        },
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_minutes_correction",
+    "args": {
+     "citations": [
+      "pack/travel/eticket-roque.pdf#p1",
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "B",
+     "message": "Hello, Please review the record for Bastian Roque for the meeting on 12 March 2026. The minutes in pack/minutes/minutes.pdf state \"Present: Morwenna Clyde (Chair), Bastian Roque, Elif Durmaz.\" The travel evidence in pack/travel/eticket-roque.pdf states \"GCI Guernsey -> JER Jersey       12 Mar 2026 09:20 09:40 AU 644\". Please review and advise.",
+     "subject": "Minutes review - 12 March 2026 - Bastian Roque"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.096,
+ "seconds": 80,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 6,
+  "unread": [],
+  "agreed": 10,
+  "total": 10,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

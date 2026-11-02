@@ -1,0 +1,437 @@
+{
+ "id": "0821b4cf-5d7c-44a6-886d-2e7f4d3b4618",
+ "createdAt": "2026-11-01T12:35:55.205Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Kestrelmoor Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Hugo Brannigan",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Ines Valdemar",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Petra Lindqvist",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "0821b4cf-5d7c-44a6-886d-2e7f4d3b4618",
+  "startUtc": "2026-10-25T09:00:00Z",
+  "endUtc": "2026-10-25T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "25 October 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "b5ab56c78d9ed52ee47578e71997491951f4b20dbbc56dbca5c33e316ea3cf30"
+  },
+  {
+   "docId": "pack/travel/bp-brannigan-in.png",
+   "kind": "boarding_pass",
+   "sha256": "4d9768c8583d578572f7b3ab98a517e6f6075c71795679f8a8520a186f5e3961",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-brannigan-out.png",
+   "kind": "boarding_pass",
+   "sha256": "9e4c633c80d8fafb8ad800396a14f9c56f3e1e74d766bf784ce0fb895833c7d6",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.9804878830909729
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/mobile-valdemar-in.png",
+   "kind": "boarding_pass",
+   "sha256": "8bbedd58bc37521c4928bae87be57b913dc0d20be3d3e1d4a5c515f7e36d43cb",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 628,
+     "y1": 242,
+     "x2": 725,
+     "y2": 341,
+     "w": 820,
+     "h": 1600,
+     "c": 0.96875
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/mobile-valdemar-out.png",
+   "kind": "boarding_pass",
+   "sha256": "5bca37987ad03e1e002b6a6b7163ea6b91f6d8092257477e2ffb772dcffce16a",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 628,
+     "y1": 242,
+     "x2": 725,
+     "y2": 341,
+     "w": 820,
+     "h": 1600,
+     "c": 0.96875
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/eticket-lindqvist.pdf",
+   "kind": "boarding_pass",
+   "sha256": "f0d71677e5b7e109adab063fc99e4dfeacc12e279db1758abc186de296c395bb"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "SOU",
+   "departUtc": "2026-10-25T17:00:00Z",
+   "arriveUtc": "2026-10-25T17:45:00Z",
+   "cite": {
+    "docId": "pack/travel/mobile-valdemar-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: SOUTHAMPTON SOU\nFlight: AU 127  Seat: 14C  Seq: 042\nDeparts: 25OCT 17:00\nArrives: 25OCT 17:45"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "LCY",
+   "destCode": "JER",
+   "departUtc": "2026-10-25T08:15:00Z",
+   "arriveUtc": "2026-10-25T09:20:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-lindqvist.pdf",
+    "page": 1,
+    "quote": "AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "JER",
+   "destCode": "LCY",
+   "departUtc": "2026-10-25T18:30:00Z",
+   "arriveUtc": "2026-10-25T19:35:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-lindqvist.pdf",
+    "page": 1,
+    "quote": "AU 909 JERSEY JER -> LONDON CITY LCY 25 Oct 2026 dep 18:30 arr 19:35"
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/travel/bp-brannigan-in.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/travel/bp-brannigan-out.png",
+   "reason": "flight leg incomplete or zone unknown"
+  },
+  {
+   "file": "pack/travel/mobile-valdemar-in.png",
+   "reason": "flight leg incomplete or zone unknown"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "0821b4cf-5d7c-44a6-886d-2e7f4d3b4618",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "B",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   },
+   {
+    "directorId": "C",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight LCY-JER) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-lindqvist.pdf",
+      "page": 1,
+      "quote": "AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "inconclusive",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 0 present, 1 absent, 2 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "inconclusive",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 0 present, 1 absent, 2 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (0/3 facts identical). 3 documents were not re-read."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I was unable to prepare evidence request drafts for Hugo Brannigan and Ines Valdemar because no supporting document IDs were returned to cite. No minutes correction drafts were needed.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "25 October 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "A",
+       "name": "Hugo Brannigan",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      },
+      {
+       "director_id": "B",
+       "name": "Ines Valdemar",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Hugo Brannigan, Please provide a boarding pass, travel itinerary or hotel bill covering 25 October 2026 to confirm where you were during the meeting. Thank you.",
+     "subject": "Kestrelmoor Ltd meeting 25 October 2026 - evidence request"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "B",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Ines Valdemar, Please provide a boarding pass, travel itinerary or hotel bill covering 25 October 2026 to confirm where you were during the meeting. Thank you.",
+     "subject": "Kestrelmoor Ltd meeting 25 October 2026 - evidence request"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 3,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Hugo Brannigan, Please provide a boarding pass, travel itinerary or hotel bill covering 25 October 2026 to confirm where you were during the meeting. Thank you.",
+     "subject": "Kestrelmoor Ltd meeting 25 October 2026 - evidence request"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   },
+   {
+    "step": 4,
+    "tool": "draft_evidence_request",
+    "args": {
+     "director_id": "A",
+     "documents_requested": [
+      "boarding pass"
+     ],
+     "message": "Dear Hugo Brannigan, Please provide a boarding pass, travel itinerary or hotel bill covering 25 October 2026 to confirm where you were during the meeting. Thank you.",
+     "subject": "Kestrelmoor Ltd meeting 25 October 2026 - evidence request"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   }
+  ],
+  "rejectedCalls": 4
+ },
+ "costUsd": 0.1126,
+ "seconds": 323,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 3,
+  "unread": [
+   {
+    "docId": "pack/minutes/minutes.pdf",
+    "reason": "Muse Glimmer did not return a valid reading for minutes.pdf: HTTP 500: {\"message\":\"Internal server error\",\"type\":\"Internal Server Error\",\"code\":500}"
+   },
+   {
+    "docId": "pack/travel/mobile-valdemar-out.png",
+    "reason": "Muse Glimmer did not return a valid reading for mobile-valdemar-out.redacted.png: HTTP 404: {}"
+   },
+   {
+    "docId": "pack/travel/eticket-lindqvist.pdf",
+    "reason": "Muse Glimmer did not return a valid reading for eticket-lindqvist.pdf: HTTP 404: {}"
+   }
+  ],
+  "agreed": 0,
+  "total": 3,
+  "disagreements": [
+   {
+    "docId": "pack/travel/bp-brannigan-out.png",
+    "what": "only Muse Glimmer read: flight A JER EDI 2025-10-25T13:30 2025-10-25T15:10"
+   },
+   {
+    "docId": "pack/travel/bp-brannigan-in.png",
+    "what": "only Muse Glimmer read: flight A EDI JER 2024-10-24T20:00 2024-10-24T21:45"
+   },
+   {
+    "docId": "pack/travel/mobile-valdemar-in.png",
+    "what": "only Muse Glimmer read: flight B SOU JER 2025-10-25T06:55 2025-10-25T07:40"
+   }
+  ],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

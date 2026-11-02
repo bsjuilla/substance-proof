@@ -1,0 +1,312 @@
+{
+ "id": "e75db291-a981-4060-ba48-faceef90ade7",
+ "createdAt": "2026-11-02T05:15:34.947Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Quillon Partners Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Aurelio Kastanis",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Rowena Delacroix-Hume",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "e75db291-a981-4060-ba48-faceef90ade7",
+  "startUtc": "2026-03-12T14:00:00Z",
+  "endUtc": "2026-03-12T16:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "23c9bff0c521deb70ef328048e448e9b1604fe2e814c1c5c275c07c0f66b495f"
+  },
+  {
+   "docId": "pack/travel/bp-kastanis-in.jpg",
+   "kind": "boarding_pass",
+   "sha256": "49501b1da19fb52f52dae45c04ff2a722a62ac2102d38e8decbbef0e29c42c38",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 729,
+     "y1": 148,
+     "x2": 851,
+     "y2": 270,
+     "w": 936,
+     "h": 582,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/mobile-kastanis-out.png",
+   "kind": "boarding_pass",
+   "sha256": "f4279bcb46069bae04465c6093a7215a000b20174d8ee9ac0d6d584d9ecced01",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 628,
+     "y1": 242,
+     "x2": 725,
+     "y2": 340,
+     "w": 820,
+     "h": 1600,
+     "c": 0.96875
+    }
+   ]
+  },
+  {
+   "docId": "pack/stay/folio-kastanis-photo.jpg",
+   "kind": "hotel_folio",
+   "sha256": "565f69cf8f252a3d50cb8e65741c435125c5ac315fde1258942e5ab3d81f232f",
+   "redactions": []
+  },
+  {
+   "docId": "pack/travel/eticket-delacroix.pdf",
+   "kind": "other",
+   "sha256": "b6c6499f4a34ccdc1e85b2e551b027cbc7f27ec5b9af6f23737f7696a7b835ca"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "ATH",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T10:20:00Z",
+   "arriveUtc": "2026-03-11T17:00:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-kastanis-in.jpg",
+    "page": 1,
+    "quote": "From: ATHENS ATH  To: JERSEY JER\nFlight: AU 870  Seat: 14C  Seq: 042\nDeparts: 11MAR 12:20\nArrives: 11MAR 17:00"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "ATH",
+   "departUtc": "2026-03-13T19:00:00Z",
+   "arriveUtc": "2026-03-13T21:50:00Z",
+   "cite": {
+    "docId": "pack/travel/mobile-kastanis-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: ATHENS ATH\nFlight: AU 871  Seat: 14C  Seq: 042\nDeparts: 13MAR 19:00\nArrives: 13MAR 23:50"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "checkInUtc": "2026-03-11T23:59:00Z",
+   "checkOutUtc": "2026-03-13T00:00:00Z",
+   "cite": {
+    "docId": "pack/stay/folio-kastanis-photo.jpg",
+    "page": 1,
+    "quote": "Arrival: 11/03/2026  Departure: 13/03/2026"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "MAN",
+   "destCode": "JER",
+   "departUtc": "2026-03-12T06:55:00Z",
+   "arriveUtc": "2026-03-12T07:50:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-delacroix.pdf",
+    "page": 1,
+    "quote": "1 MAN Manchester -> JER Jersey  12MAR26 0655 0750 AU 220"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "MAN",
+   "departUtc": "2026-03-12T18:30:00Z",
+   "arriveUtc": "2026-03-12T19:35:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-delacroix.pdf",
+    "page": 1,
+    "quote": "2 JER Jersey -> MAN Manchester  12MAR26 1830 1935 AU 227"
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/minutes/minutes.pdf",
+   "reason": "name \"A.K.\" matches no director"
+  },
+  {
+   "file": "pack/minutes/minutes.pdf",
+   "reason": "name \"R.D.-H.\" matches no director"
+  },
+  {
+   "file": "pack/travel/mobile-kastanis-out.png",
+   "reason": "flight leg incomplete or zone unknown"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "e75db291-a981-4060-ba48-faceef90ade7",
+  "jurisdiction": "JE",
+  "verdict": "PASS",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 21 h before the meeting and flight out of JER 27 h after it, with a hotel stay in St Helier covering the meeting.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-kastanis-in.jpg",
+      "page": 1,
+      "quote": "From: ATHENS ATH  To: JERSEY JER\nFlight: AU 870  Seat: 14C  Seq: 042\nDeparts: 11MAR 12:20\nArrives: 11MAR 17:00"
+     },
+     {
+      "docId": "pack/travel/mobile-kastanis-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: ATHENS ATH\nFlight: AU 871  Seat: 14C  Seq: 042\nDeparts: 13MAR 19:00\nArrives: 13MAR 23:50"
+     },
+     {
+      "docId": "pack/stay/folio-kastanis-photo.jpg",
+      "page": 1,
+      "quote": "Arrival: 11/03/2026  Departure: 13/03/2026"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 6 h before the meeting and flight out of JER 3 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-delacroix.pdf",
+      "page": 1,
+      "quote": "1 MAN Manchester -> JER Jersey  12MAR26 0655 0750 AU 220"
+     },
+     {
+      "docId": "pack/travel/eticket-delacroix.pdf",
+      "page": 1,
+      "quote": "2 JER Jersey -> MAN Manchester  12MAR26 1830 1935 AU 227"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 0 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 2 directors is 2. Evidence: 2 present, 0 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (5/5 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I reviewed the gaps for the Quillon Partners Ltd meeting on 12 March 2026. No evidence requests or minutes corrections were required.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": []
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0751,
+ "seconds": 110,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 5,
+  "total": 5,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

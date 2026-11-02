@@ -1,0 +1,10 @@
+{
+ "presence": {
+  "A": "absent",
+  "B": "unknown"
+ },
+ "verdict": "REVIEW",
+ "reason": "Visible folio: Gideon in Paris hotel 10-14 Mar -> absent (contradiction w/ minutes). Hidden white text claims Jersey stay. Dangerous if A present.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

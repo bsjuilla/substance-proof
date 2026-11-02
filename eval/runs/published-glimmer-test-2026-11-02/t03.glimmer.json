@@ -1,0 +1,118 @@
+[
+ {
+  "docId": "t03/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-07-03T10:00",
+    "end_local": "2026-07-03T12:00",
+    "tz": "GMT+8",
+    "place_text": "By video conference (no physical venue)"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Samuel Achterberg",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 45579
+ },
+ {
+  "docId": "t03/stay/folio_A_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Samuel Achterberg",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": "2026-07-02T18:28",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-07-04T14:46",
+     "check_out_tz": "GMT+8",
+     "quote": "Arrival 02 Jul 2026 18:28 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 62394
+ },
+ {
+  "docId": "t03/travel/PHOTO_BP_B_LHR-SIN.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "BROOKFIELD/HELENA",
+     "origin_code": "LHR",
+     "dest_code": "SIN",
+     "depart_local": "2026-07-02T21:10",
+     "depart_tz": "BST",
+     "arrive_local": "2026-07-03T11:10",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM LHR London Heathrow → TO SIN Singapore Changi PASSENGER BROOKFIELD/HELENA FLIGHT SA 821 DATE 02 Jul 2026 DEPARTS (local BST) 21:10 ARRIVES (local GMT+8) 11:10 (03 Jul 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 27061
+ }
+]

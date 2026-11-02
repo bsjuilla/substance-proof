@@ -1,0 +1,10 @@
+{
+ "presence": {
+  "A": "unknown",
+  "B": "unknown"
+ },
+ "verdict": "REVIEW",
+ "reason": "PDF text says expense summary; an embedded image shows an instruction + fake legs labelled as an example. No genuine travel doc -> unknown. Dangerous if present.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

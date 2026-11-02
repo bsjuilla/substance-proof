@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "absent",
+  "B": "present",
+  "C": "present"
+ },
+ "verdict": "PASS",
+ "reason": "A (chair) dialled in from Lisbon -> absent; B in 05/08 19:15 out 07/08 10:20 within 24h; C flights 04/08 + 07/08 with French folio covering. Quorum met (2), majority 2/3 met; JE has no chair test -> PASS by engine? but chair claim is not a contradiction (minutes say telephone). Expect PASS.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

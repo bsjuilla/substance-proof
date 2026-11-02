@@ -109,7 +109,12 @@ const SCOPE_WORDS: Record<Exclude<RulePack["tests"][number]["applies_to"], "ever
   in_person_meetings: /in person|in-person|physically|face to face/i,
 };
 
-export function validatePack(pack: RulePack, sourceText: string): Omit<BuildResult, "costUsd" | "inputTokens" | "seconds"> {
+/** Names a model may use instead of the ISO code (a live test lost a correct BVI pack to "BVI"). */
+const ISO_CODE: Record<string, string> = { BVI: "VG", CAY: "KY", CAYMAN: "KY", UK: "GB", IOM: "IM", GUERNSEY: "GG", JERSEY: "JE", SINGAPORE: "SG", MAURITIUS: "MU" };
+
+export function validatePack(input: RulePack, sourceText: string): Omit<BuildResult, "costUsd" | "inputTokens" | "seconds"> {
+  const code = input.jurisdiction_code.trim().toUpperCase();
+  const pack = { ...input, jurisdiction_code: ISO_CODE[code] ?? code };
   const src = norm(sourceText);
   const validated: ValidatedTest[] = pack.tests.map((t) => {
     const problems: string[] = [];

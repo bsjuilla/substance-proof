@@ -1,0 +1,64 @@
+{
+ "setup": {
+  "companyName": "Tamsin Bay Investments Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Pieter Valcourt",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Yasmin Okafor",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Rhys Abernant",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-valcourt-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-valcourt-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "folio-valcourt.pdf",
+   "role": "hotel"
+  },
+  {
+   "name": "folio-okafor.pdf",
+   "role": "hotel"
+  },
+  {
+   "name": "bp-okafor-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "folio-abernant.pdf",
+   "role": "hotel"
+  }
+ ]
+}

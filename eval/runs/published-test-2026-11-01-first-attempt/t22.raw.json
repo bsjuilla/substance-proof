@@ -1,0 +1,217 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t22/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t22/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-08-19T10:00",
+    "end_local": "2026-08-19T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00845875,
+  "ms": 7513,
+  "usage": {
+   "input_tokens": 3911,
+   "output_tokens": 840,
+   "reasoning_tokens": 315
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t22/stay/folio_B_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t22/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-08-18T00:32",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-08-20T20:56",
+     "check_out_tz": "GMT+1",
+     "quote": "18 Aug 2026 00:32 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00946975,
+  "ms": 10154,
+  "usage": {
+   "input_tokens": 3812,
+   "output_tokens": 1107,
+   "reasoning_tokens": 898
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t22/stay/folio_C_PARIS.pdf",
+  "readPath": "synthetic/generated/test/packs/t22/stay/folio_C_PARIS.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "PARIS, FRANCE",
+     "check_in_local": "2026-08-18T05:57",
+     "check_in_tz": "CEST",
+     "check_out_local": "2026-08-20T14:53",
+     "check_out_tz": "CEST",
+     "quote": "Arrival 18 Aug 2026 05:57 (CEST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00804325,
+  "ms": 7284,
+  "usage": {
+   "input_tokens": 3803,
+   "output_tokens": 774,
+   "reasoning_tokens": 604
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t22/travel/ETKT_D_DXB-JER.pdf",
+  "readPath": "synthetic/generated/test/packs/t22/travel/ETKT_D_DXB-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.00620875,
+  "ms": 6283,
+  "usage": {
+   "input_tokens": 3811,
+   "output_tokens": 340,
+   "reasoning_tokens": 286
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t22/travel/ETKT_D_JER-DXB.pdf",
+  "readPath": "synthetic/generated/test/packs/t22/travel/ETKT_D_JER-DXB.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.00749225,
+  "ms": 6951,
+  "usage": {
+   "input_tokens": 3811,
+   "output_tokens": 642,
+   "reasoning_tokens": 597
+  }
+ }
+]

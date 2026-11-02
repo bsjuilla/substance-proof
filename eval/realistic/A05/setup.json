@@ -1,0 +1,64 @@
+{
+ "setup": {
+  "companyName": "Pellucid Capital Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-05-20",
+  "start": "10:00",
+  "end": "12:00",
+  "directors": [
+   {
+    "name": "Beatrix Holloway",
+    "isChair": true,
+    "strategic": true,
+    "resident": true
+   },
+   {
+    "name": "Dmitri Ashcombe",
+    "isChair": false,
+    "strategic": true,
+    "resident": true
+   },
+   {
+    "name": "Joao Ferreira-Lund",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Nadia Kerrigan (alternate for Joao Ferreira-Lund)",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "res-holloway.png",
+   "role": "residence",
+   "director": 0
+  },
+  {
+   "name": "res-ashcombe.png",
+   "role": "residence",
+   "director": 1
+  },
+  {
+   "name": "ferry-kerrigan.png",
+   "role": "travel"
+  },
+  {
+   "name": "fatura-kerrigan.pdf",
+   "role": "hotel"
+  }
+ ]
+}

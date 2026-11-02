@@ -1,0 +1,42 @@
+{
+ "setup": {
+  "companyName": "Raffles Fiction Pte Ltd",
+  "jurisdiction": "SG",
+  "quorum": 2,
+  "mode": "virtual",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-04-16",
+  "start": "09:00",
+  "end": "10:00",
+  "directors": [
+   {
+    "name": "Ong Bee Lian",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Hamish Garroway",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-ong.png",
+   "role": "travel"
+  },
+  {
+   "name": "folio-garroway.pdf",
+   "role": "hotel"
+  }
+ ]
+}

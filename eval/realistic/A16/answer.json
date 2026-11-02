@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "present",
+  "C": "absent"
+ },
+ "verdict": "PASS",
+ "reason": "Flights for A,B within 24h. C sent apologies (not attending, not an attendee). Quorum and majority met.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

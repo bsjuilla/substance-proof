@@ -1,0 +1,296 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t19/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t19/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-04-13T10:00",
+    "end_local": "2026-04-13T12:00",
+    "tz": "local",
+    "place_text": "at the registered office, St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Hugo Lindqvist (Chair), present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Priya Anand-Lowe, present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Helena Brookfield, present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Tomasz Wierzba, present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00962525,
+  "ms": 7817,
+  "usage": {
+   "input_tokens": 4001,
+   "output_tokens": 1088,
+   "reasoning_tokens": 532
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t19/stay/folio_A_LONDON.pdf",
+  "readPath": "synthetic/generated/test/packs/t19/stay/folio_A_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-04-11T23:36",
+     "check_in_tz": "BST",
+     "check_out_local": "2026-04-15T02:13",
+     "check_out_tz": "BST",
+     "quote": "11 Apr 2026 23:36 (BST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007704,
+  "ms": 6901,
+  "usage": {
+   "input_tokens": 3858,
+   "output_tokens": 678,
+   "reasoning_tokens": 478
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t19/stay/folio_B_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t19/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-04-12T11:54",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-04-14T06:06",
+     "check_out_tz": "GMT+1",
+     "quote": "12 Apr 2026 11:54 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01008,
+  "ms": 9432,
+  "usage": {
+   "input_tokens": 3865,
+   "output_tokens": 1235,
+   "reasoning_tokens": 1027
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t19/travel/PHOTO_BP_C_JER-DXB.jpg",
+  "readPath": "synthetic/generated/test/packs/t19/travel/PHOTO_BP_C_JER-DXB.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "BROOKFIELD/HELENA",
+     "origin_code": "JER",
+     "dest_code": "DXB",
+     "depart_local": "2026-04-13T10:52",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-04-13T20:52",
+     "arrive_tz": "GST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM JER → TO DXB Jersey Airport Dubai International PASSENGER BROOKFIELD/HELENA FLIGHT SA 733 DATE 13 Apr 2026 DEPARTS (local GMT+1) 10:52 ARRIVES (local GST) 20:52",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.025121499999999998,
+  "ms": 14477,
+  "usage": {
+   "input_tokens": 1751,
+   "output_tokens": 3043,
+   "reasoning_tokens": 2799
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test/packs/t19/travel/PHOTO_BP_D_DXB-JER.jpg",
+  "readPath": "synthetic/generated/test/packs/t19/travel/PHOTO_BP_D_DXB-JER.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "WIERZBA/TOMASZ",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-04-12T23:00",
+     "depart_tz": "GST",
+     "arrive_local": "2026-04-13T02:35",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM DXB Dubai International TO JER Jersey Airport DATE 12 Apr 2026 DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 02:35 (13 Apr 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.019384,
+  "ms": 9739,
+  "usage": {
+   "input_tokens": 1751,
+   "output_tokens": 1693,
+   "reasoning_tokens": 1458
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test/packs/t19/travel/PHOTO_BP_D_JER-DXB.jpg",
+  "readPath": "synthetic/generated/test/packs/t19/travel/PHOTO_BP_D_JER-DXB.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "WIERZBA/TOMASZ",
+     "origin_code": "JER",
+     "dest_code": "DXB",
+     "depart_local": "2026-04-13T14:10",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-04-14T07:00",
+     "arrive_tz": "GST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM JER → TO DXB DEPARTS (local GMT+1) 14:10 ARRIVES (local GST) 07:00 (14 Apr 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01650675,
+  "ms": 6162,
+  "usage": {
+   "input_tokens": 1751,
+   "output_tokens": 1016,
+   "reasoning_tokens": 788
+  },
+  "redactions": []
+ }
+]

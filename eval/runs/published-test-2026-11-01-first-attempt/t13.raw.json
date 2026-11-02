@@ -1,0 +1,99 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t13/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t13/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-03-04T09:00",
+    "end_local": "2026-03-04T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00771325,
+  "ms": 6131,
+  "usage": {
+   "input_tokens": 3862,
+   "output_tokens": 679,
+   "reasoning_tokens": 429
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t13/stay/folio_B_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t13/stay/folio_B_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-03T08:45",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-03-06T03:41",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Tuesday 3 March 2026 at 08:45 and checked out on Friday 6 March 2026 at 03:41. All times on this statement are shown in local time (Europe/Jersey).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.009341,
+  "ms": 9901,
+  "usage": {
+   "input_tokens": 3811,
+   "output_tokens": 1077,
+   "reasoning_tokens": 819
+  }
+ }
+]

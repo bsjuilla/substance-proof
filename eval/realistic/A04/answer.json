@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "absent",
+  "B": "present",
+  "C": "present"
+ },
+ "verdict": "REVIEW",
+ "reason": "A departs JER 13 Mar 00:15 during the meeting (minutes say present to close) -> absent + contradiction; B in 12 Mar 14:00 out 13 Mar 18:00; C resident card, no contrary claim. Quorum met, contradiction -> REVIEW.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

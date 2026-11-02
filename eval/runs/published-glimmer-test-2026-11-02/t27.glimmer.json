@@ -1,0 +1,185 @@
+[
+ {
+  "docId": "t27/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-10-06T10:00",
+    "end_local": "2026-10-06T12:00",
+    "tz": "GMT+8",
+    "place_text": "By video conference (no physical venue)"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Kenji Halloran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 20157
+ },
+ {
+  "docId": "t27/stay/folio_B_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Kenji Halloran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai, UAE",
+     "check_in_local": "2026-10-05T07:07",
+     "check_in_tz": "Asia/Dubai",
+     "check_out_local": "2026-10-07T09:56",
+     "check_out_tz": "Asia/Dubai",
+     "quote": "You checked in on Monday 5 October 2026 at 07:07 and checked out on Wednesday 7 October 2026 at 09:56. All times on this statement are shown in local time (Asia/Dubai).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 27368
+ },
+ {
+  "docId": "t27/stay/folio_C_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": "2026-10-05T19:24",
+     "check_in_tz": "Asia/Singapore",
+     "check_out_local": "2026-10-07T16:46",
+     "check_out_tz": "Asia/Singapore",
+     "quote": "You checked in on Monday 5 October 2026 at 19:24 and checked out on Wednesday 7 October 2026 at 16:46.",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 16540
+ },
+ {
+  "docId": "t27/stay/folio_D_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": "2026-10-05T18:13",
+     "check_in_tz": "Asia/Singapore",
+     "check_out_local": "2026-10-08T03:46",
+     "check_out_tz": "Asia/Singapore",
+     "quote": "You checked in on Monday 5 October 2026 at 18:13 and checked out on Thursday 8 October 2026 at 03:46. All times on this statement are shown in local time (Asia/Singapore).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 64147
+ }
+]

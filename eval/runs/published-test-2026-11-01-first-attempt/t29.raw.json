@@ -1,0 +1,140 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t29/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t29/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-03-18T09:00",
+    "end_local": "2026-03-18T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "London",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from London",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007897,
+  "ms": 6554,
+  "usage": {
+   "input_tokens": 3890,
+   "output_tokens": 714,
+   "reasoning_tokens": 415
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t29/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t29/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-17T04:22",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-03-19T09:38",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Tuesday 17 March 2026 at 04:22 and checked out on Thursday 19 March 2026 at 09:38.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00870475,
+  "ms": 7640,
+  "usage": {
+   "input_tokens": 3812,
+   "output_tokens": 927,
+   "reasoning_tokens": 701
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t29/travel/PHOTO_BP_B_LHR-JER.jpg",
+  "readPath": "synthetic/generated/test/packs/t29/travel/PHOTO_BP_B_LHR-JER.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "TAVERNIER/MEI LIN",
+     "origin_code": "LHR",
+     "dest_code": "JER",
+     "depart_local": "2026-03-18T02:47",
+     "depart_tz": "GMT",
+     "arrive_local": "2026-03-18T09:47",
+     "arrive_tz": "GMT",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM LHR London Heathrow TO JER Jersey Airport TAVERNIER/MEI LIN SA 485 18 Mar 2026 DEPARTS (local GMT) 02:47 ARRIVES (local GMT) 09:47",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01805,
+  "ms": 28194,
+  "usage": {
+   "input_tokens": 1697,
+   "output_tokens": 1395,
+   "reasoning_tokens": 1161
+  },
+  "redactions": []
+ }
+]

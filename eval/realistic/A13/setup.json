@@ -1,0 +1,50 @@
+{
+ "setup": {
+  "companyName": "Grouville Assets Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-06-08",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Leopold Varga",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Henrietta Moss",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-varga-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-varga-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-moss-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-moss-out.png",
+   "role": "travel"
+  }
+ ]
+}

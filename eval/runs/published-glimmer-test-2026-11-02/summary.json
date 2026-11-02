@@ -1,0 +1,481 @@
+{
+ "set": "test",
+ "secondReader": "meta/muse-glimmer-30b",
+ "primaryRun": "test-2026-11-01-final",
+ "runAt": "2026-11-02T05:46:39.270Z",
+ "meetings": 30,
+ "documentsReRead": 110,
+ "documentsUnread": 0,
+ "glimmerAlone": {
+  "factsExact": "163/166 (98.2%)",
+  "spuriousFacts": 1,
+  "meetingVerdictAgreement": "29/30 (96.7%)",
+  "wrongPass": 0
+ },
+ "museSparkAlone": {
+  "meetingVerdictAgreement": "30/30"
+ },
+ "combined": {
+  "meetingVerdictAgreement": "30/30 (100.0%)",
+  "wrongPass": 0,
+  "meetingsSentToReviewBySecondReader": 2,
+  "ofWhichMuseSparkHadAFactWrong": 0
+ },
+ "avgSecondsPerDocument": 52.7,
+ "rows": [
+  {
+   "id": "t01",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t02",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "7/7",
+   "spurious": [],
+   "agreed": "7/7",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t03",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t04",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t05",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "fail",
+   "glimmerFacts": "8/9",
+   "spurious": [],
+   "agreed": "8/9",
+   "disagreements": [
+    {
+     "docId": "t05/travel/ETKT_B_JER-CDG.pdf",
+     "what": "only Muse Spark read: flight B JER CDG 2026-05-10T16:55 2026-05-11T03:00"
+    }
+   ],
+   "changesDecision": [
+    {
+     "what": "Marcus Oyelaran: present from Muse Spark's reading, unknown from Muse Glimmer's"
+    }
+   ],
+   "unread": []
+  },
+  {
+   "id": "t06",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t07",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t08",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "REVIEW",
+   "combined": "FAIL",
+   "check": "fail",
+   "glimmerFacts": "2/4",
+   "spurious": [
+    "F|A|DXB|JER|2026-06-08T03:00:00Z|2026-06-08T10:00:00Z"
+   ],
+   "agreed": "2/5",
+   "disagreements": [
+    {
+     "docId": "t08/travel/ETKT_A_DXB-JER.pdf",
+     "what": "only Muse Spark read: flight A DXB JER 2026-08-06T03:00 2026-08-06T10:00"
+    },
+    {
+     "docId": "t08/travel/ETKT_A_DXB-JER.pdf",
+     "what": "only Muse Glimmer read: flight A DXB JER 2026-06-08T03:00 2026-06-08T10:00"
+    },
+    {
+     "docId": "t08/travel/ETKT_B_JER-HKG.pdf",
+     "what": "only Muse Spark read: flight B JER HKG 2026-08-06T10:06 2026-08-06T17:06"
+    }
+   ],
+   "changesDecision": [
+    {
+     "what": "Daniel Mbeki-Shaw: absent from Muse Spark's reading, unknown from Muse Glimmer's"
+    },
+    {
+     "what": "Lucia Ferrante: absent from Muse Spark's reading, unknown from Muse Glimmer's"
+    },
+    {
+     "what": "verdict: FAIL from Muse Spark's reading, REVIEW from Muse Glimmer's"
+    }
+   ],
+   "unread": []
+  },
+  {
+   "id": "t09",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t10",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t11",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t12",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t13",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t14",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "9/9",
+   "spurious": [],
+   "agreed": "9/9",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t15",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "8/8",
+   "spurious": [],
+   "agreed": "8/8",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t16",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t17",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t18",
+   "expected": "PASS",
+   "spark": "PASS",
+   "glimmer": "PASS",
+   "combined": "PASS",
+   "check": "pass",
+   "glimmerFacts": "8/8",
+   "spurious": [],
+   "agreed": "8/8",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t19",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "9/9",
+   "spurious": [],
+   "agreed": "9/9",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t20",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "6/6",
+   "spurious": [],
+   "agreed": "6/6",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t21",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "3/3",
+   "spurious": [],
+   "agreed": "3/3",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t22",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "8/8",
+   "spurious": [],
+   "agreed": "8/8",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t23",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t24",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "10/10",
+   "spurious": [],
+   "agreed": "10/10",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t25",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "5/5",
+   "spurious": [],
+   "agreed": "5/5",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t26",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t27",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "7/7",
+   "spurious": [],
+   "agreed": "7/7",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t28",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t29",
+   "expected": "FAIL",
+   "spark": "FAIL",
+   "glimmer": "FAIL",
+   "combined": "FAIL",
+   "check": "pass",
+   "glimmerFacts": "4/4",
+   "spurious": [],
+   "agreed": "4/4",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  },
+  {
+   "id": "t30",
+   "expected": "REVIEW",
+   "spark": "REVIEW",
+   "glimmer": "REVIEW",
+   "combined": "REVIEW",
+   "check": "pass",
+   "glimmerFacts": "5/5",
+   "spurious": [],
+   "agreed": "5/5",
+   "disagreements": [],
+   "changesDecision": [],
+   "unread": []
+  }
+ ]
+}

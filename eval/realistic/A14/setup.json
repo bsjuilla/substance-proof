@@ -1,0 +1,60 @@
+{
+ "setup": {
+  "companyName": "Sarnia Bridge Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Morwenna Clyde",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Bastian Roque",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Elif Durmaz",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "eticket-roque.pdf",
+   "role": "travel"
+  },
+  {
+   "name": "bp-clyde-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-clyde-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-durmaz-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-durmaz-out.png",
+   "role": "travel"
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "setup": {
+  "companyName": "Havre des Pas Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Odile Marchetti",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Barnaby Quist",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Lucien Ferrand",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-marchetti-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-marchetti-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-quist-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-quist-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "recording.wav",
+   "role": "recording"
+  }
+ ]
+}

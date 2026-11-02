@@ -1,0 +1,56 @@
+{
+ "setup": {
+  "companyName": "Bouley Bay Holdings Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Corin Mallory",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Sabine Ouellet",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Jasper Thwaite",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-mallory-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-mallory-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-ouellet-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-ouellet-out.png",
+   "role": "travel"
+  }
+ ]
+}

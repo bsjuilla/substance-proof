@@ -1,0 +1,10 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "present"
+ },
+ "verdict": "PASS",
+ "reason": "Dates printed DD/MM: in 07/06 21:40, out 09/06 06:15 (both within 24h). A US reading (July 6 / Sept 6) would wrongly place them away.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

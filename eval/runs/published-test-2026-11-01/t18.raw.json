@@ -1,0 +1,276 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t18/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t18/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-04-12T10:00",
+    "end_local": "2026-04-12T12:00",
+    "tz": "GMT+8",
+    "place_text": "Singapore"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Fatima Zahra Bennis",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00786025,
+  "ms": 6413,
+  "usage": {
+   "input_tokens": 3915,
+   "output_tokens": 698,
+   "reasoning_tokens": 297
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t18/stay/folio_C_SINGAPORE.pdf",
+  "readPath": "synthetic/generated/test/packs/t18/stay/folio_C_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SINGAPORE",
+     "check_in_local": "2026-04-11T12:31",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-04-14T03:12",
+     "check_out_tz": "GMT+8",
+     "quote": "11 Apr 2026 12:31 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008687,
+  "ms": 7708,
+  "usage": {
+   "input_tokens": 3859,
+   "output_tokens": 909,
+   "reasoning_tokens": 706
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t18/travel/ETKT_A_HKG-SIN.pdf",
+  "readPath": "synthetic/generated/test/packs/t18/travel/ETKT_A_HKG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MEI LIN TAVERNIER",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-04-11T20:00",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-04-12T05:44",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Hong Kong International (HKG) 11/04/2026 20:00 (UTC+08:00) Singapore Changi (SIN) 12/04/2026 05:44 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0088275,
+  "ms": 6123,
+  "usage": {
+   "input_tokens": 3866,
+   "output_tokens": 940,
+   "reasoning_tokens": 698
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t18/travel/ETKT_A_SIN-HKG.pdf",
+  "readPath": "synthetic/generated/test/packs/t18/travel/ETKT_A_SIN-HKG.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MEI LIN TAVERNIER",
+     "origin_code": "SIN",
+     "dest_code": "HKG",
+     "depart_local": "2026-04-12T17:35",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-04-13T04:00",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Singapore Changi (SIN) 12/04/2026 17:35 (UTC+08:00) Hong Kong International (HKG) 13/04/2026 04:00 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00860225,
+  "ms": 7338,
+  "usage": {
+   "input_tokens": 3866,
+   "output_tokens": 887,
+   "reasoning_tokens": 645
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t18/travel/ETKT_B_DXB-SIN.pdf",
+  "readPath": "synthetic/generated/test/packs/t18/travel/ETKT_B_DXB-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "FATIMA ZAHRA BENNIS",
+     "origin_code": "DXB",
+     "dest_code": "SIN",
+     "depart_local": "2026-04-11T16:00",
+     "depart_tz": "UTC+04:00",
+     "arrive_local": "2026-04-12T07:43",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Dubai International (DXB) 11/04/2026 16:00 (UTC+04:00) Singapore Changi (SIN) 12/04/2026 07:43 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00857675,
+  "ms": 7304,
+  "usage": {
+   "input_tokens": 3866,
+   "output_tokens": 881,
+   "reasoning_tokens": 640
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t18/travel/ETKT_B_SIN-DXB.pdf",
+  "readPath": "synthetic/generated/test/packs/t18/travel/ETKT_B_SIN-DXB.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "FATIMA ZAHRA BENNIS",
+     "origin_code": "SIN",
+     "dest_code": "DXB",
+     "depart_local": "2026-04-12T21:43",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-04-13T00:00",
+     "arrive_tz": "UTC+04:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Singapore Changi (SIN) 12/04/2026 21:43 (UTC+08:00) Dubai International (DXB) 13/04/2026 00:00 (UTC+04:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008649,
+  "ms": 8767,
+  "usage": {
+   "input_tokens": 3866,
+   "output_tokens": 898,
+   "reasoning_tokens": 677
+  }
+ }
+]

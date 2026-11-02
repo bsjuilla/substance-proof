@@ -1,0 +1,197 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t12/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t12/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-09-10T10:00",
+    "end_local": "2026-09-10T12:00",
+    "tz": "GMT+8",
+    "place_text": "By video conference (no physical venue)"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Hong Kong",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Hong Kong",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.008646,
+  "ms": 6384,
+  "usage": {
+   "input_tokens": 3867,
+   "output_tokens": 897,
+   "reasoning_tokens": 489
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t12/stay/folio_A_DUBAI.pdf",
+  "readPath": "synthetic/generated/test/packs/t12/stay/folio_A_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-09-08T12:53",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-09-11T06:09",
+     "check_out_tz": "GST",
+     "quote": "08 Sept 2026 12:53 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00878875,
+  "ms": 7039,
+  "usage": {
+   "input_tokens": 3801,
+   "output_tokens": 950,
+   "reasoning_tokens": 753
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t12/stay/folio_B_SINGAPORE.pdf",
+  "readPath": "synthetic/generated/test/packs/t12/stay/folio_B_SINGAPORE.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SINGAPORE",
+     "check_in_local": "2026-09-09T15:00",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-09-11T11:58",
+     "check_out_tz": "GMT+8",
+     "quote": "Arrival 09 Sept 2026 15:00 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0081295,
+  "ms": 7214,
+  "usage": {
+   "input_tokens": 3804,
+   "output_tokens": 794,
+   "reasoning_tokens": 589
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t12/travel/PHOTO_BP_C_SIN-HKG.jpg",
+  "readPath": "synthetic/generated/test/packs/t12/travel/PHOTO_BP_C_SIN-HKG.jpg",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "WIERZBA/TOMASZ",
+     "origin_code": "SIN",
+     "dest_code": "HKG",
+     "depart_local": "2026-09-10T11:17",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-09-10T18:17",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM SIN Singapore Changi TO HKG Hong Kong International DATE 10 Sept 2026 DEPARTS (local GMT+8) 11:17 ARRIVES (local GMT+8) 18:17",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.017701500000000002,
+  "ms": 8938,
+  "usage": {
+   "input_tokens": 1697,
+   "output_tokens": 1313,
+   "reasoning_tokens": 1081
+  },
+  "redactions": []
+ }
+]

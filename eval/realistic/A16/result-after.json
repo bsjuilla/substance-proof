@@ -1,0 +1,379 @@
+{
+ "id": "3df7ca6b-2c14-4b33-b9c2-41bf5d2b6e82",
+ "createdAt": "2026-11-02T05:30:17.156Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Bouley Bay Holdings Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Corin Mallory",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Sabine Ouellet",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Jasper Thwaite",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "3df7ca6b-2c14-4b33-b9c2-41bf5d2b6e82",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "138e70dd061a918739e6e6ae5a0fe7a23ac7ecf7a44ef383bb25801e851331a8"
+  },
+  {
+   "docId": "pack/travel/bp-mallory-in.png",
+   "kind": "boarding_pass",
+   "sha256": "977480f3f87ebe4abe645db68f3857cff2f0df62cb563cb9406b8fb4ccf95340",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 707,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-mallory-out.png",
+   "kind": "boarding_pass",
+   "sha256": "50ea57f78f57c5143ca5cfae04a7dc0017b2f638aa66c6d813d7bcaea8d25867",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-ouellet-in.png",
+   "kind": "boarding_pass",
+   "sha256": "150f1514eeab9fb6ec8662aed2061786c11492fb5c373fc67757ad474c79d0d5",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.9804878830909729
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-ouellet-out.png",
+   "kind": "boarding_pass",
+   "sha256": "73b53467e90e65442ca1e94ed443c73c00365fd9fc7434c8c5700cfb7744591e",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Directors attending in Jersey: Corin Mallory (Chair), Sabine Ouellet."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Directors attending in Jersey: Corin Mallory (Chair), Sabine Ouellet."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "GVA",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T16:10:00Z",
+   "arriveUtc": "2026-03-11T18:20:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-mallory-in.png",
+    "page": 1,
+    "quote": "From: GENEVA GVA  To: JERSEY JER\nDeparts: 11MAR 17:10\nArrives: 11MAR 18:20"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "GVA",
+   "departUtc": "2026-03-12T14:30:00Z",
+   "arriveUtc": "2026-03-12T16:30:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-mallory-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: GENEVA GVA\nDeparts: 12MAR 14:30\nArrives: 12MAR 17:30"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "GVA",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T16:10:00Z",
+   "arriveUtc": "2026-03-11T18:20:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-ouellet-in.png",
+    "page": 1,
+    "quote": "From: GENEVA GVA  To: JERSEY JER\nFlight: AU 920  Seat: 14C  Seq: 042\nDeparts: 11MAR 17:10\nArrives: 11MAR 18:20"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "GVA",
+   "departUtc": "2026-03-12T14:30:00Z",
+   "arriveUtc": "2026-03-12T16:30:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-ouellet-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER To: GENEVA GVA\nDeparts: 12MAR 14:30\nArrives: 12MAR 17:30"
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/travel/bp-ouellet-in.png",
+   "reason": "flight leg incomplete or zone unknown"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "3df7ca6b-2c14-4b33-b9c2-41bf5d2b6e82",
+  "jurisdiction": "JE",
+  "verdict": "PASS",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 15 h before the meeting and flight out of JER 4 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-mallory-in.png",
+      "page": 1,
+      "quote": "From: GENEVA GVA  To: JERSEY JER\nDeparts: 11MAR 17:10\nArrives: 11MAR 18:20"
+     },
+     {
+      "docId": "pack/travel/bp-mallory-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: GENEVA GVA\nDeparts: 12MAR 14:30\nArrives: 12MAR 17:30"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 15 h before the meeting and flight out of JER 4 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-ouellet-in.png",
+      "page": 1,
+      "quote": "From: GENEVA GVA  To: JERSEY JER\nFlight: AU 920  Seat: 14C  Seq: 042\nDeparts: 11MAR 17:10\nArrives: 11MAR 18:20"
+     },
+     {
+      "docId": "pack/travel/bp-ouellet-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER To: GENEVA GVA\nDeparts: 12MAR 14:30\nArrives: 12MAR 17:30"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "unknown",
+    "basis": "none",
+    "reason": "No travel or hotel evidence places this director during the meeting.",
+    "cites": []
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (6/6 facts identical)."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [],
+  "summary": "I reviewed the gaps for the Bouley Bay Holdings Ltd meeting on 12 March 2026 for Jasper Thwaite. No evidence request draft could be finalized as no supporting document IDs were returned, and no minutes correction was required.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "C",
+       "name": "Jasper Thwaite",
+       "status": "unknown",
+       "basis": "none",
+       "engine_reason": "No travel or hotel evidence places this director during the meeting.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [],
+       "quotes": []
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Jasper Thwaite, In connection with the board meeting on 12 March 2026, could you please provide a boarding pass, travel itinerary or hotel bill covering that date to confirm where you were during the meeting? Thank you for your help.",
+     "subject": "Bouley Bay Holdings Ltd meeting on 12 March 2026 - request for documents"
+    },
+    "result": {
+     "rejected": true,
+     "problems": [
+      "citations must be docIds returned by list_gaps"
+     ]
+    }
+   }
+  ],
+  "rejectedCalls": 1
+ },
+ "costUsd": 0.0899,
+ "seconds": 79,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 6,
+  "total": 6,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

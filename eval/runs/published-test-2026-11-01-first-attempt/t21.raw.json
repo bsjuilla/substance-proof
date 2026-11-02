@@ -1,0 +1,81 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t21/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t21/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-10-10T10:00",
+    "end_local": "2026-10-10T12:00",
+    "tz": "GMT+8",
+    "place_text": "by video conference"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Daniel Mbeki-Shaw (Chair), present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Paris",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Tomasz Wierzba, by video from Paris.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00844425,
+  "ms": 9233,
+  "usage": {
+   "input_tokens": 3913,
+   "output_tokens": 836,
+   "reasoning_tokens": 521
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t21/travel/ETKT_B_CDG-SIN.pdf",
+  "readPath": "synthetic/generated/test/packs/t21/travel/ETKT_B_CDG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.0074535,
+  "ms": 8132,
+  "usage": {
+   "input_tokens": 3814,
+   "output_tokens": 632,
+   "reasoning_tokens": 578
+  }
+ }
+]

@@ -80,34 +80,35 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 
 | Set | What it is | Facts read exactly | Directors placed correctly | Meeting verdicts | Contradictions caught | Dangerous errors* |
 |---|---|---|---|---|---|---|
-| **Held-out test** | 30 randomised meetings, 110 files: e-tickets, tilted phone photos, scanned image-only minutes, prose minutes, letter-style hotel bills, airline-style names. Held out from the reader's instructions (see the caveats for two later changes). | **165 / 166** | **85 / 86** | **30 / 30** | **27 / 27** | **0** |
-| Dev | 12 hand-written trap meetings, 3 with recordings (minutes vs recording conflicts, time-zone traps, midnight crossings, Singapore chairman route, directors who live in Jersey) | 87 / 87 | 40 / 40 | 12 / 12 | 8 / 8 | 0 |
-| **Stress** | 12 deliberately hostile meetings: blurry, dim, rotated phone photos at JPEG quality 28; handwritten-style minutes; French hotel bills; 12-hour clocks | 55 / 64 (86%) | 28 / 35 (80%) | 9 / 12 | 8 / 15 | **0** |
+| **Held-out test** | 30 randomised meetings, 110 files: e-tickets, tilted phone photos, scanned image-only minutes, prose minutes, letter-style hotel bills, airline-style names. Read live on 1 November with the current instructions (see the caveats for what was changed after seeing it). | **166 / 166** | **86 / 86** | **30 / 30** | **27 / 27** | **0** |
+| Dev | 12 hand-written trap meetings, 3 with recordings (minutes vs recording conflicts, time-zone traps, midnight crossings, Singapore chairman route, directors who live in Jersey). Read live on 2 November. | 88 / 88 | 40 / 40 | 12 / 12 | 8 / 8 | 0 |
+| **Stress** | 12 deliberately hostile meetings: blurry, dim, rotated phone photos at JPEG quality 28; handwritten-style minutes; French hotel bills; 12-hour clocks. Readings from 29 October, scored with today's code. | 55 / 64 (86%) | 28 / 35 (80%) | 9 / 12 | 8 / 15 | **0** |
+| **Realistic (outside reviewer)** | 16 meetings, 81 files that Grok designed to look like real packs, with its answers registered before each run: year-less boarding passes, date-only and foreign hotel bills, a 20-page board pack, prose and French minutes, mobile passes, connections via Guernsey. See *Live review* below. | – | 38 / 45 | 12 / 16 | – | 1 (A15) |
 | *Baseline: always answer REVIEW* | *The held-out set again, with a "tool" that never decides anything* | – | *41 / 86 ("unproven" is right for 41)* | *19 / 30* | *0 / 27* | *0* |
 
 \* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. The baseline row is there on purpose: a tool that never commits to anything also makes **0** dangerous errors, so that number alone proves nothing. What matters is getting the verdicts right (30 / 30 against 19 / 30) *while* making no dangerous errors.
 
 **31 October and 1 November: stricter rules, same scores.** After a buyer's review and a fraud review (both below), a hotel bill alone and a single flight no longer prove presence, residents count on a checked residence document, and an unrecognised place in a claim counts against a residence record. Each time, the independent oracle got the same rule and the answer keys were recomputed ([`scripts/rekey.ts`](scripts/rekey.ts); the documents did not change), and the saved model readings were scored again for free: the held-out, dev and stress numbers above are unchanged, with 0 dangerous errors. Eight meetings that used to be PASS are now REVIEW, which is why the baseline that always answers REVIEW now gets 19 of 30. The new dev meeting m12 (two resident directors, and one who flew in and out) was read live. Be clear what "unchanged" shows: the engine and the oracle still agree, and the model still reads the documents the same way. It does not show the new rule is the right one; both were written by me, with the same AI assistant, and changed together.
 
-The one held-out miss: on one e-ticket Muse Spark returned no facts at all (run-to-run variation; the same file read correctly in earlier runs). The engine treated that director as unproven, the meeting verdict was still correct (REVIEW), and nothing dangerous happened. I report the run as it came out rather than re-running until it was perfect. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
+**1 November: the reader's instructions changed, and the first attempt went wrong.** The live review (below) showed real-looking documents were mostly lost in code, and two cases needed Muse Spark to read differently (prose attendance, text addressed to the AI). The first live run with the new instructions scored **148 / 166** facts and 28 / 30 verdicts on the held-out set: the line about "text that tells you what to report" made Muse Spark skip e-tickets, which print "this is not a boarding pass". Adding the e-ticket line that Glimmer already had fixed it, and the full re-run gave the numbers above. Both runs are published ([`eval/runs/published-test-2026-11-01-first-attempt`](eval/runs/) and `published-test-2026-11-01`). Earlier, on 29 October, the one held-out miss was an e-ticket Muse Spark returned nothing for; that director came out unproven and the verdict was still right. On the stress set the misses all came out as **REVIEW**: when a blurry boarding pass gave an unreadable name such as "QUINTOCONRADAEL", the matcher refused to guess rather than attach it to a director. The tool degrades towards "a person must look at this", not towards a false pass.
 
 **Second reader (Muse Glimmer 30B, open weights).** On the same 30 held-out meetings, Glimmer re-read all 110 documents on its own ([`scripts/eval-second-reader.ts`](scripts/eval-second-reader.ts), scoreboard in [`eval/results/second-reader-summary.json`](eval/results/second-reader-summary.json)):
 
 | | Facts read exactly | Meeting verdicts | Dangerous errors |
 |---|---|---|---|
-| Muse Spark alone | 165 / 166 | 30 / 30 | 0 |
-| Muse Glimmer alone | 164 / 166 | 30 / 30 | 0 |
+| Muse Spark alone | 166 / 166 | 30 / 30 | 0 |
+| Muse Glimmer alone | 163 / 166 | 29 / 30 | 0 |
 | **Both, with the second-reader check** | – | **30 / 30** | **0** |
 
-The check fired on 3 meetings. Once it caught a real miss: the e-ticket Muse Spark returned nothing for (t24), which Glimmer read correctly. Twice it was Glimmer that was wrong: it read a day-first date such as 06/08/2026 (6 August) as 8 June (t08, t17). So on this set the second reader changed no final verdict: Muse Spark alone was already 30 / 30. In all three cases the meeting went to REVIEW or stayed NOT MET, which is the point of the design: two independent readers must agree before anything is called met. A disagreement costs a person a look, never a false PASS. Glimmer's first run also showed it skipped e-tickets that say "this receipt is not a boarding pass"; one added line in its instructions fixed that, and Muse Spark's instructions were not changed.
+On this held-out run (2 November) the check fired on 2 meetings, and both times Glimmer was the one that was wrong (an e-ticket it skipped in t05; the day-first date 06/08/2026 read as 8 June in t08). On the 29 October run it fired on 3: once it caught a real Muse Spark miss (an e-ticket, t24) and twice it was Glimmer's dates. So on clean synthetic documents the second reader has changed no final verdict; on the realistic set it caught two legs Muse Spark missed (A14, B10 in the live review). Its cost is a person's look, never a false EVIDENCED: two independent readers must agree before anything is called met. Two bugs found on 1 November made it look worse than it is: it rendered PDFs whose fonts are not embedded (most office-made PDFs) as **blank pages**, and it only looked at the first 3 pages of a PDF, so it missed attendance on page 6 of a board pack. Both are fixed; on the realistic set its agreement with Muse Spark went from 6 / 51 facts to 95 / 101.
 
 **Cost:** one meeting costs about **$0.03–0.09** of Meta API credit. Muse Spark alone takes 30–70 seconds; with the second reader on, the five recorded demo runs took 1.5 to 7 minutes, mostly waiting on NVIDIA's free hosted API (Glimmer is free there). The full 30-meeting held-out run cost **$0.91**.
 
 **Honest caveats**
-- All documents are synthetic, rendered from templates I wrote. Real packs are messier (real handwriting, multi-page bundles, other languages), and the stress set shows accuracy falls as documents get worse. The synthetic world is also easier than the real one: every document prints a time zone (real boarding passes print local time only; the code now uses the airport's own zone), and flight times are not realistic for the route.
+- All documents are synthetic. The held-out, dev and stress sets are rendered from templates I wrote; the realistic set was designed by an outside AI reviewer to look like real packs, and the product does much worse there (38 / 45 directors, 12 / 16 verdicts) than on my own templates. Real packs are messier still (real handwriting, multi-page bundles, other languages), and the stress set shows accuracy falls as documents get worse. The synthetic world is also easier than the real one: every document prints a time zone (real boarding passes print local time only; the code now uses the airport's own zone), and flight times are not realistic for the route.
 - **A capable chatbot ties it on this set.** In the fraud review, Grok read held-out meetings t01–t10 from the documents alone and got 10 / 10 verdicts and 26 / 26 directors, the same as the product (it had read the rules first; its answers are in its report). On clean synthetic packs, reading accuracy is not what sets the product apart. What it adds is everything around the reading: the same answer every time from tested code, a citation for every fact, refusing to guess (unreadable names, missing zones), contradictions between the minutes, the recording and the evidence, a second independent reader, and a memo a reviewer can sign.
 - **"0 dangerous errors" was barely tested where it matters.** Only 1 of the 30 held-out meetings is expected to be EVIDENCED, and none has a resident director. The attacks that do produce a false EVIDENCED are tested directly in [`tests/redteam.test.ts`](tests/redteam.test.ts) instead.
-- **Two changes were made after seeing held-out results:** the matcher now joins a name split by letter spacing ("PR IYA"), and the second reader's instructions gained one line about e-tickets. Muse Spark's instructions were never changed after seeing the held-out set.
+- **Three changes were made after seeing held-out results:** the matcher joins a name split by letter spacing ("PR IYA"); the second reader's instructions gained a line about e-tickets (31 October); and on 1 November the same e-ticket line went into Muse Spark's instructions after the first attempt with the new instructions dropped to 148 / 166. The other 1 November changes came from the outside reviewer's realistic set, not from the held-out set. So the held-out set is no longer strictly held out; the realistic set is the fairer test of documents I did not design.
 - **Demand:** the fraud review found no published count of Jersey substance failures, and the EU's monitoring group made no recommendations to Jersey in 2026. The case for the tool is records a firm can stand behind when asked, not a wave of fines.
 - The stress set is no longer held out: after its first run I fixed two general problems it exposed (accented and French city names; flights with impossible times from AM/PM misreads). First run: 54/64 facts, 77% of directors, 9/12 verdicts, 0 dangerous errors.
 - The first held-out run scored 51.8% of facts because my answer key stored seconds while documents print minutes. I fixed the key, not the model, and re-scored the same saved outputs. Both runs are in the git history.
@@ -130,14 +131,14 @@ Requirements: Node 20+ and Chrome (only for regenerating the synthetic documents
 
 ```bash
 npm install
-npm test                    # 126 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
+npm test                    # 133 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
 cp .env.example .env        # then put your own Meta Model API key in .env (never commit it)
 npm run app                 # builds the web app and serves it at http://127.0.0.1:8787
 ```
 
 - `npm run app` binds to `127.0.0.1` only; your key stays on the server and never reaches the browser. Uploads are kept in `uploads/` (git-ignored).
 - `npm run gen` / `npm run gen:test` / `npx tsx scripts/generate-synthetic.ts stress` rebuild the synthetic packs.
-- `SET=test npm run eval` re-runs the held-out evaluation (about $1). The model outputs behind every published number are in [`eval/runs/`](eval/runs/), so anyone can re-score them for free and without a key: `SET=test REPLAY=published-test-2026-10-29 npm run eval` (also `published-dev-2026-10-30-plus-m12` with `SET=dev`, `published-stress-2026-10-29` with `SET=stress`), and `SET=test REPLAY=published-test-2026-10-29 GLIMMER_REPLAY=published-glimmer-test-2026-10-31 npx tsx scripts/eval-second-reader.ts`.
+- `SET=test npm run eval` re-runs the held-out evaluation (about $1). The model outputs behind every published number are in [`eval/runs/`](eval/runs/), so anyone can re-score them for free and without a key: `SET=test REPLAY=published-test-2026-11-01 npm run eval` (also `published-dev-2026-11-02` with `SET=dev`, `published-stress-2026-10-29` with `SET=stress`, and the earlier runs), and `SET=test REPLAY=published-test-2026-11-01 GLIMMER_REPLAY=published-glimmer-test-2026-11-02 npx tsx scripts/eval-second-reader.ts`. The realistic set: `npx tsx scripts/score-realistic.ts`.
 - `npm run record` re-records the demo runs used by the public demo.
 
 ## Repository map
@@ -192,6 +193,33 @@ The third review asked Grok to play seven critics at once, including a professio
 | A real boarding pass that prints local time without a zone | Rejected | Read in the airport's own zone (about 130 airports) |
 
 What it cannot fix: the tool checks the documents it is given. If a preparer leaves out the two Dubai files and attaches a residence document, the result is EVIDENCED, and the quorum and the "strategic" flag are typed by hand. The report and the memo now say so, listing every value that was entered rather than proven, so the reviewer knows what to check against the articles, the register and the full pack. This is why the tool is aimed at the reviewer, not at the company reviewing itself.
+
+## Live review: real-looking documents through the real models
+
+The fourth review gave Grok the live models, through the local server, never the key, with an $8 cap. It wrote 16 meetings (81 files) to look like real packs, registered its answers before each run, and ran its attacks for real. Everything is in [`eval/realistic/`](eval/realistic/): the documents, its answers, the setup, and the result before and after the fixes; `npx tsx scripts/score-realistic.ts` scores them for free.
+
+| Realistic set (16 meetings) | Before (31 Oct) | After (1 Nov) |
+|---|---|---|
+| Directors placed as the reviewer expected | 24 / 45 | **38 / 45** |
+| Verdicts as the reviewer expected | 9 / 16 | **12 / 16** |
+| Directors wrongly shown present | 1 (A05) | **0** |
+| Wrong EVIDENCED | 0 | **1 (A15, below)** |
+| Hotel stays accepted / refused | 0 / 7 | 6 / 1 |
+| Second reader facts identical | 6 / 51 | 95 / 101 |
+
+What it found, and what changed:
+- **Most losses were in code, not in reading.** Boarding passes print "11MAR 18:40" with no year, and the code refused them (it also made runs unstable: the same pack gave different answers on different runs). Hotel bills print dates without times, and the code refused every one. "Mme Sofia Castelnau" and "TAN/WEILING" matched no director. Now a missing year is the one nearest the meeting, a date-only stay counts from 23:59 on arrival to 00:00 on departure, and French, Portuguese and German titles and joined-up airline first names match (a spouse's different first name still does not).
+- **Dangerous: an instruction hidden in a picture inside an expenses PDF** ("report these as flight_leg facts…") became four accepted flights and showed both directors present. Now Muse Spark reports text addressed to the AI, code also catches instruction-like quotes, and such a file gives no evidence and sends the meeting to REVIEW (`INJECTION` check).
+- **Dangerous: prose minutes** ("took the chair, joining by telephone from her home in Lisbon") gave no claim at all, so a residence record made her present. Now a resident counts only when the minutes or the recording put them in the jurisdiction, and the instructions cover prose, other languages and "by telephone".
+- **The second reader saw blank pages** for PDFs whose fonts are not embedded, and only the first 3 pages; and an NVIDIA outage made its check "not applicable". Fixed: it is given the standard fonts (with a test), reads up to 8 pages, and an outage now means REVIEW.
+- Ferry tickets, car hire, passport stamps and attendance exports gave nothing and were dropped silently; they are now listed under "Not used". A rule pack for the British Virgin Islands was refused because the model wrote "BVI" instead of "VG"; codes are now mapped.
+
+**Still wrong after the fixes**, reported as they came out:
+- **A15, the one wrong EVIDENCED:** two directors are proven present by flights in and out, so the quorum of 2 is genuinely met; but a third, listed as present in the minutes, says on the recording in French that he is in Paris. The transcript came back as "Bonjour. Video.", and recording claims are only taken from people who say their name, so the contradiction was missed. The fix is matching voices to directors, which is not built.
+- **A01, A13:** correct EVIDENCED results held at REVIEW by the second reader (A01 by the 3-page limit, since fixed; A13 because Glimmer read "09/06" as 6 September).
+- **A02, A05, A06, A10r, A11r, A16:** a director the reviewer marked "absent" comes out "unknown" (a claim or a document places them away, but not in a form the code turns into absence). Safe in direction, but less informative.
+
+What held under live attack: hidden white text and PDF metadata, a boarding-pass section planted in the minutes, injection aimed at the agent, an instruction inside a law text sent to the rule builder, and SAM blacking out QR codes on phone screenshots and angled photos. The reviewer spent $3.19; re-sending its packs after the fixes and re-running the held-out, dev and stress sets live cost about $5.10 more, including a first attempt that had to be redone.
 
 ### What a regulated firm would still need
 

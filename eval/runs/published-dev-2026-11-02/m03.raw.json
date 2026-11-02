@@ -1,0 +1,208 @@
+[
+ {
+  "file": "synthetic/generated/dev/packs/m03/minutes.pdf",
+  "readPath": "synthetic/generated/dev/packs/m03/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-03-12T09:00",
+    "end_local": "2026-03-12T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00805975,
+  "ms": 9614,
+  "usage": {
+   "input_tokens": 3925,
+   "output_tokens": 742,
+   "reasoning_tokens": 331
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m03/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m03/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "11 Mar 2026 15:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00889525,
+  "ms": 11260,
+  "usage": {
+   "input_tokens": 3859,
+   "output_tokens": 958,
+   "reasoning_tokens": 758
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m03/stay/folio_C_STHELIER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m03/stay/folio_C_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 11 Mar 2026 15:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00846725,
+  "ms": 11178,
+  "usage": {
+   "input_tokens": 3860,
+   "output_tokens": 857,
+   "reasoning_tokens": 653
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m03/travel/BP_B_JER-LHR.png",
+  "readPath": "<temp>/sp-redact-i6rOm2/BP_B_JER-LHR.redacted.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "BRUNO CASTELL",
+     "origin_code": "JER",
+     "dest_code": "LHR",
+     "depart_local": "2026-03-12T10:30",
+     "depart_tz": "GMT",
+     "arrive_local": "2026-03-12T11:45",
+     "arrive_tz": "GMT",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM JER → TO LHR Jersey Airport London Heathrow PASSENGER BRUNO CASTELL FLIGHT SA 411 DATE 12 Mar 2026 DEPARTS (local GMT) 10:30 ARRIVES (local GMT) 11:45",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.018360750000000002,
+  "ms": 11240,
+  "usage": {
+   "input_tokens": 2119,
+   "output_tokens": 1344,
+   "reasoning_tokens": 1108
+  },
+  "redactions": [
+   {
+    "label": "qr code",
+    "x1": 948,
+    "y1": 460,
+    "x2": 1315,
+    "y2": 555,
+    "w": 1360,
+    "h": 600,
+    "c": 0.9569892287254333
+   }
+  ]
+ }
+]

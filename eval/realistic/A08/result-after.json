@@ -1,0 +1,471 @@
+{
+ "id": "ea289b2c-309d-4509-882d-01b0eed5f06c",
+ "createdAt": "2026-11-02T05:17:31.068Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Ellerby Marine Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Theo Ashgrove",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Camille Rousseau-Byrne",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Ivo Brennan",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "ea289b2c-309d-4509-882d-01b0eed5f06c",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes-handwritten.pdf",
+   "kind": "minutes",
+   "sha256": "bba8ec0d0799619e58aaa561a2e9275f8de982b163de295499a14828920df9f4"
+  },
+  {
+   "docId": "pack/travel/bp-ashgrove-in.png",
+   "kind": "boarding_pass",
+   "sha256": "96680cda54a3f12557df37a67b671cb9a0beab3f5ff9df16c272dd0c2a3ea0be",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-ashgrove-out.png",
+   "kind": "boarding_pass",
+   "sha256": "6cdb0007094a2ff92b8a96882fee176bd41b79eff647f2dd9226b2d27b08d3a5",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-rousseau-out.png",
+   "kind": "boarding_pass",
+   "sha256": "b0764092b2fe363b1c95506bec2b4e74a64c40438e3a76c487ee50f3cf701f67",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/eticket-brennan.pdf",
+   "kind": "other",
+   "sha256": "345ca3fbf035ebe7f7a7d69522c4d69f2d53e80f836d4a7ea121ccefe23a5ee6"
+  },
+  {
+   "docId": "pack/stay/folio-brennan.pdf",
+   "kind": "hotel_folio",
+   "sha256": "0125e45b63e6fb9f87ec3ce24acd11f094bc5a37f17f3b6eadfaff60be55aa0d"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes-handwritten.pdf",
+    "page": 1,
+    "quote": "Present: Theo Ashgrove (chair),"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes-handwritten.pdf",
+    "page": 1,
+    "quote": "Camille Rousseau-Byrne, Ivo Brennan"
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes-handwritten.pdf",
+    "page": 1,
+    "quote": "Camille Rousseau-Byrne, Ivo Brennan"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T20:10:00Z",
+   "arriveUtc": "2026-03-11T21:05:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-ashgrove-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nDeparts: 11MAR 20:10\nArrives: 11MAR 21:05"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T13:00:00Z",
+   "arriveUtc": "2026-03-12T13:55:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-ashgrove-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nDeparts: 12MAR 13:00\nArrives: 12MAR 13:55"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "CDG",
+   "departUtc": "2026-03-12T08:30:00Z",
+   "arriveUtc": "2026-03-12T09:20:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-rousseau-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: PARIS CDG\nFlight: AU 880  Seat: 14C  Seq: 042\nDeparts: 12MAR 08:30\nArrives: 12MAR 10:20"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "DUB",
+   "destCode": "JER",
+   "departUtc": "2026-03-10T15:00:00Z",
+   "arriveUtc": "2026-03-10T16:40:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-brennan.pdf",
+    "page": 1,
+    "quote": "DUB Dublin -> JER Jersey 10 Mar 2026 dep 15:00 arr 16:40 AU 410"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "JER",
+   "destCode": "DUB",
+   "departUtc": "2026-03-13T12:00:00Z",
+   "arriveUtc": "2026-03-13T13:40:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-brennan.pdf",
+    "page": 1,
+    "quote": "JER Jersey -> DUB Dublin 13 Mar 2026 dep 12:00 arr 13:40 AU 411"
+   }
+  },
+  {
+   "kind": "hotel_stay",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "checkInUtc": "2026-03-10T23:59:00Z",
+   "checkOutUtc": "2026-03-13T00:00:00Z",
+   "cite": {
+    "docId": "pack/stay/folio-brennan.pdf",
+    "page": 1,
+    "quote": "Arrival: 10/03/2026  Departure: 13/03/2026"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "ea289b2c-309d-4509-882d-01b0eed5f06c",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 12 h before the meeting and flight out of JER 2 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-ashgrove-in.png",
+      "page": 1,
+      "quote": "From: LONDON GATWICK LGW  To: JERSEY JER\nDeparts: 11MAR 20:10\nArrives: 11MAR 21:05"
+     },
+     {
+      "docId": "pack/travel/bp-ashgrove-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nDeparts: 12MAR 13:00\nArrives: 12MAR 13:55"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight JER-CDG) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-rousseau-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: PARIS CDG\nFlight: AU 880  Seat: 14C  Seq: 042\nDeparts: 12MAR 08:30\nArrives: 12MAR 10:20"
+     },
+     {
+      "docId": "pack/minutes/minutes-handwritten.pdf",
+      "page": 1,
+      "quote": "Camille Rousseau-Byrne, Ivo Brennan"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   },
+   {
+    "directorId": "C",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 40 h before the meeting and flight out of JER 25 h after it, with a hotel stay in St Helier covering the meeting.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-brennan.pdf",
+      "page": 1,
+      "quote": "DUB Dublin -> JER Jersey 10 Mar 2026 dep 15:00 arr 16:40 AU 410"
+     },
+     {
+      "docId": "pack/travel/eticket-brennan.pdf",
+      "page": 1,
+      "quote": "JER Jersey -> DUB Dublin 13 Mar 2026 dep 12:00 arr 13:40 AU 411"
+     },
+     {
+      "docId": "pack/stay/folio-brennan.pdf",
+      "page": 1,
+      "quote": "Arrival: 10/03/2026  Departure: 13/03/2026"
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (9/9 facts identical)."
+   }
+  ],
+  "contradictions": [
+   {
+    "directorId": "B",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight JER-CDG) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-rousseau-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: PARIS CDG\nFlight: AU 880  Seat: 14C  Seq: 042\nDeparts: 12MAR 08:30\nArrives: 12MAR 10:20"
+     },
+     {
+      "docId": "pack/minutes/minutes-handwritten.pdf",
+      "page": 1,
+      "quote": "Camille Rousseau-Byrne, Ivo Brennan"
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ]
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "minutes_correction",
+    "directorId": "B",
+    "directorName": "Camille Rousseau-Byrne",
+    "subject": "Minutes review - 12 March 2026 - Camille Rousseau-Byrne",
+    "message": "Please review the minutes record for the meeting on 12 March 2026 for Camille Rousseau-Byrne. The minutes in pack/minutes/minutes-handwritten.pdf state \"Camille Rousseau-Byrne, Ivo Brennan\". The evidence in pack/travel/bp-rousseau-out.png states \"From: JERSEY JER  To: PARIS CDG\nFlight: AU 880  Seat: 14C  Seq: 042\nDeparts: 12MAR 08:30\nArrives: 12MAR 10:20\". Please advise.",
+    "citations": [
+     "pack/travel/bp-rousseau-out.png#p1",
+     "pack/minutes/minutes-handwritten.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one draft minutes correction for Camille Rousseau-Byrne for the meeting on 12 March 2026. The draft is awaiting approval, and no evidence requests were needed.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "B",
+       "name": "Camille Rousseau-Byrne",
+       "status": "absent",
+       "basis": "independent",
+       "engine_reason": "In flight (flight JER-CDG) during part of the meeting window.",
+       "contradiction": {
+        "claimed": "Jersey",
+        "evidence": "in flight"
+       },
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/travel/bp-rousseau-out.png#p1",
+        "pack/minutes/minutes-handwritten.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/travel/bp-rousseau-out.png",
+         "words": "From: JERSEY JER  To: PARIS CDG\nFlight: AU 880  Seat: 14C  Seq: 042\nDeparts: 12MAR 08:30\nArrives: 12MAR 10:20"
+        },
+        {
+         "doc": "pack/minutes/minutes-handwritten.pdf",
+         "words": "Camille Rousseau-Byrne, Ivo Brennan"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_minutes_correction",
+    "args": {
+     "citations": [
+      "pack/travel/bp-rousseau-out.png#p1",
+      "pack/minutes/minutes-handwritten.pdf#p1"
+     ],
+     "director_id": "B",
+     "message": "Please review the minutes record for the meeting on 12 March 2026 for Camille Rousseau-Byrne. The minutes in pack/minutes/minutes-handwritten.pdf state \"Camille Rousseau-Byrne, Ivo Brennan\". The evidence in pack/travel/bp-rousseau-out.png states \"From: JERSEY JER  To: PARIS CDG\nFlight: AU 880  Seat: 14C  Seq: 042\nDeparts: 12MAR 08:30\nArrives: 12MAR 10:20\". Please advise.",
+     "subject": "Minutes review - 12 March 2026 - Camille Rousseau-Byrne"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.0968,
+ "seconds": 116,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 6,
+  "unread": [],
+  "agreed": 9,
+  "total": 9,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

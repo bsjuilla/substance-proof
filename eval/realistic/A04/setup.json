@@ -1,0 +1,61 @@
+{
+ "setup": {
+  "companyName": "Marrowgate Trust Co Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "22:30",
+  "end": "00:30",
+  "directors": [
+   {
+    "name": "Felix Okonkwo-Hart",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Greta Saelens",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Colm Ruadhan",
+    "isChair": false,
+    "strategic": true,
+    "resident": true
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-felix-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-felix-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-greta-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-greta-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "residence-ruadhan.png",
+   "role": "residence",
+   "director": 2
+  }
+ ]
+}

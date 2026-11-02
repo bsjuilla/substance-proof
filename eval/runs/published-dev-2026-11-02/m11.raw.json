@@ -1,0 +1,319 @@
+[
+ {
+  "file": "synthetic/generated/dev/packs/m11/minutes.pdf",
+  "readPath": "synthetic/generated/dev/packs/m11/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-03-12T09:00",
+    "end_local": "2026-03-12T11:00",
+    "tz": "GMT",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Chandra Velloso",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0083035,
+  "ms": 7881,
+  "usage": {
+   "input_tokens": 3950,
+   "output_tokens": 792,
+   "reasoning_tokens": 381
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m11/recording.wav",
+  "readPath": "synthetic/generated/dev/packs/m11/recording.wav",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "the boardroom room in Saint Helier Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Alice Marlowe chairing from the boardroom room in Saint Helier Helier",
+     "page": 4
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "my hotel in Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed",
+     "page": 5
+    }
+   ]
+  },
+  "costUsd": 0.00953325,
+  "ms": 17928,
+  "transcript": {
+   "transcript": "Good morning, everyone. This is a strategic meeting so a roll call for the record name and where you are please Alice Marlowe chairing from the boardroom room in Saint Helier Helier Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed And Chandra Her flight from London hasn't landed yet. So we'll proceed without her. First item. The The proposed acquisition of a 40% interest in Vantro Logistics.",
+   "audioDurationMs": 86560,
+   "turns": [
+    {
+     "turnId": 0,
+     "startMs": 380,
+     "endMs": 5900,
+     "transcript": "Good morning, everyone.",
+     "speaker": "A"
+    },
+    {
+     "turnId": 1,
+     "startMs": 6300,
+     "endMs": 6540,
+     "transcript": ""
+    },
+    {
+     "turnId": 2,
+     "startMs": 6540,
+     "endMs": 24380,
+     "transcript": "This is a strategic meeting so a roll call for the record name and where you are please",
+     "speaker": "A"
+    },
+    {
+     "turnId": 3,
+     "startMs": 26860,
+     "endMs": 37900,
+     "transcript": "Alice Marlowe chairing from the boardroom room in Saint Helier Helier",
+     "speaker": "A"
+    },
+    {
+     "turnId": 4,
+     "startMs": 40220,
+     "endMs": 46300,
+     "transcript": "Bruno Castell I'm dialing in from my hotel in Dubai the line may be a little delayed",
+     "speaker": "B"
+    },
+    {
+     "turnId": 5,
+     "startMs": 47820,
+     "endMs": 51820,
+     "transcript": "And Chandra",
+     "speaker": "A"
+    },
+    {
+     "turnId": 6,
+     "startMs": 52700,
+     "endMs": 66380,
+     "transcript": "Her flight from London hasn't landed yet. So we'll proceed without her.",
+     "speaker": "A"
+    },
+    {
+     "turnId": 7,
+     "startMs": 67980,
+     "endMs": 83740,
+     "transcript": "First item. The The proposed acquisition of a 40% interest in Vantro Logistics.",
+     "speaker": "A"
+    }
+   ]
+  },
+  "turnStartsMs": [
+   380,
+   6300,
+   6540,
+   26860,
+   40220,
+   47820,
+   52700,
+   67980
+  ]
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m11/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m11/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Alice Marlowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-11T15:00",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-13T09:00",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 11 Mar 2026 15:00 (GMT)\nDeparture 13 Mar 2026 09:00 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00837675,
+  "ms": 8602,
+  "usage": {
+   "input_tokens": 3859,
+   "output_tokens": 836,
+   "reasoning_tokens": 619
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m11/stay/folio_B_DUBAI.pdf",
+  "readPath": "synthetic/generated/dev/packs/m11/stay/folio_B_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Bruno Castell",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-03-11T00:00",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-03-14T12:00",
+     "check_out_tz": "GST",
+     "quote": "11 Mar 2026 00:00 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0085545,
+  "ms": 9087,
+  "usage": {
+   "input_tokens": 3855,
+   "output_tokens": 879,
+   "reasoning_tokens": 682
+  }
+ },
+ {
+  "file": "synthetic/generated/dev/packs/m11/travel/ETKT_C_LHR-JER.pdf",
+  "readPath": "synthetic/generated/dev/packs/m11/travel/ETKT_C_LHR-JER.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "VELLOSO/CHANDRA",
+     "origin_code": "LHR",
+     "dest_code": "JER",
+     "depart_local": "2026-03-12T10:20",
+     "depart_tz": "UTC+00:00",
+     "arrive_local": "2026-03-12T11:25",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "London Heathrow (LHR) 12/03/2026 10:20 (UTC+00:00) Jersey Airport (JER) 12/03/2026 11:25 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0100345,
+  "ms": 10841,
+  "usage": {
+   "input_tokens": 3866,
+   "output_tokens": 1224,
+   "reasoning_tokens": 983
+  }
+ }
+]

@@ -1,0 +1,139 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t23/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t23/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-10-06T10:00",
+    "end_local": "2026-10-06T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Rafael Quintero",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "London",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from London",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00735175,
+  "ms": 9293,
+  "usage": {
+   "input_tokens": 3685,
+   "output_tokens": 646,
+   "reasoning_tokens": 345
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t23/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t23/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-10-05T13:06",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-10-08T10:14",
+     "check_out_tz": "GMT+1",
+     "quote": "Arrival 05 Oct 2026 13:06 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00908775,
+  "ms": 7876,
+  "usage": {
+   "input_tokens": 3809,
+   "output_tokens": 1018,
+   "reasoning_tokens": 840
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t23/stay/folio_B_LONDON.pdf",
+  "readPath": "synthetic/generated/test/packs/t23/stay/folio_B_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Rafael Quintero",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-10-04T22:25",
+     "check_in_tz": "BST",
+     "check_out_local": "2026-10-07T12:05",
+     "check_out_tz": "BST",
+     "quote": "04 Oct 2026 22:25 (BST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0089255,
+  "ms": 7768,
+  "usage": {
+   "input_tokens": 3805,
+   "output_tokens": 981,
+   "reasoning_tokens": 780
+  }
+ }
+]

@@ -1,0 +1,140 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t26/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t26/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-09-24T10:00",
+    "end_local": "2026-09-24T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Dubai",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Dubai",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.007194,
+  "ms": 8862,
+  "usage": {
+   "input_tokens": 3739,
+   "output_tokens": 593,
+   "reasoning_tokens": 293
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t26/stay/folio_B_DUBAI.pdf",
+  "readPath": "synthetic/generated/test/packs/t26/stay/folio_B_DUBAI.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-09-23T14:40",
+     "check_in_tz": "Asia/Dubai",
+     "check_out_local": "2026-09-25T19:57",
+     "check_out_tz": "Asia/Dubai",
+     "quote": "You checked in on Wednesday 23 September 2026 at 14:40 and checked out on Friday 25 September 2026 at 19:57.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00909025,
+  "ms": 8707,
+  "usage": {
+   "input_tokens": 3862,
+   "output_tokens": 1003,
+   "reasoning_tokens": 779
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t26/travel/BP_A_HKG-JER.png",
+  "readPath": "synthetic/generated/test/packs/t26/travel/BP_A_HKG-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "LUCIA FERRANTE",
+     "origin_code": "HKG",
+     "dest_code": "JER",
+     "depart_local": "2026-09-24T11:11",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-09-24T11:11",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM HKG TO JER DATE 24 Sept 2026 DEPARTS (local GMT+8) 11:11 ARRIVES (local GMT+1) 11:11",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.017583,
+  "ms": 8034,
+  "usage": {
+   "input_tokens": 2119,
+   "output_tokens": 1161,
+   "reasoning_tokens": 935
+  },
+  "redactions": []
+ }
+]

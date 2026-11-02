@@ -1,0 +1,60 @@
+{
+ "setup": {
+  "companyName": "Ellerby Marine Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Theo Ashgrove",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Camille Rousseau-Byrne",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Ivo Brennan",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes-handwritten.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "bp-ashgrove-in.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-ashgrove-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "bp-rousseau-out.png",
+   "role": "travel"
+  },
+  {
+   "name": "eticket-brennan.pdf",
+   "role": "travel"
+  },
+  {
+   "name": "folio-brennan.pdf",
+   "role": "hotel"
+  }
+ ]
+}

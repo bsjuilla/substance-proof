@@ -1,0 +1,295 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t14/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t14/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-09-11T10:00",
+    "end_local": "2026-09-11T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Paris",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Paris",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00852425,
+  "ms": 10279,
+  "usage": {
+   "input_tokens": 3739,
+   "output_tokens": 906,
+   "reasoning_tokens": 383
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t14/stay/folio_A_PARIS.pdf",
+  "readPath": "synthetic/generated/test/packs/t14/stay/folio_A_PARIS.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "PARIS, FRANCE",
+     "check_in_local": "2026-09-09T13:39",
+     "check_in_tz": "Europe/Paris",
+     "check_out_local": "2026-09-12T00:09",
+     "check_out_tz": "Europe/Paris",
+     "quote": "You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00830275,
+  "ms": 7172,
+  "usage": {
+   "input_tokens": 3861,
+   "output_tokens": 818,
+   "reasoning_tokens": 628
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t14/stay/folio_C_HONGKONG.pdf",
+  "readPath": "synthetic/generated/test/packs/t14/stay/folio_C_HONGKONG.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "HONG KONG",
+     "check_in_local": "2026-09-09T17:31",
+     "check_in_tz": "Asia/Hong_Kong",
+     "check_out_local": "2026-09-13T00:57",
+     "check_out_tz": "Asia/Hong_Kong",
+     "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.009066,
+  "ms": 8755,
+  "usage": {
+   "input_tokens": 3863,
+   "output_tokens": 997,
+   "reasoning_tokens": 771
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t14/stay/folio_D_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t14/stay/folio_D_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-09-10T06:17",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-09-12T10:49",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Thursday 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00872675,
+  "ms": 7718,
+  "usage": {
+   "input_tokens": 3867,
+   "output_tokens": 916,
+   "reasoning_tokens": 689
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t14/travel/BP_B_DXB-JER.png",
+  "readPath": "synthetic/generated/test/packs/t14/travel/BP_B_DXB-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "TAVERNIER/MEI LIN",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-09-10T23:00",
+     "depart_tz": "GST",
+     "arrive_local": "2026-09-11T05:20",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM DXB TO JER DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 05:20 (11 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0195805,
+  "ms": 9745,
+  "usage": {
+   "input_tokens": 2119,
+   "output_tokens": 1631,
+   "reasoning_tokens": 1407
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test/packs/t14/travel/BP_B_JER-DXB.png",
+  "readPath": "synthetic/generated/test/packs/t14/travel/BP_B_JER-DXB.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "TAVERNIER/MEI LIN",
+     "origin_code": "JER",
+     "dest_code": "DXB",
+     "depart_local": "2026-09-11T20:54",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-09-12T07:00",
+     "arrive_tz": "GST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM JER → TO DXB Jersey Airport Dubai International PASSENGER TAVERNIER/MEI LIN FLIGHT SA 784 DATE 11 Sept 2026 DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.018926,
+  "ms": 9238,
+  "usage": {
+   "input_tokens": 2119,
+   "output_tokens": 1477,
+   "reasoning_tokens": 1222
+  },
+  "redactions": []
+ }
+]

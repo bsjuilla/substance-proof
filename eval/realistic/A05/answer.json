@@ -1,0 +1,12 @@
+{
+ "presence": {
+  "A": "absent",
+  "B": "present",
+  "C": "unknown",
+  "D": "unknown"
+ },
+ "verdict": "REVIEW",
+ "reason": "Prose minutes: chair Beatrix joined by telephone -> absent despite residence; Dmitri resident with document and in the room -> present; Joao absent-not attending (unknown/not claimed); Nadia (alternate) ferry from St Malo + Portuguese folio: ferry not a flight, hotel only -> unknown. Quorum 2: 1 present -> REVIEW (not FAIL because unknowns could be present).",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

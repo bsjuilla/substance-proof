@@ -1,0 +1,470 @@
+{
+ "id": "ae6d9a55-6b15-4ff1-8882-d92cd3c492db",
+ "createdAt": "2026-11-01T12:29:24.846Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Corvane Holdings Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Annika Vosberg",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Rafael Duquesne",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Lionel Pettigrew",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "ae6d9a55-6b15-4ff1-8882-d92cd3c492db",
+  "startUtc": "2026-03-12T09:00:00Z",
+  "endUtc": "2026-03-12T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "12 March 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/board-pack.pdf",
+   "kind": "minutes",
+   "sha256": "7bd5b1aea08d749ba63e6fe9eba6dcaf6bac6c97c94f2d99d082048cc2f4f927"
+  },
+  {
+   "docId": "pack/travel/bp-vosberg-in.png",
+   "kind": "boarding_pass",
+   "sha256": "e32f7d74651c66d011d3b785b11106a7da3a00cbb5384160fb23b843f16b0bca",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-vosberg-out.png",
+   "kind": "boarding_pass",
+   "sha256": "83c10fdaef55938686a8da27111a93026de691e84b77b60b104b89f7df59e6b4",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 839,
+     "y2": 229,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/eticket-duquesne.pdf",
+   "kind": "other",
+   "sha256": "4068c80aca299e3baa40a48dde942771b8dc8585d01b9dca3a6ffd136c66e93b"
+  },
+  {
+   "docId": "pack/stay/folio-pettigrew.pdf",
+   "kind": "hotel_folio",
+   "sha256": "3ee3c158a0a335e764646a00332ea3d1a31e0b7e8329c1d85cde25745dfddba1"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/board-pack.pdf",
+    "page": 6,
+    "quote": "Directors in attendance in the boardroom: Annika Vosberg (Chair), Rafael Duquesne, Lionel Pettigrew."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/board-pack.pdf",
+    "page": 6,
+    "quote": "Directors in attendance in the boardroom: Annika Vosberg (Chair), Rafael Duquesne, Lionel Pettigrew."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/board-pack.pdf",
+    "page": 6,
+    "quote": "Directors in attendance in the boardroom: Annika Vosberg (Chair), Rafael Duquesne, Lionel Pettigrew."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "LGW",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T18:40:00Z",
+   "arriveUtc": "2026-03-11T19:35:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-vosberg-in.png",
+    "page": 1,
+    "quote": "From: LONDON GATWICK LGW   To: JERSEY JER\nDeparts: 11MAR 18:40\nArrives: 11MAR 19:35"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T16:05:00Z",
+   "arriveUtc": "2026-03-12T17:00:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-vosberg-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nDeparts: 12MAR 16:05\nArrives: 12MAR 17:00"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "LGW",
+   "destCode": "GCI",
+   "departUtc": "2026-03-11T17:10:00Z",
+   "arriveUtc": "2026-03-11T18:05:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "page": 1,
+    "quote": "Leg 1 LGW London Gatwick -> GCI Guernsey  11 Mar 2026 dep 17:10 arr 18:05 flt AU 640"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "GCI",
+   "destCode": "JER",
+   "departUtc": "2026-03-11T19:30:00Z",
+   "arriveUtc": "2026-03-11T19:50:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "page": 1,
+    "quote": "Leg 2 GCI Guernsey -> JER Jersey         11 Mar 2026 dep 19:30 arr 19:50 flt AU 642"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "GCI",
+   "departUtc": "2026-03-12T15:20:00Z",
+   "arriveUtc": "2026-03-12T15:40:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "page": 1,
+    "quote": "Leg 3 JER Jersey -> GCI Guernsey         12 Mar 2026 dep 15:20 arr 15:40 flt AU 651"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "GCI",
+   "destCode": "LGW",
+   "departUtc": "2026-03-12T16:30:00Z",
+   "arriveUtc": "2026-03-12T17:25:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "page": 1,
+    "quote": "Leg 4 GCI Guernsey -> LGW London Gatwick  12 Mar 2026 dep 16:30 arr 17:25 flt AU 655"
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "file": "pack/stay/folio-pettigrew.pdf",
+   "reason": "hotel stay incomplete, place \"St Helier, Jersey\" or zone unknown"
+  }
+ ],
+ "evaluation": {
+  "meetingId": "ae6d9a55-6b15-4ff1-8882-d92cd3c492db",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 13 h before the meeting and flight out of JER 5 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-vosberg-in.png",
+      "page": 1,
+      "quote": "From: LONDON GATWICK LGW   To: JERSEY JER\nDeparts: 11MAR 18:40\nArrives: 11MAR 19:35"
+     },
+     {
+      "docId": "pack/travel/bp-vosberg-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: LONDON GATWICK LGW\nDeparts: 12MAR 16:05\nArrives: 12MAR 17:00"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 13 h before the meeting and flight out of JER 4 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-duquesne.pdf",
+      "page": 1,
+      "quote": "Leg 2 GCI Guernsey -> JER Jersey         11 Mar 2026 dep 19:30 arr 19:50 flt AU 642"
+     },
+     {
+      "docId": "pack/travel/eticket-duquesne.pdf",
+      "page": 1,
+      "quote": "Leg 3 JER Jersey -> GCI Guernsey         12 Mar 2026 dep 15:20 arr 15:40 flt AU 651"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "unknown",
+    "basis": "claim_only",
+    "reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+    "cites": [
+     {
+      "docId": "pack/minutes/board-pack.pdf",
+      "page": 6,
+      "quote": "Directors in attendance in the boardroom: Annika Vosberg (Chair), Rafael Duquesne, Lionel Pettigrew."
+     }
+    ]
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 0 absent, 1 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "fail",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to a different answer (Annika Vosberg: present from Muse Spark's reading, unknown from Muse Glimmer's; Rafael Duquesne: present from Muse Spark's reading, unknown from Muse Glimmer's; verdict: PASS from Muse Spark's reading, REVIEW from Muse Glimmer's). A person should look at the documents."
+   }
+  ],
+  "contradictions": []
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "evidence_request",
+    "directorId": "C",
+    "directorName": "Lionel Pettigrew",
+    "subject": "Request for documents – 12 March 2026 meeting",
+    "message": "Dear Lionel Pettigrew,\n\nIn connection with the board meeting of Corvane Holdings Ltd on 12 March 2026, please provide a copy of your boarding pass, travel itinerary or hotel bill covering that date.\n\nThank you for your assistance.",
+    "documents": [
+     "boarding pass",
+     "travel itinerary",
+     "hotel bill"
+    ],
+    "citations": [
+     "pack/minutes/board-pack.pdf#p6"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one evidence request draft for Lionel Pettigrew asking for travel documents covering the 12 March 2026 meeting. No minutes correction draft was needed as no conflict was listed.\n",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "12 March 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "C",
+       "name": "Lionel Pettigrew",
+       "status": "unknown",
+       "basis": "claim_only",
+       "engine_reason": "Only a claim (Jersey) supports this; no independent travel or hotel evidence.",
+       "contradiction": null,
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/minutes/board-pack.pdf#p6"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/minutes/board-pack.pdf",
+         "words": "Directors in attendance in the boardroom: Annika Vosberg (Chair), Rafael Duquesne, Lionel Pettigrew."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_evidence_request",
+    "args": {
+     "citations": [
+      "pack/minutes/board-pack.pdf#p6"
+     ],
+     "director_id": "C",
+     "documents_requested": [
+      "boarding pass",
+      "travel itinerary",
+      "hotel bill"
+     ],
+     "message": "Dear Lionel Pettigrew,\n\nIn connection with the board meeting of Corvane Holdings Ltd on 12 March 2026, please provide a copy of your boarding pass, travel itinerary or hotel bill covering that date.\n\nThank you for your assistance.",
+     "subject": "Request for documents – 12 March 2026 meeting"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.1648,
+ "seconds": 72,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 5,
+  "unread": [],
+  "agreed": 1,
+  "total": 10,
+  "disagreements": [
+   {
+    "docId": "pack/travel/bp-vosberg-in.png",
+    "what": "only Muse Spark read: flight A LGW JER 2026-03-11T18:40 2026-03-11T19:35"
+   },
+   {
+    "docId": "pack/travel/bp-vosberg-in.png",
+    "what": "only Muse Glimmer read: flight A LGW JER 2025-03-11T18:40 2025-03-11T19:35"
+   },
+   {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "what": "only Muse Spark read: flight B LGW GCI 2026-03-11T17:10 2026-03-11T18:05"
+   },
+   {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "what": "only Muse Spark read: flight B GCI JER 2026-03-11T19:30 2026-03-11T19:50"
+   },
+   {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "what": "only Muse Spark read: flight B JER GCI 2026-03-12T15:20 2026-03-12T15:40"
+   },
+   {
+    "docId": "pack/travel/eticket-duquesne.pdf",
+    "what": "only Muse Spark read: flight B GCI LGW 2026-03-12T16:30 2026-03-12T17:25"
+   },
+   {
+    "docId": "pack/minutes/board-pack.pdf",
+    "what": "only Muse Spark read: claim A CITY:STHELIER minutes"
+   },
+   {
+    "docId": "pack/minutes/board-pack.pdf",
+    "what": "only Muse Spark read: claim B CITY:STHELIER minutes"
+   },
+   {
+    "docId": "pack/minutes/board-pack.pdf",
+    "what": "only Muse Spark read: claim C CITY:STHELIER minutes"
+   }
+  ],
+  "changesDecision": [
+   {
+    "what": "Annika Vosberg: present from Muse Spark's reading, unknown from Muse Glimmer's"
+   },
+   {
+    "what": "Rafael Duquesne: present from Muse Spark's reading, unknown from Muse Glimmer's"
+   },
+   {
+    "what": "verdict: PASS from Muse Spark's reading, REVIEW from Muse Glimmer's"
+   }
+  ]
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

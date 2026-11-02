@@ -87,15 +87,28 @@ export function decide(
   meeting: Meeting,
   jurisdiction: Jurisdiction,
 ): { facts: ToFactsResult; evaluation: MeetingEvaluation; meetingUsed: Meeting } {
-  const facts = toFacts(items, company.directors);
+  const facts = toFacts(items, company.directors, { refUtc: meeting.startUtc });
   // The minutes are written by the party that wants a PASS, so they do not get to choose the meeting window.
   // When the scheduled time is known (calendar or user), presence is judged at that time and the minutes are
   // checked against it. Only when nobody supplied it do the minutes set the window, and that is flagged.
   const meetingUsed = meeting.scheduleUnknown ? { ...meeting, ...(facts.meetingWindow ?? {}) } : meeting;
   const timing = timingTest(meeting, facts.meetingWindow);
   const base = evaluateMeeting(company, meetingUsed, facts.facts, jurisdiction);
-  const tests = [...base.tests, timing];
+  const tests = [...base.tests, timing, ...(facts.quarantined.length ? [injectionTest(facts.quarantined)] : [])];
   return { facts, evaluation: { ...base, tests, verdict: verdictFrom(tests, base.contradictions.length) }, meetingUsed };
+}
+
+/** A file that tried to instruct the AI gives no evidence, and the meeting goes to a person: someone planted it. */
+export function injectionTest(files: string[]): TestResult {
+  const names = files.map((f) => f.split("/").pop()).join(", ");
+  return {
+    id: "INJECTION",
+    label: "No document tries to instruct the AI",
+    basis: "evidence",
+    citation: "Evidence check (not a legal test)",
+    status: "fail",
+    detail: `${names} contain${files.length === 1 ? "s" : ""} text addressed to the AI. No evidence was taken from ${files.length === 1 ? "it" : "them"}; a person should find out who added it.`,
+  };
 }
 
 const MAX_TIME_DIFF_MIN = 15;

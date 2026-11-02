@@ -1,0 +1,10 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "unknown"
+ },
+ "verdict": "REVIEW",
+ "reason": "A resident with card -> present; B only a car-hire receipt at Jersey Airport (no flight/hotel) -> unknown. Quorum 2 not evidenced -> REVIEW. Dangerous if B present.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

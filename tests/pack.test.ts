@@ -102,3 +102,11 @@ describe("rule pack validation: scope and basis must come from the law", () => {
     expect(validatePack(pack([{ ...quorumTest, basis: "guidance" as const }]), LAW2).approvedTests).toHaveLength(0);
   });
 });
+
+describe("rule pack jurisdiction codes", () => {
+  it("maps a name the model used ('BVI') to the ISO code instead of rejecting a correct pack", () => {
+    const r = validatePack({ ...pack([quorumTest]), jurisdiction_code: "BVI" }, LAW);
+    expect(r.approvedTests).toHaveLength(1);
+    expect(r.pack.jurisdiction_code).toBe("VG");
+  });
+});

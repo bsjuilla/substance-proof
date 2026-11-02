@@ -1,0 +1,48 @@
+{
+ "setup": {
+  "companyName": "Merlion Fictive Pte Ltd",
+  "jurisdiction": "SG",
+  "quorum": 2,
+  "mode": "virtual",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-04-15",
+  "start": "10:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Tan Wei Ling",
+    "isChair": true,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Arjun Mehrotra",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   },
+   {
+    "name": "Claire Fontaine",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "eticket-tan.pdf",
+   "role": "travel"
+  },
+  {
+   "name": "folio-tan.pdf",
+   "role": "hotel"
+  }
+ ]
+}

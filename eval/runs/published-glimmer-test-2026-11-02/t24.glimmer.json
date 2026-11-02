@@ -1,0 +1,284 @@
+[
+ {
+  "docId": "t24/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-07-12T10:00",
+    "end_local": "2026-07-12T12:00",
+    "tz": "GMT+8",
+    "place_text": "by video conference"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Tomasz Wierzba (Chair), present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Priya Anand-Lowe, present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Hong Kong",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Mei Lin Tavernier, by video from Hong Kong",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Oliver Strand, present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 42435
+ },
+ {
+  "docId": "t24/stay/folio_A_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "London, United Kingdom",
+     "check_in_local": "2026-07-10T06:35",
+     "check_in_tz": "Europe/London",
+     "check_out_local": "2026-07-13T02:29",
+     "check_out_tz": "Europe/London",
+     "quote": "You checked in on Friday 10 July 2026 at 06:35 and checked out on Monday 13 July 2026 at 02:29. All times on this statement are shown in local time (Europe/London).",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 30476
+ },
+ {
+  "docId": "t24/travel/ETKT_B_HKG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANAND-LOWE/PR IYA",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-07-11T20:00",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-07-12T04:26",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 579 Hong Kong International (HKG) 11/07/2026 20:00 (UTC+08:00) Singapore Changi (SIN) 12/07/2026 04:26 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 50052
+ },
+ {
+  "docId": "t24/travel/ETKT_B_SIN-HKG.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANAND-LOWE/PR IYA",
+     "origin_code": "SIN",
+     "dest_code": "HKG",
+     "depart_local": "2026-07-12T17:03",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-07-13T04:00",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 763 Singapore Changi (SIN) 12/07/2026 17:03 (UTC+08:00) Hong Kong International (HKG) 13/07/2026 04:00 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 8788
+ },
+ {
+  "docId": "t24/travel/ETKT_C_HKG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "TAVERNIER/MEI LIN",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-07-12T03:49",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-07-12T10:49",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 196 Hong Kong International (HKG) 12/07/2026 03:49 (UTC+08:00) Singapore Changi (SIN) 12/07/2026 10:49 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 70830
+ },
+ {
+  "docId": "t24/travel/ETKT_D_LHR-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "STRAND/OLIVER",
+     "origin_code": "LHR",
+     "dest_code": "SIN",
+     "depart_local": "2026-07-11T13:00",
+     "depart_tz": "UTC+01:00",
+     "arrive_local": "2026-07-12T05:21",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 773 London Heathrow (LHR) 11/07/2026 13:00 (UTC+01:00) Singapore Changi (SIN) 12/07/2026 05:21 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 65169
+ },
+ {
+  "docId": "t24/travel/ETKT_D_SIN-LHR.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "STRAND/OLIVER",
+     "origin_code": "SIN",
+     "dest_code": "LHR",
+     "depart_local": "2026-07-12T18:35",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-07-12T21:00",
+     "arrive_tz": "UTC+01:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 507 Singapore Changi (SIN) 12/07/2026 18:35 (UTC+08:00) London Heathrow (LHR) 12/07/2026 21:00 (UTC+01:00)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 51881
+ }
+]

@@ -1,0 +1,85 @@
+[
+ {
+  "docId": "t07/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-10-09T10:00",
+    "end_local": "2026-10-09T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Hong Kong",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "by video from Hong Kong",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 23812
+ },
+ {
+  "docId": "t07/travel/BP_A_JER-HKG.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANAND-LOWE/PRIIYA",
+     "origin_code": "JER",
+     "dest_code": "HKG",
+     "depart_local": "2026-10-09T11:22",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-10-10T01:22",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM JER Jersey Airport → TO HKG Hong Kong International DEPARTS (local GMT+1) 11:22 ARRIVES (local GMT+8) 01:22 (10 Oct 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "ms": 25978
+ }
+]

@@ -1,0 +1,140 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t28/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t28/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-06-22T10:00",
+    "end_local": "2026-06-22T12:00",
+    "tz": "GMT+1",
+    "place_text": "St Helier, Jersey"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Hugo Lindqvist",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "St Helier",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "present in St Helier",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00774125,
+  "ms": 6118,
+  "usage": {
+   "input_tokens": 3864,
+   "output_tokens": 685,
+   "reasoning_tokens": 435
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t28/stay/folio_A_STHELIER.pdf",
+  "readPath": "synthetic/generated/test/packs/t28/stay/folio_A_STHELIER.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-06-21T04:39",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-06-24T06:47",
+     "check_out_tz": "GMT+1",
+     "quote": "Arrival 21 Jun 2026 04:39 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.010503,
+  "ms": 9421,
+  "usage": {
+   "input_tokens": 3809,
+   "output_tokens": 1351,
+   "reasoning_tokens": 1143
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t28/travel/BP_B_JER-HKG.png",
+  "readPath": "synthetic/generated/test/packs/t28/travel/BP_B_JER-HKG.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "HUGO LINDQVIST",
+     "origin_code": "JER",
+     "dest_code": "HKG",
+     "depart_local": "2026-06-22T10:47",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-06-23T00:47",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "JER → HKG Jersey Airport Hong Kong International HUGO LINDQVIST SA 602 22 Jun 2026 10:47 00:47 (23 Jun 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020261,
+  "ms": 10269,
+  "usage": {
+   "input_tokens": 2065,
+   "output_tokens": 1807,
+   "reasoning_tokens": 1573
+  },
+  "redactions": []
+ }
+]

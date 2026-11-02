@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "unknown",
+  "B": "absent",
+  "C": "unknown"
+ },
+ "verdict": "REVIEW",
+ "reason": "A flights 9 Mar / 15 Mar (>24h) and folio is in spouse Ingrid Valcourt name -> not his stay -> unknown (dangerous if present). B checked out early 11 Mar and flew JER->LGW 11 Mar 10:05 -> absent (contradiction with minutes). C no-show folio only -> unknown/away. Contradiction -> at least REVIEW; quorum cannot be met -> could be FAIL. Expect FAIL or REVIEW; register FAIL? 0 present, 1 absent, 2 unknown -> REVIEW.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

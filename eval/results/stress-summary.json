@@ -1,8 +1,8 @@
 {
   "set": "stress",
-  "model": "replay:2026-10-29T18-51-42-413Z",
-  "commit": "7e71ff4",
-  "runAt": "2026-11-01T11:15:53.067Z",
+  "model": "replay:published-stress-2026-10-29",
+  "commit": "41fd2c9",
+  "runAt": "2026-11-02T05:01:56.512Z",
   "meetings": 12,
   "costUsd": 0.3227,
   "factsExact": "55/64 (85.9%)",
@@ -59,7 +59,7 @@
         "F|D|JER|LHR|2026-06-10T10:25:00Z|2026-06-10T17:25:00Z"
       ],
       "spurious": [
-        "F|A|JER|HKG|2020-06-30T09:57:00Z|2020-06-30T16:52:00Z",
+        "F|A|JER|HKG|2026-06-30T09:57:00Z|2026-06-30T16:52:00Z",
         "F|D|JER|LHR|2026-01-18T10:20:00Z|2026-01-18T11:20:00Z"
       ],
       "rejected": []

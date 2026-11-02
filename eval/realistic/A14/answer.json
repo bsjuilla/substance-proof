@@ -1,0 +1,11 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "absent",
+  "C": "present"
+ },
+ "verdict": "REVIEW",
+ "reason": "B stayed in Guernsey (LGW->GCI 11 Mar) and flew GCI->JER 12 Mar 09:40 after start; minutes say present -> contradiction. A,C present (within 24h). Quorum met, contradiction -> REVIEW.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

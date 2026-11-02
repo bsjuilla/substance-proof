@@ -1,0 +1,479 @@
+{
+ "id": "63bebfcf-6bfc-40ba-bd69-158a5f16c9ff",
+ "createdAt": "2026-11-01T13:52:28.995Z",
+ "model": "muse-spark-1.3",
+ "mode": "live",
+ "company": {
+  "id": "UPLOAD",
+  "name": "Kestrelmoor Ltd",
+  "directors": [
+   {
+    "id": "A",
+    "name": "Hugo Brannigan",
+    "isChair": true,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "B",
+    "name": "Ines Valdemar",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   },
+   {
+    "id": "C",
+    "name": "Petra Lindqvist",
+    "isChair": false,
+    "hasStrategicAuthority": true
+   }
+  ],
+  "quorumRequired": 2,
+  "options": {}
+ },
+ "jurisdiction": "JE",
+ "meeting": {
+  "id": "63bebfcf-6bfc-40ba-bd69-158a5f16c9ff",
+  "startUtc": "2026-10-25T09:00:00Z",
+  "endUtc": "2026-10-25T11:00:00Z",
+  "scheduleUnknown": false,
+  "mode": "in_person",
+  "venueCode": "CITY:STHELIER",
+  "attendeeIds": [
+   "A",
+   "B",
+   "C"
+  ],
+  "chairId": "A",
+  "isStrategic": true,
+  "minutesRecordStrategicDecisions": true,
+  "minutesAndRecordsKeptInJurisdiction": true
+ },
+ "meetingDateText": "25 October 2026",
+ "docs": [
+  {
+   "docId": "pack/minutes/minutes.pdf",
+   "kind": "minutes",
+   "sha256": "3f51a9afe3e44ff6222ba12165bd2827095009838fc31cdbefd76d8efde4fce7"
+  },
+  {
+   "docId": "pack/travel/bp-brannigan-in.png",
+   "kind": "boarding_pass",
+   "sha256": "4d9768c8583d578572f7b3ab98a517e6f6075c71795679f8a8520a186f5e3961",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.976608157157898
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/bp-brannigan-out.png",
+   "kind": "boarding_pass",
+   "sha256": "9e4c633c80d8fafb8ad800396a14f9c56f3e1e74d766bf784ce0fb895833c7d6",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 708,
+     "y1": 98,
+     "x2": 823,
+     "y2": 213,
+     "w": 900,
+     "h": 520,
+     "c": 0.9804878830909729
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/mobile-valdemar-in.png",
+   "kind": "boarding_pass",
+   "sha256": "8bbedd58bc37521c4928bae87be57b913dc0d20be3d3e1d4a5c515f7e36d43cb",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 628,
+     "y1": 242,
+     "x2": 725,
+     "y2": 341,
+     "w": 820,
+     "h": 1600,
+     "c": 0.96875
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/mobile-valdemar-out.png",
+   "kind": "boarding_pass",
+   "sha256": "5bca37987ad03e1e002b6a6b7163ea6b91f6d8092257477e2ffb772dcffce16a",
+   "redactions": [
+    {
+     "label": "qr code",
+     "x1": 628,
+     "y1": 242,
+     "x2": 725,
+     "y2": 341,
+     "w": 820,
+     "h": 1600,
+     "c": 0.96875
+    }
+   ]
+  },
+  {
+   "docId": "pack/travel/eticket-lindqvist.pdf",
+   "kind": "other",
+   "sha256": "0d3972cf04ecf11582515dc83119477b7bc99a8c831e5152b8c4e8a6f9906b5c"
+  }
+ ],
+ "facts": [
+  {
+   "kind": "claimed_location",
+   "directorId": "A",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "B",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist."
+   }
+  },
+  {
+   "kind": "claimed_location",
+   "directorId": "C",
+   "placeCode": "CITY:STHELIER",
+   "source": "minutes",
+   "cite": {
+    "docId": "pack/minutes/minutes.pdf",
+    "page": 1,
+    "quote": "Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist."
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "EDI",
+   "destCode": "JER",
+   "departUtc": "2026-10-24T20:00:00Z",
+   "arriveUtc": "2026-10-24T21:45:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-brannigan-in.png",
+    "page": 1,
+    "quote": "From: EDINBURGH EDI  To: JERSEY JER\nFlight: AU 455  Seat: 14C  Seq: 042\nDeparts: 24OCT 21:00\nArrives: 24OCT 22:45"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "A",
+   "originCode": "JER",
+   "destCode": "EDI",
+   "departUtc": "2026-10-25T14:30:00Z",
+   "arriveUtc": "2026-10-25T16:10:00Z",
+   "cite": {
+    "docId": "pack/travel/bp-brannigan-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER   To: EDINBURGH EDI\nDeparts: 25OCT 14:30\nArrives: 25OCT 16:10"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "SOU",
+   "destCode": "JER",
+   "departUtc": "2026-10-25T07:55:00Z",
+   "arriveUtc": "2026-10-25T08:40:00Z",
+   "cite": {
+    "docId": "pack/travel/mobile-valdemar-in.png",
+    "page": 1,
+    "quote": "From: SOUTHAMPTON SOU  To: JERSEY JER\nDeparts: 25OCT 07:55\nArrives: 25OCT 08:40"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "B",
+   "originCode": "JER",
+   "destCode": "SOU",
+   "departUtc": "2026-10-25T17:00:00Z",
+   "arriveUtc": "2026-10-25T17:45:00Z",
+   "cite": {
+    "docId": "pack/travel/mobile-valdemar-out.png",
+    "page": 1,
+    "quote": "From: JERSEY JER  To: SOUTHAMPTON SOU\nFlight: AU 127  Seat: 14C  Seq: 042\nDeparts: 25OCT 17:00\nArrives: 25OCT 17:45"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "LCY",
+   "destCode": "JER",
+   "departUtc": "2026-10-25T08:15:00Z",
+   "arriveUtc": "2026-10-25T09:20:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-lindqvist.pdf",
+    "page": 1,
+    "quote": "AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20"
+   }
+  },
+  {
+   "kind": "flight_leg",
+   "directorId": "C",
+   "originCode": "JER",
+   "destCode": "LCY",
+   "departUtc": "2026-10-25T18:30:00Z",
+   "arriveUtc": "2026-10-25T19:35:00Z",
+   "cite": {
+    "docId": "pack/travel/eticket-lindqvist.pdf",
+    "page": 1,
+    "quote": "AU 909 JERSEY JER -> LONDON CITY LCY 25 Oct 2026 dep 18:30 arr 19:35"
+   }
+  }
+ ],
+ "rejected": [],
+ "evaluation": {
+  "meetingId": "63bebfcf-6bfc-40ba-bd69-158a5f16c9ff",
+  "jurisdiction": "JE",
+  "verdict": "REVIEW",
+  "presence": [
+   {
+    "directorId": "A",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 11 h before the meeting and flight out of JER 4 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/bp-brannigan-in.png",
+      "page": 1,
+      "quote": "From: EDINBURGH EDI  To: JERSEY JER\nFlight: AU 455  Seat: 14C  Seq: 042\nDeparts: 24OCT 21:00\nArrives: 24OCT 22:45"
+     },
+     {
+      "docId": "pack/travel/bp-brannigan-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER   To: EDINBURGH EDI\nDeparts: 25OCT 14:30\nArrives: 25OCT 16:10"
+     }
+    ]
+   },
+   {
+    "directorId": "B",
+    "status": "present",
+    "basis": "independent",
+    "reason": "Flight into JER 0 h before the meeting and flight out of JER 6 h after it.",
+    "cites": [
+     {
+      "docId": "pack/travel/mobile-valdemar-in.png",
+      "page": 1,
+      "quote": "From: SOUTHAMPTON SOU  To: JERSEY JER\nDeparts: 25OCT 07:55\nArrives: 25OCT 08:40"
+     },
+     {
+      "docId": "pack/travel/mobile-valdemar-out.png",
+      "page": 1,
+      "quote": "From: JERSEY JER  To: SOUTHAMPTON SOU\nFlight: AU 127  Seat: 14C  Seq: 042\nDeparts: 25OCT 17:00\nArrives: 25OCT 17:45"
+     }
+    ]
+   },
+   {
+    "directorId": "C",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight LCY-JER) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-lindqvist.pdf",
+      "page": 1,
+      "quote": "AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20"
+     },
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist."
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ],
+  "tests": [
+   {
+    "id": "JE-quorum",
+    "label": "Quorum of directors physically present in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(b)",
+    "detail": "Quorum under the articles is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "JE-minutes-strategic",
+    "label": "Minutes record the strategic decisions made",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(c)",
+    "detail": "The minutes record the strategic decisions."
+   },
+   {
+    "id": "JE-records-kept",
+    "label": "Minutes and company records kept in Jersey",
+    "status": "pass",
+    "basis": "law",
+    "citation": "Jersey ES Law 2019, Art. 5(3)(e)",
+    "detail": "Records are kept in Jersey."
+   },
+   {
+    "id": "JE-majority-strategic",
+    "label": "Majority of directors in Jersey for strategic decisions",
+    "status": "pass",
+    "basis": "guidance",
+    "citation": "Comptroller guidance as summarised by Jersey law firms (secondary; verify)",
+    "detail": "A majority of 3 directors is 2. Evidence: 2 present, 1 absent, 0 unproven."
+   },
+   {
+    "id": "MEETING-TIME",
+    "label": "Minutes record the scheduled meeting time",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "The time in the minutes matches the scheduled time."
+   },
+   {
+    "id": "SECOND-READER",
+    "label": "A second, independent model reads the evidence the same way",
+    "basis": "evidence",
+    "citation": "Evidence check (not a legal test)",
+    "status": "pass",
+    "detail": "Read independently by meta/muse-glimmer-30b, the evidence leads to the same answer for every director (9/9 facts identical)."
+   }
+  ],
+  "contradictions": [
+   {
+    "directorId": "C",
+    "status": "absent",
+    "basis": "independent",
+    "reason": "In flight (flight LCY-JER) during part of the meeting window.",
+    "cites": [
+     {
+      "docId": "pack/travel/eticket-lindqvist.pdf",
+      "page": 1,
+      "quote": "AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20"
+     },
+     {
+      "docId": "pack/minutes/minutes.pdf",
+      "page": 1,
+      "quote": "Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist."
+     }
+    ],
+    "contradiction": {
+     "claimed": "Jersey",
+     "evidence": "in flight"
+    }
+   }
+  ]
+ },
+ "agent": {
+  "drafts": [
+   {
+    "id": "D1",
+    "kind": "minutes_correction",
+    "directorId": "C",
+    "directorName": "Petra Lindqvist",
+    "subject": "Kestrelmoor Ltd minutes review - 25 October 2026",
+    "message": "Hello, please review the minutes entry for Petra Lindqvist for the meeting on 25 October 2026. The minutes in pack/minutes/minutes.pdf state \"Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist.\" The evidence in pack/travel/eticket-lindqvist.pdf states \"AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20\". Please review.",
+    "citations": [
+     "pack/travel/eticket-lindqvist.pdf#p1",
+     "pack/minutes/minutes.pdf#p1"
+    ],
+    "status": "awaiting_approval"
+   }
+  ],
+  "summary": "I prepared one minutes correction draft for Petra Lindqvist for the meeting on 25 October 2026. It is awaiting approval and no evidence requests were needed.",
+  "trace": [
+   {
+    "step": 1,
+    "tool": "list_gaps",
+    "args": {},
+    "result": {
+     "meeting_date": "25 October 2026",
+     "jurisdiction": "JE",
+     "gaps": [
+      {
+       "director_id": "C",
+       "name": "Petra Lindqvist",
+       "status": "absent",
+       "basis": "independent",
+       "engine_reason": "In flight (flight LCY-JER) during part of the meeting window.",
+       "contradiction": {
+        "claimed": "Jersey",
+        "evidence": "in flight"
+       },
+       "minutes_vs_recording": null,
+       "documents": [
+        "pack/travel/eticket-lindqvist.pdf#p1",
+        "pack/minutes/minutes.pdf#p1"
+       ],
+       "quotes": [
+        {
+         "doc": "pack/travel/eticket-lindqvist.pdf",
+         "words": "AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20"
+        },
+        {
+         "doc": "pack/minutes/minutes.pdf",
+         "words": "Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "tool": "draft_minutes_correction",
+    "args": {
+     "citations": [
+      "pack/travel/eticket-lindqvist.pdf#p1",
+      "pack/minutes/minutes.pdf#p1"
+     ],
+     "director_id": "C",
+     "message": "Hello, please review the minutes entry for Petra Lindqvist for the meeting on 25 October 2026. The minutes in pack/minutes/minutes.pdf state \"Present in person: Hugo Brannigan (Chair), Ines Valdemar, Petra Lindqvist.\" The evidence in pack/travel/eticket-lindqvist.pdf states \"AU 902 LONDON CITY LCY -> JERSEY JER 25 Oct 2026 dep 08:15 arr 09:20\". Please review.",
+     "subject": "Kestrelmoor Ltd minutes review - 25 October 2026"
+    },
+    "result": {
+     "draft_id": "D1",
+     "status": "awaiting_approval"
+    }
+   }
+  ],
+  "rejectedCalls": 0
+ },
+ "costUsd": 0.102,
+ "seconds": 60,
+ "secondReader": {
+  "model": "meta/muse-glimmer-30b",
+  "read": 6,
+  "unread": [],
+  "agreed": 9,
+  "total": 9,
+  "disagreements": [],
+  "changesDecision": []
+ },
+ "provenance": {
+  "engine": "Substance Proof 0.1.0",
+  "rules": "Hand-written rules for Jersey (src/engine/rules)",
+  "models": [
+   "muse-spark-1.3 (reads documents, drafts requests)",
+   "sam-3.1 (finds personal data to black out in photos)",
+   "meta/muse-glimmer-30b (independent second reader)"
+  ]
+ }
+}

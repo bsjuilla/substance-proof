@@ -1,0 +1,43 @@
+{
+ "setup": {
+  "companyName": "Rozel Point Ltd",
+  "jurisdiction": "JE",
+  "quorum": 2,
+  "mode": "in_person",
+  "isStrategic": true,
+  "recordsKept": "yes",
+  "minutesRecordStrategic": "yes",
+  "date": "2026-03-12",
+  "start": "09:00",
+  "end": "11:00",
+  "directors": [
+   {
+    "name": "Marguerite Lenoir",
+    "isChair": true,
+    "strategic": true,
+    "resident": true
+   },
+   {
+    "name": "Stefan Aldous",
+    "isChair": false,
+    "strategic": true,
+    "resident": false
+   }
+  ]
+ },
+ "files": [
+  {
+   "name": "minutes.pdf",
+   "role": "minutes"
+  },
+  {
+   "name": "res-lenoir.png",
+   "role": "residence",
+   "director": 0
+  },
+  {
+   "name": "carhire-aldous.pdf",
+   "role": "travel"
+  }
+ ]
+}

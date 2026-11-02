@@ -1,0 +1,10 @@
+{
+ "presence": {
+  "A": "present",
+  "B": "present"
+ },
+ "verdict": "PASS",
+ "reason": "A in 11 Mar 17:00 out 13 Mar 19:00 (>24h) with angled folio 11-13 Mar covering; B e-ticket in 12 Mar 07:50 out 12 Mar 18:30. Minutes by initials A.K., R.D.-H.",
+ "rules": "README What counts as evidence of presence",
+ "registered_before_send": true
+}

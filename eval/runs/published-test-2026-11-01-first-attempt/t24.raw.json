@@ -1,0 +1,243 @@
+[
+ {
+  "file": "synthetic/generated/test/packs/t24/minutes.pdf",
+  "readPath": "synthetic/generated/test/packs/t24/minutes.pdf",
+  "extraction": {
+   "document_type": "minutes",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": "2026-07-12T10:00",
+    "end_local": "2026-07-12T12:00",
+    "tz": "GMT+8",
+    "place_text": "by video conference"
+   },
+   "facts": [
+    {
+     "kind": "claimed_location",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Tomasz Wierzba (Chair), present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Priya Anand-Lowe, present in Singapore",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Mei Lin Tavernier",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Hong Kong",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Mei Lin Tavernier, by video from Hong Kong",
+     "page": 1
+    },
+    {
+     "kind": "claimed_location",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Oliver Strand, present in Singapore",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01039875,
+  "ms": 8761,
+  "usage": {
+   "input_tokens": 3933,
+   "output_tokens": 1290,
+   "reasoning_tokens": 752
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t24/stay/folio_A_LONDON.pdf",
+  "readPath": "synthetic/generated/test/packs/t24/stay/folio_A_LONDON.pdf",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-07-10T06:35",
+     "check_in_tz": "Europe/London",
+     "check_out_local": "2026-07-13T02:29",
+     "check_out_tz": "Europe/London",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Friday 10 July 2026 at 06:35 and checked out on Monday 13 July 2026 at 02:29. All times on this statement are shown in local time (Europe/London).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.00846675,
+  "ms": 7017,
+  "usage": {
+   "input_tokens": 3812,
+   "output_tokens": 871,
+   "reasoning_tokens": 611
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t24/travel/ETKT_B_HKG-SIN.pdf",
+  "readPath": "synthetic/generated/test/packs/t24/travel/ETKT_B_HKG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.0065725,
+  "ms": 5967,
+  "usage": {
+   "input_tokens": 3813,
+   "output_tokens": 425,
+   "reasoning_tokens": 371
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t24/travel/ETKT_B_SIN-HKG.pdf",
+  "readPath": "synthetic/generated/test/packs/t24/travel/ETKT_B_SIN-HKG.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.006785,
+  "ms": 4878,
+  "usage": {
+   "input_tokens": 3813,
+   "output_tokens": 475,
+   "reasoning_tokens": 421
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t24/travel/ETKT_C_HKG-SIN.pdf",
+  "readPath": "synthetic/generated/test/packs/t24/travel/ETKT_C_HKG-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.007023,
+  "ms": 18429,
+  "usage": {
+   "input_tokens": 3813,
+   "output_tokens": 531,
+   "reasoning_tokens": 486
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t24/travel/ETKT_D_LHR-SIN.pdf",
+  "readPath": "synthetic/generated/test/packs/t24/travel/ETKT_D_LHR-SIN.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.0066015,
+  "ms": 7975,
+  "usage": {
+   "input_tokens": 3809,
+   "output_tokens": 433,
+   "reasoning_tokens": 388
+  }
+ },
+ {
+  "file": "synthetic/generated/test/packs/t24/travel/ETKT_D_SIN-LHR.pdf",
+  "readPath": "synthetic/generated/test/packs/t24/travel/ETKT_D_SIN-LHR.pdf",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": []
+  },
+  "costUsd": 0.008497,
+  "ms": 6878,
+  "usage": {
+   "input_tokens": 3809,
+   "output_tokens": 879,
+   "reasoning_tokens": 834
+  }
+ }
+]

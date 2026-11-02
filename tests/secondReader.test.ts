@@ -26,7 +26,11 @@ const folio = (person: string, place: string, checkIn = "2026-06-14T15:00") => (
 const minutes = {
   document_type: "minutes",
   meeting: { start_local: "2026-06-15T11:00", end_local: "2026-06-15T12:00", tz: "BST", place_text: "St Helier, Jersey" },
-  facts: [],
+  facts: ["Bruno Castell", "Chandra Velloso"].map((person_name) => ({
+    kind: "claimed_location", person_name, place: "St Helier", quote: "present in St Helier", page: 1,
+    origin_code: null, dest_code: null, depart_local: null, depart_tz: null, arrive_local: null, arrive_tz: null,
+    check_in_local: null, check_in_tz: null, check_out_local: null, check_out_tz: null,
+  })),
 } as any;
 const items = [
   { docId: "m/minutes.pdf", extraction: minutes },
@@ -65,11 +69,13 @@ describe("second reader (Muse Glimmer)", () => {
     expect(so.disagreements.length).toBeGreaterThan(0);
   });
 
-  it("is not applicable when nothing could be re-read, and never changes the verdict then", () => {
-    const so = secondOpinion(items, [{ docId: "m/stay/folio_A.pdf", error: "HTTP 429" }], company, meeting, "JE", primary());
-    expect(so.test.status).toBe("not_applicable");
+  it("when the second reader fails on every document, the second opinion is missing and a person looks", () => {
+    // Live test: NVIDIA answered 404 to every document and the check used to say "not applicable".
+    const so = secondOpinion(items, [{ docId: "m/stay/folio_A.pdf", error: "HTTP 404" }], company, meeting, "JE", primary());
+    expect(so.test.status).toBe("inconclusive");
     expect(so.unread).toHaveLength(1);
-    expect(combined(so)).toBe("PASS");
+    expect(combined(so)).toBe("REVIEW");
+    expect(secondOpinion(items, [], company, meeting, "JE", primary()).test.status).toBe("not_applicable");
   });
 
   it("cannot turn a failing meeting into a PASS", () => {

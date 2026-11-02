@@ -108,6 +108,7 @@ These defences are enforced by **code**. Before them, only the model's prompt en
 
 - **Forged evidence.** A convincing fake boarding pass will be read as real. Cross-checking the minutes, the recording and the hotel catches inconsistent forgeries, not consistent ones.
 - **Sending real documents to a third-party API.** Live mode sends documents to Meta's Model API (and to NVIDIA when the second reader is on). The app says to use synthetic documents unless the user's organisation has approved this.
+- **Free hackathon credits allow Meta to use the content.** The account's billing page says: "While using free credits your content may be used for product improvement." This project was built on those credits, so everything sent to Meta during the hackathon was synthetic by design. Real documents need pay-as-you-go billing (Standard mode: "your content is not used to train Meta models") and Zero Data Retention.
 - **Scanned PDFs are not redacted.** SAM 3.1 redacts photos only; a scanned PDF (for example a passport page) goes to the readers as it is. SAM itself runs on Meta's API, so even for photos Meta receives the original in order to find what to black out.
 - **Omitted documents and typed values.** See the fraud review above.
 - **Local processes.** Anything already running on the machine can call the server, as with any localhost tool.

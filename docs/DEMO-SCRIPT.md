@@ -1,35 +1,29 @@
-# 3-minute demo video: script
+# 3-minute demo video: script, shot by shot
 
-Record your screen (Windows: press **Win + Alt + R** with the Xbox Game Bar, or use OBS) with your voice. Open the app first: run `npm run app`, then open http://127.0.0.1:8787 in Chrome at full screen. Speak calmly; the script is about 400 words, which fits in 3 minutes. The analysis in the video is a **recorded live run** (the same one the public demo shows), so there is no waiting on screen; say so once, as below.
+Target 2:52, hard stop 3:00. About 315 spoken words, at roughly 2.3 words a second. Record the screen at 1440 x 900 with the browser at 110% zoom (Windows: Win + Alt + R with the Xbox Game Bar, or OBS), with your own voice. Open the app first: run `npm run app`, then open http://127.0.0.1:8787 in Chrome. The app is in recorded mode (no key needed): the analysis in the video is a **recorded live run**, the same one the public demo shows, so there is no waiting on screen.
 
----
+Rehearse once with a timer. If a take runs long, drop shot 10 (22 words, 12 seconds).
 
-### 0:00–0:05 · What I built (say it first; the organisers ask for this line)
-> "Everything in this video was built this week, from scratch, for this hackathon."
+| # | Time | On screen (exactly) | Said | Words |
+|---|---|---|---|---|
+| 1 | 0:00-0:12 | Home page. Cursor rests on the evidence desk: the recording line "I'm dialing in from my hotel in Dubai" next to the red NOT MET card. | "These board minutes say all three directors met in Jersey. The recording says one of them was in Dubai. Substance Proof caught it, and shows you the exact second." | 29 |
+| 2 | 0:12-0:30 | Scroll to "Three sources. One claim. They don't agree." Highlight the three cards one by one: minutes, recording, hotel bill. | "In Jersey, a company is only run from Jersey if a quorum of its directors is physically there when the board meets. The minutes record what people claimed. Nobody checks the claim against the boarding passes and hotel bills. I intern at a trust company. This is that check." | 49 |
+| 3 | 0:30-0:38 | A caption across the bottom: "Built solo for the Meta Global AI Developer Hackathon, 26 Oct - 4 Nov 2026. All documents synthetic." | "I built all of it during this hackathon. Every document you'll see is synthetic." | 14 |
+| 4 | 0:38-0:58 | Click "Open the case". Hold on the NOT MET header and "0 of 3 directors in Jersey". Then a 3-second insert (pre-recorded) of the meeting m10 boarding-pass viewer with the QR code blacked out. Then scroll to the timeline. | "This is a recorded live run. On photos, SAM 3.1 blacks out QR codes and faces first. Then Muse Spark reads every document and quotes the words behind each fact." | 29 |
+| 5 | 0:58-1:18 | Click Bruno's chip "recording.wav @39.8s". The viewer opens; play from the cited turn; let 3 seconds of audio play with the highlighted turn visible. | (let 3 seconds of audio play) "Muse Voice Transcribe turned the recording into a roll-call. Bruno: the minutes say St Helier. His own voice says Dubai, and so does his hotel bill." | 26 |
+| 6 | 1:18-1:30 | Close the viewer. Hover Chandra's row: "Flight LHR to JER 10:20-11:25". | "Chandra's e-ticket shows her still in the air during the meeting. Alice has only a hotel bill, and a bill alone isn't proof." | 23 |
+| 7 | 1:30-1:48 | Scroll to "Rule tests". Highlight "Not met: Quorum of directors physically present in Jersey, Art. 5(3)(b), Law". | "The AI never decides. Tested code applies the article of the law: quorum two, nobody proven present, so this meeting does not meet the test." | 25 |
+| 8 | 1:48-2:08 | Highlight the "Second reader: muse-glimmer-30b" line and open "Where the two readings differ". | "Then Meta's open-weight model, Muse Glimmer, reads every document again without seeing the first answer. Here it read Chandra differently, so the case is flagged for a person. Two readers must agree before anything is called evidenced." | 37 |
+| 9 | 2:08-2:24 | Scroll to the agent drafts. Click "Approve" on Bruno's minutes correction. Open "Show the agent's tool calls" and point at the rejected ones. | "A Muse Spark agent drafts the follow-up emails. Code checks every tool call, and here it rejected two. Nothing is sent until a person approves." | 24 |
+| 10 | 2:24-2:36 | Click "All meetings", then open the rule-pack screen. Highlight Art. 5(3)(b) "the law says" next to "the rule it became" and "Quote verified". | "Give it a new law and Muse Spark writes the rules itself, quoting the statute word for word. Code checks every quote." | 22 |
+| 11 | 2:36-2:48 | A full-screen card (make it in any slide tool): "30/30 verdicts on held-out synthetic meetings. 0 dangerous errors. On harder, realistic packs designed by an outside reviewer: 38/45 directors, 1 wrong result. All published." | "On thirty held-out meetings it got every verdict right. On harder packs an outside reviewer designed, it's weaker, and I publish exactly where it fails." | 25 |
+| 12 | 2:48-2:52 | Back to the home page: "The minutes say the board met in Jersey. Did it?" and the repository address. | "The minutes say the board met in Jersey. Now you can check." | 12 |
 
-### 0:05–0:15 · Hook (show: the home page, the evidence desk and the NOT MET card)
-> "These minutes say all three directors met in Jersey. One was in Dubai, and another was still on a plane. Substance Proof caught both, and points to the exact page and the exact second of the recording."
+## Notes
 
-### 0:15–0:40 · The problem (show: scroll to the case ledger)
-> "In Jersey, a company is managed there only if, among other things, a quorum of its directors is physically in Jersey when the board meets. Getting it wrong can mean fines up to a hundred thousand pounds. Today someone checks this by hand, and the minutes only record what people claimed. I'm an accounting student interning at a trust company, so I've watched people do this. It's for whoever has to rely on minutes they didn't write: an auditor, a tax adviser, a compliance officer. All documents here are synthetic."
+- The line the organisers ask for ("what was pre-existing and what you built") is shot 3: nothing pre-existed, and the first commit is on 28 October 2026. Do not say "this week"; say "during this hackathon".
+- The hero case has no photo, so SAM 3.1 never visibly fires in it. The 3-second insert in shot 4 comes from meeting m10 (open it, click the boarding-pass chip). Record it separately and cut it in.
+- Shots 5 and 8 are where the audience sees Meta's models doing something no plain OCR could: a voice contradicting a minute, and a second model disagreeing. Do not rush them.
+- Upload the video to YouTube as Unlisted or Public (the rules do not say which), and open the link while logged out before you submit it.
 
-### 0:40–1:25 · The case (show: click "Open the case"; this is a recorded live run)
-> "This is a recorded run of four Meta models. SAM 3.1 blacks out QR codes and faces on photos. Muse Spark reads every document, even phone photos and scans, and Muse Voice Transcribe turns the recording into a roll-call, each fact with the words it came from. Then Muse Glimmer, Meta's open-weight model, reads everything again on its own; if it disagrees, a person looks."
-(Scroll to the timeline.)
-> "Alice: only a hotel bill, and a hotel bill alone isn't proof, so she's unproven. Bruno: the minutes say St Helier, but his hotel bill and his own words on the recording say Dubai." (Click the recording chip, let it play 3 seconds.) "Chandra: her e-ticket shows she was still in the air."
-
-### 1:25–1:50 · The rules (show: Rule tests)
-> "The AI doesn't decide. Tested code applies the published rule: the quorum is two, and the evidence puts two of three directors outside Jersey, so this meeting can't meet the test."
-
-### 1:50–2:10 · The agent (show: drafts, click Approve on one, open the tool calls)
-> "A Muse Spark agent drafts corrections, quoting both sides. Code checks every tool call, and nothing is sent until a person approves."
-
-### 2:10–2:45 · Proof it works (show: README results table, then the "Fraud review" table)
-> "On thirty held-out synthetic meetings it got every verdict right, with zero dangerous errors. Then I had another AI attack it as a judge, a buyer and a fraudster. The best attack came through the form: tick 'lives in Jersey', say 'I'm dialling in from Lisbon', and it passed. Every attack it found is fixed and is now a test."
-
-### 2:45–3:00 · Close (show: the hero verdict again)
-> "Substance Proof: the minutes say the board met in Jersey. Now you can check. Built with Muse Spark, Voice Transcribe, SAM 3.1 and open-weight Muse Glimmer."
-
----
-
-**15-second clip for X:** screen-record the home page hero (0:00–0:12), then the moment you click the recording chip and Bruno says he is "dialing in from my hotel in Dubai". Use the X post in `docs/SUBMISSION.md`.
+**15-second clip for X** (sound off, captions burned in, portrait crop): minutes page with "present in St Helier" highlighted (3 s) -> the recording turn "I'm dialing in from my hotel in Dubai" (4 s) -> the Dubai hotel bill (3 s) -> Chandra in the air (3 s) -> NOT MET and "Tested code applies the law" (4 s). Use the X post in `docs/SUBMISSION.md`.

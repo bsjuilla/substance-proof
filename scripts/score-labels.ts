@@ -9,7 +9,10 @@ const csvPath = process.argv[2];
 if (!csvPath) throw new Error("Pass the labeller's CSV path");
 const ANS = join(ROOT, "synthetic", "generated", "test", "answers");
 const runs = join(ROOT, "eval", "runs");
-const run = readdirSync(runs).sort().reverse().find((r) => existsSync(join(runs, r, "t01.raw.json")) && existsSync(join(runs, r, "t30.raw.json")));
+// The published run the README numbers come from, unless another is given (RUN=<folder in eval/runs>); else the newest complete one.
+const complete = (r: string) => existsSync(join(runs, r, "t01.raw.json")) && existsSync(join(runs, r, "t30.raw.json"));
+const wanted = process.env.RUN ?? "published-test-2026-11-01";
+const run = complete(wanted) ? wanted : readdirSync(runs).sort().reverse().find(complete);
 
 const map: Record<string, string> = { present: "yes", absent: "no", unknown: "cannot_tell" };
 const norm = (s: string) => s.trim().toLowerCase().replace(/[^a-z_]/g, "");

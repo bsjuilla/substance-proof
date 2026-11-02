@@ -1,5 +1,7 @@
 # Substance Proof
 
+[![CI](https://github.com/bsjuilla/substance-proof/actions/workflows/ci.yml/badge.svg)](https://github.com/bsjuilla/substance-proof/actions/workflows/ci.yml) · MIT licence ([LICENSE](LICENSE))
+
 ![Substance Proof: the minutes say the board met in Jersey. Did it?](docs/og.jpg)
 
 **The minutes say the board met in Jersey. Did it?**
@@ -65,7 +67,7 @@ Measured on the official texts (Jersey statute from jerseylaw.je; IRAS company-r
 - **Decided with the AI-written packs, all 41 dev and held-out meetings got the same law-level verdict as the hand-written rules, in 3 out of 3 independent runs** ([`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)). After the presence rules changed on 31 October, the published pack was measured again without calling the model (`RECHECK=1`): it still agrees on all 42 meetings, including the new m12.
 - Honest note: before I tightened the prompt, one run turned IRAS's descriptive sentence "*Usually, the location of the company's Board of Directors meetings … determines …*" into a hard rule, which changed 2 of 41 verdicts. The prompt now tells the model to encode only stated conditions, and the human approval step exists for exactly this kind of mistake.
 
-`npx tsx scripts/build-packs.ts` reproduces this (about $0.18 for 3 runs). In live mode, *Rules written from the law* lets you paste any substance law and see the proposed rules with their quotes; *Decide with the rules Muse Spark wrote* runs a meeting with the AI-written pack instead of the hand-written rules.
+`npx tsx scripts/build-packs.ts` reproduces this (about $0.20 for 3 runs; `costUsd` is 0.2017 in [`eval/results/rulepack-agreement.json`](eval/results/rulepack-agreement.json)). In live mode, *Rules written from the law* lets you paste any substance law and see the proposed rules with their quotes; *Decide with the rules Muse Spark wrote* runs a meeting with the AI-written pack instead of the hand-written rules.
 
 The model **never decides** a legal test. The line between AI and code is deliberate:
 
@@ -102,7 +104,7 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 
 On this held-out run (2 November) the check fired on 2 meetings, and both times Glimmer was the one that was wrong (an e-ticket it skipped in t05; the day-first date 06/08/2026 read as 8 June in t08). On the 29 October run it fired on 3: once it caught a real Muse Spark miss (an e-ticket, t24) and twice it was Glimmer's dates. So on clean synthetic documents the second reader has changed no final verdict; on the realistic set it caught two legs Muse Spark missed (A14, B10 in the live review). Its cost is a person's look, never a false EVIDENCED: two independent readers must agree before anything is called met. Two bugs found on 1 November made it look worse than it is: it rendered PDFs whose fonts are not embedded (most office-made PDFs) as **blank pages**, and it only looked at the first 3 pages of a PDF, so it missed attendance on page 6 of a board pack. Both are fixed; on the realistic set its agreement with Muse Spark went from 6 / 51 facts to 95 / 101.
 
-**Cost:** one meeting costs about **$0.03–0.09** of Meta API credit. Muse Spark alone takes 30–70 seconds; with the second reader on, the five recorded demo runs took 1.5 to 7 minutes, mostly waiting on NVIDIA's free hosted API (Glimmer is free there). The full 30-meeting held-out run cost **$0.91**.
+**Cost:** one meeting costs about **$0.03–0.09** of Meta API credit. Muse Spark alone takes 30–70 seconds; with the second reader on, the five recorded demo runs took 1.5 to 7 minutes, mostly waiting on NVIDIA's hosted API. The full 30-meeting held-out run of 1 November cost **$1.14** (summed in [`eval/results/test-summary.json`](eval/results/test-summary.json); the 29 October run cost $0.92).
 
 **Honest caveats**
 - All documents are synthetic. The held-out, dev and stress sets are rendered from templates I wrote; the realistic set was designed by an outside AI reviewer to look like real packs, and the product does much worse there (38 / 45 directors, 12 / 16 verdicts) than on my own templates. Real packs are messier still (real handwriting, multi-page bundles, other languages), and the stress set shows accuracy falls as documents get worse. The synthetic world is also easier than the real one: every document prints a time zone (real boarding passes print local time only; the code now uses the airport's own zone), and flight times are not realistic for the route.
@@ -127,14 +129,17 @@ These labels were made on 28 October, before the company names were changed; the
 
 ## Run it
 
-Requirements: Node 20+ and Chrome (only for regenerating the synthetic documents).
+Requirements: Node 20+ (CI uses Node 22) and `git` (the eval scripts record the commit, and report "unknown" outside a git checkout). Chrome is needed only to regenerate the synthetic documents. **No API key is needed** to run the app, the tests or the replays.
 
 ```bash
-npm install
+npm ci
 npm test                    # 133 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
-cp .env.example .env        # then put your own Meta Model API key in .env (never commit it)
-npm run app                 # builds the web app and serves it at http://127.0.0.1:8787
+npm run app                 # recorded mode: the five real recorded runs, no key. Serves http://127.0.0.1:8787
+# Optional, for live analysis of your own packs:
+cp .env.example .env        # then put your own Meta Model API key in .env (never commit it); restart the app
 ```
+
+Port 8787 busy? `PORT=8790 npm run app`. Without a key the upload area is hidden; everything else works.
 
 - `npm run app` binds to `127.0.0.1` only; your key stays on the server and never reaches the browser. Uploads are kept in `uploads/` (git-ignored).
 - `npm run gen` / `npm run gen:test` / `npx tsx scripts/generate-synthetic.ts stress` rebuild the synthetic packs.
@@ -227,7 +232,7 @@ From the same review. None of this is built; it is listed so nobody mistakes the
 
 ## Built during the hackathon
 
-Everything in this repository was written during the hackathon (26 October – 4 November 2026); the commit history starts on 28 October 2026. No earlier code was reused.
+Everything in this repository was written during the hackathon (26 October – 4 November 2026); the first commit is on 28 October 2026 (10:08, UTC+4) and every commit is by one author. No earlier code was reused. Open-source dependencies are listed in `package.json`, each used under its own licence.
 
 **Tools used to build it.** I wrote this with the help of an AI coding assistant. The images for social media and the link preview were made with an AI image generator from prompts I wrote; they show the synthetic documents. Grok (xAI) was used only outside the product: for the cross-check above and as a red-team reviewer. The product itself uses only Meta's models.
 
@@ -238,7 +243,8 @@ The minutes are written by the party that wants a PASS, so the review treats eve
 ## Safety and privacy
 
 - Synthetic data only in the demo. Do not upload real client documents to a third-party API without your organisation's approval.
-- Calls use Muse Spark in **Standard** mode (`muse-spark-1.3`), never Contributor mode, which would let Meta train on the documents. Every request sets `store: false`, and the agent does not rely on server-side conversation state, so the whole pipeline is compatible with Meta's Zero Data Retention. Uploaded packs are deleted from `uploads/` 24 hours after they were analysed.
+- **Data use while building this.** The code calls the Standard model ID `muse-spark-1.3` (set in `src/extract/client.ts`; there is no `-contributor` ID anywhere in the code or the recorded runs). But this project was built on the free hackathon credits, and Meta's billing page for the account says: "While using free credits your content may be used for product improvement." So during the hackathon, Meta may have used the content sent to the model. That is acceptable here because **every document sent was synthetic**. For real client documents, stop using free credits and pay as you go: Meta's docs say "In Standard mode, your content is not used to train Meta models" (Muse Voice Transcribe has no Contributor mode), and ask Meta to enable Zero Data Retention.
+- Every request sets `store: false`, and the agent does not rely on server-side conversation state, so the pipeline is compatible with Zero Data Retention. While the server runs, it deletes uploaded packs from `uploads/` once they are more than 24 hours old (checked every hour).
 - The optional second reader (Muse Glimmer) is off unless `NVIDIA_API_KEY` is set. When it is on, documents also go to NVIDIA's hosted API; Glimmer is open-weight, so for real documents it can run on the firm's own hardware instead.
 - Photos (PNG, JPG, WebP) are redacted by SAM 3.1 (QR codes, barcodes, faces, signatures) before Muse Spark reads them. If redaction fails, the image is not sent to Muse Spark at all. **Scanned PDFs are not redacted yet:** they go to the reader as they are. The blacked-out copies are deleted as soon as both readers have finished. SAM itself runs on Meta's API, so Meta does receive the original photo in order to find what to black out; only the reader gets the blacked-out copy.
 - Board packs contain personal data (names, travel, hotel stays, voices). Using this on real clients needs a lawful basis and a cross-border transfer assessment under the applicable law (for example GDPR / UK GDPR, the Data Protection (Jersey) Law 2018, Singapore's PDPA or Mauritius's Data Protection Act 2017). That assessment is not part of this hackathon project.

@@ -34,7 +34,8 @@ const key = (f: Fact): string => {
 
 async function main() {
   const { client, model } = REPLAY ? { client: null as any, model: "replay:" + REPLAY } : makeClient();
-  const commit = execSync("git rev-parse --short HEAD", { cwd: ROOT }).toString().trim();
+  let commit = "unknown"; // a ZIP download has no git history
+  try { commit = execSync("git rev-parse --short HEAD", { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch { /* not a git checkout */ }
   const ids = readdirSync(PACKS).filter((d) => (only.length ? only.includes(d) : true)).sort();
   const runDir = join(ROOT, "eval", "runs", new Date().toISOString().replace(/[:.]/g, "-"));
   mkdirSync(runDir, { recursive: true });

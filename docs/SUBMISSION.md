@@ -25,10 +25,22 @@ Indie Developer · Build for Your World
 - Video: (paste your video link)
 
 ## X post (for Most Viral; attach the 15-second clip)
+There is no official hashtag in the rules or on the event pages. Participants use #MetaAIHackathon about twice as often as #MetaHackathon, so use that one, once. Post this text (it is under 280 characters; the link counts as 23):
+
+```
 The minutes said all 3 directors met in Jersey.
-The hotel bill and the meeting recording said one was in Dubai.
-The e-ticket said another was still in the air.
+The recording put one in Dubai. The e-ticket put another in the air.
 
-I built Substance Proof for the #MetaHackathon: Meta's Muse models read the evidence (Spark, Voice Transcribe, SAM 3.1 and open-weight Glimmer), tested code applies the law, and every finding cites the page or the second. (Synthetic demo documents.)
+Substance Proof, my #MetaAIHackathon build: Meta's Muse models read the evidence; tested code applies the law.
 
+Synthetic demo docs.
 github.com/bsjuilla/substance-proof
+```
+
+Then reply to your own post with these, one at a time:
+1. How it works: SAM 3.1 blacks out QR codes and faces on photos first. Muse Spark reads every PDF and photo and quotes the words behind each fact. Muse Voice Transcribe turns the recording into a timed roll-call. Code, not the model, applies the law.
+2. Then Muse Glimmer, Meta's open-weight model, re-reads every document without seeing the first answer. If its reading would change the result, a person looks. Two readers must agree before anything is called EVIDENCED.
+3. I let another AI attack it as a judge, a buyer and a fraudster, then with live models on 16 realistic packs. Directors placed correctly went from 24/45 to 38/45; one wrong result is still open, and it's in the README.
+4. Built solo for #MetaAIHackathon by an accounting student in Mauritius. Repo and key-free demo: github.com/bsjuilla/substance-proof
+
+Do not ask anyone to repost or vote, and do not post near-identical copies: only the submitted post counts.

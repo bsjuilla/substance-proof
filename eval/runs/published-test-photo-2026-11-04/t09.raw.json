@@ -1,0 +1,125 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t09/stay/AIPHOTO_folio_A_SINGAPORE.png",
+  "readPath": "synthetic/generated/test-photo/packs/t09/stay/AIPHOTO_folio_A_SINGAPORE.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Tomasz Wierzba",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SINGAPORE",
+     "check_in_local": "2026-07-10T06:58",
+     "check_in_tz": "Asia/Singapore",
+     "check_out_local": "2026-07-13T00:50",
+     "check_out_tz": "Asia/Singapore",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Friday 10 July 2026 at 06:58 and checked out on Monday 13 July 2026 at 00:50. All times on this statement are shown in local time (Asia/Singapore).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02073025,
+  "ms": 16644,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1258,
+   "reasoning_tokens": 1030
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t09/stay/AIPHOTO_folio_B_PARIS.png",
+  "readPath": "synthetic/generated/test-photo/packs/t09/stay/AIPHOTO_folio_B_PARIS.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "PARIS, FRANCE",
+     "check_in_local": null,
+     "check_in_tz": "Europe/Paris",
+     "check_out_local": "2026-07-12T04:43",
+     "check_out_tz": "Europe/Paris",
+     "quote": "checked out on Sunday 12 July 2026 at 04:43.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02678225,
+  "ms": 29199,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 2682,
+   "reasoning_tokens": 2487
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t09/stay/AIPHOTO_folio_C_HONGKONG.png",
+  "readPath": "synthetic/generated/test-photo/packs/t09/stay/AIPHOTO_folio_C_HONGKONG.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Samuel Achterberg",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "HONG KONG",
+     "check_in_local": "2026-07-09T13:20",
+     "check_in_tz": "Asia/Hong_Kong",
+     "check_out_local": "2026-07-12T15:53",
+     "check_out_tz": "Asia/Hong_Kong",
+     "quote": "You checked in on Thursday 9 July 2026 at 13:20 and checked out on Sunday 12 July 2026 at 15:53. All times on this statement are shown in local time (Asia/Hong_Kong).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020114,
+  "ms": 17991,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1113,
+   "reasoning_tokens": 870
+  },
+  "redactions": []
+ }
+]

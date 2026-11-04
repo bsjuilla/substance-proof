@@ -1,0 +1,166 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t15/travel/AIPHOTO_PHOTO_BP_A_HKG-SIN.png",
+  "readPath": "synthetic/generated/test-photo/packs/t15/travel/AIPHOTO_PHOTO_BP_A_HKG-SIN.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MARCUS OYELARAN",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-09-13T04:02",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-09-13T11:02",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM HKG Hong Kong International TO SIN Singapore Changi FLIGHT SA 414 DATE 13 Sept 2026 DEPARTS (local GMT+8) 04:02 ARRIVES (local GMT+8) 11:02",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01953875,
+  "ms": 16136,
+  "usage": {
+   "input_tokens": 4078,
+   "output_tokens": 1045,
+   "reasoning_tokens": 809
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t15/travel/AIPHOTO_PHOTO_BP_B_CDG-SIN.png",
+  "readPath": "synthetic/generated/test-photo/packs/t15/travel/AIPHOTO_PHOTO_BP_B_CDG-SIN.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANA SOKOLOVA",
+     "origin_code": "CDG",
+     "dest_code": "SIN",
+     "depart_local": "2026-09-12T14:00",
+     "depart_tz": "CEST",
+     "arrive_local": "2026-09-13T07:25",
+     "arrive_tz": "GMT+6",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM CDG Paris Charles de Gaulle TO SIN Singapore Changi DATE 12 Sept 2026 DEPARTS (local CEST) 14:00 ARRIVES (local GMT+6) 07:25 (13 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020826499999999998,
+  "ms": 17932,
+  "usage": {
+   "input_tokens": 4078,
+   "output_tokens": 1348,
+   "reasoning_tokens": 1114
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t15/travel/AIPHOTO_PHOTO_BP_B_SIN-CDG.png",
+  "readPath": "synthetic/generated/test-photo/packs/t15/travel/AIPHOTO_PHOTO_BP_B_SIN-CDG.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANA SOKOLOVA",
+     "origin_code": "SIN",
+     "dest_code": "CDG",
+     "depart_local": "2026-09-13T18:06",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-09-13T22:00",
+     "arrive_tz": "CEST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM SIN Singapore Changi → TO CDG Paris Charles de Gaulle PASSENGER ANA SOKOLOVA FLIGHT SA 690 DATE 13 Sept 2026 DEPARTS (local GMT+8) 18:06 ARRIVES (local CEST) 22:00",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.021795500000000002,
+  "ms": 22121,
+  "usage": {
+   "input_tokens": 4078,
+   "output_tokens": 1576,
+   "reasoning_tokens": 1332
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t15/stay/AIPHOTO_folio_C_SINGAPORE.png",
+  "readPath": "synthetic/generated/test-photo/packs/t15/stay/AIPHOTO_folio_C_SINGAPORE.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SINGAPORE",
+     "check_in_local": "2026-09-12T09:03",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-09-14T08:24",
+     "check_out_tz": "GMT+8",
+     "quote": "Arrival 12 Sept 2026 09:03 (GMT+8) Departure 14 Sept 2026 08:24 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02091725,
+  "ms": 19920,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1302,
+   "reasoning_tokens": 1079
+  },
+  "redactions": []
+ }
+]

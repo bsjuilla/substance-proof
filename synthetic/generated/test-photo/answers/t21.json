@@ -1,0 +1,103 @@
+{
+  "scenario": {
+    "id": "t21",
+    "trap": "no travel or hotel evidence for Daniel Mbeki-Shaw",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "letter",
+      "minutes": "prose",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t21",
+    "name": "Corrisande Holdings Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Daniel Mbeki-Shaw",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t21",
+    "startUtc": "2026-10-10T02:00:00Z",
+    "endUtc": "2026-10-10T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "CDG",
+      "destCode": "SIN",
+      "departUtc": "2026-10-09T19:33:00Z",
+      "arriveUtc": "2026-10-10T02:33:00Z",
+      "cite": {
+        "docId": "t21/travel/ETKT_B_CDG-SIN.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t21/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:PARIS",
+      "source": "minutes",
+      "cite": {
+        "docId": "t21/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Paris"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B"
+      }
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

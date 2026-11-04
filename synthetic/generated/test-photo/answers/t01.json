@@ -1,0 +1,109 @@
+{
+  "scenario": {
+    "id": "t01",
+    "trap": "no traps",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t01",
+    "name": "Halvenmoor Capital (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Samuel Achterberg",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t01",
+    "startUtc": "2026-09-22T09:00:00Z",
+    "endUtc": "2026-09-22T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:LONDON",
+      "checkInUtc": "2026-09-21T00:58:00Z",
+      "checkOutUtc": "2026-09-23T23:21:00Z",
+      "cite": {
+        "docId": "t01/stay/folio_A_LONDON.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:PARIS",
+      "checkInUtc": "2026-09-20T18:49:00Z",
+      "checkOutUtc": "2026-09-23T00:24:00Z",
+      "cite": {
+        "docId": "t01/stay/folio_B_PARIS.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:LONDON",
+      "source": "minutes",
+      "cite": {
+        "docId": "t01/minutes.pdf",
+        "page": 1,
+        "quote": "by video from London"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:PARIS",
+      "source": "minutes",
+      "cite": {
+        "docId": "t01/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Paris"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      }
+    ],
+    "contradictions": [],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

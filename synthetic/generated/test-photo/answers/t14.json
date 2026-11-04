@@ -1,0 +1,193 @@
+{
+  "scenario": {
+    "id": "t14",
+    "trap": "minutes say Helena Brookfield was there, but evidence shows a hotel elsewhere",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "scan",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t14",
+    "name": "Brantwick Orral Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Grace Whitlock",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Mei Lin Tavernier",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t14",
+    "startUtc": "2026-09-11T09:00:00Z",
+    "endUtc": "2026-09-11T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:PARIS",
+      "checkInUtc": "2026-09-09T11:39:00Z",
+      "checkOutUtc": "2026-09-11T22:09:00Z",
+      "cite": {
+        "docId": "t14/stay/folio_A_PARIS.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "DXB",
+      "destCode": "JER",
+      "departUtc": "2026-09-10T19:00:00Z",
+      "arriveUtc": "2026-09-11T04:20:00Z",
+      "cite": {
+        "docId": "t14/travel/BP_B_DXB-JER.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "JER",
+      "destCode": "DXB",
+      "departUtc": "2026-09-11T19:54:00Z",
+      "arriveUtc": "2026-09-12T03:00:00Z",
+      "cite": {
+        "docId": "t14/travel/BP_B_JER-DXB.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:HONGKONG",
+      "checkInUtc": "2026-09-09T09:31:00Z",
+      "checkOutUtc": "2026-09-12T16:57:00Z",
+      "cite": {
+        "docId": "t14/stay/folio_C_HONGKONG.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "D",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-09-10T05:17:00Z",
+      "checkOutUtc": "2026-09-12T09:49:00Z",
+      "cite": {
+        "docId": "t14/stay/folio_D_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:PARIS",
+      "source": "minutes",
+      "cite": {
+        "docId": "t14/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Paris"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t14/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t14/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t14/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent"
+      },
+      {
+        "directorId": "B",
+        "status": "present"
+      },
+      {
+        "directorId": "C",
+        "status": "absent"
+      },
+      {
+        "directorId": "D",
+        "status": "unknown"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "C"
+      }
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

@@ -1,0 +1,43 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t21/travel/AIPHOTO_ETKT_B_CDG-SIN.png",
+  "readPath": "synthetic/generated/test-photo/packs/t21/travel/AIPHOTO_ETKT_B_CDG-SIN.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "WIERZBA/TOMASZ",
+     "origin_code": "CDG",
+     "dest_code": "SIN",
+     "depart_local": "2026-10-09T21:33",
+     "depart_tz": "UTC+02:00",
+     "arrive_local": "2026-10-10T10:33",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Paris Charles de Gaulle (CDG) 09/10/2026 21:33 (UTC+02:00) Singapore Changi (SIN) 10/10/2026 10:33 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02091725,
+  "ms": 18036,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1302,
+   "reasoning_tokens": 1091
+  },
+  "redactions": []
+ }
+]

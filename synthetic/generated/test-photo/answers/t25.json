@@ -1,0 +1,135 @@
+{
+  "scenario": {
+    "id": "t25",
+    "trap": "minutes say Grace Whitlock was there, but evidence shows a hotel elsewhere; no travel or hotel evidence for Helena Brookfield",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t25",
+    "name": "Oskerby Vance (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Fatima Zahra Bennis",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Grace Whitlock",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t25",
+    "startUtc": "2026-08-14T09:00:00Z",
+    "endUtc": "2026-08-14T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-08-13T04:57:00Z",
+      "checkOutUtc": "2026-08-15T19:49:00Z",
+      "cite": {
+        "docId": "t25/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:PARIS",
+      "checkInUtc": "2026-08-12T08:20:00Z",
+      "checkOutUtc": "2026-08-16T01:30:00Z",
+      "cite": {
+        "docId": "t25/stay/folio_B_PARIS.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t25/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t25/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t25/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      },
+      {
+        "directorId": "C",
+        "status": "unknown"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B"
+      }
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

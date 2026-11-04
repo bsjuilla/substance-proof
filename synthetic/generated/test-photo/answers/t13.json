@@ -1,0 +1,98 @@
+{
+  "scenario": {
+    "id": "t13",
+    "trap": "no travel or hotel evidence for Fatima Zahra Bennis",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t13",
+    "name": "Lissandre Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Fatima Zahra Bennis",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Oliver Strand",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t13",
+    "startUtc": "2026-03-04T09:00:00Z",
+    "endUtc": "2026-03-04T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-03T08:45:00Z",
+      "checkOutUtc": "2026-03-06T03:41:00Z",
+      "cite": {
+        "docId": "t13/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t13/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t13/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "unknown"
+      }
+    ],
+    "contradictions": [],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

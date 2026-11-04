@@ -1,0 +1,84 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t26/travel/AIPHOTO_BP_A_HKG-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t26/travel/AIPHOTO_BP_A_HKG-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "LUCIA FERRANTE",
+     "origin_code": "HKG",
+     "dest_code": "JER",
+     "depart_local": "2026-09-24T11:11",
+     "depart_tz": "GMT+8",
+     "arrive_local": "2026-09-24T11:11",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM HKG Hong Kong International TO JER Jersey Airport DEPARTS (local GMT+8) 11:11 ARRIVES (local GMT+1) 11:11",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.022970499999999998,
+  "ms": 23128,
+  "usage": {
+   "input_tokens": 4219,
+   "output_tokens": 1811,
+   "reasoning_tokens": 1587
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t26/stay/AIPHOTO_folio_B_DUBAI.png",
+  "readPath": "synthetic/generated/test-photo/packs/t26/stay/AIPHOTO_folio_B_DUBAI.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-09-23T14:40",
+     "check_in_tz": "Asia/Dubai",
+     "check_out_local": "2026-09-25T19:57",
+     "check_out_tz": "Asia/Dubai",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 23 September 2026 at 14:40 and checked out on Friday 25 September 2026 at 19:57. All times on this statement are shown in local time (Asia/Dubai).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020708999999999998,
+  "ms": 18209,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1253,
+   "reasoning_tokens": 1027
+  },
+  "redactions": []
+ }
+]

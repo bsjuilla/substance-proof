@@ -121,7 +121,7 @@ export function App() {
               <h2 id="how-h">The model reads.<br />Code decides.<br /><span>A person approves.</span></h2>
               <ol className="how-steps">
                 <li><span className="n">01</span><div><h3>Read</h3><p>SAM 3.1 blacks out QR codes (and looks for faces and signatures) in photos; Muse Spark reads every PDF and photo; Muse Voice Transcribe turns the recording into a timed roll-call. Muse Glimmer, Meta's open-weight model, then reads every document again on its own. Each fact comes back with the exact words it was read from.</p><p className="tool">Muse Spark 1.3 · Voice Transcribe · SAM 3.1 · Glimmer (open weights)</p></div></li>
-                <li><span className="n">02</span><div><h3>Decide</h3><p>Deterministic, unit-tested code converts time zones, matches names, places each director, and applies the published rule. The model never decides a test.</p><p className="tool">133 tests · Jersey Art. 5(3) · IRAS guidance</p></div></li>
+                <li><span className="n">02</span><div><h3>Decide</h3><p>Deterministic, unit-tested code converts time zones, matches names, places each director, and applies the published rule. The model never decides a test.</p><p className="tool">139 tests · Jersey Art. 5(3) · IRAS guidance</p></div></li>
                 <li><span className="n">03</span><div><h3>Approve</h3><p>A Muse Spark agent drafts evidence requests and minutes corrections through function tools. Code checks every call, and nothing is sent without a person.</p><p className="tool">Function calling · guardrails · human approval</p></div></li>
               </ol>
             </section>

@@ -55,6 +55,7 @@ I am an accounting and finance student interning at a trust and corporate-servic
 | **Muse Spark 1.3** (transcript reasoning) | Finds who said where they were joining from, with the turn it was said in | Spoken claims can't be cited to the second |
 | **Muse Spark 1.3** (function tools, approval-gated agent) | `list_gaps`, `get_rule_result`, `draft_evidence_request`, `draft_minutes_correction`. Stateless: it sends its own history each step and nothing is stored at Meta, so it also runs on a Zero Data Retention account | No follow-up: gaps stay gaps |
 | **Muse Spark 1.3** (long context, strict schema) | **Writes the rules from the law.** Reads a full statute or official guidance (about 10,000 tokens of source) and drafts a rule pack: each rule as data, with the exact words of the law behind it | Every new jurisdiction needs a developer to hand-code it |
+| **Muse Image** (`muse-image-1.0`; used in the evaluation, not in the running product) | **Tests the reader on photos I did not draw.** Turns each held-out travel and hotel document into a realistic, creased phone photo, and the reader is scored on those. Every image is checked for changed text; 2 of 77 were changed and are reported separately | The only test documents are templates I wrote |
 | **Muse Glimmer 30B** (Meta open weights, Apache 2.0; optional) | **A second, independent reader.** Reads every document again from scratch as images (PDF pages are rendered, photos are the SAM-redacted copy), with no access to Muse Spark's answer. Code then decides the meeting a second time from Glimmer's reading with the same engine. If any director's presence or the verdict would change, a `SECOND-READER` evidence check fails and the meeting goes to REVIEW. It can only make a result more careful, never turn REVIEW or NOT MET into PASS. Runs on NVIDIA's hosted API here; because the weights are open, a firm can run it on its own machines | One model's misread is final: nothing catches a skipped e-ticket |
 
 ### Add a jurisdiction by giving it the law
@@ -86,6 +87,7 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 | Dev | 12 hand-written trap meetings, 3 with recordings (minutes vs recording conflicts, time-zone traps, midnight crossings, Singapore chairman route, directors who live in Jersey). Read live on 2 November. | 88 / 88 | 40 / 40 | 12 / 12 | 8 / 8 | 0 |
 | **Stress** | 12 deliberately hostile meetings: blurry, dim, rotated phone photos at JPEG quality 28; handwritten-style minutes; French hotel bills; 12-hour clocks. Readings from 29 October, scored with today's code. | 55 / 64 (86%) | 28 / 35 (80%) | 9 / 12 | 8 / 15 | **0** |
 | **Realistic (outside reviewer)** | 16 meetings, 81 files that Grok designed to look like real packs, with its answers registered before each run: year-less boarding passes, date-only and foreign hotel bills, a 20-page board pack, prose and French minutes, mobile passes, connections via Guernsey. See *Live review* below. | – | 38 / 45 | 12 / 16 | – | 1 (A15) |
+| **AI-made phone photos** | The held-out set again, but each of the 77 travel and hotel documents Muse Image would accept is replaced by an AI-made, creased, tilted "phone photo" of it; the minutes are untouched. Read live on 4 November. See *Muse Image test photos* below. | 164 / 166 (152 / 152 on the 28 meetings whose images kept their text) | 85 / 86 (79 / 79) | 30 / 30 (28 / 28) | – | 0 |
 | *Baseline: always answer REVIEW* | *The held-out set again, with a "tool" that never decides anything* | – | *41 / 86 ("unproven" is right for 41)* | *19 / 30* | *0 / 27* | *0* |
 
 \* *Dangerous error* = saying PASS, or saying a director was present, when the truth says otherwise. The baseline row is there on purpose: a tool that never commits to anything also makes **0** dangerous errors, so that number alone proves nothing. What matters is getting the verdicts right (30 / 30 against 19 / 30) *while* making no dangerous errors.
@@ -103,6 +105,18 @@ Every number below comes from a script in this repo (`npm run eval`); the scoreb
 | **Both, with the second-reader check** | – | **30 / 30** | **0** |
 
 On this held-out run (2 November) the check fired on 2 meetings, and both times Glimmer was the one that was wrong (an e-ticket it skipped in t05; the day-first date 06/08/2026 read as 8 June in t08). On the 29 October run it fired on 3: once it caught a real Muse Spark miss (an e-ticket, t24) and twice it was Glimmer's dates. So on clean synthetic documents the second reader has changed no final verdict; on the realistic set it caught two legs Muse Spark missed (A14, B10 in the live review). Its cost is a person's look, never a false EVIDENCED: two independent readers must agree before anything is called met. Two bugs found on 1 November made it look worse than it is: it rendered PDFs whose fonts are not embedded (most office-made PDFs) as **blank pages**, and it only looked at the first 3 pages of a PDF, so it missed attendance on page 6 of a board pack. Both are fixed; on the realistic set its agreement with Muse Spark went from 6 / 51 facts to 95 / 101.
+
+**Muse Image test photos (4 November).** The biggest caveat on my scores is that the held-out set is rendered from templates I wrote. So I asked Muse Image (`muse-image-1.0`) to turn each travel and hotel document of the 30 held-out meetings into a realistic phone photo ([example](docs/ai-photo-example.jpg)): tilted, creased, on a desk, with the instruction to keep every printed character exactly. It made 77 of 80 (the content filter refused 3 hotel bills). Then the same reader (SAM 3.1, then Muse Spark) read the AI photos, scored against the same answer key ([`scripts/photograph-set.ts`](scripts/photograph-set.ts), [`scripts/score-photo.ts`](scripts/score-photo.ts), scoreboard in [`eval/results/test-photo-summary.json`](eval/results/test-photo-summary.json)).
+
+| | Meetings | Facts read exactly | Directors | Verdicts | Dangerous errors |
+|---|---|---|---|---|---|
+| Templates (published run) | 30 | 166 / 166 | 86 / 86 | 30 / 30 | 0 |
+| AI-made photos, all meetings | 30 | 164 / 166 | 85 / 86 | 30 / 30 | 0 |
+| AI-made photos, meetings whose images kept their text | 28 | **152 / 152** | **79 / 79** | **28 / 28** | 0 |
+
+The two missing facts are the image model's fault, not the reader's. In 2 of the 77 images Muse Image **changed the text**: on one hotel letter it dropped the check-in date and garbled the line under it (t09), and on one boarding pass it turned the arrival zone "GMT+8" into "GMT+6" (t15). The reader read exactly what the photo printed, so those two meetings are shown separately. This is why every image has to be checked, and why I report the 2 failures instead of hiding them.
+
+How the check worked, and its limit: 75 images passed an automatic test (the reader, looking only at the AI photo, recovered exactly the answer-key facts for that document, which could not happen if a printed time, date, name or airport had changed); the other 2 I compared with the originals by eye. That proves the text that matters did not change; it does not prove that unrelated text (a booking reference, an address) stayed the same. Everything is still synthetic; the photos were made by a model, not a phone; one run, not repeated. Search and web tools were switched off for every call, so no real logo or place can enter an image. Cost: images $0.77 and reading $1.65, $2.42 in all. The 239 MB of images are not in the repository; the saved readings, the audit and the answer keys are, so the numbers re-score for free: `SET=test-photo REPLAY=published-test-photo-2026-11-04 npx tsx scripts/score-photo.ts`.
 
 **Cost:** one meeting costs about **$0.03–0.09** of Meta API credit. Muse Spark alone takes 30–70 seconds; with the second reader on, the five recorded demo runs took 1.5 to 7 minutes, mostly waiting on NVIDIA's hosted API. The full 30-meeting held-out run of 1 November cost **$1.14** (summed in [`eval/results/test-summary.json`](eval/results/test-summary.json); the 29 October run cost $0.92).
 
@@ -133,7 +147,7 @@ Requirements: Node 20+ (CI uses Node 22) and `git` (the eval scripts record the 
 
 ```bash
 npm ci
-npm test                    # 133 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
+npm test                    # 139 tests: rules engine, presence, time zones, names, sanity checks, rule packs, agent guardrails, red-team attacks, second reader
 npm run app                 # recorded mode: the five real recorded runs, no key. Serves http://127.0.0.1:8787
 # Optional, for live analysis of your own packs:
 cp .env.example .env        # then put your own Meta Model API key in .env (never commit it); restart the app

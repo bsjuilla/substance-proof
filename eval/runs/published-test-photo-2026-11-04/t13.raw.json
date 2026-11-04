@@ -1,0 +1,43 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t13/stay/AIPHOTO_folio_B_STHELIER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t13/stay/AIPHOTO_folio_B_STHELIER.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-03T08:45",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-03-06T03:41",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Tuesday 3 March 2026 at 08:45 and checked out on Friday 6 March 2026 at 03:41.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.018482,
+  "ms": 14301,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 729,
+   "reasoning_tokens": 504
+  },
+  "redactions": []
+ }
+]

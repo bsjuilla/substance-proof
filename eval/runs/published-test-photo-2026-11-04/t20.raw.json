@@ -1,0 +1,125 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t20/travel/AIPHOTO_BP_B_DXB-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t20/travel/AIPHOTO_BP_B_DXB-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "KENJI HALLORAN",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-09-11T23:00",
+     "depart_tz": "GST",
+     "arrive_local": "2026-09-12T03:57",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM DXB Dubai International TO JER Jersey Airport DATE 11 Sept 2026 DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 03:57 (12 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020004,
+  "ms": 18421,
+  "usage": {
+   "input_tokens": 4219,
+   "output_tokens": 1113,
+   "reasoning_tokens": 880
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t20/travel/AIPHOTO_BP_B_JER-DXB.png",
+  "readPath": "synthetic/generated/test-photo/packs/t20/travel/AIPHOTO_BP_B_JER-DXB.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "KENJI HALLORAN",
+     "origin_code": "JER",
+     "dest_code": "DXB",
+     "depart_local": "2026-09-12T17:41",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-09-13T07:00",
+     "arrive_tz": "GST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "JER → DXB DEPARTS (local GMT+1) 17:41 ARRIVES (local GST) 07:00 (13 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.022392500000000003,
+  "ms": 22660,
+  "usage": {
+   "input_tokens": 4219,
+   "output_tokens": 1675,
+   "reasoning_tokens": 1451
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t20/stay/AIPHOTO_folio_C_STHELIER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t20/stay/AIPHOTO_folio_C_STHELIER.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Oliver Strand",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-09-11T14:59",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-09-13T19:50",
+     "check_out_tz": "GMT+1",
+     "quote": "Arrival 11 Sept 2026 14:59 (GMT+1)\nDeparture 13 Sept 2026 19:50 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.022613,
+  "ms": 23047,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1701,
+   "reasoning_tokens": 1476
+  },
+  "redactions": []
+ }
+]

@@ -1,0 +1,182 @@
+{
+  "scenario": {
+    "id": "t22",
+    "trap": "no travel or hotel evidence for Lucia Ferrante; minutes say Ana Sokolova was there, but evidence shows a hotel elsewhere",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t22",
+    "name": "Corrisande Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Daniel Mbeki-Shaw",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Ana Sokolova",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Grace Whitlock",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t22",
+    "startUtc": "2026-08-19T09:00:00Z",
+    "endUtc": "2026-08-19T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-08-17T23:32:00Z",
+      "checkOutUtc": "2026-08-20T19:56:00Z",
+      "cite": {
+        "docId": "t22/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:PARIS",
+      "checkInUtc": "2026-08-18T03:57:00Z",
+      "checkOutUtc": "2026-08-20T12:53:00Z",
+      "cite": {
+        "docId": "t22/stay/folio_C_PARIS.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "D",
+      "originCode": "DXB",
+      "destCode": "JER",
+      "departUtc": "2026-08-18T19:00:00Z",
+      "arriveUtc": "2026-08-19T03:33:00Z",
+      "cite": {
+        "docId": "t22/travel/ETKT_D_DXB-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "D",
+      "originCode": "JER",
+      "destCode": "DXB",
+      "departUtc": "2026-08-19T16:39:00Z",
+      "arriveUtc": "2026-08-20T03:00:00Z",
+      "cite": {
+        "docId": "t22/travel/ETKT_D_JER-DXB.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t22/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t22/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t22/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t22/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "unknown"
+      },
+      {
+        "directorId": "C",
+        "status": "absent"
+      },
+      {
+        "directorId": "D",
+        "status": "present"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "C"
+      }
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "scenario": {
+    "id": "t18",
+    "trap": "no traps",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t18",
+    "name": "Quillmere Holdings Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Mei Lin Tavernier",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Fatima Zahra Bennis",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Marcus Oyelaran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t18",
+    "startUtc": "2026-04-12T02:00:00Z",
+    "endUtc": "2026-04-12T04:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:SINGAPORE",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "HKG",
+      "destCode": "SIN",
+      "departUtc": "2026-04-11T12:00:00Z",
+      "arriveUtc": "2026-04-11T21:44:00Z",
+      "cite": {
+        "docId": "t18/travel/ETKT_A_HKG-SIN.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "SIN",
+      "destCode": "HKG",
+      "departUtc": "2026-04-12T09:35:00Z",
+      "arriveUtc": "2026-04-12T20:00:00Z",
+      "cite": {
+        "docId": "t18/travel/ETKT_A_SIN-HKG.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "DXB",
+      "destCode": "SIN",
+      "departUtc": "2026-04-11T12:00:00Z",
+      "arriveUtc": "2026-04-11T23:43:00Z",
+      "cite": {
+        "docId": "t18/travel/ETKT_B_DXB-SIN.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "SIN",
+      "destCode": "DXB",
+      "departUtc": "2026-04-12T13:43:00Z",
+      "arriveUtc": "2026-04-12T20:00:00Z",
+      "cite": {
+        "docId": "t18/travel/ETKT_B_SIN-DXB.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-04-11T04:31:00Z",
+      "checkOutUtc": "2026-04-13T19:12:00Z",
+      "cite": {
+        "docId": "t18/stay/folio_C_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t18/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t18/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t18/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "PASS",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "present"
+      },
+      {
+        "directorId": "B",
+        "status": "present"
+      },
+      {
+        "directorId": "C",
+        "status": "unknown"
+      }
+    ],
+    "contradictions": [],
+    "why": "every test met by independent evidence and no claim contradicted",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

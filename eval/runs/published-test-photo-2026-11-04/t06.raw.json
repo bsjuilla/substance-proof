@@ -1,0 +1,125 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t06/travel/AIPHOTO_ETKT_C_HKG-SIN.png",
+  "readPath": "synthetic/generated/test-photo/packs/t06/travel/AIPHOTO_ETKT_C_HKG-SIN.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "STRAND/OLIVER",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-05-14T20:00",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-05-15T04:28",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 674 Hong Kong International (HKG) 14/05/2026 20:00 (UTC+08:00) Singapore Changi (SIN) 15/05/2026 04:28 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020764249999999998,
+  "ms": 19471,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1266,
+   "reasoning_tokens": 1024
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t06/travel/AIPHOTO_ETKT_C_SIN-HKG.png",
+  "readPath": "synthetic/generated/test-photo/packs/t06/travel/AIPHOTO_ETKT_C_SIN-HKG.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "STRAND/OLIVER",
+     "origin_code": "SIN",
+     "dest_code": "HKG",
+     "depart_local": "2026-05-15T14:15",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-05-16T04:00",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 710 Singapore Changi (SIN) 15/05/2026 14:15 (UTC+08:00) Hong Kong International (HKG) 16/05/2026 04:00 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.019842,
+  "ms": 17483,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1049,
+   "reasoning_tokens": 807
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t06/stay/AIPHOTO_folio_B_SINGAPORE.png",
+  "readPath": "synthetic/generated/test-photo/packs/t06/stay/AIPHOTO_folio_B_SINGAPORE.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "SINGAPORE",
+     "check_in_local": "2026-05-14T13:07",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-05-16T06:27",
+     "check_out_tz": "GMT+8",
+     "quote": "14 May 2026 13:07 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02030525,
+  "ms": 18403,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1158,
+   "reasoning_tokens": 955
+  },
+  "redactions": []
+ }
+]

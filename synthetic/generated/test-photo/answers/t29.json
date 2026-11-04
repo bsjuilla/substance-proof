@@ -1,0 +1,115 @@
+{
+  "scenario": {
+    "id": "t29",
+    "trap": "no traps",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t29",
+    "name": "Brantwick Orral Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Mei Lin Tavernier",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t29",
+    "startUtc": "2026-03-18T09:00:00Z",
+    "endUtc": "2026-03-18T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-03-17T04:22:00Z",
+      "checkOutUtc": "2026-03-19T09:38:00Z",
+      "cite": {
+        "docId": "t29/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "LHR",
+      "destCode": "JER",
+      "departUtc": "2026-03-18T02:47:00Z",
+      "arriveUtc": "2026-03-18T09:47:00Z",
+      "cite": {
+        "docId": "t29/travel/PHOTO_BP_B_LHR-JER.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t29/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:LONDON",
+      "source": "minutes",
+      "cite": {
+        "docId": "t29/minutes.pdf",
+        "page": 1,
+        "quote": "by video from London"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B"
+      }
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

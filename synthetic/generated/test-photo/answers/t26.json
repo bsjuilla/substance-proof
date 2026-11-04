@@ -1,0 +1,115 @@
+{
+  "scenario": {
+    "id": "t26",
+    "trap": "minutes say Lucia Ferrante was there, but evidence shows a flight landing after it started",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "scan",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t26",
+    "name": "Tarnwick Ellery (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Oliver Strand",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t26",
+    "startUtc": "2026-09-24T09:00:00Z",
+    "endUtc": "2026-09-24T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "HKG",
+      "destCode": "JER",
+      "departUtc": "2026-09-24T03:11:00Z",
+      "arriveUtc": "2026-09-24T10:11:00Z",
+      "cite": {
+        "docId": "t26/travel/BP_A_HKG-JER.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "checkInUtc": "2026-09-23T10:40:00Z",
+      "checkOutUtc": "2026-09-25T15:57:00Z",
+      "cite": {
+        "docId": "t26/stay/folio_B_DUBAI.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t26/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:DUBAI",
+      "source": "minutes",
+      "cite": {
+        "docId": "t26/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Dubai"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A"
+      }
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

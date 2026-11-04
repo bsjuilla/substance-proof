@@ -1,0 +1,43 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t10/stay/AIPHOTO_folio_B_LONDON.png",
+  "readPath": "synthetic/generated/test-photo/packs/t10/stay/AIPHOTO_folio_B_LONDON.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-06-02T02:07",
+     "check_in_tz": "BST",
+     "check_out_local": "2026-06-04T21:29",
+     "check_out_tz": "BST",
+     "quote": "02 Jun 2026 02:07 (BST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0191535,
+  "ms": 18048,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 887,
+   "reasoning_tokens": 716
+  },
+  "redactions": []
+ }
+]

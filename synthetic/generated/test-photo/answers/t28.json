@@ -1,0 +1,115 @@
+{
+  "scenario": {
+    "id": "t28",
+    "trap": "minutes say Hugo Lindqvist was there, but evidence shows a flight leaving during the meeting",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "table",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t28",
+    "name": "Lissandre Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Grace Whitlock",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Hugo Lindqvist",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t28",
+    "startUtc": "2026-06-22T09:00:00Z",
+    "endUtc": "2026-06-22T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-06-21T03:39:00Z",
+      "checkOutUtc": "2026-06-24T05:47:00Z",
+      "cite": {
+        "docId": "t28/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "JER",
+      "destCode": "HKG",
+      "departUtc": "2026-06-22T09:47:00Z",
+      "arriveUtc": "2026-06-22T16:47:00Z",
+      "cite": {
+        "docId": "t28/travel/BP_B_JER-HKG.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t28/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t28/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "B"
+      }
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

@@ -1,0 +1,125 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t02/travel/AIPHOTO_ETKT_A_LHR-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t02/travel/AIPHOTO_ETKT_A_LHR-JER.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MEI LIN TAVERNIER",
+     "origin_code": "LHR",
+     "dest_code": "JER",
+     "depart_local": "2026-02-26T02:53",
+     "depart_tz": "UTC+00:00",
+     "arrive_local": "2026-02-26T09:53",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 489 London Heathrow (LHR) 26/02/2026 02:53 (UTC+00:00) Jersey Airport (JER) 26/02/2026 09:53 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020794,
+  "ms": 18663,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1273,
+   "reasoning_tokens": 1028
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t02/travel/AIPHOTO_ETKT_B_HKG-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t02/travel/AIPHOTO_ETKT_B_HKG-JER.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "KENJI HALLORAN",
+     "origin_code": "HKG",
+     "dest_code": "JER",
+     "depart_local": "2026-02-26T10:51",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-02-26T09:51",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 231 Hong Kong International (HKG) 26/02/2026 10:51 (UTC+08:00) Jersey Airport (JER) 26/02/2026 09:51 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.019119499999999998,
+  "ms": 15952,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 879,
+   "reasoning_tokens": 635
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t02/travel/AIPHOTO_ETKT_C_DXB-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t02/travel/AIPHOTO_ETKT_C_DXB-JER.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MARCUS OYELARAN",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-02-26T06:20",
+     "depart_tz": "UTC+04:00",
+     "arrive_local": "2026-02-26T09:20",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 278 Dubai International (DXB) 26/02/2026 06:20 (UTC+04:00) Jersey Airport (JER) 26/02/2026 09:20 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020819499999999998,
+  "ms": 19113,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1279,
+   "reasoning_tokens": 1035
+  },
+  "redactions": []
+ }
+]

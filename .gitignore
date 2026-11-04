@@ -26,3 +26,5 @@ docs/sources/
 # security proof-of-concept outputs
 security/poc-out/
 .claude/
+synthetic/generated/test-photo/packs/
+synthetic/generated/test-photo/review.html

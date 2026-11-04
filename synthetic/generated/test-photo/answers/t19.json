@@ -1,0 +1,197 @@
+{
+  "scenario": {
+    "id": "t19",
+    "trap": "minutes say Hugo Lindqvist was there, but evidence shows a hotel elsewhere; minutes say Helena Brookfield was there, but evidence shows a flight leaving during the meeting",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "table",
+      "minutes": "prose",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t19",
+    "name": "Merrowind Capital (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Hugo Lindqvist",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Helena Brookfield",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t19",
+    "startUtc": "2026-04-13T09:00:00Z",
+    "endUtc": "2026-04-13T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:LONDON",
+      "checkInUtc": "2026-04-11T22:36:00Z",
+      "checkOutUtc": "2026-04-15T01:13:00Z",
+      "cite": {
+        "docId": "t19/stay/folio_A_LONDON.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-04-12T10:54:00Z",
+      "checkOutUtc": "2026-04-14T05:06:00Z",
+      "cite": {
+        "docId": "t19/stay/folio_B_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "JER",
+      "destCode": "DXB",
+      "departUtc": "2026-04-13T09:52:00Z",
+      "arriveUtc": "2026-04-13T16:52:00Z",
+      "cite": {
+        "docId": "t19/travel/PHOTO_BP_C_JER-DXB.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "D",
+      "originCode": "DXB",
+      "destCode": "JER",
+      "departUtc": "2026-04-12T19:00:00Z",
+      "arriveUtc": "2026-04-13T01:35:00Z",
+      "cite": {
+        "docId": "t19/travel/PHOTO_BP_D_DXB-JER.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "D",
+      "originCode": "JER",
+      "destCode": "DXB",
+      "departUtc": "2026-04-13T13:10:00Z",
+      "arriveUtc": "2026-04-14T03:00:00Z",
+      "cite": {
+        "docId": "t19/travel/PHOTO_BP_D_JER-DXB.jpg",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t19/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t19/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t19/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t19/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent"
+      },
+      {
+        "directorId": "B",
+        "status": "unknown"
+      },
+      {
+        "directorId": "C",
+        "status": "absent"
+      },
+      {
+        "directorId": "D",
+        "status": "present"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A"
+      },
+      {
+        "directorId": "C"
+      }
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

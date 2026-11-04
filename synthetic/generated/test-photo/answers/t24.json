@@ -1,0 +1,209 @@
+{
+  "scenario": {
+    "id": "t24",
+    "trap": "minutes say Tomasz Wierzba was there, but evidence shows a hotel elsewhere",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "letter",
+      "minutes": "prose",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t24",
+    "name": "Velmouth Arden Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Mei Lin Tavernier",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Oliver Strand",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t24",
+    "startUtc": "2026-07-12T02:00:00Z",
+    "endUtc": "2026-07-12T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:LONDON",
+      "checkInUtc": "2026-07-10T05:35:00Z",
+      "checkOutUtc": "2026-07-13T01:29:00Z",
+      "cite": {
+        "docId": "t24/stay/folio_A_LONDON.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "HKG",
+      "destCode": "SIN",
+      "departUtc": "2026-07-11T12:00:00Z",
+      "arriveUtc": "2026-07-11T20:26:00Z",
+      "cite": {
+        "docId": "t24/travel/ETKT_B_HKG-SIN.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "SIN",
+      "destCode": "HKG",
+      "departUtc": "2026-07-12T09:03:00Z",
+      "arriveUtc": "2026-07-12T20:00:00Z",
+      "cite": {
+        "docId": "t24/travel/ETKT_B_SIN-HKG.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "HKG",
+      "destCode": "SIN",
+      "departUtc": "2026-07-11T19:49:00Z",
+      "arriveUtc": "2026-07-12T02:49:00Z",
+      "cite": {
+        "docId": "t24/travel/ETKT_C_HKG-SIN.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "D",
+      "originCode": "LHR",
+      "destCode": "SIN",
+      "departUtc": "2026-07-11T12:00:00Z",
+      "arriveUtc": "2026-07-11T21:21:00Z",
+      "cite": {
+        "docId": "t24/travel/ETKT_D_LHR-SIN.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "D",
+      "originCode": "SIN",
+      "destCode": "LHR",
+      "departUtc": "2026-07-12T10:35:00Z",
+      "arriveUtc": "2026-07-12T20:00:00Z",
+      "cite": {
+        "docId": "t24/travel/ETKT_D_SIN-LHR.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t24/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t24/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:HONGKONG",
+      "source": "minutes",
+      "cite": {
+        "docId": "t24/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Hong Kong"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t24/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent"
+      },
+      {
+        "directorId": "B",
+        "status": "present"
+      },
+      {
+        "directorId": "C",
+        "status": "absent"
+      },
+      {
+        "directorId": "D",
+        "status": "present"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A"
+      },
+      {
+        "directorId": "C"
+      }
+    ],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

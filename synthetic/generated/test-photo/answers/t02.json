@@ -1,0 +1,177 @@
+{
+  "scenario": {
+    "id": "t02",
+    "trap": "minutes say Mei Lin Tavernier was there, but evidence shows a flight landing after it started; minutes say Kenji Halloran was there, but evidence shows a flight landing after it started; minutes say Marcus Oyelaran was there, but evidence shows a flight landing after it started; no travel or hotel evidence for Tomasz Wierzba",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "normal"
+    }
+  },
+  "company": {
+    "id": "CO-t02",
+    "name": "Fenmarrow Group (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Mei Lin Tavernier",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Kenji Halloran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Marcus Oyelaran",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "D",
+        "name": "Tomasz Wierzba",
+        "hasStrategicAuthority": false,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t02",
+    "startUtc": "2026-02-26T09:00:00Z",
+    "endUtc": "2026-02-26T11:00:00Z",
+    "mode": "in_person",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "isStrategic": false,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "LHR",
+      "destCode": "JER",
+      "departUtc": "2026-02-26T02:53:00Z",
+      "arriveUtc": "2026-02-26T09:53:00Z",
+      "cite": {
+        "docId": "t02/travel/ETKT_A_LHR-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "B",
+      "originCode": "HKG",
+      "destCode": "JER",
+      "departUtc": "2026-02-26T02:51:00Z",
+      "arriveUtc": "2026-02-26T09:51:00Z",
+      "cite": {
+        "docId": "t02/travel/ETKT_B_HKG-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "DXB",
+      "destCode": "JER",
+      "departUtc": "2026-02-26T02:20:00Z",
+      "arriveUtc": "2026-02-26T09:20:00Z",
+      "cite": {
+        "docId": "t02/travel/ETKT_C_DXB-JER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "D",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t02/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      },
+      {
+        "directorId": "C",
+        "status": "absent"
+      },
+      {
+        "directorId": "D",
+        "status": "unknown"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A"
+      },
+      {
+        "directorId": "B"
+      },
+      {
+        "directorId": "C"
+      }
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

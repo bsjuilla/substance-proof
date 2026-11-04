@@ -1,0 +1,104 @@
+{
+  "scenario": {
+    "id": "t07",
+    "trap": "no travel or hotel evidence for Lucia Ferrante",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "card",
+      "folio": "letter",
+      "minutes": "table",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t07",
+    "name": "Quillmere Holdings (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Priya Anand-Lowe",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t07",
+    "startUtc": "2026-10-09T09:00:00Z",
+    "endUtc": "2026-10-09T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "flight_leg",
+      "directorId": "A",
+      "originCode": "JER",
+      "destCode": "HKG",
+      "departUtc": "2026-10-09T10:22:00Z",
+      "arriveUtc": "2026-10-09T17:22:00Z",
+      "cite": {
+        "docId": "t07/travel/BP_A_JER-HKG.png",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:HONGKONG",
+      "source": "minutes",
+      "cite": {
+        "docId": "t07/minutes.pdf",
+        "page": 1,
+        "quote": "by video from Hong Kong"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t07/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "absent"
+      },
+      {
+        "directorId": "B",
+        "status": "unknown"
+      }
+    ],
+    "contradictions": [
+      {
+        "directorId": "A"
+      }
+    ],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

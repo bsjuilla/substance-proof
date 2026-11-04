@@ -1,0 +1,84 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t23/stay/AIPHOTO_folio_A_STHELIER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t23/stay/AIPHOTO_folio_A_STHELIER.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Lucia Ferrante",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-10-05T13:06",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-10-08T10:14",
+     "check_out_tz": "GMT+1",
+     "quote": "Arrival 05 Oct 2026 13:06 (GMT+1)\nDeparture 08 Oct 2026 10:14 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01999925,
+  "ms": 18344,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1086,
+   "reasoning_tokens": 860
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t23/stay/AIPHOTO_folio_B_LONDON.png",
+  "readPath": "synthetic/generated/test-photo/packs/t23/stay/AIPHOTO_folio_B_LONDON.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Rafael Quintero",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-10-04T22:25",
+     "check_in_tz": "BST",
+     "check_out_local": "2026-10-07T12:05",
+     "check_out_tz": "BST",
+     "quote": "Arrival 04 Oct 2026 22:25 (BST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01915775,
+  "ms": 16031,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 888,
+   "reasoning_tokens": 685
+  },
+  "redactions": []
+ }
+]

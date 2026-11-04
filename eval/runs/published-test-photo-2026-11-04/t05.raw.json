@@ -1,0 +1,166 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t05/travel/AIPHOTO_ETKT_B_CDG-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t05/travel/AIPHOTO_ETKT_B_CDG-JER.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "OYELARAN/MARCUS",
+     "origin_code": "CDG",
+     "dest_code": "JER",
+     "depart_local": "2026-05-09T21:00",
+     "depart_tz": "UTC+02:00",
+     "arrive_local": "2026-05-10T03:12",
+     "arrive_tz": "UTC+01:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 501 Paris Charles de Gaulle (CDG) 09/05/2026 21:00 (UTC+02:00) Jersey Airport (JER) 10/05/2026 03:12 (UTC+01:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.019557249999999998,
+  "ms": 17335,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 982,
+   "reasoning_tokens": 737
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t05/travel/AIPHOTO_ETKT_B_JER-CDG.png",
+  "readPath": "synthetic/generated/test-photo/packs/t05/travel/AIPHOTO_ETKT_B_JER-CDG.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "OYELARAN/MARCUS",
+     "origin_code": "JER",
+     "dest_code": "CDG",
+     "depart_local": "2026-05-10T17:55",
+     "depart_tz": "UTC+01:00",
+     "arrive_local": "2026-05-11T05:00",
+     "arrive_tz": "UTC+02:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 363 Jersey Airport (JER) 10/05/2026 17:55 (UTC+01:00) Paris Charles de Gaulle (CDG) 11/05/2026 05:00 (UTC+02:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01999075,
+  "ms": 17501,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1084,
+   "reasoning_tokens": 871
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t05/stay/AIPHOTO_folio_C_LONDON.png",
+  "readPath": "synthetic/generated/test-photo/packs/t05/stay/AIPHOTO_folio_C_LONDON.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "LONDON, UNITED KINGDOM",
+     "check_in_local": "2026-05-09T07:19",
+     "check_in_tz": "Europe/London",
+     "check_out_local": "2026-05-11T00:14",
+     "check_out_tz": "Europe/London",
+     "quote": "checked in on Saturday 9 May 2026 at 07:19 and checked out Monday 11 May 2026 at 00:14.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.019140749999999998,
+  "ms": 20260,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 884,
+   "reasoning_tokens": 659
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t05/stay/AIPHOTO_folio_D_STHELIER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t05/stay/AIPHOTO_folio_D_STHELIER.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-05-09T19:13",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-05-11T17:41",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on Saturday 9 May 2026 at 19:13 and checked out on Monday 11 May 2026 at 17:41.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02002475,
+  "ms": 17341,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1092,
+   "reasoning_tokens": 865
+  },
+  "redactions": []
+ }
+]

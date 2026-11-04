@@ -1,0 +1,43 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t29/travel/AIPHOTO_PHOTO_BP_B_LHR-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t29/travel/AIPHOTO_PHOTO_BP_B_LHR-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "TAVERNIER/MEI LIN",
+     "origin_code": "LHR",
+     "dest_code": "JER",
+     "depart_local": "2026-03-18T02:47",
+     "depart_tz": "GMT",
+     "arrive_local": "2026-03-18T09:47",
+     "arrive_tz": "GMT",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM LHR → JER TO\nLondon Heathrow Jersey Airport\nDATE 18 Mar 2026 DEPARTS (local GMT) 02:47 ARRIVES (local GMT) 09:47",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02020175,
+  "ms": 20969,
+  "usage": {
+   "input_tokens": 4078,
+   "output_tokens": 1201,
+   "reasoning_tokens": 971
+  },
+  "redactions": []
+ }
+]

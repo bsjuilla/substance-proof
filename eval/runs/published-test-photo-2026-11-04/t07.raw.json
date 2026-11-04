@@ -1,0 +1,43 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t07/travel/AIPHOTO_BP_A_JER-HKG.png",
+  "readPath": "synthetic/generated/test-photo/packs/t07/travel/AIPHOTO_BP_A_JER-HKG.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "ANAND-LOWE/PRIYA",
+     "origin_code": "JER",
+     "dest_code": "HKG",
+     "depart_local": "2026-10-09T11:22",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-10-10T01:22",
+     "arrive_tz": "GMT+8",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "JER → HKG 09 Oct 2026 DEPARTS (local GMT+1) 11:22 ARRIVES (local GMT+8) 01:22 (10 Oct 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02700375,
+  "ms": 30223,
+  "usage": {
+   "input_tokens": 4219,
+   "output_tokens": 2760,
+   "reasoning_tokens": 2524
+  },
+  "redactions": []
+ }
+]

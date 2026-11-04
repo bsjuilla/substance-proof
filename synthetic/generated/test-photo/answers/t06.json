@@ -1,0 +1,144 @@
+{
+  "scenario": {
+    "id": "t06",
+    "trap": "no travel or hotel evidence for Ana Sokolova",
+    "jurisdiction": "SG",
+    "style": {
+      "boardingPass": "eticket",
+      "folio": "table",
+      "minutes": "prose",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t06",
+    "name": "Velmouth Arden Pte Ltd",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Ana Sokolova",
+        "hasStrategicAuthority": true,
+        "isChair": true
+      },
+      {
+        "id": "B",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "C",
+        "name": "Oliver Strand",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t06",
+    "startUtc": "2026-05-15T02:00:00Z",
+    "endUtc": "2026-05-15T04:00:00Z",
+    "mode": "virtual",
+    "attendeeIds": [
+      "A",
+      "B",
+      "C"
+    ],
+    "chairId": "A",
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "checkInUtc": "2026-05-14T05:07:00Z",
+      "checkOutUtc": "2026-05-15T22:27:00Z",
+      "cite": {
+        "docId": "t06/stay/folio_B_SINGAPORE.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "HKG",
+      "destCode": "SIN",
+      "departUtc": "2026-05-14T12:00:00Z",
+      "arriveUtc": "2026-05-14T20:28:00Z",
+      "cite": {
+        "docId": "t06/travel/ETKT_C_HKG-SIN.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "flight_leg",
+      "directorId": "C",
+      "originCode": "SIN",
+      "destCode": "HKG",
+      "departUtc": "2026-05-15T06:15:00Z",
+      "arriveUtc": "2026-05-15T20:00:00Z",
+      "cite": {
+        "docId": "t06/travel/ETKT_C_SIN-HKG.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t06/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t06/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "C",
+      "placeCode": "CITY:SINGAPORE",
+      "source": "minutes",
+      "cite": {
+        "docId": "t06/minutes.pdf",
+        "page": 1,
+        "quote": "present in Singapore"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "REVIEW",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "unknown"
+      },
+      {
+        "directorId": "C",
+        "status": "present"
+      }
+    ],
+    "contradictions": [],
+    "why": "a test is not met at guidance level or cannot be proven",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

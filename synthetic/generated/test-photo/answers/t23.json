@@ -1,0 +1,109 @@
+{
+  "scenario": {
+    "id": "t23",
+    "trap": "no traps",
+    "jurisdiction": "JE",
+    "style": {
+      "boardingPass": "photo",
+      "folio": "table",
+      "minutes": "scan",
+      "passengerName": "airline"
+    }
+  },
+  "company": {
+    "id": "CO-t23",
+    "name": "Velmouth Arden (Jersey) Limited",
+    "directors": [
+      {
+        "id": "A",
+        "name": "Lucia Ferrante",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      },
+      {
+        "id": "B",
+        "name": "Rafael Quintero",
+        "hasStrategicAuthority": true,
+        "isChair": false
+      }
+    ],
+    "quorumRequired": 2,
+    "options": {}
+  },
+  "meeting": {
+    "id": "t23",
+    "startUtc": "2026-10-06T09:00:00Z",
+    "endUtc": "2026-10-06T11:00:00Z",
+    "mode": "hybrid",
+    "venueCode": "CITY:STHELIER",
+    "attendeeIds": [
+      "A",
+      "B"
+    ],
+    "isStrategic": true,
+    "minutesRecordStrategicDecisions": true,
+    "minutesAndRecordsKeptInJurisdiction": true
+  },
+  "facts": [
+    {
+      "kind": "hotel_stay",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "checkInUtc": "2026-10-05T12:06:00Z",
+      "checkOutUtc": "2026-10-08T09:14:00Z",
+      "cite": {
+        "docId": "t23/stay/folio_A_STHELIER.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "hotel_stay",
+      "directorId": "B",
+      "placeCode": "CITY:LONDON",
+      "checkInUtc": "2026-10-04T21:25:00Z",
+      "checkOutUtc": "2026-10-07T11:05:00Z",
+      "cite": {
+        "docId": "t23/stay/folio_B_LONDON.pdf",
+        "page": 1
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "A",
+      "placeCode": "CITY:STHELIER",
+      "source": "minutes",
+      "cite": {
+        "docId": "t23/minutes.pdf",
+        "page": 1,
+        "quote": "present in St Helier"
+      }
+    },
+    {
+      "kind": "claimed_location",
+      "directorId": "B",
+      "placeCode": "CITY:LONDON",
+      "source": "minutes",
+      "cite": {
+        "docId": "t23/minutes.pdf",
+        "page": 1,
+        "quote": "by video from London"
+      }
+    }
+  ],
+  "expected": {
+    "verdict": "FAIL",
+    "presence": [
+      {
+        "directorId": "A",
+        "status": "unknown"
+      },
+      {
+        "directorId": "B",
+        "status": "absent"
+      }
+    ],
+    "contradictions": [],
+    "why": "a test in the law is not met",
+    "source": "independent oracle (scripts/oracle.ts)"
+  }
+}

@@ -1,0 +1,84 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t17/travel/AIPHOTO_ETKT_D_DXB-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t17/travel/AIPHOTO_ETKT_D_DXB-JER.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "FERRANTE/LUCIA",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-03-08T06:48",
+     "depart_tz": "UTC+04:00",
+     "arrive_local": "2026-03-08T09:48",
+     "arrive_tz": "UTC+00:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 519 Dubai International (DXB) 08/03/2026 06:48 (UTC+04:00) Jersey Airport (JER) 08/03/2026 09:48 (UTC+00:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01919175,
+  "ms": 17348,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 896,
+   "reasoning_tokens": 653
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t17/stay/AIPHOTO_folio_B_STHELIER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t17/stay/AIPHOTO_folio_B_STHELIER.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Daniel Mbeki-Shaw",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-03-07T12:03",
+     "check_in_tz": "GMT",
+     "check_out_local": "2026-03-09T13:01",
+     "check_out_tz": "GMT",
+     "quote": "Arrival 07 Mar 2026 12:03 (GMT)\nDeparture 09 Mar 2026 13:01 (GMT)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.022698,
+  "ms": 22196,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1721,
+   "reasoning_tokens": 1501
+  },
+  "redactions": []
+ }
+]

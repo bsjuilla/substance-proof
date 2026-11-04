@@ -1,0 +1,207 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_A_HKG-SIN.png",
+  "readPath": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_A_HKG-SIN.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MEI LIN TAVERNIER",
+     "origin_code": "HKG",
+     "dest_code": "SIN",
+     "depart_local": "2026-04-11T20:00",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-04-12T05:44",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "Hong Kong International (HKG) 11/04/2026 20:00 (UTC+08:00) Singapore Changi (SIN) 12/04/2026 05:44 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0198165,
+  "ms": 16326,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1043,
+   "reasoning_tokens": 801
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_A_SIN-HKG.png",
+  "readPath": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_A_SIN-HKG.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "MEI LIN TAVERNIER",
+     "origin_code": "SIN",
+     "dest_code": "HKG",
+     "depart_local": "2026-04-12T17:35",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-04-13T04:00",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 627 Singapore Changi (SIN) 12/04/2026 17:35 (UTC+08:00) Hong Kong International (HKG) 13/04/2026 04:00 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.020488,
+  "ms": 18175,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1201,
+   "reasoning_tokens": 988
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_B_DXB-SIN.png",
+  "readPath": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_B_DXB-SIN.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "FATIMA ZAHRA BENNIS",
+     "origin_code": "DXB",
+     "dest_code": "SIN",
+     "depart_local": "2026-04-11T16:00",
+     "depart_tz": "UTC+04:00",
+     "arrive_local": "2026-04-12T07:43",
+     "arrive_tz": "UTC+08:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 665 Dubai International (DXB) 11/04/2026 16:00 (UTC+04:00) Singapore Changi (SIN) 12/04/2026 07:43 (UTC+08:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.019748500000000002,
+  "ms": 16905,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1027,
+   "reasoning_tokens": 816
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_B_SIN-DXB.png",
+  "readPath": "synthetic/generated/test-photo/packs/t18/travel/AIPHOTO_ETKT_B_SIN-DXB.png",
+  "extraction": {
+   "document_type": "other",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "FATIMA ZAHRA BENNIS",
+     "origin_code": "SIN",
+     "dest_code": "DXB",
+     "depart_local": "2026-04-12T21:43",
+     "depart_tz": "UTC+08:00",
+     "arrive_local": "2026-04-13T00:00",
+     "arrive_tz": "UTC+04:00",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "SA 287 Singapore Changi (SIN) 12/04/2026 21:43 (UTC+08:00) Dubai International (DXB) 13/04/2026 00:00 (UTC+04:00)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0200715,
+  "ms": 17764,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1103,
+   "reasoning_tokens": 860
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t18/stay/AIPHOTO_folio_C_SINGAPORE.png",
+  "readPath": "synthetic/generated/test-photo/packs/t18/stay/AIPHOTO_folio_C_SINGAPORE.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Marcus Oyelaran",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "Singapore",
+     "check_in_local": "2026-04-11T12:31",
+     "check_in_tz": "GMT+8",
+     "check_out_local": "2026-04-14T03:12",
+     "check_out_tz": "GMT+8",
+     "quote": "11 Apr 2026 12:31 (GMT+8)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.01843525,
+  "ms": 15118,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 718,
+   "reasoning_tokens": 518
+  },
+  "redactions": []
+ }
+]

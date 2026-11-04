@@ -1,0 +1,84 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t16/stay/AIPHOTO_folio_A_DUBAI.png",
+  "readPath": "synthetic/generated/test-photo/packs/t16/stay/AIPHOTO_folio_A_DUBAI.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Ana Sokolova",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "DUBAI, UAE",
+     "check_in_local": "2026-10-04T07:36",
+     "check_in_tz": "GST",
+     "check_out_local": "2026-10-07T06:43",
+     "check_out_tz": "GST",
+     "quote": "04 Oct 2026 07:36 (GST)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0203775,
+  "ms": 18565,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1175,
+   "reasoning_tokens": 978
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t16/stay/AIPHOTO_folio_B_STHELIER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t16/stay/AIPHOTO_folio_B_STHELIER.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-10-04T12:32",
+     "check_in_tz": "GMT+1",
+     "check_out_local": "2026-10-07T02:25",
+     "check_out_tz": "GMT+1",
+     "quote": "07 Oct 2026 02:25 (GMT+1)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.025689999999999998,
+  "ms": 24331,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 2425,
+   "reasoning_tokens": 2217
+  },
+  "redactions": []
+ }
+]

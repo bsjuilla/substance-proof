@@ -1,0 +1,207 @@
+[
+ {
+  "file": "synthetic/generated/test-photo/packs/t14/travel/AIPHOTO_BP_B_DXB-JER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t14/travel/AIPHOTO_BP_B_DXB-JER.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "TAVERNIER/MEI LIN",
+     "origin_code": "DXB",
+     "dest_code": "JER",
+     "depart_local": "2026-09-10T23:00",
+     "depart_tz": "GST",
+     "arrive_local": "2026-09-11T05:20",
+     "arrive_tz": "GMT+1",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM DXB Dubai International TO JER Jersey Airport DEPARTS (local GST) 23:00 ARRIVES (local GMT+1) 05:20 (11 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.023897,
+  "ms": 21503,
+  "usage": {
+   "input_tokens": 4219,
+   "output_tokens": 2029,
+   "reasoning_tokens": 1801
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t14/travel/AIPHOTO_BP_B_JER-DXB.png",
+  "readPath": "synthetic/generated/test-photo/packs/t14/travel/AIPHOTO_BP_B_JER-DXB.png",
+  "extraction": {
+   "document_type": "boarding_pass",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "flight_leg",
+     "person_name": "TAVERNIER/MEI LIN",
+     "origin_code": "JER",
+     "dest_code": "DXB",
+     "depart_local": "2026-09-11T20:54",
+     "depart_tz": "GMT+1",
+     "arrive_local": "2026-09-12T07:00",
+     "arrive_tz": "GST",
+     "place": null,
+     "check_in_local": null,
+     "check_in_tz": null,
+     "check_out_local": null,
+     "check_out_tz": null,
+     "quote": "FROM JER → TO DXB Dubai International DATE 11 Sept 2026 DEPARTS (local GMT+1) 20:54 ARRIVES (local GST) 07:00 (12 Sept 2026)",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02169975,
+  "ms": 19537,
+  "usage": {
+   "input_tokens": 4219,
+   "output_tokens": 1512,
+   "reasoning_tokens": 1275
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t14/stay/AIPHOTO_folio_A_PARIS.png",
+  "readPath": "synthetic/generated/test-photo/packs/t14/stay/AIPHOTO_folio_A_PARIS.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Grace Whitlock",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "PARIS, FRANCE",
+     "check_in_local": "2026-09-09T13:39",
+     "check_in_tz": "Europe/Paris",
+     "check_out_local": "2026-09-12T00:09",
+     "check_out_tz": "Europe/Paris",
+     "quote": "Thank you for choosing The Specimen Residences. This letter confirms your stay with us. You checked in on Wednesday 9 September 2026 at 13:39 and checked out on Saturday 12 September 2026 at 00:09. All times on this statement are shown in local time (Europe/Paris).",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.02019475,
+  "ms": 16753,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1132,
+   "reasoning_tokens": 910
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t14/stay/AIPHOTO_folio_C_HONGKONG.png",
+  "readPath": "synthetic/generated/test-photo/packs/t14/stay/AIPHOTO_folio_C_HONGKONG.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Helena Brookfield",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "HONG KONG",
+     "check_in_local": "2026-09-09T17:31",
+     "check_in_tz": "Asia/Hong_Kong",
+     "check_out_local": "2026-09-13T00:57",
+     "check_out_tz": "Asia/Hong_Kong",
+     "quote": "You checked in on Wednesday 9 September 2026 at 17:31 and checked out on Sunday 13 September 2026 at 00:57.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.019880250000000002,
+  "ms": 16249,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1058,
+   "reasoning_tokens": 832
+  },
+  "redactions": []
+ },
+ {
+  "file": "synthetic/generated/test-photo/packs/t14/stay/AIPHOTO_folio_D_STHELIER.png",
+  "readPath": "synthetic/generated/test-photo/packs/t14/stay/AIPHOTO_folio_D_STHELIER.png",
+  "extraction": {
+   "document_type": "hotel_folio",
+   "addressed_to_reader": null,
+   "meeting": {
+    "start_local": null,
+    "end_local": null,
+    "tz": null,
+    "place_text": null
+   },
+   "facts": [
+    {
+     "kind": "hotel_stay",
+     "person_name": "Priya Anand-Lowe",
+     "origin_code": null,
+     "dest_code": null,
+     "depart_local": null,
+     "depart_tz": null,
+     "arrive_local": null,
+     "arrive_tz": null,
+     "place": "ST HELIER, JERSEY",
+     "check_in_local": "2026-09-10T06:17",
+     "check_in_tz": "Europe/Jersey",
+     "check_out_local": "2026-09-12T10:49",
+     "check_out_tz": "Europe/Jersey",
+     "quote": "You checked in on 10 September 2026 at 06:17 and checked out on Saturday 12 September 2026 at 10:49.",
+     "page": 1
+    }
+   ]
+  },
+  "costUsd": 0.0211255,
+  "ms": 16705,
+  "usage": {
+   "input_tokens": 4307,
+   "output_tokens": 1351,
+   "reasoning_tokens": 1125
+  },
+  "redactions": []
+ }
+]
